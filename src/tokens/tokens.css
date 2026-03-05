@@ -1,0 +1,99 @@
+/* NLACE UI Kit — tokens.css v1.5.0
+   Importar en el entry point del proyecto:
+   import '@nlace/ui-kit/tokens'
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+:root {
+  /* Brand colors */
+  --nl-bg:             #efefef;
+  --nl-text:           #141414;
+  --nl-primary:        #3f58ea;
+  --nl-primary-dark:   #2f2f81;
+  --nl-accent:         #ff6143;
+  --nl-accent-warm:    #ff8c42;
+  --nl-success:        #6be8b0;
+  --nl-success-dark:   #22c55e;
+  --nl-success-text:   #166534;
+  --nl-success-bg:     #f0fdf4;
+
+  /* Neutros */
+  --nl-white:          #ffffff;
+  --nl-900:            #18181b;
+  --nl-700:            #3f3f46;
+  --nl-500:            #71717a;
+  --nl-400:            #a1a1aa;
+  --nl-border-soft:    #e8e8e8;
+  --nl-border-ui:      #d4d4d8;
+  --nl-danger:         #dc2626;
+  --nl-cyan:           #a5f3fc;
+  --nl-blue-24:        #1a1a5e;
+  --nl-blue-28:        #2d1f6e;
+
+  /* Opacidades */
+  --nl-primary-10:     rgba(63, 88, 234, 0.10);
+  --nl-primary-20:     rgba(63, 88, 234, 0.20);
+  --nl-accent-10:      rgba(255, 97, 67, 0.10);
+  --nl-danger-8:       rgba(220, 38, 38, 0.08);
+
+  /* Tipografia */
+  --nl-font-display:   "Plus Jakarta Sans", "Telegraf", sans-serif;
+  --nl-font-body:      "Inter", sans-serif;
+  --nl-font-mono:      "SF Mono", "Fira Code", monospace;
+
+  /* Radios */
+  --nl-radius-input:   10px;
+  --nl-radius-card:    20px;
+  --nl-radius-pill:    9999px;
+
+  /* Sombras */
+  --nl-shadow-card:    0 2px 12px rgba(20, 20, 20, 0.08);
+  --nl-shadow-hover:   0 10px 28px rgba(20, 20, 20, 0.14);
+
+  /* Motion */
+  --nl-dur-ui:         220ms;
+  --nl-dur-reveal:     480ms;
+  --nl-ease:           cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Gradientes */
+  --nl-grad-hero:       linear-gradient(135deg, #2f2f81 0%, #1a1a5e 60%, #2d1f6e 100%);
+  --nl-grad-primary:    linear-gradient(135deg, #3f58ea 0%, #2f2f81 100%);
+  --nl-grad-accent:     linear-gradient(135deg, #ff6143 0%, #ff8c42 100%);
+  --nl-grad-mint:       linear-gradient(135deg, #6be8b0 0%, #34d399 100%);
+  --nl-grad-dark:       linear-gradient(180deg, #18181b 0%, #2f2f81 100%);
+  --nl-grad-surface:    linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%);
+  --nl-grad-text-brand: linear-gradient(90deg, #3f58ea 0%, #ff6143 100%);
+}
+
+/* Base */
+body {
+  font-family: var(--nl-font-body);
+  background: var(--nl-bg);
+  color: var(--nl-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--nl-font-display);
+  letter-spacing: -0.018em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utilidades globales */
+.nl-text-gradient {
+  background: var(--nl-grad-text-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nl-overlay-dark {
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%);
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@nlace/ui-kit",
+  "version": "1.5.0",
+  "description": "NLACE Design System — tokens CSS, Tailwind preset y componentes React",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./tokens": "./src/tokens/tokens.css",
+    "./preset": "./src/tailwind-preset.js"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": ["nlace", "design-system", "tailwind", "ui-kit"],
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
