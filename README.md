@@ -1,12 +1,15 @@
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/nlace-black.svg" alt="NLACE" width="140" />
+
 # @nlace/ui-kit
 
-Paquete interno de NLACE para el desarrollo de productos propios. Contiene los tokens de diseño, el preset de Tailwind CSS y los componentes React del sistema de diseño oficial de NLACE.
+Paquete interno de NLACE para el desarrollo de productos propios. Contiene los tokens de diseño, el preset de Tailwind CSS y los componentes React del sistema de diseño oficial.
 
-Este kit es la base visual de todos los productos que construimos: desde herramientas internas hasta productos como NLACE AI Studio. Garantiza consistencia entre proyectos y elimina decisiones de diseño repetidas.
+Este kit es la base visual de todos los productos que construimos: desde herramientas internas hasta NLACE AI Studio. Garantiza consistencia entre proyectos y elimina decisiones de diseño repetidas.
 
-**npm:** https://www.npmjs.com/package/@nlace/ui-kit
-**Diseño:** https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System
-**Web:** https://nlace.com
+[![npm](https://img.shields.io/npm/v/@nlace/ui-kit?color=3f58ea&label=npm&logo=npm)](https://www.npmjs.com/package/@nlace/ui-kit)
+[![license](https://img.shields.io/badge/license-UNLICENSED-ff6143)](https://github.com/NLACE-COM/ui-kit)
+
+**Diseño:** [Figma Design System](https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System) &nbsp;·&nbsp; **Web:** [nlace.com](https://nlace.com)
 
 ---
 
