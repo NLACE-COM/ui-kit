@@ -3,8 +3,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.5.0",
-  "description": "NLACE Design System — tokens CSS, Tailwind preset y componentes React",
+  "version": "2.0.0",
+  "description": "NLACE Design System — tokens CSS, Tailwind v4 nativo, preset v3 y componentes React",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "exports": {
@@ -13,12 +13,14 @@
       "require": "./dist/index.cjs"
     },
     "./tokens": "./src/tokens/tokens.css",
+    "./tailwind-v4": "./src/tokens/tailwind-v4.css",
     "./preset": "./src/tailwind-preset.js"
   },
   "files": [
     "dist",
     "src/tokens",
-    "src/tailwind-preset.js"
+    "src/tailwind-preset.js",
+    "skill"
   ],
   "scripts": {
     "build": "vite build",

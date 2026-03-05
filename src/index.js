@@ -1,4 +1,4 @@
-// NLACE UI Kit — index.js v1.5.0
+// NLACE UI Kit — index.js v2.0.0
 // Importar CSS en el entry point del proyecto:
 //   import '@nlace/ui-kit/tokens'
 

@@ -1,0 +1,117 @@
+/* NLACE UI Kit — tailwind-v4.css v2.0.0
+   Entry point para Tailwind CSS v4 (@theme nativo).
+
+   Uso en proyectos con Tailwind v4:
+   ─────────────────────────────────
+   En tu CSS global (p.ej. globals.css / main.css):
+     @import "tailwindcss";
+     @import "@nlace/ui-kit/tailwind-v4";
+
+   Esto registra todos los tokens NLACE como custom properties
+   de Tailwind v4 y los expone como clases utilitarias (bg-nl-primary, etc.)
+
+   Para Tailwind v3 usa en su lugar: @nlace/ui-kit/preset
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+@theme {
+  /* ── Colores de marca ─────────────────────────────────────────────── */
+  --color-nl-bg:             #efefef;
+  --color-nl-text:           #141414;
+  --color-nl-primary:        #3f58ea;
+  --color-nl-primary-dark:   #2f2f81;
+  --color-nl-accent:         #ff6143;
+  --color-nl-accent-warm:    #ff8c42;
+  --color-nl-success:        #6be8b0;
+  --color-nl-success-dark:   #22c55e;
+  --color-nl-success-text:   #166534;
+  --color-nl-success-bg:     #f0fdf4;
+  --color-nl-danger:         #dc2626;
+  --color-nl-cyan:           #a5f3fc;
+
+  /* Neutros */
+  --color-nl-white:          #ffffff;
+  --color-nl-900:            #18181b;
+  --color-nl-700:            #3f3f46;
+  --color-nl-500:            #71717a;
+  --color-nl-400:            #a1a1aa;
+  --color-nl-border-soft:    #e8e8e8;
+  --color-nl-border-ui:      #d4d4d8;
+
+  /* Hero gradient stops */
+  --color-nl-blue-24:        #1a1a5e;
+  --color-nl-blue-28:        #2d1f6e;
+
+  /* Opacidades semánticas */
+  --color-nl-primary-10:     rgba(63, 88, 234, 0.10);
+  --color-nl-primary-20:     rgba(63, 88, 234, 0.20);
+  --color-nl-accent-10:      rgba(255, 97, 67, 0.10);
+  --color-nl-danger-8:       rgba(220, 38, 38, 0.08);
+
+  /* ── Tipografía ───────────────────────────────────────────────────── */
+  --font-display: "Plus Jakarta Sans", "Telegraf", sans-serif;
+  --font-body:    "Inter", sans-serif;
+  --font-mono:    "SF Mono", "Fira Code", monospace;
+
+  /* ── Radios ──────────────────────────────────────────────────────── */
+  --radius-input: 10px;
+  --radius-card:  20px;
+  --radius-pill:  9999px;
+
+  /* ── Sombras ─────────────────────────────────────────────────────── */
+  --shadow-card:  0 2px 12px rgba(20, 20, 20, 0.08);
+  --shadow-hover: 0 10px 28px rgba(20, 20, 20, 0.14);
+
+  /* ── Motion ──────────────────────────────────────────────────────── */
+  --ease-nl:          cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-ui:      220ms;
+  --duration-reveal:  480ms;
+
+  /* ── Gradientes ──────────────────────────────────────────────────── */
+  --background-image-nl-hero:    linear-gradient(135deg, #2f2f81 0%, #1a1a5e 60%, #2d1f6e 100%);
+  --background-image-nl-primary: linear-gradient(135deg, #3f58ea 0%, #2f2f81 100%);
+  --background-image-nl-accent:  linear-gradient(135deg, #ff6143 0%, #ff8c42 100%);
+  --background-image-nl-mint:    linear-gradient(135deg, #6be8b0 0%, #34d399 100%);
+  --background-image-nl-dark:    linear-gradient(180deg, #18181b 0%, #2f2f81 100%);
+  --background-image-nl-surface: linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%);
+  --background-image-nl-brand:   linear-gradient(90deg, #3f58ea 0%, #ff6143 100%);
+
+  /* ── Letter spacing ──────────────────────────────────────────────── */
+  --tracking-nl-tight:  -0.03em;
+  --tracking-nl-normal: -0.018em;
+  --tracking-nl-ui:      0.08em;
+
+  /* ── Keyframes ───────────────────────────────────────────────────── */
+  --animate-fade-up:    fadeUp var(--duration-reveal) var(--ease-nl) both;
+  --animate-pulse-ring: pulseRing 1.6s ease infinite;
+  --animate-shimmer:    shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.35; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Base styles ──────────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-nl-bg);
+  color: var(--color-nl-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-nl-normal);
+}

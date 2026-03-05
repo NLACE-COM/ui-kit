@@ -1,4 +1,5 @@
-// NLACE UI Kit — tailwind-preset.js v1.5.0
+// NLACE UI Kit — tailwind-preset.js v2.0.0
+// Para Tailwind v3. Si usas Tailwind v4, importa @nlace/ui-kit/tailwind-v4 en su lugar.
 // Uso en tailwind.config.js:
 //   const nlacePreset = require('@nlace/ui-kit/preset')
 //   module.exports = { presets: [nlacePreset], ... }
