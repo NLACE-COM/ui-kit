@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/nlace-black.svg" alt="NLACE" width="140" />
+<img src="https://nlace.com/hubfs/nlace_black.svg" alt="NLACE" width="140" />
 
 # @nlace/ui-kit
 
