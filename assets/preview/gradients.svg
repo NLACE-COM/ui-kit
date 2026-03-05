@@ -1,0 +1,46 @@
+<svg width="760" height="88" viewBox="0 0 760 88" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <defs>
+    <linearGradient id="hero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f2f81"/>
+      <stop offset="60%" stop-color="#1a1a5e"/>
+      <stop offset="100%" stop-color="#2d1f6e"/>
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3f58ea"/>
+      <stop offset="100%" stop-color="#2f2f81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6143"/>
+      <stop offset="100%" stop-color="#ff8c42"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6be8b0"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3f58ea"/>
+      <stop offset="100%" stop-color="#ff6143"/>
+    </linearGradient>
+  </defs>
+  <!-- hero -->
+  <rect x="0" y="0" width="140" height="68" rx="14" fill="url(#hero)"/>
+  <text x="70" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,0.85)">grad-hero</text>
+  <text x="70" y="82" text-anchor="middle" font-size="10" fill="#71717a">hero / marketing</text>
+  <!-- primary -->
+  <rect x="152" y="0" width="140" height="68" rx="14" fill="url(#primary)"/>
+  <text x="222" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,0.85)">grad-primary</text>
+  <text x="222" y="82" text-anchor="middle" font-size="10" fill="#71717a">cards / accents</text>
+  <!-- accent -->
+  <rect x="304" y="0" width="140" height="68" rx="14" fill="url(#accent)"/>
+  <text x="374" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="white">grad-accent</text>
+  <text x="374" y="82" text-anchor="middle" font-size="10" fill="#71717a">CTAs marketing</text>
+  <!-- mint -->
+  <rect x="456" y="0" width="140" height="68" rx="14" fill="url(#mint)"/>
+  <text x="526" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">grad-mint</text>
+  <text x="526" y="82" text-anchor="middle" font-size="10" fill="#71717a">success states</text>
+  <!-- brand text -->
+  <rect x="608" y="0" width="152" height="68" rx="14" fill="#141414"/>
+  <text x="684" y="32" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="url(#brand)">NLACE.</text>
+  <text x="684" y="50" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)">grad-text-brand</text>
+  <text x="684" y="82" text-anchor="middle" font-size="10" fill="#71717a">titulares</text>
+</svg>

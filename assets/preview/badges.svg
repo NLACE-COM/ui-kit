@@ -1,0 +1,23 @@
+<svg width="680" height="40" viewBox="0 0 680 40" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <!-- primary soft -->
+  <rect x="0" y="4" width="90" height="32" rx="16" fill="#3f58ea1a"/>
+  <text x="45" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#3f58ea">primary</text>
+  <!-- accent soft -->
+  <rect x="100" y="4" width="80" height="32" rx="16" fill="#ff61431a"/>
+  <text x="140" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#d64f2a">accent</text>
+  <!-- success soft -->
+  <rect x="190" y="4" width="84" height="32" rx="16" fill="#6be8b033"/>
+  <text x="232" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#166534">success</text>
+  <!-- danger soft -->
+  <rect x="284" y="4" width="78" height="32" rx="16" fill="#dc262614"/>
+  <text x="323" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#dc2626">danger</text>
+  <!-- neutral soft -->
+  <rect x="372" y="4" width="82" height="32" rx="16" fill="#a1a1aa26"/>
+  <text x="413" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#3f3f46">neutral</text>
+  <!-- solid primary -->
+  <rect x="464" y="4" width="90" height="32" rx="16" fill="#3f58ea"/>
+  <text x="509" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="white">solid</text>
+  <!-- solid dark -->
+  <rect x="564" y="4" width="116" height="32" rx="16" fill="#18181b"/>
+  <text x="622" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="white">v1.5.0</text>
+</svg>

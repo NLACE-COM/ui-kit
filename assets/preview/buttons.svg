@@ -1,0 +1,20 @@
+<svg width="760" height="56" viewBox="0 0 760 56" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <!-- accent -->
+  <rect x="0" y="8" width="120" height="40" rx="20" fill="#ff6143"/>
+  <text x="60" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="white">accent</text>
+  <!-- primary -->
+  <rect x="132" y="8" width="120" height="40" rx="20" fill="#3f58ea"/>
+  <text x="192" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="white">primary</text>
+  <!-- secondary -->
+  <rect x="264" y="8" width="120" height="40" rx="20" fill="white" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="324" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="#141414">secondary</text>
+  <!-- success -->
+  <rect x="396" y="8" width="120" height="40" rx="20" fill="#6be8b0"/>
+  <text x="456" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">success</text>
+  <!-- danger -->
+  <rect x="528" y="8" width="120" height="40" rx="20" fill="#dc2626"/>
+  <text x="588" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="white">danger</text>
+  <!-- disabled -->
+  <rect x="660" y="8" width="100" height="40" rx="20" fill="#3f58ea" opacity="0.38"/>
+  <text x="710" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="white">disabled</text>
+</svg>
