@@ -13,6 +13,28 @@ Este kit es la base visual de todos los productos que construimos: desde herrami
 
 ---
 
+## Paleta
+
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/preview/colors.svg" alt="Paleta de colores NLACE" width="760" />
+
+## Tipografía
+
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/preview/typography.svg" alt="Tipografía NLACE" width="760" />
+
+## Botones
+
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/preview/buttons.svg" alt="Botones NLACE" width="760" />
+
+## Badges
+
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/preview/badges.svg" alt="Badges NLACE" width="680" />
+
+## Gradientes
+
+<img src="https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/preview/gradients.svg" alt="Gradientes NLACE" width="760" />
+
+---
+
 ## Instalación
 
 ```bash
