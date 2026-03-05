@@ -1,9 +1,14 @@
 # @nlace/ui-kit
 
-Design system de NLACE. Tokens CSS, preset Tailwind y componentes React.
+Paquete interno de NLACE para el desarrollo de productos propios. Contiene los tokens de diseño, el preset de Tailwind CSS y los componentes React del sistema de diseño oficial de NLACE.
+
+Este kit es la base visual de todos los productos que construimos: desde herramientas internas hasta productos como NLACE AI Studio. Garantiza consistencia entre proyectos y elimina decisiones de diseño repetidas.
 
 **npm:** https://www.npmjs.com/package/@nlace/ui-kit
-**GitHub:** https://github.com/NLACE-COM/ui-kit
+**Diseño:** https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System
+**Web:** https://nlace.com
+
+---
 
 ## Instalación
 
@@ -37,7 +42,7 @@ En el entry point del proyecto (`main.jsx`, `_app.tsx`, `layout.tsx`):
 import '@nlace/ui-kit/tokens'
 ```
 
-Esto carga las variables `--nl-*` y el import de las fuentes (Inter + Plus Jakarta Sans).
+Carga las variables `--nl-*` y las fuentes (Inter + Plus Jakarta Sans).
 
 ---
 
@@ -118,8 +123,8 @@ Variantes: `info` · `success` · `warning` · `error`
 ```jsx
 import { NlaceLogo, NlaceAvatar } from '@nlace/ui-kit'
 
-<NlaceLogo variant="black" width={160} />   // fondos claros
-<NlaceLogo variant="white" width={120} />   // fondos oscuros
+<NlaceLogo variant="black" width={160} />
+<NlaceLogo variant="white" width={120} />
 <NlaceAvatar size={40} />
 ```
 
@@ -139,7 +144,7 @@ import { Spinner, Skeleton } from '@nlace/ui-kit'
 
 ## Tokens CSS
 
-Disponibles globalmente después de importar `@nlace/ui-kit/tokens`:
+Disponibles globalmente tras importar `@nlace/ui-kit/tokens`:
 
 ```css
 color: var(--nl-primary);
@@ -148,13 +153,9 @@ border-radius: var(--nl-radius-card);
 transition-duration: var(--nl-dur-ui);
 ```
 
-Ver lista completa en `src/tokens/tokens.css`.
-
 ---
 
 ## Clases Tailwind
-
-Con el preset instalado:
 
 ```
 bg-nl-bg · bg-nl-primary · bg-nl-accent · bg-nl-900
@@ -174,8 +175,8 @@ animate-fade-up · animate-shimmer · animate-pulse-ring
 ## Publicar nueva versión
 
 ```bash
-# 1. Bumper versión en package.json
-# 2. Build + publish
+# 1. Actualizar version en package.json
+# 2. Publicar en npm
 npm publish
 
 # 3. Tag en GitHub
@@ -184,6 +185,4 @@ git tag v1.x.x && git push origin v1.x.x
 
 ---
 
-## Versionado
-
-`v1.5.0` — Marzo 2026 · nlace.com
+`v1.5.0` · Marzo 2026 · NLACE
