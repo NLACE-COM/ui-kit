@@ -2,16 +2,13 @@
 
 Design system de NLACE. Tokens CSS, preset Tailwind y componentes React.
 
+**npm:** https://www.npmjs.com/package/@nlace/ui-kit
+**GitHub:** https://github.com/NLACE-COM/ui-kit
+
 ## Instalación
 
 ```bash
-npm install github:nlace/ui-kit
-```
-
-O fijando una versión específica:
-
-```bash
-npm install github:nlace/ui-kit#v1.5.0
+npm install @nlace/ui-kit
 ```
 
 ## Setup
@@ -27,7 +24,7 @@ module.exports = {
   presets: [nlacePreset],
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nlace/ui-kit/src/**/*.{js,jsx}',
+    './node_modules/@nlace/ui-kit/dist/**/*.{js,mjs}',
   ],
 }
 ```
@@ -140,9 +137,9 @@ import { Spinner, Skeleton } from '@nlace/ui-kit'
 
 ---
 
-## Tokens disponibles
+## Tokens CSS
 
-Todas las variables CSS están accesibles globalmente después de importar el CSS:
+Disponibles globalmente después de importar `@nlace/ui-kit/tokens`:
 
 ```css
 color: var(--nl-primary);
@@ -157,7 +154,7 @@ Ver lista completa en `src/tokens/tokens.css`.
 
 ## Clases Tailwind
 
-Con el preset instalado, estas clases están disponibles:
+Con el preset instalado:
 
 ```
 bg-nl-bg · bg-nl-primary · bg-nl-accent · bg-nl-900
@@ -170,6 +167,19 @@ font-display · font-body · font-mono
 tracking-nl-tight · tracking-nl-normal · tracking-nl-ui
 bg-nl-hero · bg-nl-brand · bg-nl-accent (gradientes)
 animate-fade-up · animate-shimmer · animate-pulse-ring
+```
+
+---
+
+## Publicar nueva versión
+
+```bash
+# 1. Bumper versión en package.json
+# 2. Build + publish
+npm publish
+
+# 3. Tag en GitHub
+git tag v1.x.x && git push origin v1.x.x
 ```
 
 ---
