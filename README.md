@@ -43,7 +43,26 @@ npm install @nlace/ui-kit
 
 ## Setup
 
-### 1. Tailwind config
+### Tailwind CSS v4 (Next.js 15+)
+
+En tu archivo CSS global (`app/globals.css`):
+
+```css
+@import "tailwindcss";
+@import "@nlace/ui-kit/tailwind-v4";
+
+@source "../node_modules/@nlace/ui-kit/dist";
+```
+
+> **Importante:** 
+> - El `@import "tailwindcss"` DEBE ir primero.
+> - El `@source` es necesario para que Tailwind v4 escanee las clases usadas en los componentes del kit (`bg-nl-primary`, `rounded-pill`, etc.) y las incluya en el CSS final.
+
+Esto registra todos los tokens NLACE como variables CSS nativas de Tailwind v4 y genera las clases utilitarias automáticamente.
+
+---
+
+### Tailwind CSS v3 (legacy)
 
 En `tailwind.config.js` o `tailwind.config.ts`:
 
@@ -58,8 +77,6 @@ module.exports = {
   ],
 }
 ```
-
-### 2. CSS tokens
 
 En el entry point del proyecto (`main.jsx`, `_app.tsx`, `layout.tsx`):
 
@@ -210,4 +227,4 @@ git tag v1.x.x && git push origin v1.x.x
 
 ---
 
-`v1.5.0` · Marzo 2026 · NLACE
+`v2.1.0` · Marzo 2026 · NLACE

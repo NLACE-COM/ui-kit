@@ -9,7 +9,7 @@ description: >
   skill se ejecuta primero.
 ---
 
-# Disenador NLACE · v2.0.0
+# Disenador NLACE · v2.1.0
 
 ## Objetivo
 
@@ -91,11 +91,31 @@ con NLACE.
 }
 ```
 
-## Tailwind v4 (cuando aplique)
+## Tailwind v4 + Next.js 15+ (cuando aplique)
 
-- Definir tokens con `@theme` en CSS (no `tailwind.config.js` clásico).
+Configurar en `app/globals.css`:
+
+```css
+@import "tailwindcss";
+@import "@nlace/ui-kit/tailwind-v4";
+
+@source "../node_modules/@nlace/ui-kit/dist";
+```
+
+Reglas:
+- El `@import "tailwindcss"` DEBE ir primero.
+- El `@source` es obligatorio para que Tailwind v4 escanee las clases de los componentes del kit.
+- Definir tokens adicionales con `@theme` en CSS (no `tailwind.config.js`).
 - Priorizar clases basadas en tokens NLACE.
 - No introducir paletas paralelas si ya existe token equivalente.
+
+Clases disponibles del kit:
+- Colores: `bg-nl-primary`, `text-nl-accent`, `border-nl-border-soft`
+- Radios: `rounded-input`, `rounded-card`, `rounded-pill`
+- Sombras: `shadow-card`, `shadow-hover`
+- Gradientes: `bg-nl-hero`, `bg-nl-brand`, `bg-nl-accent`
+- Animaciones: `animate-fade-up`, `animate-shimmer`, `animate-pulse-ring`
+- Tipografía: `font-display`, `font-body`, `font-mono`
 
 ## Componentes y patrones
 
