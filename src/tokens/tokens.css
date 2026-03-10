@@ -1,4 +1,4 @@
-/* NLACE UI Kit — tokens.css v2.0.0
+/* NLACE UI Kit — tokens.css v2.0.4
    Importar en el entry point del proyecto:
    import '@nlace/ui-kit/tokens'
 */
@@ -36,7 +36,7 @@
   --nl-danger-8: rgba(220, 38, 38, 0.08);
 
   /* Tipografia */
-  --nl-font-display: "Plus Jakarta Sans", "Telegraf", sans-serif;
+  --nl-font-display: "Space Grotesk", sans-serif;
   --nl-font-body: "Inter", sans-serif;
   --nl-font-mono: "SF Mono", "Fira Code", monospace;
 

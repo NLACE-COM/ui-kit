@@ -1,4 +1,4 @@
-// NLACE UI Kit — tailwind-preset.js v2.0.0
+// NLACE UI Kit — tailwind-preset.js v2.0.4
 // Para Tailwind v3. Si usas Tailwind v4, importa @nlace/ui-kit/tailwind-v4 en su lugar.
 // Uso en tailwind.config.js:
 //   const nlacePreset = require('@nlace/ui-kit/preset')
@@ -34,7 +34,7 @@ const nlacePreset = {
         }
       },
       fontFamily: {
-        display: ['"Plus Jakarta Sans"', 'Telegraf', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
         body:    ['Inter', 'sans-serif'],
         mono:    ['"SF Mono"', '"Fira Code"', 'monospace'],
       },

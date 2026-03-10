@@ -84,7 +84,7 @@ En el entry point del proyecto (`main.jsx`, `_app.tsx`, `layout.tsx`):
 import '@nlace/ui-kit/tokens'
 ```
 
-Carga las variables `--nl-*` y las fuentes (Inter + Plus Jakarta Sans).
+Carga las variables `--nl-*` y las fuentes (Inter + Space Grotesk).
 
 ---
 

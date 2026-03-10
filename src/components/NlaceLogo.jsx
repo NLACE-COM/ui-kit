@@ -54,7 +54,7 @@ export function NlaceAvatar({
         textAnchor="middle"
         fill="white"
         fontSize="360"
-        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontFamily="Space Grotesk, sans-serif"
         fontWeight="800"
       >n.</text>
     </svg>

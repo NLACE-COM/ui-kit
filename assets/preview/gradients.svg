@@ -40,7 +40,7 @@
   <text x="526" y="82" text-anchor="middle" font-size="10" fill="#71717a">success states</text>
   <!-- brand text -->
   <rect x="608" y="0" width="152" height="68" rx="14" fill="#141414"/>
-  <text x="684" y="32" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="url(#brand)">NLACE.</text>
+  <text x="684" y="32" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="20" font-weight="800" fill="url(#brand)">NLACE.</text>
   <text x="684" y="50" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)">grad-text-brand</text>
   <text x="684" y="82" text-anchor="middle" font-size="10" fill="#71717a">titulares</text>
 </svg>

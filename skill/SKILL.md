@@ -53,7 +53,7 @@ con NLACE.
 ## Reglas de diseño no negociables
 
 - Tipografía:
-  - display: `Telegraf` (fallback: `Plus Jakarta Sans`)
+  - display: `Space Grotesk`
   - body/ui: `Inter`
 - Evitar estética genérica (layouts planos sin intención visual).
 - Mantener jerarquía visual clara con espaciado consistente.
@@ -82,7 +82,7 @@ con NLACE.
   --nl-shadow-card: 0 2px 12px rgba(20, 20, 20, 0.08);
   --nl-shadow-hover: 0 10px 28px rgba(20, 20, 20, 0.14);
 
-  --nl-font-display: "Telegraf", "Plus Jakarta Sans", sans-serif;
+  --nl-font-display: "Space Grotesk", sans-serif;
   --nl-font-body: "Inter", sans-serif;
 
   --nl-grad-hero: linear-gradient(135deg, #2f2f81 0%, #1a1a5e 60%, #2d1f6e 100%);
