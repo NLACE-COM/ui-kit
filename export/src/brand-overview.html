@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>NLACE · Brand Overview</title>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#0F1011"/>
+    <text x="50" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="44" letter-spacing="-2" fill="#FFFFFF">n.</text>
+    <circle cx="76" cy="28" r="6" fill="#FC624B"/>
+  </svg>
+</template>
+<style>
+  html, body { margin:0; padding:0; background:#efefef; color:#0f1011; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .sheet { width:1280px; min-height:1810px; margin:0 auto; padding:80px 80px 100px; background:#efefef; box-sizing:border-box; }
+  .display { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing:-0.03em; font-weight:700; }
+  .mono { font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace; }
+
+  .hdr { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid #c6c7c2; padding-bottom:24px; margin-bottom:56px; }
+  .hdr .mark img { height:58px; display:block }
+  .hdr .kicker { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; }
+  .hdr .title { font-size:16px; font-weight:600; letter-spacing:-0.01em; margin-top:4px }
+
+  .hero { font-size:132px; line-height:0.95; letter-spacing:-0.045em; margin:0 0 28px; font-weight:700; }
+  .hero .grad { background:linear-gradient(90deg,#5869f7 0%, #fc624b 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lede { font-size:22px; line-height:1.45; color:#3f3f46; max-width:860px; letter-spacing:-0.01em; margin:0 0 80px; }
+
+  .section-eyebrow { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; margin-bottom:16px; }
+  .section-title { font-size:32px; font-weight:600; letter-spacing:-0.025em; margin:0 0 28px }
+
+  .palette { display:grid; grid-template-columns: repeat(6, 1fr); gap:14px; margin-bottom:80px }
+  .swatch { height:170px; border-radius:20px; padding:18px; color:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 12px rgba(15,16,17,0.06) }
+  .swatch.dk { color:#0f1011 }
+  .swatch .name { font-weight:600; font-size:16px; letter-spacing:-0.01em }
+  .swatch .hex  { font-size:11px; opacity:0.9 }
+
+  .typerow { display:grid; grid-template-columns: 220px 1fr; gap:48px; align-items:baseline; padding:28px 0; border-top:1px solid #c6c7c2 }
+  .typerow:last-child { border-bottom:1px solid #c6c7c2 }
+  .typemeta .face { font-weight:600; font-size:16px; letter-spacing:-0.01em }
+  .typemeta .tag  { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#71717a; margin-top:4px }
+  .specimen-display { font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.035em; color:#0f1011 }
+  .specimen-body { font-size:22px; line-height:1.4; color:#0f1011; font-weight:400 }
+  .specimen-mono { font-size:18px; line-height:1.4; color:#0f1011 }
+
+  .sig { display:flex; justify-content:space-between; align-items:center; margin-top:80px; padding-top:28px; border-top:1px solid #c6c7c2; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#71717a }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="hdr">
+    <div class="mark"><img src="../assets/nlace-black.svg" alt="NLACE"/></div>
+    <div style="text-align:right">
+      <div class="kicker mono">v 1.0 · 04.2026</div>
+      <div class="title">Brand overview</div>
+    </div>
+  </div>
+
+  <h1 class="hero display">Construimos<br/><span class="grad">herramientas.</span></h1>
+  <p class="lede">NLACE UI Kit es la base visual de todos los productos que construimos — de herramientas internas a NLACE AI Studio. Garantiza consistencia entre proyectos y elimina decisiones de diseño repetidas.</p>
+
+  <div class="section-eyebrow mono">01 · Paleta</div>
+  <h2 class="section-title display">Los colores esenciales.</h2>
+  <div class="palette">
+    <div class="swatch dk" style="background:#FFFFFF;border:1px solid #c6c7c2"><span class="name">White</span><span class="hex mono">#FFFFFF</span></div>
+    <div class="swatch"    style="background:#0F1011"><span class="name">Black</span><span class="hex mono">#0F1011</span></div>
+    <div class="swatch"    style="background:#5869F7"><span class="name">Primary</span><span class="hex mono">#5869F7</span></div>
+    <div class="swatch"    style="background:#FC624B"><span class="name">Accent</span><span class="hex mono">#FC624B</span></div>
+    <div class="swatch"    style="background:#F76DEE"><span class="name">Pink</span><span class="hex mono">#F76DEE</span></div>
+    <div class="swatch"    style="background:#B717AF"><span class="name">Magenta</span><span class="hex mono">#B717AF</span></div>
+  </div>
+
+  <div class="section-eyebrow mono">02 · Tipografía</div>
+  <h2 class="section-title display">Display, body y mono.</h2>
+  <div class="typerow">
+    <div class="typemeta"><div class="face">Space Grotesk</div><div class="tag mono">Display · 300–700</div></div>
+    <div class="specimen-display display">Construimos con claridad.</div>
+  </div>
+  <div class="typerow">
+    <div class="typemeta"><div class="face">Inter</div><div class="tag mono">Body · 100–900</div></div>
+    <div class="specimen-body">Un sistema para productos modernos. Texto legible, jerarquía clara, componentes que se combinan entre sí.</div>
+  </div>
+  <div class="typerow">
+    <div class="typemeta"><div class="face">JetBrains Mono</div><div class="tag mono">Mono · 400/500</div></div>
+    <div class="specimen-mono mono">const tokens = { primary: '#5869F7' }</div>
+  </div>
+
+  <div class="sig mono">
+    <span>NLACE · Design System</span>
+    <span>nlace.com</span>
+  </div>
+</div>
+</body>
+</html>

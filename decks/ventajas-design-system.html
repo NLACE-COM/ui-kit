@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Ventajas de un sistema de diseño</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#0f1011; font-family: "Inter", system-ui, sans-serif; color:#0f1011; }
+  deck-stage > section { background:#efefef; display:flex; flex-direction:column; padding:96px 120px; box-sizing:border-box; }
+
+  .eyebrow { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:20px; letter-spacing:0.22em; text-transform:uppercase; color:#71717a; }
+  .display-xl { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:700; font-size:180px; line-height:0.92; letter-spacing:-0.04em; margin:0; }
+  .display-l  { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:700; font-size:120px; line-height:0.95; letter-spacing:-0.035em; margin:0; }
+  .display-m  { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:600; font-size:72px;  line-height:1.02; letter-spacing:-0.025em; margin:0; }
+  .body-l     { font-family:"Inter", system-ui, sans-serif; font-size:32px; line-height:1.45; color:#3f3f46; max-width:1200px; letter-spacing:-0.005em; }
+  .body-m     { font-family:"Inter", system-ui, sans-serif; font-size:24px; line-height:1.5; color:#3f3f46; }
+
+  .grad { background:linear-gradient(90deg, #5869f7 0%, #fc624b 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .hdr { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #c6c7c2; padding-bottom:22px; margin-bottom:64px; }
+  .hdr img { height:48px; display:block; }
+  .hdr .slot { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:18px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; }
+
+  .footer-slot { margin-top:auto; display:flex; justify-content:space-between; align-items:center; padding-top:22px; border-top:1px solid #c6c7c2; font-family:"JetBrains Mono", ui-monospace, monospace; font-size:16px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; }
+
+  /* Cover — light */
+  .cover { background:#efefef !important; justify-content:space-between; }
+
+  /* Big number slide */
+  .stat-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; margin-top:64px; }
+  .stat { border-top:1px solid #c6c7c2; padding-top:24px; }
+  .stat .n { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:700; font-size:140px; line-height:0.9; letter-spacing:-0.04em; color:#0f1011; }
+  .stat .l { font-family:"Inter", system-ui, sans-serif; font-size:22px; line-height:1.4; color:#3f3f46; margin-top:16px; max-width:380px; }
+  .stat .tag { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:14px; letter-spacing:0.16em; text-transform:uppercase; color:#71717a; margin-bottom:8px; }
+
+  /* Bento: 4 ventajas */
+  .bento { display:grid; grid-template-columns:1.2fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:20px; flex:1; margin-top:40px; }
+  .bento .b { border-radius:28px; padding:40px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; position:relative; }
+  .bento .b .k  { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:16px; letter-spacing:0.18em; text-transform:uppercase; }
+  .bento .b .t  { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:600; font-size:56px; line-height:1.02; letter-spacing:-0.025em; margin:0; }
+  .bento .b .d  { font-family:"Inter", system-ui, sans-serif; font-size:22px; line-height:1.45; }
+
+  .b-1 { grid-column:1; grid-row:1/3; background:#ffffff; color:#0f1011; border:1px solid #c6c7c2; }
+  .b-1 .k { color:#71717a; }
+  .b-1 .d { color:#3f3f46; }
+  .b-2 { background:#5869f7; color:#fff; }
+  .b-2 .k, .b-2 .d { color:rgba(255,255,255,0.85); }
+  .b-3 { background:#dbdcd7; color:#0f1011; }
+  .b-3 .k { color:#3f3f46; }
+  .b-4 { background:#fc624b; color:#fff; }
+  .b-4 .k, .b-4 .d { color:rgba(255,255,255,0.85); }
+  .b-5 { background:#ffffff; color:#0f1011; border:1px solid #c6c7c2; }
+  .b-5 .k { color:#71717a; }
+
+  /* Before / after */
+  .ba { display:grid; grid-template-columns:1fr 1fr; gap:32px; flex:1; margin-top:40px; }
+  .ba .col { border-radius:28px; padding:40px; display:flex; flex-direction:column; gap:18px; }
+  .ba .col.before { background:#dbdcd7; color:#0f1011; }
+  .ba .col.after  { background:#ffffff; color:#0f1011; border:1px solid #c6c7c2; }
+  .ba .col .tag { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:18px; letter-spacing:0.2em; text-transform:uppercase; }
+  .ba .col.before .tag { color:#71717a; }
+  .ba .col.after  .tag { color:#b7321a; }
+  .ba .col .h  { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:600; font-size:52px; line-height:1.02; letter-spacing:-0.025em; margin:0; }
+  .ba .col ul { font-family:"Inter", system-ui, sans-serif; font-size:22px; line-height:1.55; margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .ba .col ul li { display:flex; gap:14px; align-items:flex-start; }
+  .ba .col ul li::before { content:''; width:10px; height:10px; border-radius:3px; margin-top:12px; flex-shrink:0; }
+  .ba .col.before ul li::before { background:#71717a; }
+  .ba .col.after  ul li::before { background:#2ba36a; }
+  .ba .col.after  ul li { color:#0f1011; }
+
+  /* Who benefits */
+  .who { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; flex:1; margin-top:40px; }
+  .who .p { background:#ffffff; border:1px solid #c6c7c2; border-radius:24px; padding:40px; display:flex; flex-direction:column; gap:16px; }
+  .who .p .role { font-family:"Space Grotesk", system-ui, sans-serif; font-weight:600; font-size:40px; letter-spacing:-0.02em; margin:0; }
+  .who .p .dot  { width:18px; height:18px; border-radius:6px; }
+  .who .p .quote { font-family:"Inter", system-ui, sans-serif; font-style:italic; font-size:22px; line-height:1.45; color:#3f3f46; margin:0; }
+  .who .p .kind { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:14px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; margin-top:auto; }
+
+  /* Outro — light con acento de color */
+  .cta { background:#ffffff !important; justify-content:space-between; }
+  .cta .link { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:22px; letter-spacing:0.2em; text-transform:uppercase; margin-top:28px; display:inline-block; padding:18px 28px; background:#5869f7; color:#fff; border-radius:9999px; }
+</style>
+</head>
+<body>
+<script type="application/json" id="speaker-notes">
+[]
+</script>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 1 · Cover -->
+  <section class="cover" data-label="Portada">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">NLACE · interno · 04/2026</span>
+    </div>
+    <div>
+      <div class="eyebrow">Design System 101</div>
+      <h1 class="display-xl" style="margin-top:32px">Por qué usar<br/>un <span class="grad">sistema<br/>de diseño</span>.</h1>
+      <p class="body-l" style="margin-top:48px; max-width:1100px">
+        Una presentación breve para el equipo. Qué es, qué problemas resuelve, y qué cambia el día que todos construimos sobre la misma base.
+      </p>
+    </div>
+    <div class="footer-slot">
+      <span>01 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+  <!-- 2 · Qué es -->
+  <section data-label="Qué es">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">01 · Definición</span>
+    </div>
+    <div class="eyebrow">Qué es</div>
+    <h2 class="display-l" style="margin-top:28px; max-width:1500px">
+      Un lenguaje compartido <span class="grad">de color, tipografía y componentes</span>.
+    </h2>
+    <p class="body-l" style="margin-top:40px">
+      Más que una librería de botones: son las decisiones ya tomadas. El equipo deja de debatir
+      <em>cuál rojo</em> o <em>qué padding</em> y se concentra en el problema que quiere resolver.
+    </p>
+    <div class="footer-slot">
+      <span>02 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+  <!-- 3 · El costo de no tenerlo -->
+  <section data-label="Costo">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">02 · El costo de no tenerlo</span>
+    </div>
+    <div class="eyebrow">Sin sistema</div>
+    <h2 class="display-m" style="margin-top:24px; max-width:1500px">Lo mismo, inventado muchas veces.</h2>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="tag">Tiempo</div>
+        <div class="n grad">34%</div>
+        <p class="l">del tiempo de front-end se va en reconstruir componentes que ya existen en otro producto.</p>
+      </div>
+      <div class="stat">
+        <div class="tag">Consistencia</div>
+        <div class="n">12</div>
+        <p class="l">tonos de azul distintos encontramos entre Agrointegral, Evo y el cotizador.</p>
+      </div>
+      <div class="stat">
+        <div class="tag">Soporte</div>
+        <div class="n">3×</div>
+        <p class="l">tickets de accesibilidad abiertos cada vez que replicamos un formulario sin base común.</p>
+      </div>
+    </div>
+    <div class="footer-slot">
+      <span>03 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+  <!-- 4 · Ventajas (bento) -->
+  <section data-label="Ventajas">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">03 · Ventajas</span>
+    </div>
+    <div class="eyebrow">Qué cambia</div>
+    <h2 class="display-m" style="margin-top:20px">Cinco ventajas concretas.</h2>
+    <div class="bento">
+      <div class="b b-1">
+        <div>
+          <div class="k">01 · Velocidad</div>
+          <h3 class="t" style="margin-top:20px">Diseñamos en horas, no semanas.</h3>
+        </div>
+        <p class="d">Componentes listos eliminan el tramo &laquo;de cero&raquo; en cada proyecto. Un prototipo nuevo arranca con el 80% resuelto.</p>
+      </div>
+      <div class="b b-2">
+        <div class="k">02 · Consistencia</div>
+        <h3 class="t">Una sola marca, en todos los productos.</h3>
+      </div>
+      <div class="b b-3">
+        <div class="k">03 · Calidad</div>
+        <h3 class="t">Accesibilidad por defecto.</h3>
+      </div>
+      <div class="b b-4">
+        <div class="k">04 · Escala</div>
+        <h3 class="t">Un cambio, todos los productos.</h3>
+      </div>
+      <div class="b b-5">
+        <div class="k">05 · Onboarding</div>
+        <h3 class="t">Gente nueva, productiva en días.</h3>
+      </div>
+    </div>
+    <div class="footer-slot" style="margin-top:32px">
+      <span>04 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+  <!-- 5 · Antes / después -->
+  <section data-label="Antes / Después">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">04 · El día a día</span>
+    </div>
+    <div class="eyebrow">Antes vs. después</div>
+    <h2 class="display-m" style="margin-top:20px">Cómo se siente el trabajo.</h2>
+    <div class="ba">
+      <div class="col before">
+        <span class="tag">— Antes</span>
+        <h3 class="h">Sin sistema</h3>
+        <ul>
+          <li>Cada producto tiene su propio botón.</li>
+          <li>Los diseñadores debaten tokens, no flujos.</li>
+          <li>El equipo de marca revisa cada pantalla a mano.</li>
+          <li>Cambiar el color primario es un proyecto.</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <span class="tag">+ Después</span>
+        <h3 class="h">Con NLACE Design System</h3>
+        <ul>
+          <li>Un botón, con variantes documentadas.</li>
+          <li>Diseñadores discuten experiencia, no padding.</li>
+          <li>La marca se respeta por construcción.</li>
+          <li>Cambiar el color primario es un commit.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-slot" style="margin-top:32px">
+      <span>05 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+  <!-- 6 · Cierre -->
+  <section class="cta" data-label="Cierre">
+    <div class="hdr">
+      <img src="../assets/nlace-black.svg" alt="NLACE"/>
+      <span class="slot">05 · Próximo paso</span>
+    </div>
+    <div>
+      <div class="eyebrow">Empecemos</div>
+      <h2 class="display-l" style="margin-top:28px; max-width:1500px">
+        El sistema ya existe.<br/>Úsenlo en el <span class="grad">próximo proyecto</span>.
+      </h2>
+      <p class="body-l" style="margin-top:40px; max-width:1200px">
+        Tokens, componentes, SKILL y ejemplos viven en el repositorio del design system.
+        La próxima pantalla que diseñen puede empezar desde ahí.
+      </p>
+      <span class="link">design-system.nlace.com</span>
+    </div>
+    <div class="footer-slot">
+      <span>06 / 06</span>
+      <span>NLACE Design</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NLACE · Brand Overview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
+    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #faf9f5; z-index: 9999; }
+    #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
+    #__bundler_placeholder { color: #999; font-size: 14px; }
+  </style>
+  <noscript>
+    <style>#__bundler_loading { display: none; }</style>
+    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
+      This page requires JavaScript to display.
+    </div>
+  </noscript>
+</head>
+<body>
+  <div id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#0F1011"></rect>
+    <text x="50" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="44" letter-spacing="-2" fill="#FFFFFF">n.</text>
+    <circle cx="76" cy="28" r="6" fill="#FC624B"></circle>
+  </svg>
+</div>
+  <div id="__bundler_loading">Unpacking...</div>
+
+  <script>
+    
+document.addEventListener('DOMContentLoaded', async function() {
+  const loading = document.getElementById('__bundler_loading');
+  function setStatus(msg) { if (loading) loading.textContent = msg; }
+
+  // Error sink persists across replaceWith since it's on window, not the DOM.
+  window.addEventListener('error', function(e) {
+    var p = document.body || document.documentElement;
+    var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
+    d.id = '__bundler_err';
+    d.style.cssText = 'position:fixed;bottom:12px;left:12px;right:12px;font:12px/1.4 ui-monospace,monospace;background:#2a1215;color:#ff8a80;padding:10px 14px;border-radius:8px;border:1px solid #5c2b2e;z-index:99999;white-space:pre-wrap;max-height:40vh;overflow:auto';
+    d.textContent = (d.textContent ? d.textContent + String.fromCharCode(10) : '') +
+      '[bundle] ' + (e.message || e.type) +
+      (e.filename ? ' (' + e.filename.slice(0, 60) + ':' + e.lineno + ')' : '');
+  }, true);
+
+  try {
+    const manifestEl = document.querySelector('script[type="__bundler/manifest"]');
+    const templateEl = document.querySelector('script[type="__bundler/template"]');
+    if (!manifestEl || !templateEl) {
+      setStatus('Error: missing bundle data');
+      console.error('[bundler] Missing script tags — manifestEl:', !!manifestEl, 'templateEl:', !!templateEl);
+      return;
+    }
+
+    const manifest = JSON.parse(manifestEl.textContent);
+    let template = JSON.parse(templateEl.textContent);
+
+    const uuids = Object.keys(manifest);
+    setStatus('Unpacking ' + uuids.length + ' assets...');
+
+    const blobUrls = {};
+    await Promise.all(uuids.map(async (uuid) => {
+      const entry = manifest[uuid];
+      try {
+        const binaryStr = atob(entry.data);
+        const bytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+
+        let finalBytes = bytes;
+        if (entry.compressed) {
+          if (typeof DecompressionStream !== 'undefined') {
+            const ds = new DecompressionStream('gzip');
+            const writer = ds.writable.getWriter();
+            const reader = ds.readable.getReader();
+            writer.write(bytes);
+            writer.close();
+            const chunks = [];
+            let totalLen = 0;
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              chunks.push(value);
+              totalLen += value.length;
+            }
+            finalBytes = new Uint8Array(totalLen);
+            let offset = 0;
+            for (const chunk of chunks) { finalBytes.set(chunk, offset); offset += chunk.length; }
+          } else {
+            console.warn('DecompressionStream not available, asset ' + uuid + ' may not render');
+          }
+        }
+
+        blobUrls[uuid] = URL.createObjectURL(new Blob([finalBytes], { type: entry.mime }));
+      } catch (err) {
+        console.error('Failed to decode asset ' + uuid + ':', err);
+        blobUrls[uuid] = URL.createObjectURL(new Blob([], { type: entry.mime }));
+      }
+    }));
+
+    const extResEl = document.querySelector('script[type="__bundler/ext_resources"]');
+    const extResources = extResEl ? JSON.parse(extResEl.textContent) : [];
+    const resourceMap = {};
+    for (const entry of extResources) {
+      if (blobUrls[entry.uuid]) resourceMap[entry.id] = blobUrls[entry.uuid];
+    }
+
+    setStatus('Rendering...');
+    for (const uuid of uuids) template = template.split(uuid).join(blobUrls[uuid]);
+
+    // Strip integrity + crossorigin — blob URLs from a file:// document inherit
+    // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
+    // The manifest bytes are ours; SRI protects against CDN compromise, not this.
+    template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
+
+    const resourceScript = '<script>window.__resources = ' +
+      JSON.stringify(resourceMap).split('</' + 'script>').join('<\\/' + 'script>') +
+      ';</' + 'script>';
+    // Inject after <head> so the DOCTYPE stays first; prepending the script
+    // would push the parser into quirks mode. DOMParser always emits a <head>
+    // (synthesizing one if the source HTML omitted it) but may carry
+    // attributes through, so match the full opening tag. slice() rather than
+    // replace() keeps us clear of $-pattern substitution in resourceScript.
+    const headOpen = template.match(/<head[^>]*>/i);
+    if (headOpen) {
+      const i = headOpen.index + headOpen[0].length;
+      template = template.slice(0, i) + resourceScript + template.slice(i);
+    }
+
+    // Parse the template and swap the root element. Scripts inserted via
+    // DOMParser/replaceWith are inert per spec — re-create each with
+    // createElement so they execute, awaiting onload for src scripts to
+    // preserve ordering (React before ReactDOM before Babel before text/babel).
+    const doc = new DOMParser().parseFromString(template, 'text/html');
+    document.documentElement.replaceWith(doc.documentElement);
+    const dead = Array.from(document.scripts);
+    for (const old of dead) {
+      const s = document.createElement('script');
+      for (const a of old.attributes) s.setAttribute(a.name, a.value);
+      s.textContent = old.textContent;
+      // text/babel scripts with a src: fetch and inline. transformScriptTags
+      // does XHR against the src, but blob:null/ from a file:// origin is
+      // silently dropped. Inlining makes it a plain inline babel script,
+      // which transformScriptTags handles unconditionally.
+      if ((s.type === 'text/babel' || s.type === 'text/jsx') && s.src) {
+        const r = await fetch(s.src);
+        s.textContent = await r.text();
+        s.removeAttribute('src');
+      }
+      const p = s.src ? new Promise(function(r) { s.onload = s.onerror = r; }) : null;
+      old.replaceWith(s);
+      if (p) await p;
+    }
+    // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
+    // which fired before we swapped the document. Trigger manually if present.
+    if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
+      window.Babel.transformScriptTags();
+    }
+  } catch (err) {
+    setStatus('Error unpacking: ' + err.message);
+    console.error('Bundle unpack error:', err);
+  }
+});
+
+  </script>
+
+  <script type="__bundler/manifest">
+{"d6389c32-800d-4fd5-bcd1-511bd7a92cbe":{"mime":"image/svg+xml","compressed":true,"data":"H4sIAAAAAAAAE41XzW6cNwy89ymE7Vm0+COKLOIA6cmH9FQgh9wWTmsH2DZBY6z7+AVF6auDpkBggONdSpREzlDaV1+uD+X544enx9uTqJzK428fHx6fbk9I/VSuH397/vnT37enVloRlTK//fuPy59fbk+PT0+ff7q5eX5+hmeGT3893FBr7ebL9eH0+odSXn0+Pz2WD7enX1pBYkD1dywgXe7IwLW/5Qbko3QC4UtVYNJCZxLg5mVBLIxFQZwqImCnwgKaJp2IIDbqAKNeuAM7blgDGNy4EhjfK2iPqEhAygWBbRRUMOQigIqxviqXBStCAzGLSdjvGXrnMsC9CAhLQYHOY30gBTS7doHuctc7OPO1dgI8z2W8LIjIrSIwUx2AfRQHpm3TK1VAXOKI3XlD+ma+cn6EHIIb0t8jDlh4EfBfWJEBlQrNMyKC9WXTG6kqDEYWyeO+bDpnTAGjce0ETn7X3p/K7x8vl9vTjyjxd3r96ibK/zUPsHEMP9jQHrmBq1zXF481P39nNGOwyM2s1DhzB1QpC2bdKjoY1j6ZIQQybMPyMxiOigqMVLrASJNeAXepxGD3rTo094Kg2isOaGbl8LvamR2ER1lwEG+FR5nUJDsgR1ALltcO7lRYYTTbcJA7Sgeqk1qOB6TfwM2zGjHRWTds5QTfk1/SoDNuSH/kLqJo7ynBXoGZD6VKA9SrGQzsd9QcGuM7bBghLhqJjeFnZnAuaVdqQ5VaVmo5M7YgRwTReW49q9bHhiMCdp5nH+//MDDiSh1E9YwDgprTTlIWB+xaCZgLdlDqG9IdFNAlM+pgkc2E9FOQpmIDtx4J5jRbDdOZ3QcFlHXDllpEV3DHggaNx4YlcptJaDHLR9+wJ6uWnEsGlGYtXNaiNGDwAWvLZW0XNYqyYZ9XdVU9sjQOeJGtEtn6Pq2RG7SRWjOWsyhYmSZLRQzKtmgsAiTLrkoGCWTLTAZg8w05ImbylFqEpTTJ0MOl3Isw2DhgSeSIPvWtMHzZpbGXm9MGTrxhDUDwIdnv3rBBQy0LcgDz3NMIab9ldGCjogMEz2jgaGXB7q2qODvsFPgYtOFl5+ZCBN1wQ/oGiGNFQO0RVNKkz0OlhaBHMdFow44qcb4kEkGTA16wuDi4jW/5y0s/DhDiDenP+3nGfxOE7pPk3DenuDXw4gZ0JoU2+1Tb+lrHijw484YdGEO5Rh7fI+OGdM/eVgWY7G0WArEBmr6RBi34lrBKFS0/UkMYRRaxDavWXzP5++jPNmCo7Un30SjiNpjKNox6uVuNq597doOz0OzCCw4duH0lA93wHxn0Bjh4wzocMHmsKamBTrQhB0RLpRq9SWa7xxBEwtKKAPZJJAmNLLN8FtdUZehTvLTscg6Q4bmDEAcN3HDcddpjB2KjCM5etGDfVBaUEhDDqc80qyzx4Ag6Nb9UQB1JtDvuCtz0UkOcXrGDmD+KgQteKud+rjWeD3TGBiTzsUb/sj4vtW+8cfL2nryKFtIJN2wlYreKqTbvsmFrUcxL3jcS/WfD0dS7l1yaaL5TFuzOvoTIIMH7hC3E9SiT2LHPG3NBDrDZ10NShRsw4YZ0x1sNbYWhAWy6Yc938/VyZISmB2y/+Gxil3kmnXqUszZos3O2F3d8vGTnTnpExQ3HtSCDSrzIvk9oItFRQr39PgtUWjWwEYVgG7Gids7eWucJK8EYUhnce1UYyOv/uTk7YwcbXhbsRw+T5QtFwtOabnjx6sq3972AGc+sDKT9gyEfN3Mbv87fRU3AceRvpHglEebKVhbsJ+Wk26ztm2+t/CID/5+yV/Ej6/U/vQKoobsNAAA="}}
+  </script>
+
+  <script type="__bundler/ext_resources">
+[]
+  </script>
+
+  <script type="__bundler/template">
+"<!DOCTYPE html>\n<html lang=\"es\"><head>\n<meta charset=\"utf-8\">\n<title>NLACE · Brand Overview<\u002Ftitle>\n\n<style>\n  html, body { margin:0; padding:0; background:#efefef; color:#0f1011; font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif; }\n  .sheet { width:1280px; min-height:1810px; margin:0 auto; padding:80px 80px 100px; background:#efefef; box-sizing:border-box; }\n  .display { font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif; letter-spacing:-0.03em; font-weight:700; }\n  .mono { font-family: ui-monospace, \"SFMono-Regular\", \"Menlo\", monospace; }\n\n  .hdr { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid #c6c7c2; padding-bottom:24px; margin-bottom:56px; }\n  .hdr .mark img { height:58px; display:block }\n  .hdr .kicker { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; }\n  .hdr .title { font-size:16px; font-weight:600; letter-spacing:-0.01em; margin-top:4px }\n\n  .hero { font-size:132px; line-height:0.95; letter-spacing:-0.045em; margin:0 0 28px; font-weight:700; }\n  .hero .grad { background:linear-gradient(90deg,#5869f7 0%, #fc624b 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }\n  .lede { font-size:22px; line-height:1.45; color:#3f3f46; max-width:860px; letter-spacing:-0.01em; margin:0 0 80px; }\n\n  .section-eyebrow { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#71717a; margin-bottom:16px; }\n  .section-title { font-size:32px; font-weight:600; letter-spacing:-0.025em; margin:0 0 28px }\n\n  .palette { display:grid; grid-template-columns: repeat(6, 1fr); gap:14px; margin-bottom:80px }\n  .swatch { height:170px; border-radius:20px; padding:18px; color:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 12px rgba(15,16,17,0.06) }\n  .swatch.dk { color:#0f1011 }\n  .swatch .name { font-weight:600; font-size:16px; letter-spacing:-0.01em }\n  .swatch .hex  { font-size:11px; opacity:0.9 }\n\n  .typerow { display:grid; grid-template-columns: 220px 1fr; gap:48px; align-items:baseline; padding:28px 0; border-top:1px solid #c6c7c2 }\n  .typerow:last-child { border-bottom:1px solid #c6c7c2 }\n  .typemeta .face { font-weight:600; font-size:16px; letter-spacing:-0.01em }\n  .typemeta .tag  { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#71717a; margin-top:4px }\n  .specimen-display { font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.035em; color:#0f1011 }\n  .specimen-body { font-size:22px; line-height:1.4; color:#0f1011; font-weight:400 }\n  .specimen-mono { font-size:18px; line-height:1.4; color:#0f1011 }\n\n  .sig { display:flex; justify-content:space-between; align-items:center; margin-top:80px; padding-top:28px; border-top:1px solid #c6c7c2; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#71717a }\n<\u002Fstyle>\n<\u002Fhead>\n<body>\n<div class=\"sheet\">\n  <div class=\"hdr\">\n    <div class=\"mark\"><img src=\"d6389c32-800d-4fd5-bcd1-511bd7a92cbe\" alt=\"NLACE\"><\u002Fdiv>\n    <div style=\"text-align:right\">\n      <div class=\"kicker mono\">v 1.0 · 04.2026<\u002Fdiv>\n      <div class=\"title\">Brand overview<\u002Fdiv>\n    <\u002Fdiv>\n  <\u002Fdiv>\n\n  <h1 class=\"hero display\">Construimos<br><span class=\"grad\">herramientas.<\u002Fspan><\u002Fh1>\n  <p class=\"lede\">NLACE UI Kit es la base visual de todos los productos que construimos — de herramientas internas a NLACE AI Studio. Garantiza consistencia entre proyectos y elimina decisiones de diseño repetidas.<\u002Fp>\n\n  <div class=\"section-eyebrow mono\">01 · Paleta<\u002Fdiv>\n  <h2 class=\"section-title display\">Los colores esenciales.<\u002Fh2>\n  <div class=\"palette\">\n    <div class=\"swatch dk\" style=\"background:#FFFFFF;border:1px solid #c6c7c2\"><span class=\"name\">White<\u002Fspan><span class=\"hex mono\">#FFFFFF<\u002Fspan><\u002Fdiv>\n    <div class=\"swatch\" style=\"background:#0F1011\"><span class=\"name\">Black<\u002Fspan><span class=\"hex mono\">#0F1011<\u002Fspan><\u002Fdiv>\n    <div class=\"swatch\" style=\"background:#5869F7\"><span class=\"name\">Primary<\u002Fspan><span class=\"hex mono\">#5869F7<\u002Fspan><\u002Fdiv>\n    <div class=\"swatch\" style=\"background:#FC624B\"><span class=\"name\">Accent<\u002Fspan><span class=\"hex mono\">#FC624B<\u002Fspan><\u002Fdiv>\n    <div class=\"swatch\" style=\"background:#F76DEE\"><span class=\"name\">Pink<\u002Fspan><span class=\"hex mono\">#F76DEE<\u002Fspan><\u002Fdiv>\n    <div class=\"swatch\" style=\"background:#B717AF\"><span class=\"name\">Magenta<\u002Fspan><span class=\"hex mono\">#B717AF<\u002Fspan><\u002Fdiv>\n  <\u002Fdiv>\n\n  <div class=\"section-eyebrow mono\">02 · Tipografía<\u002Fdiv>\n  <h2 class=\"section-title display\">Display, body y mono.<\u002Fh2>\n  <div class=\"typerow\">\n    <div class=\"typemeta\"><div class=\"face\">Space Grotesk<\u002Fdiv><div class=\"tag mono\">Display · 300–700<\u002Fdiv><\u002Fdiv>\n    <div class=\"specimen-display display\">Construimos con claridad.<\u002Fdiv>\n  <\u002Fdiv>\n  <div class=\"typerow\">\n    <div class=\"typemeta\"><div class=\"face\">Inter<\u002Fdiv><div class=\"tag mono\">Body · 100–900<\u002Fdiv><\u002Fdiv>\n    <div class=\"specimen-body\">Un sistema para productos modernos. Texto legible, jerarquía clara, componentes que se combinan entre sí.<\u002Fdiv>\n  <\u002Fdiv>\n  <div class=\"typerow\">\n    <div class=\"typemeta\"><div class=\"face\">JetBrains Mono<\u002Fdiv><div class=\"tag mono\">Mono · 400/500<\u002Fdiv><\u002Fdiv>\n    <div class=\"specimen-mono mono\">const tokens = { primary: '#5869F7' }<\u002Fdiv>\n  <\u002Fdiv>\n\n  <div class=\"sig mono\">\n    <span>NLACE · Design System<\u002Fspan>\n    <span>nlace.com<\u002Fspan>\n  <\u002Fdiv>\n<\u002Fdiv>\n\n\n<\u002Fbody><\u002Fhtml>"
+  </script>
+</body>
+</html>

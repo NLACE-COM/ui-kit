@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.row { display:flex; gap:40px; align-items:flex-end; justify-content:space-around; padding:20px 0 }
+.box { width:140px; height:80px; background:#fff; border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:var(--nl-font-body); font-size:12.5px; color:#141414 }
+.lbl { font-family:var(--nl-font-mono); font-size:10.5px; color:#71717a; margin-top:10px; display:block; text-align:center }
+</style></head><body>
+<div class="card" style="background:#efefef">
+  <div class="eyebrow" style="color:#3f3f46">Shadows · 2 elevation levels</div>
+  <div class="row">
+    <div><div class="box">rest</div><span class="lbl">— (flat)</span></div>
+    <div><div class="box" style="box-shadow:0 2px 12px rgba(20,20,20,0.08)">card</div><span class="lbl">card · 0 2 12 / 8%</span></div>
+    <div><div class="box" style="box-shadow:0 10px 28px rgba(20,20,20,0.14);transform:translateY(-3px)">hover</div><span class="lbl">hover · 0 10 28 / 14%</span></div>
+  </div>
+</div>
+</body></html>

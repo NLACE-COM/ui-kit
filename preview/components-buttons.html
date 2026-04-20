@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.btn { display:inline-flex;align-items:center;gap:8px;border-radius:9999px;font-weight:600;font-family:var(--nl-font-body);transition:all 220ms var(--nl-ease);border:0;cursor:pointer;box-shadow:none;font-size:14.4px;padding:11px 22px }
+.btn.sm { padding:6px 16px; font-size:13.1px }
+.btn.lg { padding:15px 30px; font-size:16px }
+.btn-accent { background:#fc624b; color:#fff }
+.btn-primary { background:#5869f7; color:#fff }
+.btn-secondary { background:#fff; color:#0f1011; border:1px solid #c6c7c2 }
+.btn-success { background:#42cf8a; color:#053a23 }
+.btn-danger { background:#fc624b; color:#fff }
+.btn-outline { background:transparent; color:#0f1011; border:1px solid rgba(15,16,17,0.4) }
+.group { display:flex; gap:10px; flex-wrap:wrap; align-items:center }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Buttons · variants</div>
+  <div class="group">
+    <button class="btn btn-accent">Empezar</button>
+    <button class="btn btn-primary">Guardar</button>
+    <button class="btn btn-secondary">Cancelar</button>
+    <button class="btn btn-success">Activo</button>
+    <button class="btn btn-danger">Eliminar</button>
+    <button class="btn btn-outline">Ver más</button>
+  </div>
+  <div class="group">
+    <button class="btn sm btn-primary">Size · sm</button>
+    <button class="btn btn-primary">Size · md</button>
+    <button class="btn lg btn-primary">Size · lg</button>
+  </div>
+</div>
+</body></html>

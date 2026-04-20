@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.cards { display:grid; grid-template-columns:1fr 1fr; gap:14px }
+.c { border-radius:20px; padding:20px; font-family:var(--nl-font-body) }
+.c-default { background:#fff; border:1px solid #dbdcd7; box-shadow:0 2px 12px rgba(15,16,17,0.08) }
+.c-hover   { background:#fff; border:1px solid #dbdcd7; box-shadow:0 10px 28px rgba(15,16,17,0.14); transform:translateY(-3px) }
+.c-accent  { background:#5869f7; color:#fff; border:1px solid transparent }
+.c .t { font-family:var(--nl-font-display); font-weight:600; font-size:17px; letter-spacing:-0.018em; margin:0 0 4px }
+.c .b { font-size:13.2px; color:#3f3f46; margin:0 }
+.c-accent .b { color:rgba(255,255,255,0.85) }
+.tag { display:inline-block; font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#71717a; margin-top:10px }
+.c-accent .tag { color:rgba(255,255,255,0.7) }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Cards · default / hover / accent</div>
+  <div class="cards">
+    <div class="c c-default">
+      <p class="t">Proyecto Agrointegral</p>
+      <p class="b">Seguimiento de siembras en tiempo real.</p>
+      <span class="tag">Rest · shadow-card</span>
+    </div>
+    <div class="c c-hover">
+      <p class="t">Proyecto Evo</p>
+      <p class="b">Evaluación de impacto académico.</p>
+      <span class="tag">Hover · -3px · shadow-hover</span>
+    </div>
+    <div class="c c-accent" style="grid-column:1 / -1">
+      <p class="t">NLACE AI Studio</p>
+      <p class="b">La suite visual para construir productos NLACE.</p>
+      <span class="tag">Accent · bg-nl-primary</span>
+    </div>
+  </div>
+</div>
+</body></html>

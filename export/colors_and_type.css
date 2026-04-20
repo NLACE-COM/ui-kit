@@ -1,0 +1,182 @@
+/* NLACE Design System — colors_and_type.css
+   Canonical CSS variables for NLACE brand type + color, plus semantic selectors
+   (h1, h2, code, p, etc). Mirrors @nlace/ui-kit tokens.
+*/
+
+/* Webfonts — Inter + Space Grotesk shipped as variable TTFs in /fonts.
+   JetBrains Mono (used for code blocks) is pulled from Google Fonts as the
+   nearest free equivalent to the kit's SF Mono / Fira Code stack. */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ── Brand colors (canonical NLACE palette) ──────────────────── */
+  --nl-bg:            #efefef;
+  --nl-text:          #0f1011;
+  --nl-black:         #0f1011;
+  --nl-primary:       #5869f7;
+  --nl-primary-dark:  #2d3bc4;
+  --nl-accent:        #fc624b;
+  --nl-accent-warm:   #ff8c42;
+  --nl-pink:          #f76dee;
+  --nl-magenta:       #b717af;
+  --nl-success:       #42cf8a;
+  --nl-success-dark:  #2ba36a;
+  --nl-success-text:  #053a23;
+  --nl-success-bg:    #eaf9f1;
+  --nl-danger:        #fc624b;
+  --nl-cyan:          #a5f3fc;
+  --nl-blue-24:       #1a1a5e;
+  --nl-blue-28:       #2d1f6e;
+
+  /* Neutros */
+  --nl-white:         #ffffff;
+  --nl-900:           #0f1011;
+  --nl-700:           #3f3f46;
+  --nl-500:           #71717a;
+  --nl-400:           #a1a1aa;
+  --nl-surface:       #dbdcd7;
+  --nl-border-soft:   #dbdcd7;
+  --nl-border-ui:     #c6c7c2;
+
+  /* Opacidades */
+  --nl-primary-10:  rgba(88, 105, 247, 0.1);
+  --nl-primary-20:  rgba(88, 105, 247, 0.2);
+  --nl-accent-10:   rgba(252, 98, 75, 0.1);
+  --nl-danger-8:    rgba(252, 98, 75, 0.08);
+
+  /* ── Semantic aliases ─────────────────────────────────────────── */
+  --fg-1:  var(--nl-text);        /* primary foreground */
+  --fg-2:  var(--nl-700);         /* secondary text */
+  --fg-3:  var(--nl-500);         /* tertiary/caption */
+  --fg-4:  var(--nl-400);         /* placeholder/disabled */
+  --bg-1:  var(--nl-bg);          /* app surface */
+  --bg-2:  var(--nl-white);       /* card surface */
+  --line-soft: var(--nl-border-soft);
+  --line-ui:   var(--nl-border-ui);
+
+  /* ── Typography ───────────────────────────────────────────────── */
+  --nl-font-display: "Space Grotesk", system-ui, sans-serif;
+  --nl-font-body:    "Inter", system-ui, sans-serif;
+  --nl-font-mono:    "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+
+  --nl-tracking-tight:  -0.03em;
+  --nl-tracking-normal: -0.018em;
+  --nl-tracking-ui:      0.08em;
+
+  /* Radios */
+  --nl-radius-input: 10px;
+  --nl-radius-card:  20px;
+  --nl-radius-pill:  9999px;
+
+  /* Sombras */
+  --nl-shadow-card:  0 2px 12px rgba(20, 20, 20, 0.08);
+  --nl-shadow-hover: 0 10px 28px rgba(20, 20, 20, 0.14);
+
+  /* Motion */
+  --nl-dur-ui:     220ms;
+  --nl-dur-reveal: 480ms;
+  --nl-ease:       cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Gradientes */
+  --nl-grad-hero:    linear-gradient(135deg, #5869f7 0%, #b717af 60%, #f76dee 100%);
+  --nl-grad-primary: linear-gradient(135deg, #5869f7 0%, #2d3bc4 100%);
+  --nl-grad-accent:  linear-gradient(135deg, #fc624b 0%, #f76dee 100%);
+  --nl-grad-mint:    linear-gradient(135deg, #42cf8a 0%, #2ba36a 100%);
+  --nl-grad-dark:    linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%);
+  --nl-grad-surface: linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%);
+  --nl-grad-brand:   linear-gradient(90deg,  #5869f7 0%, #fc624b 100%);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+body {
+  font-family: var(--nl-font-body);
+  background:  var(--nl-bg);
+  color:       var(--nl-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Headings — display font, tight tracking ──────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--nl-font-display);
+  letter-spacing: var(--nl-tracking-normal);
+  color: var(--nl-text);
+  margin: 0;
+}
+h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; letter-spacing: var(--nl-tracking-tight); line-height: 1.05; }
+h2 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 600; line-height: 1.12; }
+h3 { font-size: 28px; font-weight: 600; line-height: 1.2; }
+h4 { font-size: 22px; font-weight: 600; line-height: 1.25; }
+h5 { font-size: 18px; font-weight: 600; line-height: 1.3; }
+h6 { font-size: 14px; font-weight: 600; line-height: 1.3;
+     text-transform: uppercase; letter-spacing: var(--nl-tracking-ui); color: var(--nl-500); }
+
+/* ── Body text ────────────────────────────────────────────────── */
+p    { font-size: 16px; line-height: 1.55; color: var(--nl-700); margin: 0; }
+small{ font-size: 13px; color: var(--nl-500); }
+a    { color: var(--nl-primary); text-decoration: none; border-bottom: 1px solid transparent;
+       transition: border-color var(--nl-dur-ui) var(--nl-ease); }
+a:hover { border-bottom-color: var(--nl-primary); }
+
+/* ── Mono / code ──────────────────────────────────────────────── */
+code, kbd, samp {
+  font-family: var(--nl-font-mono);
+  font-size: 0.9em;
+  background: #f4f4f5;
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--nl-900);
+}
+pre {
+  font-family: var(--nl-font-mono);
+  background: var(--nl-900);
+  color: #fafafa;
+  padding: 16px 18px;
+  border-radius: 14px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+/* ── Utility classes ──────────────────────────────────────────── */
+.nl-eyebrow {
+  font-family: var(--nl-font-body);
+  font-size: 12px; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--nl-tracking-ui);
+  color: var(--nl-primary);
+}
+.nl-text-gradient {
+  background: var(--nl-grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nl-lead { font-size: 20px; line-height: 1.45; color: var(--nl-700); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

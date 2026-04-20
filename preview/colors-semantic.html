@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sw { border-radius: 12px; padding: 14px; height: 84px; display: flex; flex-direction: column; justify-content: space-between; border:1px solid transparent; }
+.sw .name { font-family: var(--nl-font-body); font-weight: 600; font-size: 12px; }
+.sw .hex { font-family: var(--nl-font-mono); font-size: 10.5px; opacity: 0.78; }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Semantic · derived from the brand palette</div>
+  <div class="swatches">
+    <div class="sw" style="background:#42cf8a;color:#053a23"><span class="name">nl-success</span><span class="hex">#42CF8A</span></div>
+    <div class="sw" style="background:#2ba36a;color:#fff"><span class="name">success-dark</span><span class="hex">#2BA36A</span></div>
+    <div class="sw" style="background:#eaf9f1;color:#0d5a36;border-color:#dbdcd7"><span class="name">success-bg</span><span class="hex">#EAF9F1</span></div>
+    <div class="sw" style="background:#fc624b;color:#fff"><span class="name">nl-danger</span><span class="hex">#FC624B</span></div>
+    <div class="sw" style="background:rgba(252,98,75,0.12);color:#b7321a;border-color:rgba(252,98,75,0.25)"><span class="name">danger/12</span><span class="hex">rgba(.12)</span></div>
+    <div class="sw" style="background:#053a23;color:#fff"><span class="name">success-text</span><span class="hex">#053A23</span></div>
+  </div>
+</div>
+</body></html>

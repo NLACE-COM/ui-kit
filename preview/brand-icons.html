@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.ico { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid #e8e8e8; color:#141414 }
+.grid { display:grid; grid-template-columns:repeat(8,1fr); gap:10px }
+.lbl { font-family:var(--nl-font-mono); font-size:10.5px; color:#71717a; text-align:center; margin-top:6px }
+</style>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head><body>
+<div class="card">
+  <div class="eyebrow">Iconography · Lucide (substitute) · 1.5 stroke</div>
+  <div class="grid">
+    <div><div class="ico"><i data-lucide="home"></i></div><div class="lbl">home</div></div>
+    <div><div class="ico"><i data-lucide="search"></i></div><div class="lbl">search</div></div>
+    <div><div class="ico"><i data-lucide="settings"></i></div><div class="lbl">settings</div></div>
+    <div><div class="ico"><i data-lucide="bell"></i></div><div class="lbl">bell</div></div>
+    <div><div class="ico"><i data-lucide="user"></i></div><div class="lbl">user</div></div>
+    <div><div class="ico"><i data-lucide="file-text"></i></div><div class="lbl">file</div></div>
+    <div><div class="ico"><i data-lucide="check"></i></div><div class="lbl">check</div></div>
+    <div><div class="ico"><i data-lucide="arrow-right"></i></div><div class="lbl">arrow</div></div>
+  </div>
+  <div class="mono-label">Substitution flagged in README — swap when NLACE adopts canonical set.</div>
+</div>
+<script>lucide.createIcons();</script>
+</body></html>
