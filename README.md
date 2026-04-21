@@ -129,20 +129,54 @@ The kit itself ships no photography. When imagery enters a design: warm, natural
 
 ## ICONOGRAPHY
 
-**The source repo ships essentially no icon system.** It provides only the NLACE wordmark (`NlaceLogo`) and a square avatar mark (`NlaceAvatar`), plus four literal Unicode glyphs used inside the `Alert` component (`ℹ ✓ ⚠ ✕`).
+**Regla canónica:** Los íconos en NLACE son siempre **líneas planas** (stroke), **monocromo**. Nunca se usan íconos rellenos, con color, degradado o multi-tono. El color del ícono hereda del texto del contexto o usa explícitamente `currentColor`.
 
-- No icon font. No sprite. No bundled SVG icon set.
-- Emoji: **not used** in product UI.
-- Unicode glyphs: acceptable for compact single-character indicators (as in Alerts).
-- For product UI that needs a real icon system, the recommended substitute — **flagged as a substitution, not a canonical NLACE token** — is **Lucide** (CDN-available, 1.5 stroke, rounded caps). It matches the kit's aesthetic: minimal, geometric, calm. **Heroicons Outline** is a close second.
+### Reglas de uso
 
-All recreations in this design system use **Lucide (CDN)** as a stand-in, clearly documented so anyone can swap it out if/when NLACE adopts a canonical set.
+| ✅ Correcto | ❌ Incorrecto |
+|---|---|
+| Ícono outline, stroke 1.5–2px | Ícono filled / sólido |
+| `color: currentColor` (hereda del texto) | Ícono en azul primario, rojo, verde, etc. |
+| Stroke caps redondeados | Íconos con múltiples colores |
+| Tamaño mínimo 16px, ideal 18–24px | Íconos decorativos en colores de marca |
 
-Assets provided:
+### Sistema de íconos
 
-- `assets/nlace-black.svg` — wordmark, dark variant.
-- `assets/nlace-white.svg` — wordmark, light variant (derived).
-- `NlaceLogo` / `NlaceAvatar` React components (see `src/components/NlaceLogo.jsx`).
+- **No existe un icon font o sprite oficial en el repositorio.** Se usa **Lucide** (CDN) como sistema de referencia — stroke 1.5, rounded caps, geométrico y neutral. Es el sustituto canónico hasta que NLACE adopte un set propio.
+- CDN: `https://unpkg.com/lucide@latest`
+- **Emoji: nunca usados** en UI de productos.
+- **Unicode glyphs** (`ℹ ✓ ⚠ ✕`): aceptables solo como indicadores compactos en el componente `Alert`.
+
+### Ejemplos de uso correcto
+
+```jsx
+// ✅ Ícono en línea, hereda color del contexto
+<i data-lucide="arrow-right" style="width:18px;height:18px;" />
+
+// ✅ En botón: color blanco heredado
+<button style="background:#5869f7;color:#fff;">
+  Enviar <i data-lucide="send" />
+</button>
+
+// ❌ Incorrecto: ícono en color de marca
+<i data-lucide="check" style="color:#42cf8a;" />
+
+// ❌ Incorrecto: ícono filled
+<i data-lucide="check-circle-2" style="fill:#5869f7;" />
+```
+
+### Tamaños estándar
+
+- **16px** — inline en texto, dentro de badges
+- **18px** — botones md, nav items
+- **20–24px** — iconos standalone, headers
+- **32px+** — ilustraciones funcionales, estados vacíos
+
+Assets de marca:
+
+- `assets/nlace-black.svg` — wordmark, variant oscura.
+- `assets/nlace-white.svg` — wordmark, variant clara (derivada).
+- `NlaceLogo` / `NlaceAvatar` React components (ver `src/components/NlaceLogo.jsx`).
 
 ---
 

@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
 <style>
-.ico { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid #e8e8e8; color:#141414 }
-.grid { display:grid; grid-template-columns:repeat(8,1fr); gap:10px }
-.lbl { font-family:var(--nl-font-mono); font-size:10.5px; color:#71717a; text-align:center; margin-top:6px }
+.rule { display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-family:var(--nl-font-body); font-size:14px; }
+.rule.ok  { background:rgba(66,207,138,0.12); }
+.rule.no  { background:rgba(252,98,75,0.1); }
+.rule .ico { font-family:var(--nl-font-mono); font-size:13px; font-weight:600; }
+.rule.ok .ico { color:#053a23; }
+.rule.no .ico { color:#b7321a; }
+.rule .txt { color:var(--nl-700); }
+.grid { display:grid; grid-template-columns:repeat(8,1fr); gap:10px; }
+.ic { width:44px; height:44px; border-radius:10px; background:#fff; border:1px solid var(--nl-border-soft); display:flex; align-items:center; justify-content:center; color:var(--nl-text); }
+.ic-on-color { background:#5869f7; color:#fff; }
+.ic-on-dark  { background:#0f1011; color:#fff; }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 </head><body>
-<div class="card">
-  <div class="eyebrow">Iconography · Lucide (substitute) · 1.5 stroke</div>
-  <div class="grid">
-    <div><div class="ico"><i data-lucide="home"></i></div><div class="lbl">home</div></div>
-    <div><div class="ico"><i data-lucide="search"></i></div><div class="lbl">search</div></div>
-    <div><div class="ico"><i data-lucide="settings"></i></div><div class="lbl">settings</div></div>
-    <div><div class="ico"><i data-lucide="bell"></i></div><div class="lbl">bell</div></div>
-    <div><div class="ico"><i data-lucide="user"></i></div><div class="lbl">user</div></div>
-    <div><div class="ico"><i data-lucide="file-text"></i></div><div class="lbl">file</div></div>
-    <div><div class="ico"><i data-lucide="check"></i></div><div class="lbl">check</div></div>
-    <div><div class="ico"><i data-lucide="arrow-right"></i></div><div class="lbl">arrow</div></div>
+<div class="card" style="gap:14px;">
+  <div class="eyebrow">Iconografía · Lucide · stroke 1.5 · monocromo</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <div class="rule ok"><span class="ico">✓</span><span class="txt">Stroke outline, <code>currentColor</code>, sin relleno</span></div>
+    <div class="rule no"><span class="ico">✕</span><span class="txt">Ícono en color de marca (azul, rojo, verde)</span></div>
+    <div class="rule ok"><span class="ico">✓</span><span class="txt">Hereda color del contexto (blanco sobre azul)</span></div>
+    <div class="rule no"><span class="ico">✕</span><span class="txt">Ícono filled / sólido / gradiente</span></div>
   </div>
-  <div class="mono-label">Substitution flagged in README — swap when NLACE adopts canonical set.</div>
+
+  <div class="eyebrow" style="margin-top:4px;">Sobre fondos distintos — siempre monocromo</div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div class="ic"><i data-lucide="home"></i></div>
+    <div class="ic"><i data-lucide="search"></i></div>
+    <div class="ic"><i data-lucide="settings"></i></div>
+    <div class="ic"><i data-lucide="bell"></i></div>
+    <div class="ic ic-on-color"><i data-lucide="plus"></i></div>
+    <div class="ic ic-on-color"><i data-lucide="arrow-right"></i></div>
+    <div class="ic ic-on-dark"><i data-lucide="user"></i></div>
+    <div class="ic ic-on-dark"><i data-lucide="layers"></i></div>
+    <div style="flex:1;padding:12px 16px;background:#efefef;border-radius:10px;font-family:var(--nl-font-mono);font-size:12px;color:var(--nl-500);letter-spacing:0.1em;">currentColor · stroke 1.5 · rounded caps · Lucide CDN</div>
+  </div>
+
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+    <div class="ic" style="width:32px;height:32px;border-radius:8px;"><i data-lucide="file-text" style="width:16px;height:16px;"></i></div>
+    <div class="ic" style="width:36px;height:36px;border-radius:8px;"><i data-lucide="database" style="width:18px;height:18px;"></i></div>
+    <div class="ic" style="width:44px;height:44px;border-radius:10px;"><i data-lucide="sparkles" style="width:20px;height:20px;"></i></div>
+    <div class="ic" style="width:52px;height:52px;border-radius:12px;"><i data-lucide="cpu" style="width:24px;height:24px;"></i></div>
+    <div style="font-family:var(--nl-font-mono);font-size:11.5px;color:var(--nl-500);letter-spacing:0.1em;margin-left:4px;">16 · 18 · 20 · 24px</div>
+  </div>
 </div>
 <script>lucide.createIcons();</script>
 </body></html>

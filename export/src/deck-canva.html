@@ -3,16 +3,22 @@
 <head>
 <meta charset="utf-8"/>
 <title>Ventajas de un sistema de diseño · NLACE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#5869f7"/>
+    <text x="50" y="58" text-anchor="middle" font-family="system-ui" font-weight="800" font-size="32" fill="#fff">nlace.</text>
+    <rect x="20" y="70" width="60" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
+    <rect x="20" y="80" width="40" height="6" rx="3" fill="rgba(255,255,255,0.25)"/>
+  </svg>
+</template>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{background:#0f1011;}
 
 /* ─── Fonts ────────────────────────────────────── */
-.sg  {font-family:"Space Grotesk",system-ui,sans-serif;}
-.int {font-family:"Inter",system-ui,sans-serif;}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace;}
+.sg  {font-family:system-ui,-apple-system,sans-serif;}
+.int {font-family:system-ui,-apple-system,sans-serif;}
+.mono{font-family:ui-monospace,"Courier New",monospace;}
 .grad{background:linear-gradient(90deg,#5869f7,#fc624b);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
 /* ─── Slide shell ───────────────────────────────── */
@@ -27,14 +33,14 @@ deck-stage > section{
   position:absolute;bottom:0;left:0;right:0;
   display:flex;align-items:center;justify-content:space-between;
   padding:28px 64px;z-index:20;
-  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-family:ui-monospace,"Courier New",monospace;
   font-size:14px;letter-spacing:0.18em;text-transform:uppercase;
 }
 .pg.dk{color:#a1a1aa;}
 .pg.lt{color:rgba(255,255,255,0.55);}
 /* shared eyebrow */
 .eyebrow{
-  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-family:ui-monospace,"Courier New",monospace;
   font-size:17px;letter-spacing:0.22em;text-transform:uppercase;
 }
 .eyebrow.dk{color:#a1a1aa;}
@@ -66,10 +72,10 @@ deck-stage > section{
   display:flex;align-items:center;gap:20px;
   background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);
 }
-.tp .tc{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:28px;color:#fff;letter-spacing:-0.02em;min-width:100px;}
-.tp .tl{font-family:"Inter",system-ui,sans-serif;font-size:16px;color:rgba(255,255,255,0.85);font-weight:500;}
-.s1-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:110px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;margin-top:32px;}
-.s1-sub{font-family:"Inter",system-ui,sans-serif;font-size:26px;line-height:1.45;color:#3f3f46;margin-top:36px;}
+.tp .tc{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:28px;color:#fff;letter-spacing:-0.02em;min-width:100px;}
+.tp .tl{font-family:system-ui,-apple-system,sans-serif;font-size:16px;color:rgba(255,255,255,0.85);font-weight:500;}
+.s1-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:110px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;margin-top:32px;}
+.s1-sub{font-family:system-ui,-apple-system,sans-serif;font-size:26px;line-height:1.45;color:#3f3f46;margin-top:36px;}
 
 /* ══════════════════════════════════════════════════
    S2 · QUÉ ES — left text + right DS component showcase
@@ -77,19 +83,19 @@ deck-stage > section{
 #s2{grid-template-columns:1fr 1fr;}
 .s2l{padding:100px 80px 100px;display:flex;flex-direction:column;justify-content:center;background:#fff;}
 .s2r{background:#efefef;display:flex;flex-direction:column;gap:20px;padding:80px 60px;justify-content:center;}
-.s2-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:76px;line-height:0.96;letter-spacing:-0.03em;color:#0f1011;margin-top:24px;}
-.s2-body{font-family:"Inter",system-ui,sans-serif;font-size:26px;line-height:1.5;color:#3f3f46;margin-top:32px;max-width:840px;}
+.s2-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:76px;line-height:0.96;letter-spacing:-0.03em;color:#0f1011;margin-top:24px;}
+.s2-body{font-family:system-ui,-apple-system,sans-serif;font-size:26px;line-height:1.5;color:#3f3f46;margin-top:32px;max-width:840px;}
 .comp-card{background:#fff;border-radius:24px;box-shadow:0 2px 20px rgba(15,16,17,0.1);padding:28px;}
-.comp-label{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;}
+.comp-label{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
-.cb{border-radius:9999px;padding:12px 22px;font-family:"Inter",system-ui,sans-serif;font-weight:600;font-size:15px;border:0;cursor:default;}
+.cb{border-radius:9999px;padding:12px 22px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;border:0;cursor:default;}
 .cb.p{background:#5869f7;color:#fff;}
 .cb.a{background:#fc624b;color:#fff;}
 .cb.s{background:#fff;color:#0f1011;border:1.5px solid #c6c7c2;}
 .cb.g{background:#42cf8a;color:#0f1011;}
 .bdg-row{display:flex;gap:10px;margin-bottom:14px;}
-.bdg{border-radius:9999px;padding:5px 14px;font-size:14px;font-weight:600;font-family:"Inter",system-ui,sans-serif;}
-.inp{width:100%;height:44px;border-radius:10px;border:1.5px solid #c6c7c2;background:#fff;display:flex;align-items:center;padding:0 14px;font-family:"Inter",system-ui,sans-serif;font-size:15px;margin-bottom:8px;}
+.bdg{border-radius:9999px;padding:5px 14px;font-size:14px;font-weight:600;font-family:system-ui,-apple-system,sans-serif;}
+.inp{width:100%;height:44px;border-radius:10px;border:1.5px solid #c6c7c2;background:#fff;display:flex;align-items:center;padding:0 14px;font-family:system-ui,-apple-system,sans-serif;font-size:15px;margin-bottom:8px;}
 .inp.foc{border-color:#5869f7;box-shadow:0 0 0 4px rgba(88,105,247,0.2);}
 .inp .ph{color:#a1a1aa;}
 .inp .cur{display:inline-block;width:2px;height:16px;background:#5869f7;margin-left:1px;vertical-align:middle;}
@@ -103,17 +109,17 @@ deck-stage > section{
 .s3l{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:80px;}
 .s3l .ov{position:absolute;inset:0;background:rgba(15,16,17,0.45);}
 .s3l .copy{position:relative;z-index:2;}
-.s3-eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;}
-.s3-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:72px;line-height:0.96;letter-spacing:-0.03em;color:#fff;}
+.s3-eyebrow{font-family:ui-monospace,"Courier New",monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+.s3-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:72px;line-height:0.96;letter-spacing:-0.03em;color:#fff;}
 .s3r{background:#fff;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;gap:24px;}
 .stat-block{border-radius:24px;padding:32px 36px;display:flex;align-items:center;gap:28px;}
 .sb-1{background:#5869f7;}
 .sb-2{background:#fc624b;}
 .sb-3{background:#42cf8a;}
-.stat-n{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:88px;line-height:1;letter-spacing:-0.04em;min-width:180px;}
+.stat-n{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:88px;line-height:1;letter-spacing:-0.04em;min-width:180px;}
 .sb-1 .stat-n,.sb-2 .stat-n{color:#fff;}
 .sb-3 .stat-n{color:#0f1011;}
-.stat-desc{font-family:"Inter",system-ui,sans-serif;font-size:22px;line-height:1.4;}
+.stat-desc{font-family:system-ui,-apple-system,sans-serif;font-size:22px;line-height:1.4;}
 .sb-1 .stat-desc,.sb-2 .stat-desc{color:rgba(255,255,255,0.9);}
 .sb-3 .stat-desc{color:#0f1011;}
 
@@ -126,14 +132,14 @@ deck-stage > section{
   padding:0 64px;border-bottom:1px solid #e8e8e8;background:#fff;
 }
 .s4-bar img{height:34px;}
-.s4-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;}
-.s4-pg{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;}
+.s4-title{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;}
+.s4-pg{font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;}
 .bx{padding:48px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;}
-.bx-n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;}
-.bx-t{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-0.02em;}
-.bx-d{font-family:"Inter",system-ui,sans-serif;font-size:18px;line-height:1.45;margin-top:10px;}
-.bx-big{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:180px;line-height:1;letter-spacing:-0.05em;position:absolute;right:-16px;bottom:-32px;opacity:0.12;}
+.bx-n{font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;}
+.bx-t{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-0.02em;}
+.bx-d{font-family:system-ui,-apple-system,sans-serif;font-size:18px;line-height:1.45;margin-top:10px;}
+.bx-big{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:180px;line-height:1;letter-spacing:-0.05em;position:absolute;right:-16px;bottom:-32px;opacity:0.12;}
 
 /* colors + text rules — NO gray on colored bg */
 .bx-blue{background:#5869f7;color:#fff;} .bx-blue .bx-n,.bx-blue .bx-d{color:rgba(255,255,255,0.8);}
@@ -155,26 +161,26 @@ deck-stage > section{
 #s5{grid-template-columns:1fr 1fr;}
 .s5l{background:#efefef;padding:100px 80px 100px;display:flex;flex-direction:column;}
 .s5r{background:#5869f7;color:#fff;padding:100px 80px 100px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
-.s5-tag{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:20px;}
+.s5-tag{font-family:ui-monospace,"Courier New",monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:20px;}
 .s5l .s5-tag{color:#a1a1aa;}
 .s5r .s5-tag{color:rgba(255,255,255,0.6);}
-.s5-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:64px;line-height:0.98;letter-spacing:-0.03em;margin-bottom:28px;}
+.s5-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:64px;line-height:0.98;letter-spacing:-0.03em;margin-bottom:28px;}
 .s5l .s5-h{color:#0f1011;}
 .s5r .s5-h{color:#fff;}
 .s5-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
-.s5-list li{font-family:"Inter",system-ui,sans-serif;font-size:22px;line-height:1.4;display:flex;gap:16px;align-items:flex-start;}
+.s5-list li{font-family:system-ui,-apple-system,sans-serif;font-size:22px;line-height:1.4;display:flex;gap:16px;align-items:flex-start;}
 .s5-list li .dot{width:10px;height:10px;border-radius:3px;margin-top:8px;flex-shrink:0;}
 .s5l li{color:#0f1011;} .s5l .dot{background:#a1a1aa;}
 .s5r li{color:rgba(255,255,255,0.9);} .s5r .dot{background:#42cf8a;}
 /* bar chart */
 .chart{margin-top:auto;padding-top:40px;}
-.chart-title{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:20px;}
+.chart-title{font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:20px;}
 .s5l .chart-title{color:#a1a1aa;}
 .s5r .chart-title{color:rgba(255,255,255,0.6);}
 .bars{display:flex;gap:12px;align-items:flex-end;height:110px;}
 .bar-item{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;}
 .bar-fill{width:100%;border-radius:8px 8px 0 0;}
-.bar-lbl{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+.bar-lbl{font-family:ui-monospace,"Courier New",monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
 .s5l .bar-lbl{color:#a1a1aa;}
 .s5r .bar-lbl{color:rgba(255,255,255,0.6);}
 /* deco circle on right */
@@ -187,14 +193,14 @@ deck-stage > section{
 .s6-inner{padding:80px 64px;display:flex;flex-direction:column;height:100%;}
 .s6-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
 .s6-head img{height:36px;}
-.s6-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:64px;line-height:0.98;letter-spacing:-0.03em;color:#0f1011;margin-bottom:8px;}
+.s6-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:64px;line-height:0.98;letter-spacing:-0.03em;color:#0f1011;margin-bottom:8px;}
 .persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;flex:1;}
 .persona{border-radius:28px;overflow:hidden;display:flex;flex-direction:column;position:relative;}
 .persona-photo{width:100%;height:360px;background-size:cover;background-position:center top;display:block;flex-shrink:0;}
 .persona-body{padding:32px;flex:1;display:flex;flex-direction:column;justify-content:space-between;}
-.persona-role{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.02em;margin:0 0 10px;}
-.persona-quote{font-family:"Inter",system-ui,sans-serif;font-style:italic;font-size:20px;line-height:1.45;margin:0;}
-.persona-gain{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.25);}
+.persona-role{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.02em;margin:0 0 10px;}
+.persona-quote{font-family:system-ui,-apple-system,sans-serif;font-style:italic;font-size:20px;line-height:1.45;margin:0;}
+.persona-gain{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.25);}
 /* persona color themes — NO gray text on colored bg */
 .pc-blue{background:#5869f7;color:#fff;} .pc-blue .persona-role{color:#fff;} .pc-blue .persona-quote{color:rgba(255,255,255,0.88);} .pc-blue .persona-gain{color:rgba(255,255,255,0.7);}
 .pc-red {background:#fc624b;color:#fff;} .pc-red .persona-role{color:#fff;} .pc-red  .persona-quote{color:rgba(255,255,255,0.88);} .pc-red .persona-gain{color:rgba(255,255,255,0.7);}
@@ -214,14 +220,14 @@ deck-stage > section{
   padding:60px;pointer-events:none;
 }
 .ds-chip{border-radius:16px;padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);}
-.ds-chip .dc-l{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
-.ds-chip .dc-v{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:28px;color:#fff;letter-spacing:-0.02em;}
+.ds-chip .dc-l{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
+.ds-chip .dc-v{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:28px;color:#fff;letter-spacing:-0.02em;}
 .ds-chip .dc-swatch{display:flex;gap:6px;margin-top:8px;}
 .ds-chip .dc-swatch span{height:18px;border-radius:6px;flex:1;}
-.s7-tag{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;color:#a1a1aa;margin-bottom:24px;}
-.s7-h{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:100px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;}
-.s7-sub{font-family:"Inter",system-ui,sans-serif;font-size:26px;line-height:1.5;color:#3f3f46;margin-top:32px;max-width:800px;}
-.s7-pill{display:inline-flex;align-items:center;gap:14px;background:#5869f7;color:#fff;padding:20px 36px;border-radius:9999px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:19px;letter-spacing:0.16em;text-transform:uppercase;margin-top:32px;}
+.s7-tag{font-family:ui-monospace,"Courier New",monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;color:#a1a1aa;margin-bottom:24px;}
+.s7-h{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:100px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;}
+.s7-sub{font-family:system-ui,-apple-system,sans-serif;font-size:26px;line-height:1.5;color:#3f3f46;margin-top:32px;max-width:800px;}
+.s7-pill{display:inline-flex;align-items:center;gap:14px;background:#5869f7;color:#fff;padding:20px 36px;border-radius:9999px;font-family:ui-monospace,"Courier New",monospace;font-size:19px;letter-spacing:0.16em;text-transform:uppercase;margin-top:32px;}
 
 /* ══════════════════════════════════════════════════
    S8 · COLOR TOKENS — full palette bento
@@ -231,9 +237,9 @@ deck-stage > section{
 .s8-top img{height:34px;}
 .s8-grid{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:1fr 1fr;}
 .s8-sw{display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px;}
-.s8-sw .sn{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em;}
-.s8-sw .sh{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;margin-top:6px;}
-.s8-sw .st{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
+.s8-sw .sn{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em;}
+.s8-sw .sh{font-family:ui-monospace,"Courier New",monospace;font-size:13px;margin-top:6px;}
+.s8-sw .st{font-family:ui-monospace,"Courier New",monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
 
 /* ══════════════════════════════════════════════════
    S9 · TIPOGRAFÍA — specimens
@@ -247,7 +253,7 @@ deck-stage > section{
 .type-row:last-child{border-bottom:1px solid;}
 .s9l .type-row:last-child{border-color:#e8e8e8;}
 .s9r .type-row:last-child{border-color:rgba(255,255,255,0.12);}
-.tr-meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;}
+.tr-meta{font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;}
 .s9l .tr-meta{color:#a1a1aa;}
 .s9r .tr-meta{color:rgba(255,255,255,0.4);}
 
@@ -257,9 +263,9 @@ deck-stage > section{
 #s10{grid-template-columns:1fr 1fr;}
 .s10l{background:#fff;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:40px;}
 .s10r{background:#efefef;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:32px;}
-.comp-section-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;margin-bottom:6px;}
+.comp-section-title{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;margin-bottom:6px;}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
-.btn-ds{border-radius:9999px;font-family:"Inter",system-ui,sans-serif;font-weight:600;border:0;cursor:default;display:inline-flex;align-items:center;gap:8px;}
+.btn-ds{border-radius:9999px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;border:0;cursor:default;display:inline-flex;align-items:center;gap:8px;}
 .btn-ds.lg{padding:16px 32px;font-size:18px;}
 .btn-ds.md{padding:12px 24px;font-size:15px;}
 .btn-ds.sm{padding:8px 18px;font-size:13px;}
@@ -272,7 +278,7 @@ deck-stage > section{
 .btn-ds.disabled{background:#5869f7;color:#fff;opacity:0.4;}
 .bdg-section{display:flex;flex-direction:column;gap:16px;}
 .bdg-row-ds{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
-.bdg-ds{border-radius:9999px;padding:6px 16px;font-family:"Inter",system-ui,sans-serif;font-weight:600;font-size:15px;}
+.bdg-ds{border-radius:9999px;padding:6px 16px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;}
 
 /* ══════════════════════════════════════════════════
    S11 · INPUTS & ALERTS
@@ -281,20 +287,20 @@ deck-stage > section{
 .s11l{background:#fff;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:36px;}
 .s11r{background:#fff;padding:100px 80px;border-left:1px solid #e8e8e8;display:flex;flex-direction:column;justify-content:center;gap:20px;}
 .inp-group{display:flex;flex-direction:column;gap:10px;}
-.inp-lbl{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:8px;}
-.field-lbl{font-family:"Inter",system-ui,sans-serif;font-weight:600;font-size:15px;color:#0f1011;margin-bottom:6px;}
-.inp-ds{width:100%;height:48px;border-radius:10px;border:1.5px solid;background:#fff;display:flex;align-items:center;padding:0 16px;font-family:"Inter",system-ui,sans-serif;font-size:16px;box-sizing:border-box;}
+.inp-lbl{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:8px;}
+.field-lbl{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;color:#0f1011;margin-bottom:6px;}
+.inp-ds{width:100%;height:48px;border-radius:10px;border:1.5px solid;background:#fff;display:flex;align-items:center;padding:0 16px;font-family:system-ui,-apple-system,sans-serif;font-size:16px;box-sizing:border-box;}
 .inp-ds.rest{border-color:#c6c7c2;color:#a1a1aa;}
 .inp-ds.focus{border-color:#5869f7;box-shadow:0 0 0 4px rgba(88,105,247,0.2);color:#0f1011;}
 .inp-ds.error{border-color:#fc624b;color:#0f1011;}
 .inp-ds.success-state{border-color:#2ba36a;color:#0f1011;}
-.inp-hint{font-family:"Inter",system-ui,sans-serif;font-size:13px;color:#a1a1aa;margin-top:4px;}
-.inp-err{font-family:"Inter",system-ui,sans-serif;font-size:13px;color:#fc624b;margin-top:4px;}
+.inp-hint{font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:#a1a1aa;margin-top:4px;}
+.inp-err{font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:#fc624b;margin-top:4px;}
 .alert-ds{display:flex;gap:0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(15,16,17,0.08);}
-.alert-ds .al-sig{width:56px;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",system-ui,sans-serif;font-weight:800;font-size:20px;color:#fff;flex-shrink:0;}
+.alert-ds .al-sig{width:56px;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;font-weight:800;font-size:20px;color:#fff;flex-shrink:0;}
 .alert-ds .al-body{padding:16px 20px;flex:1;}
-.alert-ds .al-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;margin:0 0 4px;}
-.alert-ds .al-desc{font-family:"Inter",system-ui,sans-serif;font-size:14px;line-height:1.45;margin:0;color:#3f3f46;}
+.alert-ds .al-title{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;margin:0 0 4px;}
+.alert-ds .al-desc{font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.45;margin:0;color:#3f3f46;}
 
 /* ══════════════════════════════════════════════════
    S12 · CARDS & SOMBRAS
@@ -305,19 +311,19 @@ deck-stage > section{
 .card-ds{background:#fff;border:1px solid #dbdcd7;border-radius:20px;padding:28px;box-shadow:0 2px 12px rgba(15,16,17,0.08);}
 .card-ds.hover-state{box-shadow:0 10px 28px rgba(15,16,17,0.14);transform:translateY(-4px);}
 .card-ds.accent-state{background:#5869f7;border-color:transparent;box-shadow:none;}
-.card-ds .cd-tag{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;}
+.card-ds .cd-tag{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;}
 .card-ds.accent-state .cd-tag{color:rgba(255,255,255,0.6);}
-.card-ds .cd-t{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.015em;color:#0f1011;margin:0 0 8px;}
+.card-ds .cd-t{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.015em;color:#0f1011;margin:0 0 8px;}
 .card-ds.accent-state .cd-t{color:#fff;}
-.card-ds .cd-d{font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.5;color:#71717a;}
+.card-ds .cd-d{font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;color:#71717a;}
 .card-ds.accent-state .cd-d{color:rgba(255,255,255,0.8);}
 .shadow-row{display:flex;flex-direction:column;gap:20px;}
 .shadow-item{display:flex;align-items:center;gap:24px;}
-.shadow-box{width:120px;height:80px;border-radius:16px;background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:#a1a1aa;}
+.shadow-box{width:120px;height:80px;border-radius:16px;background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,"Courier New",monospace;font-size:12px;color:#a1a1aa;}
 .shadow-box.s-none{box-shadow:none;border:1px solid #dbdcd7;}
 .shadow-box.s-card{box-shadow:0 2px 12px rgba(15,16,17,0.08);}
 .shadow-box.s-hover{box-shadow:0 10px 28px rgba(15,16,17,0.14);}
-.shadow-meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:#71717a;}
+.shadow-meta{font-family:ui-monospace,"Courier New",monospace;font-size:13px;color:#71717a;}
 
 /* ══════════════════════════════════════════════════
    S13 · GRADIENTES EN USO
@@ -326,9 +332,9 @@ deck-stage > section{
 .s13-top{display:flex;align-items:center;justify-content:space-between;padding:0 64px;border-bottom:1px solid #e8e8e8;background:#fff;}
 .s13-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;}
 .s13-g{display:flex;flex-direction:column;justify-content:space-between;padding:48px 56px;position:relative;overflow:hidden;}
-.s13-g .gn{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
-.s13-g .gt{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.025em;line-height:1;color:#fff;}
-.s13-g .gm{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.12em;color:rgba(255,255,255,0.55);}
+.s13-g .gn{font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
+.s13-g .gt{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.025em;line-height:1;color:#fff;}
+.s13-g .gm{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.12em;color:rgba(255,255,255,0.55);}
 .s13-g.light .gn,.s13-g.light .gt,.s13-g.light .gm{color:#0f1011;}
 .s13-g.light .gn{color:#71717a;}
 .s13-g.light .gm{color:#a1a1aa;}
@@ -340,9 +346,9 @@ deck-stage > section{
 .s14l{background:#0f1011;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:48px;}
 .s14r{background:#0f1011;padding:100px 80px;border-left:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;justify-content:center;gap:48px;}
 .motion-item{display:flex;flex-direction:column;gap:16px;}
-.motion-label{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
-.motion-val{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:56px;letter-spacing:-0.03em;color:#fff;line-height:1;}
-.motion-desc{font-family:"Inter",system-ui,sans-serif;font-size:20px;line-height:1.4;color:rgba(255,255,255,0.65);}
+.motion-label{font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.motion-val{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:56px;letter-spacing:-0.03em;color:#fff;line-height:1;}
+.motion-desc{font-family:system-ui,-apple-system,sans-serif;font-size:20px;line-height:1.4;color:rgba(255,255,255,0.65);}
 .motion-bar-track{height:8px;background:rgba(255,255,255,0.1);border-radius:4px;position:relative;overflow:hidden;margin-top:8px;}
 .motion-bar-fill{position:absolute;top:0;left:0;height:100%;border-radius:4px;}
 @keyframes bar-ui{0%{width:0}100%{width:40%}}
@@ -357,16 +363,16 @@ deck-stage > section{
 #s15{grid-template-columns:1fr 1fr;}
 .s15l{background:#fff;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:40px;}
 .s15r{background:#fff;padding:100px 80px;border-left:1px solid #e8e8e8;display:flex;flex-direction:column;justify-content:center;gap:40px;}
-.spacing-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.02em;color:#0f1011;margin-bottom:4px;}
-.spacing-sub{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:24px;}
+.spacing-title{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.02em;color:#0f1011;margin-bottom:4px;}
+.spacing-sub{font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:24px;}
 .radius-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
 .radius-item{display:flex;flex-direction:column;align-items:center;gap:12px;}
 .radius-box{background:#5869f7;display:flex;align-items:center;justify-content:center;}
-.radius-lbl{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;text-align:center;}
+.radius-lbl{font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;text-align:center;}
 .spacing-scale{display:flex;flex-direction:column;gap:10px;}
 .sp-row{display:flex;align-items:center;gap:16px;}
 .sp-bar{height:28px;border-radius:6px;background:#5869f7;flex-shrink:0;}
-.sp-meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:#71717a;}
+.sp-meta{font-family:ui-monospace,"Courier New",monospace;font-size:13px;color:#71717a;}
 
 /* ══════════════════════════════════════════════════
    S16 · SISTEMA EN ACCIÓN — photo + mockup
@@ -382,11 +388,11 @@ deck-stage > section{
 .mockup-row{display:flex;gap:14px;}
 .mockup-card{background:#fff;border:1px solid #dbdcd7;border-radius:14px;padding:16px;flex:1;box-shadow:0 2px 8px rgba(15,16,17,0.06);}
 .mc-dot{width:24px;height:24px;border-radius:8px;margin-bottom:8px;}
-.mc-label{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;}
-.mc-val{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:28px;letter-spacing:-0.02em;color:#0f1011;margin-top:4px;}
+.mc-label{font-family:ui-monospace,"Courier New",monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;}
+.mc-val{font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:28px;letter-spacing:-0.02em;color:#0f1011;margin-top:4px;}
 .mockup-full{background:#5869f7;border-radius:14px;padding:20px;display:flex;align-items:center;gap:20px;}
-.mockup-full .mf-t{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:20px;color:#fff;letter-spacing:-0.01em;}
-.mockup-full .mf-d{font-family:"Inter",system-ui,sans-serif;font-size:14px;color:rgba(255,255,255,0.78);}
+.mockup-full .mf-t{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:20px;color:#fff;letter-spacing:-0.01em;}
+.mockup-full .mf-d{font-family:system-ui,-apple-system,sans-serif;font-size:14px;color:rgba(255,255,255,0.78);}
 
 /* ══════════════════════════════════════════════════
    S17 · ARQUITECTURA DEL SISTEMA
@@ -396,9 +402,9 @@ deck-stage > section{
 .s17r{background:#0f1011;padding:100px 80px;display:flex;flex-direction:column;justify-content:center;gap:24px;}
 .arch-row{display:flex;align-items:stretch;gap:0;margin-bottom:0;}
 .arch-layer{border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:20px;margin-bottom:12px;}
-.arch-layer .al-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",system-ui,sans-serif;font-weight:800;font-size:22px;color:#fff;}
-.arch-layer .al-t{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.015em;margin:0 0 4px;}
-.arch-layer .al-d{font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.4;}
+.arch-layer .al-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;font-weight:800;font-size:22px;color:#fff;}
+.arch-layer .al-t{font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.015em;margin:0 0 4px;}
+.arch-layer .al-d{font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.4;}
 .arch-layer.l1{background:#5869f7;color:#fff;} .arch-layer.l1 .al-d{color:rgba(255,255,255,0.8);}
 .arch-layer.l2{background:#fc624b;color:#fff;} .arch-layer.l2 .al-d{color:rgba(255,255,255,0.8);}
 .arch-layer.l3{background:#42cf8a;color:#0f1011;} .arch-layer.l3 .al-d{color:rgba(15,16,17,0.7);}
@@ -407,9 +413,9 @@ deck-stage > section{
 .file-tree{display:flex;flex-direction:column;gap:8px;}
 .ft-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;}
 .ft-item.dir{background:rgba(255,255,255,0.08);}
-.ft-item .ft-icon{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;color:#5869f7;width:20px;flex-shrink:0;}
-.ft-item .ft-name{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:15px;color:#fff;}
-.ft-item .ft-desc{font-family:"Inter",system-ui,sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-left:auto;}
+.ft-item .ft-icon{font-family:ui-monospace,"Courier New",monospace;font-size:14px;color:#5869f7;width:20px;flex-shrink:0;}
+.ft-item .ft-name{font-family:ui-monospace,"Courier New",monospace;font-size:15px;color:#fff;}
+.ft-item .ft-desc{font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-left:auto;}
 .ft-indent{padding-left:40px;}
 </style>
 </head>
@@ -422,7 +428,7 @@ deck-stage > section{
 ────────────────────────────────────────────────── -->
 <section id="s1" data-label="01 Portada">
   <div class="s1l">
-    <img src="../assets/nlace-black.svg" alt="NLACE" style="height:38px;display:block;width:fit-content;"/>
+    <div style="font-family:system-ui;font-weight:800;font-size:32px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
     <div>
       <div class="eyebrow dk" style="margin-bottom:28px;">Design System 101 · NLACE · 2026</div>
       <h1 class="s1-h">Por qué usar<br/>un <span class="grad">sistema<br/>de diseño</span>.</h1>
@@ -430,10 +436,10 @@ deck-stage > section{
     </div>
     <div class="mono" style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#a1a1aa;">01 / 17</div>
   </div>
-  <div class="s1r" style="background-image:url('../assets/photos/team-meeting-03.jpg');background-size:cover;background-position:center;">
+  <div class="s1r" style="background:#5869f7;">
     <div class="overlay"></div>
     <div class="token-pills">
-      <div class="tp"><div class="tc" style="color:#fff;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:28px;">Aa</div><div class="tl">Space Grotesk · Display</div></div>
+      <div class="tp"><div class="tc" style="color:#fff;font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:28px;">Aa</div><div class="tl">Space Grotesk · Display</div></div>
       <div class="tp">
         <div style="display:flex;gap:8px;">
           <div style="width:32px;height:32px;border-radius:8px;background:#5869f7;"></div>
@@ -496,7 +502,7 @@ deck-stage > section{
         <div style="width:80px;height:40px;border-radius:10px;border:1.5px solid #c6c7c2;"></div>
         <div style="width:80px;height:40px;border-radius:20px;border:1.5px solid #c6c7c2;"></div>
         <div style="width:80px;height:40px;border-radius:9999px;border:1.5px solid #c6c7c2;"></div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#a1a1aa;letter-spacing:0.1em;">10px · 20px · pill</span>
+        <span style="font-family:ui-monospace,"Courier New",monospace;font-size:12px;color:#a1a1aa;letter-spacing:0.1em;">10px · 20px · pill</span>
       </div>
     </div>
   </div>
@@ -507,8 +513,8 @@ deck-stage > section{
      S3 · EL COSTO
 ────────────────────────────────────────────────── -->
 <section id="s3" data-label="03 El costo">
-    <div class="s3l" style="background-image:url('../assets/photos/team-meeting-01.jpg');background-size:cover;background-position:center;">
-    <div class="ov"></div>
+    <div class="s3l" style="background:#0f1011;">
+    <div class="ov" style="display:none"></div>
     <div class="copy">
       <div class="s3-eyebrow">02 · El costo de no tenerlo</div>
       <h2 class="s3-h">Lo mismo,<br/><span class="grad">inventado<br/>muchas veces</span>.</h2>
@@ -517,7 +523,7 @@ deck-stage > section{
   <div class="s3r">
     <div style="margin-bottom:20px;">
       <div class="eyebrow dk" style="margin-bottom:8px;">Sin sistema de diseño</div>
-      <div style="font-family:'Inter',system-ui,sans-serif;font-size:22px;line-height:1.45;color:#3f3f46;max-width:760px;">Cada equipo reinventa los mismos componentes. El resultado: inconsistencia, lentitud y deuda técnica.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:22px;line-height:1.45;color:#3f3f46;max-width:760px;">Cada equipo reinventa los mismos componentes. El resultado: inconsistencia, lentitud y deuda técnica.</div>
     </div>
     <div class="stat-block sb-1">
       <div class="stat-n">34%</div>
@@ -541,7 +547,7 @@ deck-stage > section{
 <section id="s4" data-label="04 Ventajas">
   <div class="s4-bar">
     <div style="display:flex;align-items:center;gap:32px;">
-      <img src="../assets/nlace-black.svg" alt="NLACE" style="height:34px;"/>
+      <div style="font-family:system-ui;font-weight:800;font-size:26px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
       <span class="s4-title">Cinco ventajas concretas.</span>
     </div>
     <span class="s4-pg">03 · Qué cambia · 04 / 17</span>
@@ -685,13 +691,13 @@ deck-stage > section{
         <h2 class="s6-h">Todos en el equipo ganan.</h2>
       </div>
       <div style="display:flex;align-items:center;gap:24px;">
-        <img src="../assets/nlace-black.svg" alt="NLACE" style="height:34px;"/>
+        <div style="font-family:system-ui;font-weight:800;font-size:26px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
         <span class="mono" style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#a1a1aa;">06 / 17</span>
       </div>
     </div>
     <div class="persona-grid">
       <div class="persona pc-blue">
-        <div class="persona-photo" style="background-image:url('../assets/photos/portrait-smile.jpg');"></div>
+        <div class="persona-photo" style="background:#5869f7;display:flex;align-items:center;justify-content:center;"><span style="font-family:system-ui;font-weight:800;font-size:80px;color:rgba(255,255,255,0.3);">n.</span></div>
         <div class="persona-body">
           <div>
             <div class="persona-role">Diseñadora</div>
@@ -701,7 +707,7 @@ deck-stage > section{
         </div>
       </div>
       <div class="persona pc-red">
-        <div class="persona-photo" style="background-image:url('../assets/photos/collab-laptop.jpg');"></div>
+        <div class="persona-photo" style="background:#fc624b;display:flex;align-items:center;justify-content:center;"><span style="font-family:system-ui;font-weight:800;font-size:80px;color:rgba(255,255,255,0.3);">n.</span></div>
         <div class="persona-body">
           <div>
             <div class="persona-role">Desarrollador</div>
@@ -711,7 +717,7 @@ deck-stage > section{
         </div>
       </div>
       <div class="persona pc-grn">
-        <div class="persona-photo" style="background-image:url('../assets/photos/team-meeting-02.jpg');background-position:top center;"></div>
+        <div class="persona-photo" style="background:#42cf8a;display:flex;align-items:center;justify-content:center;"><span style="font-family:system-ui;font-weight:800;font-size:80px;color:rgba(15,16,17,0.2);">n.</span></div>
         <div class="persona-body">
           <div>
             <div class="persona-role">Product Manager</div>
@@ -729,7 +735,7 @@ deck-stage > section{
 ────────────────────────────────────────────────── -->
 <section id="s7" data-label="07 Cierre">
   <div class="s7l">
-    <img src="../assets/nlace-black.svg" alt="NLACE" style="height:38px;display:block;width:fit-content;"/>
+    <div style="font-family:system-ui;font-weight:800;font-size:32px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
     <div>
       <div class="s7-tag">05 · Próximo paso</div>
       <h2 class="s7-h">El sistema<br/>ya <span class="grad">existe</span>.<br/>Úsenlo.</h2>
@@ -739,8 +745,8 @@ deck-stage > section{
     <div class="mono" style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#a1a1aa;">07 / 17 · NLACE Design</div>
   </div>
   <div class="s7r">
-    <div class="s7r-photo" style="background-image:url('../assets/photos/team-portrait-02.jpg');background-size:cover;background-position:center;"></div>
-    <div class="ov"></div>
+    <div class="s7r-photo" style="background:#0f1011;"></div>
+    <div class="ov" style="display:none"></div>
     <div class="ds-preview">
       <div class="ds-chip">
         <div class="dc-l">Primary</div>
@@ -758,7 +764,7 @@ deck-stage > section{
       </div>
       <div class="ds-chip">
         <div class="dc-l">Body</div>
-        <div class="dc-v" style="font-size:22px;font-family:'Inter',system-ui,sans-serif;">Inter</div>
+        <div class="dc-v" style="font-size:22px;font-family:system-ui,-apple-system,sans-serif;">Inter</div>
       </div>
       <div class="ds-chip">
         <div class="dc-l">Radius · card</div>
@@ -785,10 +791,10 @@ deck-stage > section{
 <section id="s8" data-label="08 Tokens de Color">
   <div class="s8-top">
     <div style="display:flex;align-items:center;gap:32px;">
-      <img src="../assets/nlace-black.svg" alt="NLACE" style="height:34px;"/>
-      <span style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;">Tokens de color.</span>
+      <div style="font-family:system-ui;font-weight:800;font-size:26px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
+      <span style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;">Tokens de color.</span>
     </div>
-    <span style="font-family:'JetBrains Mono',ui-monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;">06 · Color · 08 / 17</span>
+    <span style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;">06 · Color · 08 / 17</span>
   </div>
   <div class="s8-grid">
     <!-- Row 1: brand colors -->
@@ -818,46 +824,46 @@ deck-stage > section{
     <div class="eyebrow accent" style="margin-bottom:28px;">07 · Tipografía · Space Grotesk</div>
     <div class="type-row">
       <div class="tr-meta">Display · 700 · -0.04em</div>
-      <div style="font-family:'Space Grotesk',system-ui;font-weight:700;font-size:100px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;">Aa Diseño</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:100px;line-height:0.92;letter-spacing:-0.04em;color:#0f1011;">Aa Diseño</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">H1 · 700 · -0.03em</div>
-      <div style="font-family:'Space Grotesk',system-ui;font-weight:700;font-size:64px;line-height:1;letter-spacing:-0.03em;color:#0f1011;">Construimos herramientas.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:64px;line-height:1;letter-spacing:-0.03em;color:#0f1011;">Construimos herramientas.</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">H2 · 600 · -0.025em</div>
-      <div style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:44px;line-height:1.05;letter-spacing:-0.025em;color:#0f1011;">Consistencia entre proyectos.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:44px;line-height:1.05;letter-spacing:-0.025em;color:#0f1011;">Consistencia entre proyectos.</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">H3 · 600 · -0.018em</div>
-      <div style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:32px;letter-spacing:-0.018em;color:#0f1011;">Componentes reutilizables.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.018em;color:#0f1011;">Componentes reutilizables.</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">Eyebrow · 600 · +0.08em · uppercase</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:#5869f7;">Design System · NLACE · 2026</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-weight:600;font-size:16px;letter-spacing:0.08em;text-transform:uppercase;color:#5869f7;">Design System · NLACE · 2026</div>
     </div>
   </div>
   <div class="s9r">
-    <div class="eyebrow" style="color:rgba(255,255,255,0.5);margin-bottom:28px;font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;">Inter · body + ui</div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.5);margin-bottom:28px;font-family:ui-monospace,"Courier New",monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;">Inter · body + ui</div>
     <div class="type-row">
       <div class="tr-meta">Body L · 400 · 32px / 1.5</div>
-      <div style="font-family:'Inter',system-ui;font-size:32px;line-height:1.5;color:rgba(255,255,255,0.9);">Texto principal largo. Un sistema para todos los productos NLACE.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:32px;line-height:1.5;color:rgba(255,255,255,0.9);">Texto principal largo. Un sistema para todos los productos NLACE.</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">Body M · 400 · 22px / 1.5</div>
-      <div style="font-family:'Inter',system-ui;font-size:22px;line-height:1.5;color:rgba(255,255,255,0.85);">Textos de interfaz, descripciones y contenido estándar.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:22px;line-height:1.5;color:rgba(255,255,255,0.85);">Textos de interfaz, descripciones y contenido estándar.</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">UI Label · 600 · 15px</div>
-      <div style="font-family:'Inter',system-ui;font-weight:600;font-size:15px;color:rgba(255,255,255,0.9);">Etiquetas · Botones · Badges · Navegación</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;color:rgba(255,255,255,0.9);">Etiquetas · Botones · Badges · Navegación</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">Caption · 400 · 13px</div>
-      <div style="font-family:'Inter',system-ui;font-size:13px;color:rgba(255,255,255,0.6);">Hints, hints de error, metadatos, marcas de tiempo</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:rgba(255,255,255,0.6);">Hints, hints de error, metadatos, marcas de tiempo</div>
     </div>
     <div class="type-row">
       <div class="tr-meta">Mono · JetBrains Mono · 400/500</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;color:rgba(255,255,255,0.8);">const primary = '#5869F7'</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:18px;color:rgba(255,255,255,0.8);">const primary = '#5869F7'</div>
     </div>
   </div>
   <div class="pg dk"><span>09 / 17</span><span>NLACE Design</span></div>
@@ -871,7 +877,7 @@ deck-stage > section{
       <div class="comp-section-title">Buttons.</div>
     </div>
     <div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;">Variantes</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;">Variantes</div>
       <div class="btn-group">
         <button class="btn-ds md primary">Empezar</button>
         <button class="btn-ds md accent">Guardar</button>
@@ -882,7 +888,7 @@ deck-stage > section{
       </div>
     </div>
     <div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;">Tamaños</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:16px;">Tamaños</div>
       <div class="btn-group">
         <button class="btn-ds sm primary">Small</button>
         <button class="btn-ds md primary">Medium</button>
@@ -890,11 +896,11 @@ deck-stage > section{
       </div>
     </div>
     <div style="background:#0f1011;border-radius:20px;padding:28px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;">Sobre fondo oscuro</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;">Sobre fondo oscuro</div>
       <div class="btn-group">
         <button class="btn-ds md primary">Empezar</button>
         <button class="btn-ds md accent">Acción</button>
-        <button style="border-radius:9999px;font-family:'Inter',system-ui;font-weight:600;border:1.5px solid rgba(255,255,255,0.4);background:transparent;color:#fff;padding:12px 24px;font-size:15px;cursor:default;">Outline</button>
+        <button style="border-radius:9999px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;border:1.5px solid rgba(255,255,255,0.4);background:transparent;color:#fff;padding:12px 24px;font-size:15px;cursor:default;">Outline</button>
       </div>
     </div>
   </div>
@@ -904,7 +910,7 @@ deck-stage > section{
     </div>
     <div class="bdg-section">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Tonal (soft)</div>
+        <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Tonal (soft)</div>
         <div class="bdg-row-ds">
           <span class="bdg-ds" style="background:rgba(88,105,247,0.12);color:#3b4dd8;">Nuevo</span>
           <span class="bdg-ds" style="background:rgba(252,98,75,0.12);color:#b7321a;">Beta</span>
@@ -914,7 +920,7 @@ deck-stage > section{
         </div>
       </div>
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Solid</div>
+        <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Solid</div>
         <div class="bdg-row-ds">
           <span class="bdg-ds" style="background:#5869f7;color:#fff;">v2.1.0</span>
           <span class="bdg-ds" style="background:#fc624b;color:#fff;">Destacado</span>
@@ -924,7 +930,7 @@ deck-stage > section{
         </div>
       </div>
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Con indicador</div>
+        <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:14px;">Con indicador</div>
         <div class="bdg-row-ds">
           <span class="bdg-ds" style="background:rgba(88,105,247,0.12);color:#3b4dd8;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#5869f7;display:inline-block;"></span>En proceso</span>
           <span class="bdg-ds" style="background:rgba(66,207,138,0.2);color:#053a23;display:inline-flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#42cf8a;display:inline-block;"></span>Completado</span>
@@ -964,7 +970,7 @@ deck-stage > section{
       <div class="inp-lbl">Success</div>
       <div class="field-lbl">Contraseña</div>
       <div class="inp-ds success-state">••••••••••••</div>
-      <div style="font-family:'Inter',system-ui;font-size:13px;color:#2ba36a;margin-top:4px;">Contraseña segura</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:#2ba36a;margin-top:4px;">Contraseña segura</div>
     </div>
   </div>
   <div class="s11r">
@@ -1042,8 +1048,8 @@ deck-stage > section{
       </div>
     </div>
     <div style="background:#efefef;border-radius:16px;padding:24px;margin-top:8px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;">Regla</div>
-      <div style="font-family:'Inter',system-ui;font-size:18px;line-height:1.5;color:#0f1011;">Solo 2 niveles de elevación. Sin sombras de color. Sin efectos glow. Sutil, siempre.</div>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;">Regla</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-size:18px;line-height:1.5;color:#0f1011;">Solo 2 niveles de elevación. Sin sombras de color. Sin efectos glow. Sutil, siempre.</div>
     </div>
   </div>
   <div class="pg dk"><span>12 / 17</span><span>NLACE Design</span></div>
@@ -1053,10 +1059,10 @@ deck-stage > section{
 <section id="s13" data-label="13 Gradientes">
   <div class="s13-top">
     <div style="display:flex;align-items:center;gap:32px;">
-      <img src="../assets/nlace-black.svg" alt="NLACE" style="height:34px;"/>
-      <span style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;">Gradientes.</span>
+      <div style="font-family:system-ui;font-weight:800;font-size:26px;letter-spacing:-0.04em;color:#0f1011;">nlace.</div>
+      <span style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.02em;color:#0f1011;">Gradientes.</span>
     </div>
-    <span style="font-family:'JetBrains Mono',ui-monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;">11 · Gradientes · 13 / 17</span>
+    <span style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;">11 · Gradientes · 13 / 17</span>
   </div>
   <div class="s13-grid">
     <div class="s13-g" style="background:linear-gradient(135deg,#5869f7,#b717af 60%,#f76dee);">
@@ -1095,7 +1101,7 @@ deck-stage > section{
 <!-- ── S14 · MOTION ───────────────────────────── -->
 <section id="s14" data-label="14 Motion">
   <div class="s14l">
-    <div class="eyebrow" style="color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:40px;">12 · Motion</div>
+    <div class="eyebrow" style="color:rgba(255,255,255,0.4);font-family:ui-monospace,"Courier New",monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:40px;">12 · Motion</div>
     <div class="motion-item">
       <div class="motion-label">dur-ui · micro</div>
       <div class="motion-val">220ms</div>
@@ -1111,7 +1117,7 @@ deck-stage > section{
     <div class="motion-item">
       <div class="motion-label">Animación · fade-up</div>
       <div style="animation:fade-up-demo 480ms cubic-bezier(0.22,1,0.36,1) infinite alternate;background:#fff;border-radius:12px;padding:16px 24px;display:inline-block;">
-        <div style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:24px;color:#0f1011;">Hola, mundo.</div>
+        <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:24px;color:#0f1011;">Hola, mundo.</div>
       </div>
     </div>
   </div>
@@ -1139,7 +1145,7 @@ deck-stage > section{
     </div>
     <div class="motion-item">
       <div class="motion-label">Reduced motion</div>
-      <div class="motion-desc">Todas las animaciones respetan<br/><span style="font-family:'JetBrains Mono',monospace;font-size:16px;color:#5869f7;">prefers-reduced-motion</span></div>
+      <div class="motion-desc">Todas las animaciones respetan<br/><span style="font-family:ui-monospace,"Courier New",monospace;font-size:16px;color:#5869f7;">prefers-reduced-motion</span></div>
     </div>
   </div>
   <div class="pg lt"><span>14 / 17</span><span>NLACE Design</span></div>
@@ -1176,11 +1182,11 @@ deck-stage > section{
       <div style="display:flex;flex-direction:column;gap:12px;">
         <div style="display:flex;align-items:center;gap:20px;">
           <div style="width:80px;height:40px;border-radius:10px;border:1px solid #dbdcd7;background:#fff;"></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#71717a;">border-soft · #DBDCD7 · cards</div>
+          <div style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;color:#71717a;">border-soft · #DBDCD7 · cards</div>
         </div>
         <div style="display:flex;align-items:center;gap:20px;">
           <div style="width:80px;height:40px;border-radius:10px;border:1.5px solid #c6c7c2;background:#fff;"></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#71717a;">border-ui · #C6C7C2 · inputs</div>
+          <div style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;color:#71717a;">border-ui · #C6C7C2 · inputs</div>
         </div>
       </div>
     </div>
@@ -1206,12 +1212,12 @@ deck-stage > section{
 
 <!-- ── S16 · SISTEMA EN ACCIÓN ────────────────── -->
 <section id="s16" data-label="16 Sistema en Acción">
-  <div class="s16l" style="background-image:url('../assets/photos/team-group-laptop.jpg');background-size:cover;background-position:center;">
-    <div class="ov16"></div>
+  <div class="s16l" style="background:#5869f7;">
+    <div class="ov16" style="display:none"></div>
     <div class="copy16">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;">14 · En producción</div>
-      <h2 style="font-family:'Space Grotesk',system-ui;font-weight:700;font-size:72px;line-height:0.96;letter-spacing:-0.03em;color:#fff;margin-bottom:24px;">El sistema ya está<br/><span class="grad">construyendo</span><br/>productos reales.</h2>
-      <p style="font-family:'Inter',system-ui;font-size:24px;line-height:1.45;color:rgba(255,255,255,0.82);max-width:640px;">Agrointegral, Evo, Mutualidades, Cotizador, AI Studio — todos usan los mismos tokens, componentes y reglas visuales.</p>
+      <div style="font-family:ui-monospace,"Courier New",monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;">14 · En producción</div>
+      <h2 style="font-family:system-ui,-apple-system,sans-serif;font-weight:700;font-size:72px;line-height:0.96;letter-spacing:-0.03em;color:#fff;margin-bottom:24px;">El sistema ya está<br/><span class="grad">construyendo</span><br/>productos reales.</h2>
+      <p style="font-family:system-ui,-apple-system,sans-serif;font-size:24px;line-height:1.45;color:rgba(255,255,255,0.82);max-width:640px;">Agrointegral, Evo, Mutualidades, Cotizador, AI Studio — todos usan los mismos tokens, componentes y reglas visuales.</p>
     </div>
   </div>
   <div class="s16r">
@@ -1221,7 +1227,7 @@ deck-stage > section{
         <div class="mb-dot" style="background:#fc624b;"></div>
         <div class="mb-dot" style="background:#f76dee;"></div>
         <div class="mb-dot" style="background:#42cf8a;"></div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#71717a;margin-left:8px;">ai.nlace.com</span>
+        <span style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;color:#71717a;margin-left:8px;">ai.nlace.com</span>
       </div>
       <div class="mockup-content" style="margin-top:20px;">
         <div class="mockup-row">
@@ -1234,13 +1240,13 @@ deck-stage > section{
             <div class="mf-t">Agrointegral · Clasificador</div>
             <div class="mf-d">nlace-vision-1 · Activo · 12 modelos entrenados</div>
           </div>
-          <div style="margin-left:auto;background:#42cf8a;color:#053a23;border-radius:9999px;padding:8px 18px;font-family:'Inter',system-ui;font-weight:600;font-size:14px;">Activo</div>
+          <div style="margin-left:auto;background:#42cf8a;color:#053a23;border-radius:9999px;padding:8px 18px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:14px;">Activo</div>
         </div>
         <div style="background:#fff;border:1px solid #dbdcd7;border-radius:14px;padding:20px;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;">Composer</div>
-          <div style="font-family:'Inter',system-ui;font-size:16px;color:#a1a1aa;border:1.5px solid #c6c7c2;border-radius:10px;padding:12px 16px;">Describe lo que necesitas construir…</div>
+          <div style="font-family:ui-monospace,"Courier New",monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;margin-bottom:12px;">Composer</div>
+          <div style="font-family:system-ui,-apple-system,sans-serif;font-size:16px;color:#a1a1aa;border:1.5px solid #c6c7c2;border-radius:10px;padding:12px 16px;">Describe lo que necesitas construir…</div>
           <div style="display:flex;justify-content:flex-end;margin-top:12px;">
-            <div style="background:#5869f7;color:#fff;border-radius:9999px;padding:10px 20px;font-family:'Inter',system-ui;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;">Enviar →</div>
+            <div style="background:#5869f7;color:#fff;border-radius:9999px;padding:10px 20px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;">Enviar →</div>
           </div>
         </div>
       </div>
@@ -1255,7 +1261,7 @@ deck-stage > section{
   <div class="s17l">
     <div>
       <div class="eyebrow accent" style="margin-bottom:24px;">15 · Arquitectura</div>
-      <div style="font-family:'Space Grotesk',system-ui;font-weight:600;font-size:52px;letter-spacing:-0.025em;color:#0f1011;line-height:1;margin-bottom:36px;">Cómo está<br/>organizado.</div>
+      <div style="font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:52px;letter-spacing:-0.025em;color:#0f1011;line-height:1;margin-bottom:36px;">Cómo está<br/>organizado.</div>
     </div>
     <div class="arch-arrow">↓</div>
     <div class="arch-layer l1">
@@ -1279,7 +1285,7 @@ deck-stage > section{
     </div>
   </div>
   <div class="s17r">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:24px;">Estructura del repositorio</div>
+    <div style="font-family:ui-monospace,"Courier New",monospace;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:24px;">Estructura del repositorio</div>
     <div class="file-tree">
       <div class="ft-item dir"><span class="ft-icon">📁</span><span class="ft-name">assets/</span><span class="ft-desc">logos + fotos</span></div>
       <div class="ft-item ft-indent"><span class="ft-icon">📁</span><span class="ft-name">photos/</span><span class="ft-desc">14 fotos oficiales</span></div>
@@ -1300,6 +1306,6 @@ deck-stage > section{
 </section>
 
 </deck-stage>
-<script src="deck-stage.js"></script>
+
 </body>
 </html>

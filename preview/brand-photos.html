@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.grid { display:grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,160px); gap:10px; }
+.ph { border-radius:14px; overflow:hidden; position:relative; }
+.ph img { width:100%;height:100%;object-fit:cover;display:block; }
+.ph.wide { grid-column:span 2; }
+.ph.tall { grid-row:span 2; }
+.ph .lbl { position:absolute;bottom:0;left:0;right:0;padding:8px 12px;
+  background:linear-gradient(to top,rgba(15,16,17,0.65),transparent);
+  font-family:var(--nl-font-mono);font-size:10px;letter-spacing:0.14em;
+  text-transform:uppercase;color:#fff; }
+</style></head><body>
+<div class="card" style="gap:12px;padding:20px;">
+  <div class="eyebrow">Brand photography · equipo NLACE · 14 fotos</div>
+  <div class="grid">
+    <div class="ph wide"><img src="../assets/photos/team-portrait-01.jpg" alt=""/><span class="lbl">Equipo</span></div>
+    <div class="ph"><img src="../assets/photos/portrait-smile.jpg" alt=""/><span class="lbl">Retrato</span></div>
+    <div class="ph"><img src="../assets/photos/hands-laptop-light.jpg" alt=""/><span class="lbl">Trabajo</span></div>
+    <div class="ph wide"><img src="../assets/photos/team-meeting-03.jpg" alt=""/><span class="lbl">Reunión</span></div>
+    <div class="ph"><img src="../assets/photos/portrait-speaking.jpg" alt=""/><span class="lbl">Retrato</span></div>
+    <div class="ph"><img src="../assets/photos/collab-laptop.jpg" alt=""/><span class="lbl">Colaboración</span></div>
+  </div>
+  <div class="mono-label">assets/photos/ · tonos cálidos naturales · estilo editorial</div>
+</div>
+</body></html>
