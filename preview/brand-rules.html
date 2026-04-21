@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.rules { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.rule-box { border:1.5px solid var(--nl-border-soft); border-radius:12px; overflow:hidden; }
+.rule-header { padding:10px 14px; font-family:var(--nl-font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+.rule-header.do   { background:#eaf9f1; color:var(--nl-success-dark); }
+.rule-header.dont { background:#fef2f0; color:#c0391f; }
+.rule-body { padding:16px; background:#fff; display:flex; flex-direction:column; gap:10px; min-height:110px; justify-content:center; }
+
+/* colored lines demo */
+.demo-list-good li { padding:12px 0; border-bottom:1px solid var(--nl-border-soft); font-family:var(--nl-font-body); font-size:13px; color:#0f1011; list-style:none; }
+.demo-list-good li:last-child { border-bottom:none; }
+.demo-list-bad li  { padding:12px 0; border-bottom:2px solid #5869f7; font-family:var(--nl-font-body); font-size:13px; color:#0f1011; list-style:none; }
+.demo-list-bad li:last-child { border-bottom:none; }
+
+/* divider demos */
+.divider-good { height:1px; background:var(--nl-border-soft); }
+.divider-bad  { height:2px; background:#5869f7; }
+
+/* text over text demo */
+.txt-over-bad {
+  position:relative; height:80px; background:#efefef; border-radius:8px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.txt-over-bad .bg-text {
+  position:absolute; font-family:var(--nl-font-display); font-size:48px; font-weight:800;
+  color:rgba(88,105,247,0.15); letter-spacing:-0.04em; user-select:none;
+}
+.txt-over-bad .fg-text {
+  position:relative; z-index:1; font-family:var(--nl-font-body); font-size:14px; font-weight:600; color:#0f1011;
+  padding:6px 12px;
+}
+
+.txt-clean {
+  height:80px; background:#efefef; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+}
+.txt-clean .fg-text {
+  font-family:var(--nl-font-body); font-size:14px; font-weight:600; color:#0f1011;
+  padding:6px 12px;
+}
+</style></head><body>
+<div class="card" style="gap:20px;padding:24px;">
+
+  <!-- REGLA: sin líneas de colores -->
+  <div class="eyebrow">Regla · no usar líneas de colores</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — separadores neutros</div>
+      <div class="rule-body">
+        <ul class="demo-list-good" style="padding:0;margin:0;">
+          <li>Estrategia de marca</li>
+          <li>Identidad visual</li>
+          <li>Diseño de producto</li>
+        </ul>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#71717a;letter-spacing:0.06em;">border-color: #dbdcd7 · opacidad neutra</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — líneas con color de marca</div>
+      <div class="rule-body">
+        <ul class="demo-list-bad" style="padding:0;margin:0;">
+          <li>Estrategia de marca</li>
+          <li>Identidad visual</li>
+          <li>Diseño de producto</li>
+        </ul>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#c0391f;letter-spacing:0.06em;">Nunca border-color: primary / accent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dividers sub-demo -->
+  <div class="rules" style="margin-top:-4px;">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Separador neutro</div>
+      <div class="rule-body" style="justify-content:center;">
+        <div class="divider-good"></div>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#71717a;margin-top:4px;">1px · #dbdcd7</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Separador de color</div>
+      <div class="rule-body" style="justify-content:center;">
+        <div class="divider-bad"></div>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#c0391f;margin-top:4px;">Nunca 2px · #5869f7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGLA: no texto sobre texto -->
+  <div style="height:1px;background:var(--nl-border-soft);margin:4px 0;"></div>
+  <div class="eyebrow">Regla · no poner elementos gráficos ni textos sobre textos</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — texto solo sobre fondo limpio</div>
+      <div class="rule-body">
+        <div class="txt-clean">
+          <span class="fg-text">Transformamos marcas en experiencias</span>
+        </div>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#71717a;">Fondo plano · texto sin interferencias</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — texto o grafismo detrás del texto</div>
+      <div class="rule-body">
+        <div class="txt-over-bad">
+          <span class="bg-text">NLACE</span>
+          <span class="fg-text">Transformamos marcas en experiencias</span>
+        </div>
+        <div style="font-family:var(--nl-font-mono);font-size:10px;color:#c0391f;">Nunca superponer texto o gráficos sobre texto</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>

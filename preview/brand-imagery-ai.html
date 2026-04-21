@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+/* ── main mosaic ── */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 100px);
+  gap: 0;
+}
+.tile { overflow: hidden; position: relative; }
+.tile img { width:100%; height:100%; object-fit:cover; display:block; transition: opacity 0.25s; }
+.tile:hover img { opacity: 0.88; }
+
+/* featured sizes */
+.tile.w2 { grid-column: span 2; }
+.tile.w3 { grid-column: span 3; }
+.tile.h2 { grid-row: span 2; }
+.tile.w2.h2 { grid-column: span 2; grid-row: span 2; }
+.tile.w3.h2 { grid-column: span 3; grid-row: span 2; }
+
+/* ── usage section ── */
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.usage-item { position: relative; overflow: hidden; aspect-ratio: 16/9; }
+.usage-item img { width:100%; height:100%; object-fit:cover; display:block; }
+.usage-item .badge {
+  position: absolute; bottom: 10px; left: 10px;
+  font-family: var(--nl-font-mono); font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #fff; background: rgba(15,16,17,0.55);
+  padding: 4px 8px;
+}
+
+/* ── characteristics ── */
+.chars {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+.char-pill {
+  background: #f5f5f3; border-radius: 8px; padding: 12px 14px;
+  font-family: var(--nl-font-mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #3f3f46;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.char-pill span { font-family: var(--nl-font-body); font-size: 12px; font-weight: 500; color: #0f1011; letter-spacing:0; text-transform:none; }
+
+/* palette swatches */
+.palette { display:flex; gap:6px; }
+.sw { height:20px; flex:1; border-radius:4px; }
+</style></head><body>
+<div class="card" style="padding:0; gap:0; overflow:hidden;">
+
+  <!-- header -->
+  <div style="padding:20px 24px 16px;">
+    <div class="eyebrow">Imagery · AI abstracta · conexión humano–tecnología · 34 piezas</div>
+  </div>
+
+  <!-- mosaic -->
+  <div class="mosaic">
+    <div class="tile w3 h2"><img src="../assets/imagery/ai-01.png" alt=""/></div>
+    <div class="tile w2 h2"><img src="../assets/imagery/ai-05.png" alt=""/></div>
+    <div class="tile"><img src="../assets/imagery/ai-33.png" alt=""/></div>
+    <div class="tile"><img src="../assets/imagery/ai-16.png" alt=""/></div>
+
+    <div class="tile w2"><img src="../assets/imagery/ai-08.png" alt=""/></div>
+    <div class="tile w2 h2"><img src="../assets/imagery/ai-06.png" alt=""/></div>
+    <div class="tile w2"><img src="../assets/imagery/ai-19.png" alt=""/></div>
+
+    <div class="tile"><img src="../assets/imagery/ai-21.png" alt=""/></div>
+    <div class="tile w3"><img src="../assets/imagery/ai-03.png" alt=""/></div>
+    <div class="tile"><img src="../assets/imagery/ai-29.png" alt=""/></div>
+    <div class="tile"><img src="../assets/imagery/ai-23.png" alt=""/></div>
+    <div class="tile w2"><img src="../assets/imagery/ai-07.png" alt=""/></div>
+    <div class="tile w2"><img src="../assets/imagery/ai-24.png" alt=""/></div>
+  </div>
+
+  <!-- metadata -->
+  <div style="padding:20px 24px; display:flex; flex-direction:column; gap:16px;">
+
+    <!-- palette -->
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px;">Paleta dominante</div>
+      <div class="palette">
+        <div class="sw" style="background:#fc624b;" title="#fc624b"></div>
+        <div class="sw" style="background:#ff8c42;" title="#ff8c42"></div>
+        <div class="sw" style="background:#b04adc;" title="violeta"></div>
+        <div class="sw" style="background:#8b7bcc;" title="lavanda"></div>
+        <div class="sw" style="background:#a8b4d4;" title="azul grisáceo"></div>
+        <div class="sw" style="background:#c5cee8;" title="lavanda claro"></div>
+        <div class="sw" style="background:#0f1011;" title="#0f1011"></div>
+      </div>
+      <div class="mono-label" style="margin-top:6px;">Naranja accent · violeta · azul lavanda · negro NLACE</div>
+    </div>
+
+    <!-- characteristics -->
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px;">Características del set</div>
+      <div class="chars">
+        <div class="char-pill">Estilo<span>Abstracto 3D minimalista · render IA</span></div>
+        <div class="char-pill">Temática<span>Figura humana · arquitectura geométrica · escala</span></div>
+        <div class="char-pill">Formato<span>Horizontal 16:9 · alta resolución</span></div>
+        <div class="char-pill">Uso<span>Portadas · fondos de sección · hero slides</span></div>
+        <div class="char-pill">Diferenciador<span>Distinto de fotografía de equipo — no mezclar</span></div>
+        <div class="char-pill">Regla<span>Una sola imagen por pantalla · bordes rectos · sin márgenes</span></div>
+      </div>
+    </div>
+
+    <!-- usage examples -->
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px;">Uso sugerido · portada · hero · fondo de sección</div>
+      <div class="usage-grid">
+        <div class="usage-item">
+          <img src="../assets/imagery/ai-04.png" alt=""/>
+          <span class="badge">Portada</span>
+        </div>
+        <div class="usage-item">
+          <img src="../assets/imagery/ai-11.png" alt=""/>
+          <span class="badge">Hero</span>
+        </div>
+        <div class="usage-item">
+          <img src="../assets/imagery/ai-34.png" alt=""/>
+          <span class="badge">Sección</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mono-label">assets/imagery/ai-01.png → ai-34.png · generadas con IA · paleta NLACE</div>
+  </div>
+</div>
+</body></html>

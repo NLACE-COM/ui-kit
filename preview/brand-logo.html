@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head><body>
-<div class="card" style="background:#0f1011;color:#fff">
-  <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Logo · wordmark + avatar · on black</div>
-  <div style="display:flex; gap:28px; align-items:center; justify-content:space-between">
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.rules { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.rule-box { border:1.5px solid var(--nl-border-soft); border-radius:12px; overflow:hidden; }
+.rule-header { padding:10px 14px; display:flex; align-items:center; gap:8px;
+  font-family:var(--nl-font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+.rule-header.do   { background:#eaf9f1; color:var(--nl-success-dark); }
+.rule-header.dont { background:#fef2f0; color:#c0391f; }
+.rule-body { padding:20px 16px; background:#fff; display:flex; flex-direction:column; gap:8px; }
+.rule-body.dark { background:#0f1011; }
+
+/* safe area demo */
+.safe-wrap { position:relative; display:inline-flex; align-items:center; justify-content:center; }
+.safe-area { position:absolute; inset:0; border:1.5px dashed rgba(88,105,247,0.45); pointer-events:none; }
+.safe-label { font-family:var(--nl-font-mono); font-size:9px; color:var(--nl-primary); letter-spacing:0.08em; text-transform:uppercase; margin-top:6px; text-align:center; }
+
+/* flat color swatches */
+.swatch-row { display:flex; gap:8px; }
+.swatch { flex:1; height:56px; display:flex; align-items:center; justify-content:center; border-radius:8px; }
+</style></head><body>
+<div class="card" style="gap:20px;padding:24px;background:#0f1011;">
+
+  <!-- 1. Logo on dark -->
+  <div class="eyebrow" style="color:rgba(255,255,255,0.55)">Logo · wordmark + avatar · on dark</div>
+  <div style="display:flex; gap:28px; align-items:center; justify-content:space-between;">
     <img src="../assets/nlace-white.svg" alt="NLACE" style="height:42px"/>
     <div style="display:flex; gap:18px; align-items:center">
       <div style="width:56px;height:56px;border-radius:12px;background:#5869f7;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--nl-font-display);font-weight:800;font-size:32px;letter-spacing:-0.06em">n.</div>
@@ -10,5 +31,82 @@
       <div style="width:28px;height:28px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;color:#0f1011;font-family:var(--nl-font-display);font-weight:800;font-size:18px;letter-spacing:-0.06em">n.</div>
     </div>
   </div>
+
+  <!-- 2. Flat colors rule -->
+  <div style="height:1px;background:rgba(255,255,255,0.08);"></div>
+  <div class="eyebrow" style="color:rgba(255,255,255,0.55)">Regla · el logo siempre sobre colores planos</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — fondo plano</div>
+      <div class="rule-body" style="gap:6px;">
+        <div class="swatch-row">
+          <div class="swatch" style="background:#0f1011;"><img src="../assets/nlace-white.svg" alt="NLACE" style="height:22px"/></div>
+          <div class="swatch" style="background:#5869f7;"><img src="../assets/nlace-white.svg" alt="NLACE" style="height:22px"/></div>
+          <div class="swatch" style="background:#efefef;"><img src="../assets/nlace-black.svg" alt="NLACE" style="height:22px"/></div>
+        </div>
+        <div class="mono-label" style="margin-top:4px;">Negro · primario · gris claro</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — sobre gradiente o textura</div>
+      <div class="rule-body" style="gap:6px;">
+        <div class="swatch-row">
+          <div class="swatch" style="background:linear-gradient(135deg,#5869f7,#fc624b);flex:2">
+            <img src="../assets/nlace-white.svg" alt="NLACE" style="height:22px;opacity:0.8"/>
+          </div>
+          <div class="swatch" style="background:repeating-linear-gradient(45deg,#ddd 0,#ddd 4px,#f5f5f5 4px,#f5f5f5 12px);">
+            <img src="../assets/nlace-black.svg" alt="NLACE" style="height:22px;opacity:0.7"/>
+          </div>
+        </div>
+        <div class="mono-label" style="margin-top:4px;">Nunca sobre gradientes ni texturas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Safe area rule -->
+  <div style="height:1px;background:rgba(255,255,255,0.08);"></div>
+  <div class="eyebrow" style="color:rgba(255,255,255,0.55)">Regla · área de resguardo del logo</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — área de resguardo respetada</div>
+      <div class="rule-body" style="align-items:center; min-height:90px; position:relative;">
+        <div class="safe-wrap" style="padding:18px;">
+          <img src="../assets/nlace-black.svg" alt="NLACE" style="height:32px; position:relative; z-index:1;"/>
+          <div class="safe-area"></div>
+        </div>
+        <div class="safe-label">Mínimo x = altura del logo</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — otros elementos muy cerca</div>
+      <div class="rule-body" style="align-items:flex-start; min-height:90px; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:4px; background:#efefef; padding:8px; border-radius:6px; width:100%; justify-content:space-between;">
+          <img src="../assets/nlace-black.svg" alt="NLACE" style="height:28px;"/>
+          <div style="font-family:var(--nl-font-body);font-size:11px;color:#3f3f46;font-weight:500;">Menú &nbsp;·&nbsp; Servicios &nbsp;·&nbsp; Contacto</div>
+        </div>
+        <div class="mono-label" style="margin-top:8px; color:#c0391f;">Texto o elementos invadiendo el área de resguardo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. No italics -->
+  <div style="height:1px;background:rgba(255,255,255,0.08);"></div>
+  <div class="eyebrow" style="color:rgba(255,255,255,0.55)">Regla · NLACE nunca en itálica</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto</div>
+      <div class="rule-body" style="align-items:center; justify-content:center; min-height:60px;">
+        <span style="font-family:var(--nl-font-display);font-weight:700;font-size:28px;letter-spacing:-0.03em;color:#0f1011;">NLACE</span>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — itálica</div>
+      <div class="rule-body" style="align-items:center; justify-content:center; min-height:60px;">
+        <span style="font-family:var(--nl-font-display);font-weight:700;font-size:28px;letter-spacing:-0.03em;color:#0f1011;font-style:italic;">NLACE</span>
+        <div class="mono-label" style="color:#c0391f; margin-top:6px;">Nunca font-style:italic en la marca</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body></html>

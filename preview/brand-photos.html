@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
 <style>
+/* ── grid demo ── */
 .grid { display:grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,160px); gap:10px; }
-.ph { border-radius:14px; overflow:hidden; position:relative; }
+.ph { overflow:hidden; position:relative; border-radius:0; }
 .ph img { width:100%;height:100%;object-fit:cover;display:block; }
 .ph.wide { grid-column:span 2; }
 .ph.tall { grid-row:span 2; }
@@ -10,8 +11,34 @@
   background:linear-gradient(to top,rgba(15,16,17,0.65),transparent);
   font-family:var(--nl-font-mono);font-size:10px;letter-spacing:0.14em;
   text-transform:uppercase;color:#fff; }
+
+/* ── do / don't ── */
+.rules { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.rule-box { border:1.5px solid var(--nl-border-soft); border-radius:12px; overflow:hidden; }
+.rule-header { padding:10px 14px; display:flex; align-items:center; gap:8px;
+  font-family:var(--nl-font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+.rule-header.do   { background:#eaf9f1; color:var(--nl-success-dark); }
+.rule-header.dont { background:#fef2f0; color:#c0391f; }
+.rule-body { padding:14px; background:#fff; }
+
+/* single photo demo */
+.single-frame { aspect-ratio:16/9; overflow:hidden; position:relative; border-radius:0; }
+.single-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* multi photo demo (don't) */
+.multi-frame { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.mini-ph { aspect-ratio:4/3; overflow:hidden; border-radius:6px; }
+.mini-ph img { width:100%;height:100%;object-fit:cover;display:block; }
+
+/* rounded border demo (don't) */
+.rounded-frame { aspect-ratio:16/9; overflow:hidden; border-radius:20px; }
+.rounded-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* letter-box demo (don't) */
+.letterbox { aspect-ratio:16/9; background:#f0f0ee; display:flex; align-items:center; justify-content:center; }
+.letterbox img { height:70%; width:auto; object-fit:cover; display:block; }
 </style></head><body>
-<div class="card" style="gap:12px;padding:20px;">
+<div class="card" style="gap:20px;padding:24px;">
   <div class="eyebrow">Brand photography · equipo NLACE · 14 fotos</div>
   <div class="grid">
     <div class="ph wide"><img src="../assets/photos/team-portrait-01.jpg" alt=""/><span class="lbl">Equipo</span></div>
@@ -22,5 +49,55 @@
     <div class="ph"><img src="../assets/photos/collab-laptop.jpg" alt=""/><span class="lbl">Colaboración</span></div>
   </div>
   <div class="mono-label">assets/photos/ · tonos cálidos naturales · estilo editorial</div>
+
+  <!-- REGLA: 1 foto por pantalla -->
+  <div style="height:1px;background:var(--nl-border-soft);margin:4px 0;"></div>
+  <div class="eyebrow">Regla · máximo una foto por pantalla</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — una foto, recorte completo</div>
+      <div class="rule-body">
+        <div class="single-frame">
+          <img src="../assets/photos/team-portrait-01.jpg" alt=""/>
+        </div>
+        <div class="mono-label" style="margin-top:8px;">Una foto ocupa todo el área disponible · object-fit:cover</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — múltiples fotos juntas</div>
+      <div class="rule-body">
+        <div class="multi-frame">
+          <div class="mini-ph"><img src="../assets/photos/team-portrait-01.jpg" alt=""/></div>
+          <div class="mini-ph"><img src="../assets/photos/portrait-smile.jpg" alt=""/></div>
+        </div>
+        <div class="mono-label" style="margin-top:8px;">Nunca dos o más fotos en la misma pantalla</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGLA: bordes rectos -->
+  <div class="eyebrow" style="margin-top:4px;">Regla · bordes rectos, sin border-radius en fotos</div>
+  <div class="rules">
+    <div class="rule-box">
+      <div class="rule-header do">✓ Correcto — borde recto</div>
+      <div class="rule-body">
+        <div class="single-frame">
+          <img src="../assets/photos/hands-laptop-light.jpg" alt=""/>
+        </div>
+        <div class="mono-label" style="margin-top:8px;">border-radius:0 · sin espacio alrededor</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-header dont">✗ Incorrecto — bordes redondeados o espacio</div>
+      <div class="rule-body">
+        <div class="letterbox">
+          <div class="rounded-frame" style="width:80%">
+            <img src="../assets/photos/hands-laptop-light.jpg" alt=""/>
+          </div>
+        </div>
+        <div class="mono-label" style="margin-top:8px;">Nunca border-radius ni márgenes alrededor de la foto</div>
+      </div>
+    </div>
+  </div>
 </div>
 </body></html>
