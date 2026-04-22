@@ -9,11 +9,11 @@ description: >
 user-invocable: true
 ---
 
-Lee el archivo `README.md` dentro de este skill y explora los otros archivos disponibles.
+**Lee `DESIGN.md`** en la raíz del repositorio. Contiene todos los tokens, reglas, componentes y ejemplos de código necesarios — es la referencia completa y autocontenida. No necesitas leer otros archivos para empezar.
 
-Si creas artefactos visuales (slides, mocks, prototipos), copia los assets y crea archivos HTML estáticos. Si trabajas en código de producción, usa los tokens y reglas aquí para diseñar con esta marca.
+Si creas artefactos visuales (slides, mocks, prototipos), usa los tokens de `DESIGN.md` y genera HTML estático autocontenido. Si trabajas en código de producción, importa desde `@nlace/ui-kit`.
 
-Si el usuario invoca este skill sin más instrucciones, pregunta qué quiere construir, haz preguntas y actúa como diseñador experto que genera artefactos HTML _o_ código de producción según la necesidad.
+Si el usuario invoca este skill sin más instrucciones, pregunta qué quiere construir y actúa como diseñador experto que genera artefactos HTML _o_ código de producción según la necesidad.
 
 ---
 

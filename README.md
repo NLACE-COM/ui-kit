@@ -1,202 +1,319 @@
 # NLACE Design System
 
-Internal design system for **NLACE** — the company's visual foundation for its own product suite (internal tools, AI products, client dashboards) and marketing surfaces.
+Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset de Tailwind CSS para todos los productos de la empresa.
 
-> _Paquete interno de NLACE para el desarrollo de productos propios. Contiene los tokens de diseño, el preset de Tailwind CSS y los componentes React del sistema de diseño oficial._
-
-This package is the source of truth for every NLACE-built product, from internal tools to **NLACE AI Studio**. It guarantees consistency across projects and eliminates repeated design decisions.
-
-## Sources
-
-This system was reconstructed from the following:
-
-- **Code repo:** [github.com/NLACE-COM/ui-kit](https://github.com/NLACE-COM/ui-kit) — tokens CSS, Tailwind v4 theme, Tailwind v3 preset, React components, logo assets.
-- **Figma (canonical):** https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System (fileKey `hboE6NgrEkFXgC9B0M5B18`, root node `2:1677`).
-- **Marketing site:** [nlace.com](https://nlace.com).
-- **Existing skill:** `skill/SKILL.md` inside the repo (v2.1.0).
-
-Precedence rule from the source skill: **Figma > SKILL.md > model defaults**.
-
-## Products in the NLACE ecosystem
-
-NLACE builds many internal and client products. The known surfaces that share this kit:
-
-- **NLACE AI Studio** — flagship AI product.
-- **nlace-hq / nlace-new-site** — marketing surface.
-- **NLACE Docs** — documentation.
-- **Vertical tools** — Agrointegral, Evo (academic impact MVP), Mutualidades, Forge, Cotizador, Firmas, Casas Chile, Mercier Chile, Cierro, BoardAsAService, etc.
-
-The common denominator across all of them: **Space Grotesk** display type, **Inter** body type, the NLACE blue (`#3f58ea`), a warm accent red (`#ff6143`), and a restrained neutral system.
+[![npm](https://img.shields.io/npm/v/@nlace/ui-kit)](https://www.npmjs.com/package/@nlace/ui-kit)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 ---
 
-## CONTENT FUNDAMENTALS
+## ¿Qué es esto?
 
-The source repo's README, component API, and SKILL.md are in **Spanish**. Copy across NLACE products follows the same voice.
+`@nlace/ui-kit` es el paquete que centraliza la identidad visual de NLACE: colores, tipografía, espaciado, motion, y componentes React. Es la fuente de verdad compartida entre todos los proyectos de la empresa — desde productos internos hasta sitios de marketing.
 
-- **Language:** Spanish (Latin American / Chilean register). English is acceptable for dev-facing docs and npm metadata, but user-facing UI is Spanish by default.
-- **Tone:** Direct, functional, no fluff. Think "product engineer talking to another engineer." Short sentences. Imperative for CTAs (`Empezar`, `Guardar`, `Cancelar`, `Eliminar`). Declarative for state (`El proceso tardará unos minutos.`, `Cambios guardados correctamente.`, `Revisa los datos antes de continuar.`).
-- **Person:** Neutral/informal — uses `tú`, not `usted` (`tu@ejemplo.com`, `Como aparece en tu perfil`).
-- **Casing:** Sentence case for UI strings and headlines. Product names `NLACE AI Studio` and acronyms (`RUT`, `UI`) stay in caps. No ALL-CAPS headlines.
-- **Punctuation:** Lowercase start for eyebrow labels, minimal punctuation in tight UI strings. Full sentences in alerts and descriptions.
-- **Emoji:** Not used in product UI or marketing copy. The `Alert` component uses literal Unicode symbols (`ℹ ✓ ⚠ ✕`) as compact glyphs — not "emoji" in the expressive sense.
-- **Vibe:** Utilitarian, industrial, Latin American tech confidence. Zero marketing-speak, zero "delighted" language, zero exclamation marks unless an error genuinely warrants urgency.
+**Lo que incluye este repositorio:**
 
-**Specific examples (lifted from the source):**
-
-- Button labels: `Empezar` · `Guardar` · `Cancelar` · `Eliminar`
-- Badge labels: `Nuevo` · `Beta` · `Activo` · `v1.5.0`
-- Alert copy:
-  - info → `Aviso` / `El proceso tardará unos minutos.`
-  - success → `Listo` / `Cambios guardados correctamente.`
-  - warning → `Revisa los datos antes de continuar.`
-  - error → `Error` / `No se pudo conectar al servidor.`
-- Field hints: `Como aparece en tu perfil`, `Formato inválido` (for RUT validation).
-
----
-
-## VISUAL FOUNDATIONS
-
-### Colors
-
-- **Primary:** NLACE Blue `#3f58ea` (electric, slightly purple-leaning). Dark variant `#2f2f81` for gradient endings and hero sections.
-- **Accent:** NLACE Red-Orange `#ff6143`, warm variant `#ff8c42`. Used sparingly — CTAs, highlights, brand text-gradient endings.
-- **Neutrals:** Zinc scale (`#18181b`, `#3f3f46`, `#71717a`, `#a1a1aa`), plus `#d4d4d8` / `#e8e8e8` borders. App background is the distinctive off-white `#efefef` — **not** pure white.
-- **Semantic:** Success mint `#6be8b0` (pill) + `#22c55e` (stroke), danger `#dc2626`.
-- **Never** use pure white `#ffffff` as the page background. Cards are white; the canvas is `#efefef`.
-
-### Typography
-
-- **Display:** Space Grotesk — headlines, hero numbers, logo wordmark feel. Weights 500–700.
-- **Body:** Inter — everything else. Weights 400 / 500 / 600 / 700.
-- **Mono:** SF Mono → Fira Code → JetBrains Mono (as Google Fonts substitute for web). Code blocks, keyboard shortcuts.
-- **Tracking:** `-0.03em` for large display, `-0.018em` for standard headings, `+0.08em` for UPPERCASE eyebrows and labels.
-
-### Spacing & layout
-
-- Tailwind default scale (4-px steps). No custom spacing tokens — intentional restraint.
-- Inputs: `min-h-[44px]` (AA touch target), `px-[14px]`.
-- Buttons: `sm` 16×6 px, `md` 22×11 px, `lg` 30×15 px.
-- Content typically max-width 1200–1280 px, generous gutters.
-
-### Backgrounds
-
-- **App canvas:** `#efefef` flat — no textures, patterns, or dot grids.
-- **Hero sections:** the named gradient `nl-hero` — a deep indigo `#2f2f81 → #1a1a5e → #2d1f6e` at 135°. Saturated, almost indigo-navy.
-- **Brand accents:** `nl-brand` — a 90° bar gradient from `#3f58ea` to `#ff6143` used for headline text-gradient effects.
-- **No** hand-drawn illustrations, no repeating textures, no photography-first marketing aesthetic in the kit itself. Product screens rely on typography and color blocks.
-- Full-bleed imagery is allowed in marketing, but always beneath a dark overlay (`nl-overlay-dark`: 0 → 55% black top-to-bottom).
-
-### Motion
-
-- **Duration:** `--nl-dur-ui` = **220ms** for micro-interactions; `--nl-dur-reveal` = **480ms** for entrance reveals.
-- **Easing:** `cubic-bezier(0.22, 1, 0.36, 1)` — the "quart-out" curve, soft decelerate. Applied as `ease-nl` everywhere.
-- **Named animations:** `fade-up` (12 px rise + fade, reveal), `pulse-ring` (scale 1→2.2 + fade), `shimmer` (skeleton loading), `spin-nl` (fast spinner, 0.7 s).
-- **Reduced motion:** strictly honored — all animations clamp to 0.01 ms under `prefers-reduced-motion`.
-
-### Interaction states
-
-- **Hover (buttons):** `translateY(-2px)` + `shadow-hover`. No color darkening — the lift IS the affordance.
-- **Hover (cards):** same — `translateY(-3px)` + larger drop shadow. 220 ms `ease-nl`.
-- **Hover (links):** underline reveals via `border-bottom` transition.
-- **Press:** no explicit press-state in the kit; translate-0 on `:disabled` serves as the implicit "no-op".
-- **Focus:** `focus:ring-4` at 20% opacity of the relevant semantic color (primary, danger, success). Never removed.
-- **Disabled:** `opacity-40`, no lift, no shadow, `cursor-not-allowed`.
-
-### Borders, corners, shadows
-
-- **Radii:** `10 px` for inputs, `20 px` for cards, `9999px` (pill) for buttons and badges. Alerts sit between at `14 px`.
-- **Borders:** always hairline (`1 px` or `1.5 px`), always `--nl-border-soft` / `--nl-border-ui`. Borders are for separation, not decoration.
-- **Shadows:** **two** levels only — `shadow-card` (rest) and `shadow-hover` (lifted). Both are soft, low-opacity, neutral-black (`rgba(20,20,20,0.08 / 0.14)`). No colored shadows, no layered glows.
-- **Protection gradients:** used exclusively over imagery — `nl-overlay-dark` (bottom-weighted black fade) for legibility.
-
-### Transparency, blur
-
-- Alpha tokens are semantic: `primary/10`, `primary/20`, `accent/10`, `danger/8`. These drive badge fills and focus rings — **not** decorative glass.
-- Blur/glassmorphism is **not** part of the system.
-
-### Cards
-
-- **Rest:** `bg-white`, `border-nl-border-soft`, `shadow-card`, `rounded-card (20 px)`, `p-6` default.
-- **Hover:** lift 3 px + `shadow-hover`.
-- **Accent variant:** solid `bg-nl-primary` + `text-white` + no border. Used for emphasis CTAs within a card grid.
-
-### Imagery
-
-The kit itself ships no photography. When imagery enters a design: warm, natural light, Latin-American context preferred, slight film grain is acceptable. Avoid bluish-purple gradient overlays on photos — use the `nl-overlay-dark` black fade.
-
----
-
-## ICONOGRAPHY
-
-**Regla canónica:** Los íconos en NLACE son siempre **líneas planas** (stroke), **monocromo**. Nunca se usan íconos rellenos, con color, degradado o multi-tono. El color del ícono hereda del texto del contexto o usa explícitamente `currentColor`.
-
-### Reglas de uso
-
-| ✅ Correcto | ❌ Incorrecto |
+| Directorio / archivo | Qué hay |
 |---|---|
-| Ícono outline, stroke 1.5–2px | Ícono filled / sólido |
-| `color: currentColor` (hereda del texto) | Ícono en azul primario, rojo, verde, etc. |
-| Stroke caps redondeados | Íconos con múltiples colores |
-| Tamaño mínimo 16px, ideal 18–24px | Íconos decorativos en colores de marca |
+| `src/tokens/tailwind-v4.css` | Tokens como `@theme` para Tailwind v4 |
+| `src/tokens/tokens.css` | Variables CSS puras (sin Tailwind) |
+| `src/tailwind-preset.js` | Preset para Tailwind v3 |
+| `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo |
+| `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
+| `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
+| `assets/photos/` | 14 fotografías oficiales del equipo |
+| `assets/imagery/` | 34 imágenes AI para secciones de producto |
+| `fonts/` | Inter y Space Grotesk como fuentes variables TTF |
+| `colors_and_type.css` | CSS canónico con variables, @font-face y selectores base |
+| `DESIGN.md` | Referencia completa para agentes de IA y diseñadores |
+| `preview/` | Páginas HTML del design system (colores, tipo, componentes) |
 
-### Sistema de íconos
+---
 
-- **No existe un icon font o sprite oficial en el repositorio.** Se usa **Lucide** (CDN) como sistema de referencia — stroke 1.5, rounded caps, geométrico y neutral. Es el sustituto canónico hasta que NLACE adopte un set propio.
-- CDN: `https://unpkg.com/lucide@latest`
-- **Emoji: nunca usados** en UI de productos.
-- **Unicode glyphs** (`ℹ ✓ ⚠ ✕`): aceptables solo como indicadores compactos en el componente `Alert`.
+## Instalación
 
-### Ejemplos de uso correcto
-
-```jsx
-// ✅ Ícono en línea, hereda color del contexto
-<i data-lucide="arrow-right" style="width:18px;height:18px;" />
-
-// ✅ En botón: color blanco heredado
-<button style="background:#5869f7;color:#fff;">
-  Enviar <i data-lucide="send" />
-</button>
-
-// ❌ Incorrecto: ícono en color de marca
-<i data-lucide="check" style="color:#42cf8a;" />
-
-// ❌ Incorrecto: ícono filled
-<i data-lucide="check-circle-2" style="fill:#5869f7;" />
+```bash
+npm install @nlace/ui-kit
+# o
+pnpm add @nlace/ui-kit
 ```
 
-### Tamaños estándar
+---
 
-- **16px** — inline en texto, dentro de badges
-- **18px** — botones md, nav items
-- **20–24px** — iconos standalone, headers
-- **32px+** — ilustraciones funcionales, estados vacíos
+## Uso
 
-Assets de marca:
+### Tailwind v4 (Next.js 15+ / Vite)
 
-- `assets/nlace-black.svg` — wordmark, variant oscura.
-- `assets/nlace-white.svg` — wordmark, variant clara (derivada).
-- `NlaceLogo` / `NlaceAvatar` React components (ver `src/components/NlaceLogo.jsx`).
+En tu CSS global (`app/globals.css` o equivalente):
+
+```css
+@import "tailwindcss";
+@import "@nlace/ui-kit/tailwind-v4";
+
+/* Necesario para que Tailwind v4 escanee clases de los componentes del kit */
+@source "../node_modules/@nlace/ui-kit/dist";
+```
+
+> El `@import "tailwindcss"` **debe ir primero**.
+
+**Clases disponibles:**
+
+```html
+<!-- Colores -->
+<div class="bg-nl-primary text-white">...</div>
+<div class="bg-nl-bg text-nl-text">...</div>
+<span class="text-nl-accent">...</span>
+<div class="border border-nl-border-soft">...</div>
+
+<!-- Radios -->
+<button class="rounded-pill">CTA</button>
+<div class="rounded-card">Card</div>
+<input class="rounded-input">
+
+<!-- Sombras -->
+<div class="shadow-card hover:shadow-hover">...</div>
+
+<!-- Gradientes -->
+<section class="bg-nl-hero">Hero</section>
+<span class="bg-nl-brand bg-clip-text text-transparent">Gradient text</span>
+
+<!-- Animaciones -->
+<div class="animate-fade-up">...</div>
+<div class="animate-shimmer">Skeleton</div>
+
+<!-- Tipografía -->
+<h1 class="font-display">Titular</h1>
+<p class="font-body">Texto</p>
+
+<!-- Motion -->
+<div class="transition-all duration-ui ease-nl hover:-translate-y-1">...</div>
+```
 
 ---
 
-## Index (manifest)
+### Tailwind v3
 
-Root files:
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [require('@nlace/ui-kit/preset')],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+}
+```
 
-- `README.md` — this file.
-- `SKILL.md` — agent-invocable skill definition, cross-compatible with Claude Code agent skills.
-- `colors_and_type.css` — canonical CSS variables for type and color plus semantic selectors.
-- `LICENSE` — Apache-2.0.
+---
 
-Folders:
+### CSS Variables puras (sin framework)
 
-- `assets/` — logos (`nlace-black.svg`, `nlace-white.svg`) + the source-repo preview SVGs.
-- `src/tokens/` — `tokens.css` (v3 entry) + `tailwind-v4.css` (v4 entry).
-- `src/tailwind-preset.js` — Tailwind v3 preset.
-- `src/components/` — React components: `Button`, `Card`, `Badge`, `Input`, `Alert`, `NlaceLogo`, `Loaders` (Spinner, Skeleton).
-- `skill/SKILL.md` — the original Spanish-language skill shipped with the npm package.
-- `preview/` — card-sized HTML previews registered in the Design System tab (colors, type, components, spacing, brand).
-- `ui_kits/ai-studio/` — NLACE AI Studio sample UI (index.html + JSX components).
+```css
+/* Importa el CSS canónico con @font-face, variables y selectores base */
+@import url('./node_modules/@nlace/ui-kit/tokens');
+```
 
-Fonts are loaded from Google Fonts via `colors_and_type.css`. **Flagged substitution:** the source kit specifies SF Mono → Fira Code; the web preview uses **JetBrains Mono** (Google Fonts) as the nearest free equivalent. Provide an actual SF Mono / Fira Code TTF if strict fidelity is required.
+O copia el bloque de variables directamente desde [`colors_and_type.css`](colors_and_type.css).
+
+---
+
+### Componentes React
+
+```jsx
+import { Button, Card, Badge, Input, Alert, Spinner, Skeleton, NlaceLogo } from '@nlace/ui-kit'
+
+function App() {
+  return (
+    <Card>
+      <NlaceLogo variant="dark" height={32} />
+
+      <Badge variant="primary">Nuevo</Badge>
+      <Badge variant="success">Activo</Badge>
+
+      <Input
+        label="Correo electrónico"
+        placeholder="tu@ejemplo.com"
+      />
+      <Input
+        label="RUT"
+        error="Formato inválido"
+      />
+
+      <Alert variant="success" title="Listo">
+        Cambios guardados correctamente.
+      </Alert>
+
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary">Empezar</Button>
+        <Button variant="secondary">Cancelar</Button>
+        <Button variant="danger">Eliminar</Button>
+      </div>
+
+      <Spinner size="md" />
+      <Skeleton style={{ width: 200, height: 20 }} />
+    </Card>
+  )
+}
+```
+
+#### API de componentes
+
+**Button**
+```jsx
+<Button
+  variant="primary"   // 'primary' | 'accent' | 'secondary' | 'success' | 'outlineLight' | 'danger'
+  size="md"           // 'sm' | 'md' | 'lg'
+  disabled={false}
+>
+  Guardar
+</Button>
+```
+
+**Card**
+```jsx
+<Card
+  accent={false}   // true → fondo primario sólido
+  hover={true}     // false → sin lift en hover
+  padding="p-6"    // clase de padding Tailwind
+>
+  Contenido
+</Card>
+```
+
+**Badge**
+```jsx
+<Badge variant="primary">
+  {/* 'primary' | 'accent' | 'success' | 'danger' | 'neutral'
+      'solidPrimary' | 'solidAccent' | 'solidDark' */}
+  v1.5.0
+</Badge>
+```
+
+**Input**
+```jsx
+<Input
+  label="Campo"
+  placeholder="..."
+  error="Mensaje de error"    // activa estado error
+  success                     // activa estado success
+  hint="Texto de ayuda"
+/>
+```
+
+**Alert**
+```jsx
+<Alert
+  variant="info"    // 'info' | 'success' | 'warning' | 'error'
+  title="Aviso"
+>
+  El proceso tardará unos minutos.
+</Alert>
+```
+
+**Spinner / Skeleton**
+```jsx
+<Spinner size="md" />  // 'sm' | 'md' | 'lg'
+<Skeleton style={{ width: 200, height: 20 }} />
+```
+
+**NlaceLogo**
+```jsx
+<NlaceLogo variant="dark"  height={32} />  // fondos claros
+<NlaceLogo variant="light" height={32} />  // fondos oscuros
+<NlaceAvatar size={40} />
+```
+
+---
+
+## Tokens de diseño
+
+### Paleta canónica
+
+| Token | Hex | Uso |
+|---|---|---|
+| `--nl-primary` | `#5869f7` | Acción principal, links, foco |
+| `--nl-accent` | `#fc624b` | CTA secundario, highlights |
+| `--nl-pink` | `#f76dee` | Gradientes hero, acento |
+| `--nl-magenta` | `#b717af` | Gradient stop, badge PRO |
+| `--nl-success` | `#42cf8a` | Estados positivos |
+| `--nl-danger` | `#fc624b` | Error, destructivo |
+| `--nl-bg` | `#efefef` | Canvas (nunca blanco puro) |
+| `--nl-text` | `#0f1011` | Texto principal |
+
+### Tipografía
+
+- **Display:** Space Grotesk (titulares, 500–700)
+- **Body/UI:** Inter (todo lo demás, 400–700)
+- **Mono:** JetBrains Mono / SF Mono / Fira Code
+
+```html
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+```
+
+### Gradientes
+
+```css
+--nl-grad-hero:    linear-gradient(135deg, #5869f7 0%, #b717af 60%, #f76dee 100%);
+--nl-grad-brand:   linear-gradient(90deg,  #5869f7 0%, #fc624b 100%);
+--nl-grad-primary: linear-gradient(135deg, #5869f7 0%, #2d3bc4 100%);
+--nl-grad-accent:  linear-gradient(135deg, #fc624b 0%, #f76dee 100%);
+```
+
+---
+
+## Assets
+
+### Logos
+
+Los SVGs están embebidos inline en [`DESIGN.md`](DESIGN.md) y disponibles vía URL directa:
+
+```
+https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/nlace-black.svg
+https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/nlace-white.svg
+```
+
+### Fotografías del equipo
+
+14 fotos disponibles en `assets/photos/`. Base URL:
+
+```
+https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/photos/{filename}
+```
+
+Archivos: `portrait-smile.jpg` · `portrait-duo.jpg` · `portrait-speaking.jpg` · `team-group-laptop.jpg` · `team-meeting-01/02/03.jpg` · `team-portrait-01/02.jpg` · `collab-laptop.jpg` · `hands-laptop-dark.jpg` · `hands-laptop-light.jpg` · `hands-notes.jpg` · `hands-writing.jpg`
+
+### Imágenes AI
+
+34 imágenes en `assets/imagery/ai-01.png` → `ai-34.png`. Base URL:
+
+```
+https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/ai-{01..34}.png
+```
+
+---
+
+## Para agentes de IA
+
+Si eres un agente de IA trabajando con este design system, lee [`DESIGN.md`](DESIGN.md). Contiene todos los tokens, reglas, ejemplos de código HTML/JSX y markup SVG de los logos — todo inline, sin necesidad de leer otros archivos.
+
+---
+
+## Figma
+
+Diseño canónico: [NLACE Design System](https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System?node-id=2-1677)  
+`fileKey: hboE6NgrEkFXgC9B0M5B18` · `nodeId: 2:1677`
+
+Precedencia: **Figma > DESIGN.md > código**
+
+---
+
+## Productos que usan este kit
+
+- **NLACE AI Studio** — producto AI principal
+- **nlace.com** — sitio de marketing
+- **NLACE Docs** — documentación
+- Herramientas verticales: Agrointegral, Evo, Forge, Cotizador, Firmas, Board as a Service, etc.
+
+---
+
+## Licencia
+
+[Apache-2.0](LICENSE) © NLACE
