@@ -143,7 +143,19 @@ NLACE es una empresa tecnológica latinoamericana (base Chile). Sus interfaces s
 | Body / UI | **Inter** | Todo lo demás: párrafos, labels, botones |
 | Mono | **JetBrains Mono** (web) / SF Mono → Fira Code (prod) | Código, kbd, etiquetas técnicas |
 
-**Cómo cargarlas vía Google Fonts:**
+**Cómo cargarlas (preferido, self-hosted desde el kit — v2.1+):**
+```js
+// entry point del proyecto, junto a los tokens
+import '@nlace/ui-kit/tokens'
+import '@nlace/ui-kit/fonts'   // @font-face de Inter + Space Grotesk (woff2 variables)
+```
+
+> ⚠️ Los tokens (`--nl-font-display`, `--nl-font-body`) solo declaran los **nombres** de las
+> familias. Si el proyecto no importa `@nlace/ui-kit/fonts` ni define `@font-face` propio, el
+> navegador cae a la sans del sistema en cualquier máquina sin las fuentes instaladas (así se
+> detectó en nlace.com, jun-2026). Siempre cargar las fuentes explícitamente.
+
+**Alternativa vía Google Fonts** (si no se puede importar CSS del kit):
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -17,6 +17,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 |---|---|
 | `src/tokens/tailwind-v4.css` | Tokens como `@theme` para Tailwind v4 |
 | `src/tokens/tokens.css` | Variables CSS puras (sin Tailwind) |
+| `src/tokens/fonts.css` | `@font-face` de Inter + Space Grotesk (woff2 variables en `src/fonts/`) — `import '@nlace/ui-kit/fonts'` |
 | `src/tailwind-preset.js` | Preset para Tailwind v3 |
 | `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo |
 | `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
@@ -106,8 +107,11 @@ module.exports = {
 ### CSS Variables puras (sin framework)
 
 ```css
-/* Importa el CSS canónico con @font-face, variables y selectores base */
+/* Variables y selectores base (NO incluye @font-face) */
 @import url('./node_modules/@nlace/ui-kit/tokens');
+/* Fuentes de marca self-hosted (woff2 variables) — sin esto el navegador
+   cae a la sans del sistema */
+@import url('./node_modules/@nlace/ui-kit/fonts');
 ```
 
 O copia el bloque de variables directamente desde [`colors_and_type.css`](colors_and_type.css).

@@ -1,0 +1,35 @@
+/* NLACE UI Kit — fonts.css
+   Carga las fuentes de marca self-hosted (woff2 variables).
+
+   Los tokens (--nl-font-display / --nl-font-body) solo declaran los NOMBRES de
+   las familias; sin este archivo (o un @font-face propio del proyecto) el
+   navegador cae a la sans del sistema en máquinas sin las fuentes instaladas.
+
+   Uso (junto a los tokens, en el entry point del proyecto):
+     import '@nlace/ui-kit/tokens'
+     import '@nlace/ui-kit/fonts'
+
+   Las rutas url() son relativas a este archivo: cualquier bundler moderno
+   (Vite, Next.js, webpack) resuelve y copia los .woff2 automáticamente. */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz_wght.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Italic-VariableFont_opsz_wght.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-VariableFont_wght.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}

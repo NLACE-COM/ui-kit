@@ -1,4 +1,4 @@
-/* NLACE UI Kit — tokens.css v2.0.4
+/* NLACE UI Kit — tokens.css v2.1.0
    Importar en el entry point del proyecto:
    import '@nlace/ui-kit/tokens'
 */
@@ -67,6 +67,19 @@
   --nl-grad-dark: linear-gradient(180deg, #18181b 0%, #2f2f81 100%);
   --nl-grad-surface: linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%);
   --nl-grad-text-brand: linear-gradient(90deg, #3f58ea 0%, #ff6143 100%);
+
+  /* Extensiones v2.1 — promovidas desde el sitio nlace.com (antes vivían como
+     overrides locales en su styles.css) */
+  --nl-track-tight: -0.03em;           /* tracking para headings display */
+  --nl-text-card: #2f3038;             /* texto secundario en cards sobre fondo claro */
+  --nl-accent-dark: #a83a22;           /* kicker/acento oscuro sobre fondo blanco */
+  --nl-stat-coral: var(--nl-accent);   /* stat card coral */
+  --nl-stat-blue: var(--nl-primary);   /* stat card azul */
+  --nl-stat-magenta: #b717af;          /* stat card púrpura */
+  --nl-subscribe-bg: #5869f7;          /* fondo sección subscribe */
+  --nl-code-bg: #0f172a;               /* fondo bloques de código */
+  --nl-success-tint: #baf3d9;          /* texto sobre fondos success oscuros */
+  --nl-selected-navy: #1f2b5c;         /* texto activo en selecciones (ICI) */
 }
 
 /* Base */
