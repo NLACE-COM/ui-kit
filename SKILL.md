@@ -22,6 +22,7 @@ Si el usuario invoca este skill sin más instrucciones, pregunta qué quiere con
 - **Figma:** https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System
 - **npm:** `@nlace/ui-kit` — tokens CSS, Tailwind v4, preset v3, React components
 - **Fotos oficiales:** `assets/photos/` — 14 fotos del equipo NLACE
+- **Imágenes AI oficiales:** `assets/imagery/` — 130 imágenes (`ai-01`…`ai-130`); catálogo en `assets/imagery/CATALOG.md`, guía de estilo y generación en `DESIGN.md` § Imágenes AI
 
 Precedencia: `Figma > SKILL.md > defaults del modelo`.
 
@@ -113,6 +114,12 @@ Neutros: `#3F3F46` (700) · `#71717A` (500) · `#A1A1AA` (400) · `#C6C7C2` (bor
 - Sobre fotos con overlay de color: usar `rgba(primario, 0.5–0.65)`.
 - Sin overlays diagonales. Sin filtros de color sobre fotos de personas.
 
+### Imágenes AI
+- 130 imágenes oficiales en `assets/imagery/` (`ai-01.png`…`ai-130.png`, vía raw de GitHub).
+- Para **elegir** sin verlas: `assets/imagery/CATALOG.md` (descripción por imagen + índice temático).
+- Para **generar** nuevas: `DESIGN.md` § Imágenes AI (10 reglas de ADN visual + plantilla de prompt + checklist). Resumen: bicromía naranja-coral/lavanda, arquitectura metafísica, umbral como motivo, siluetas anónimas sin rostros, suelo espejo, mood sereno y monumental.
+- No usar imágenes AI fuera de este sistema en piezas de marca.
+
 ---
 
 ## Iconografía — regla no negociable
@@ -151,6 +158,7 @@ Importar desde: `@nlace/ui-kit`
 - Splits siempre verticales u horizontales. Sin formas diagonales.
 - Texto gris solo sobre fondos blancos o `#efefef`. Nunca sobre colores.
 - Fotos: siempre del directorio `assets/photos/`. Sin stock genérico.
+- Imágenes AI: siempre del directorio `assets/imagery/` (o generadas con la guía de `DESIGN.md`).
 - Íconos en slides: stroke, monocromo, nunca decorativos en color.
 
 ---
@@ -172,6 +180,7 @@ Importar desde: `@nlace/ui-kit`
 - `fonts/` — Inter + Space Grotesk variable TTFs
 - `assets/nlace-black.svg`, `assets/nlace-white.svg` — wordmark
 - `assets/photos/` — 14 fotos oficiales del equipo
+- `assets/imagery/` — 130 imágenes AI oficiales + `CATALOG.md`
 - `preview/` — 22+ tarjetas HTML del design system
 - `ui_kits/ai-studio/` — UI kit interactivo de NLACE AI Studio
 - `src/components/*.jsx` — Button, Badge, Card, Input, Alert, Loaders, NlaceLogo
