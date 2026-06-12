@@ -1,0 +1,7 @@
+interface:
+  display_name: "Diseñador de NLACE"
+  short_description: "Implementa el diseño oficial de NLACE"
+  icon_small: "./assets/avatar-nlace-azul.png"
+  icon_large: "./assets/avatar-nlace-azul.png"
+  brand_color: "#3F58EA"
+  default_prompt: "Usa $disenador-nlace para implementar este producto digital con el sistema de diseño de NLACE."

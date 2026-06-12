@@ -1,0 +1,199 @@
+# NLACE Design System
+
+Internal design system for **NLACE** — the company's visual foundation for its own product suite (internal tools, AI products, client dashboards) and marketing surfaces.
+
+> _Paquete interno de NLACE para el desarrollo de productos propios. Contiene los tokens de diseño, el preset de Tailwind CSS y los componentes React del sistema de diseño oficial._
+
+This package is the source of truth for every NLACE-built product, from internal tools to **NLACE AI Studio**. It guarantees consistency across projects and eliminates repeated design decisions.
+
+## Sources
+
+This system was reconstructed from the following:
+
+- **Code repo:** [github.com/NLACE-COM/ui-kit](https://github.com/NLACE-COM/ui-kit) — tokens CSS, Tailwind v4 theme, Tailwind v3 preset, React components, logo assets.
+- **Figma (canonical):** https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System (fileKey `hboE6NgrEkFXgC9B0M5B18`, root node `2:1677`).
+- **Marketing site:** [nlace.com](https://nlace.com).
+- **Existing skill:** `skill/SKILL.md` inside the repo (v2.1.0).
+
+Precedence rule from the source skill: **Figma > SKILL.md > model defaults**.
+
+## Products in the NLACE ecosystem
+
+NLACE builds many internal and client products. The known surfaces that share this kit:
+
+- **NLACE AI Studio** — flagship AI product.
+- **nlace-hq / nlace-new-site** — marketing surface.
+- **NLACE Docs** — documentation.
+- **Vertical tools** — Agrointegral, Evo (academic impact MVP), Mutualidades, Forge, Cotizador, Firmas, Casas Chile, Mercier Chile, Cierro, BoardAsAService, etc.
+
+The common denominator across all of them: **Space Grotesk** display type, **Inter** body type, the NLACE blue (`#3f58ea`), a warm accent red (`#ff6143`), and a restrained neutral system.
+
+---
+
+## CONTENT FUNDAMENTALS
+
+The source repo's README, component API, and SKILL.md are in **Spanish**. Copy across NLACE products follows the same voice.
+
+- **Language:** Spanish (Latin American / Chilean register). English is acceptable for dev-facing docs and npm metadata, but user-facing UI is Spanish by default.
+- **Tone:** Direct, functional, no fluff. Think "product engineer talking to another engineer." Short sentences. Imperative for CTAs (`Empezar`, `Guardar`, `Cancelar`, `Eliminar`). Declarative for state (`El proceso tardará unos minutos.`, `Cambios guardados correctamente.`, `Revisa los datos antes de continuar.`).
+- **Person:** Neutral/informal — uses `tú`, not `usted` (`tu@ejemplo.com`, `Como aparece en tu perfil`).
+- **Casing:** Sentence case for UI strings and headlines. Product names `NLACE AI Studio` and acronyms (`RUT`, `UI`) stay in caps. No ALL-CAPS headlines.
+- **Punctuation:** Lowercase start for eyebrow labels, minimal punctuation in tight UI strings. Full sentences in alerts and descriptions.
+- **Emoji:** Not used in product UI or marketing copy. The `Alert` component uses literal Unicode symbols (`ℹ ✓ ⚠ ✕`) as compact glyphs — not "emoji" in the expressive sense.
+- **Vibe:** Utilitarian, industrial, Latin American tech confidence. Zero marketing-speak, zero "delighted" language, zero exclamation marks unless an error genuinely warrants urgency.
+
+**Specific examples (lifted from the source):**
+
+- Button labels: `Empezar` · `Guardar` · `Cancelar` · `Eliminar`
+- Badge labels: `Nuevo` · `Beta` · `Activo` · `v1.5.0`
+- Alert copy:
+  - info → `Aviso` / `El proceso tardará unos minutos.`
+  - success → `Listo` / `Cambios guardados correctamente.`
+  - warning → `Revisa los datos antes de continuar.`
+  - error → `Error` / `No se pudo conectar al servidor.`
+- Field hints: `Como aparece en tu perfil`, `Formato inválido` (for RUT validation).
+
+---
+
+## VISUAL FOUNDATIONS
+
+### Colors
+
+- **Primary:** NLACE Blue `#3f58ea` (electric, slightly purple-leaning). Dark variant `#2f2f81` for gradient endings and hero sections.
+- **Accent:** NLACE Red-Orange `#ff6143`, warm variant `#ff8c42`. Used sparingly — CTAs, highlights, brand text-gradient endings.
+- **Neutrals:** Zinc scale (`#18181b`, `#3f3f46`, `#71717a`, `#a1a1aa`), plus `#d4d4d8` / `#e8e8e8` borders. App background is the distinctive off-white `#efefef` — **not** pure white.
+- **Semantic:** Success mint `#6be8b0` (pill) + `#22c55e` (stroke), danger `#dc2626`.
+- **Never** use pure white `#ffffff` as the page background. Cards are white; the canvas is `#efefef`.
+
+### Typography
+
+- **Display:** Space Grotesk — headlines, hero numbers, logo wordmark feel. Weights 500–700.
+- **Body:** Inter — everything else. Weights 400 / 500 / 600 / 700.
+- **Mono:** SF Mono -> Fira Code -> JetBrains Mono (as Google Fonts substitute for web). Code blocks, keyboard shortcuts.
+- **Tracking:** `-0.03em` for large display, `-0.018em` for standard headings, `+0.08em` for UPPERCASE eyebrows and labels.
+
+### Spacing & layout
+
+- Tailwind default scale (4-px steps). No custom spacing tokens — intentional restraint.
+- Inputs: `min-h-[44px]` (AA touch target), `px-[14px]`.
+- Buttons: `sm` 16×6 px, `md` 22×11 px, `lg` 30×15 px.
+- Content typically max-width 1200–1280 px, generous gutters.
+
+### Backgrounds
+
+- **App canvas:** `#efefef` flat — no textures, patterns, or dot grids.
+- **Panels/cards:** white with subtle border and shadow.
+- **Hero sections / emphasis surfaces:** allowed to use brand gradients, but always paired with strong, legible contrast.
+
+### Shapes & radii
+
+- Inputs: `10 px`
+- Cards: `20 px`
+- Pills / badges / buttons: fully rounded (`9999 px`)
+- Avoid diagonal cuts and decorative slashes. NLACE prefers calm rectangles, soft radii, and clean divisions.
+
+### Motion
+
+- **Hover (buttons):** `translateY(-2px)` + `shadow-hover`. No color darkening — the lift IS the affordance.
+- **Hover (cards):** same — `translateY(-3px)` + larger drop shadow. 220 ms `ease-nl`.
+- **Hover (links):** underline reveals via `border-bottom` transition.
+- **Press:** no explicit press-state in the kit; translate-0 on `:disabled` serves as the implicit "no-op".
+- **Focus:** `focus:ring-4` at 20% opacity of the relevant semantic color (primary, danger, success). Never removed.
+- **Disabled:** `opacity-40`, no lift, no shadow, `cursor-not-allowed`.
+
+### Borders, corners, shadows
+
+- **Radii:** `10 px` for inputs, `20 px` for cards, `9999px` (pill) for buttons and badges. Alerts sit between at `14 px`.
+- **Borders:** always hairline (`1 px` or `1.5 px`), always `--nl-border-soft` / `--nl-border-ui`. Borders are for separation, not decoration.
+- **Shadows:** **two** levels only — `shadow-card` (rest) and `shadow-hover` (lifted). Both are soft, low-opacity, neutral-black (`rgba(20,20,20,0.08 / 0.14)`). No colored shadows, no layered glows.
+- **Protection gradients:** used exclusively over imagery — `nl-overlay-dark` (bottom-weighted black fade) for legibility.
+
+### Transparency, blur
+
+- Alpha tokens are semantic: `primary/10`, `primary/20`, `accent/10`, `danger/8`. These drive badge fills and focus rings — **not** decorative glass.
+- Blur/glassmorphism is **not** part of the system.
+
+### Cards
+
+- **Rest:** `bg-white`, `border-nl-border-soft`, `shadow-card`, `rounded-card (20 px)`, `p-6` default.
+- **Hover:** lift 3 px + `shadow-hover`.
+- **Accent variant:** solid `bg-nl-primary` + `text-white` + no border. Used for emphasis CTAs within a card grid.
+
+### Imagery
+
+The kit itself ships no photography. When imagery enters a design: warm, natural light, Latin-American context preferred, slight film grain is acceptable. Avoid bluish-purple gradient overlays on photos — use the `nl-overlay-dark` black fade.
+
+---
+
+## ICONOGRAPHY
+
+**Regla canónica:** Los íconos en NLACE son siempre **líneas planas** (stroke), **monocromo**. Nunca se usan íconos rellenos, con color, degradado o multi-tono. El color del ícono hereda del texto del contexto o usa explícitamente `currentColor`.
+
+### Reglas de uso
+
+| Correcto | Incorrecto |
+|---|---|
+| Ícono outline, stroke 1.5–2px | Ícono filled / sólido |
+| `color: currentColor` (hereda del texto) | Ícono en azul primario, rojo, verde, etc. |
+| Stroke caps redondeados | Íconos con múltiples colores |
+| Tamaño mínimo 16px, ideal 18–24px | Íconos decorativos en colores de marca |
+
+### Sistema de íconos
+
+- **No existe un icon font o sprite oficial en el repositorio.** Se usa **Lucide** (CDN) como sistema de referencia — stroke 1.5, rounded caps, geométrico y neutral. Es el sustituto canónico hasta que NLACE adopte un set propio.
+- CDN: `https://unpkg.com/lucide@latest`
+- **Emoji: nunca usados** en UI de productos.
+- **Unicode glyphs** (`ℹ ✓ ⚠ ✕`): aceptables solo como indicadores compactos en el componente `Alert`.
+
+### Ejemplos de uso correcto
+
+```jsx
+// Ícono en línea, hereda color del contexto
+<i data-lucide="arrow-right" style="width:18px;height:18px;" />
+
+// En botón: color blanco heredado
+<button style="background:#5869f7;color:#fff;">
+  Enviar <i data-lucide="send" />
+</button>
+
+// Incorrecto: ícono en color de marca
+<i data-lucide="check" style="color:#42cf8a;" />
+
+// Incorrecto: ícono filled
+<i data-lucide="check-circle-2" style="fill:#5869f7;" />
+```
+
+### Tamaños estándar
+
+- **16px** — inline en texto, dentro de badges
+- **18px** — botones md, nav items
+- **20–24px** — iconos standalone, headers
+- **32px+** — ilustraciones funcionales, estados vacíos
+
+Assets de marca:
+
+- `assets/nlace-black.svg` — wordmark, variant oscura.
+- `assets/nlace-white.svg` — wordmark, variant clara (derivada).
+- `NlaceLogo` / `NlaceAvatar` React components (ver `src/components/NlaceLogo.jsx`).
+
+---
+
+## Index (manifest)
+
+Root files:
+
+- `README.md` — this file.
+- `SKILL.md` — definición invocable del skill.
+- `colors_and_type.css` — canonical CSS variables for type and color plus semantic selectors.
+- `LICENSE` — Apache-2.0.
+
+Folders:
+
+- `assets/` — logos (`nlace-black.svg`, `nlace-white.svg`) + previews de soporte.
+- `src/tokens/` — `tokens.css` (v3 entry) + `tailwind-v4.css` (v4 entry).
+- `src/tailwind-preset.js` — Tailwind v3 preset.
+- `src/components/` — React components: `Button`, `Card`, `Badge`, `Input`, `Alert`, `NlaceLogo`, `Loaders`.
+- `preview/` — previews HTML registrables en Design System tabs.
+- `ui_kits/ai-studio/` — NLACE AI Studio sample UI.
+
+Fonts are loaded from Google Fonts via `colors_and_type.css`. **Flagged substitution:** the source kit specifies SF Mono -> Fira Code; the web preview uses **JetBrains Mono** (Google Fonts) as the nearest free equivalent. Provide an actual SF Mono / Fira Code TTF if strict fidelity is required.

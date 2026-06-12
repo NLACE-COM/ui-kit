@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NLACE Hero Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --nl-bg: #efefef;
+        --nl-text: #141414;
+        --nl-primary: #3f58ea;
+        --nl-primary-dark: #2f2f81;
+        --nl-accent: #ff6143;
+        --nl-accent-warm: #ff8c42;
+        --nl-success: #6be8b0;
+        --nl-white: #ffffff;
+        --nl-900: #18181b;
+        --nl-700: #3f3f46;
+        --nl-500: #71717a;
+        --nl-border-soft: #e8e8e8;
+        --nl-border-ui: #d4d4d8;
+        --nl-radius-card: 20px;
+        --nl-radius-pill: 9999px;
+        --nl-shadow-card: 0 2px 12px rgba(20, 20, 20, 0.08);
+        --nl-shadow-hover: 0 16px 40px rgba(20, 20, 20, 0.16);
+        --nl-font-display: "Space Grotesk", sans-serif;
+        --nl-font-body: "Inter", sans-serif;
+        --nl-grad-hero: linear-gradient(135deg, #2f2f81 0%, #1a1a5e 58%, #2d1f6e 100%);
+        --nl-grad-primary: linear-gradient(135deg, #3f58ea 0%, #2f2f81 100%);
+        --nl-grad-accent: linear-gradient(135deg, #ff6143 0%, #ff8c42 100%);
+        --nl-grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 244, 245, 0.96) 100%);
+        --nl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(107, 232, 176, 0.18), transparent 28%),
+          radial-gradient(circle at 80% 15%, rgba(255, 97, 67, 0.16), transparent 22%),
+          linear-gradient(180deg, #f6f6f7 0%, #efefef 100%);
+        color: var(--nl-text);
+        font-family: var(--nl-font-body);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+        padding: 24px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        max-width: 1320px;
+        margin: 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.54);
+        border-radius: 36px;
+        background: var(--nl-grad-hero);
+        box-shadow: 0 30px 80px rgba(26, 26, 94, 0.22);
+      }
+
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(10px);
+        pointer-events: none;
+      }
+
+      .hero::before {
+        width: 420px;
+        height: 420px;
+        top: -160px;
+        right: -100px;
+        background: radial-gradient(circle, rgba(107, 232, 176, 0.22) 0%, rgba(107, 232, 176, 0) 72%);
+      }
+
+      .hero::after {
+        width: 360px;
+        height: 360px;
+        bottom: -200px;
+        left: -80px;
+        background: radial-gradient(circle, rgba(255, 97, 67, 0.22) 0%, rgba(255, 97, 67, 0) 72%);
+      }
+
+      .grid-lines {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 88%);
+        pointer-events: none;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        padding: 28px 28px 24px;
+      }
+
+      .navbar,
+      .hero-body,
+      .footer {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar {
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 34px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 44px;
+      }
+
+      .brand-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand-wordmark {
+        width: 132px;
+        height: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-links a {
+        min-height: 44px;
+        padding: 11px 18px;
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.96rem;
+        font-weight: 600;
+        transition: background-color 180ms var(--nl-ease), color 180ms var(--nl-ease), transform 180ms var(--nl-ease);
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--nl-white);
+        outline: none;
+        transform: translateY(-1px);
+      }
+
+      .hero-body {
+        align-items: stretch;
+        gap: 24px;
+      }
+
+      .hero-copy,
+      .hero-aside {
+        min-width: 0;
+      }
+
+      .hero-copy {
+        flex: 1.15;
+        padding: 20px 8px 8px 4px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        margin-bottom: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        backdrop-filter: blur(12px);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--nl-success);
+        box-shadow: 0 0 0 5px rgba(107, 232, 176, 0.16);
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin: 0;
+        color: var(--nl-white);
+        font-family: var(--nl-font-display);
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+      }
+
+      .headline-accent {
+        display: inline-block;
+        color: #b5c1ff;
+      }
+
+      .subcopy {
+        max-width: 640px;
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: clamp(1.02rem, 1.35vw, 1.22rem);
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 50px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        border-radius: var(--nl-radius-pill);
+        font-weight: 700;
+        font-size: 0.98rem;
+        transition: transform 180ms var(--nl-ease), box-shadow 180ms var(--nl-ease), border-color 180ms var(--nl-ease), background-color 180ms var(--nl-ease);
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .button-primary {
+        color: var(--nl-white);
+        background: var(--nl-grad-accent);
+        box-shadow: 0 14px 34px rgba(255, 97, 67, 0.32);
+      }
+
+      .button-primary:hover,
+      .button-primary:focus-visible {
+        box-shadow: 0 18px 40px rgba(255, 97, 67, 0.4);
+      }
+
+      .button-secondary {
+        color: var(--nl-white);
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .button-secondary:hover,
+      .button-secondary:focus-visible {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .metric {
+        padding: 16px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--nl-white);
+        font-family: var(--nl-font-display);
+        font-size: clamp(1.5rem, 2.2vw, 2rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .hero-aside {
+        flex: 0.92;
+        display: flex;
+      }
+
+      .service-panel {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 244, 245, 0.92) 100%);
+        box-shadow: var(--nl-shadow-card);
+      }
+
+      .service-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(63, 88, 234, 0.12), transparent 28%),
+          radial-gradient(circle at 0% 100%, rgba(255, 97, 67, 0.12), transparent 30%);
+        pointer-events: none;
+      }
+
+      .service-header,
+      .services-grid {
+        position: relative;
+        z-index: 1;
+      }
+
+      .service-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .service-header p {
+        margin: 0;
+        color: var(--nl-700);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .service-tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(63, 88, 234, 0.08);
+        color: var(--nl-primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .services-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .service-card {
+        padding: 18px;
+        border: 1px solid var(--nl-border-soft);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.92);
+        transition: transform 180ms var(--nl-ease), box-shadow 180ms var(--nl-ease), border-color 180ms var(--nl-ease);
+      }
+
+      .service-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(63, 88, 234, 0.22);
+        box-shadow: var(--nl-shadow-hover);
+      }
+
+      .service-icon {
+        width: 52px;
+        height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        border-radius: 16px;
+        background: var(--nl-grad-primary);
+        color: var(--nl-white);
+        box-shadow: 0 12px 24px rgba(63, 88, 234, 0.2);
+      }
+
+      .service-card:nth-child(2) .service-icon {
+        background: linear-gradient(135deg, #141414 0%, #2f2f81 100%);
+      }
+
+      .service-card:nth-child(3) .service-icon {
+        background: var(--nl-grad-accent);
+      }
+
+      .service-card h2 {
+        margin: 0 0 8px;
+        font-family: var(--nl-font-display);
+        font-size: 1.2rem;
+        letter-spacing: -0.03em;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: var(--nl-700);
+        font-size: 0.96rem;
+        line-height: 1.65;
+      }
+
+      .footer {
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 22px;
+        padding: 18px 6px 2px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.94rem;
+      }
+
+      .footer-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .footer-meta span,
+      .footer-meta a {
+        min-height: 24px;
+      }
+
+      .footer a:hover,
+      .footer a:focus-visible {
+        color: var(--nl-white);
+        outline: none;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .logo-svg {
+        display: block;
+      }
+
+      @media (max-width: 1080px) {
+        .hero-body {
+          flex-direction: column;
+        }
+
+        .hero-copy {
+          padding-right: 0;
+        }
+
+        h1 {
+          max-width: 14ch;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page-shell {
+          padding: 14px;
+        }
+
+        .hero {
+          border-radius: 28px;
+        }
+
+        .content {
+          padding: 18px 18px 20px;
+        }
+
+        .navbar,
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links,
+        .footer-meta {
+          width: 100%;
+        }
+
+        .nav-links {
+          justify-content: space-between;
+        }
+
+        .nav-links a {
+          flex: 1;
+          text-align: center;
+        }
+
+        .service-header {
+          flex-direction: column;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-meta {
+          justify-content: flex-start;
+          gap: 10px 18px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="grid-lines" aria-hidden="true"></div>
+        <div class="content">
+          <header class="navbar">
+            <a class="brand" href="#" aria-label="NLACE inicio">
+              <span class="brand-mark" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 625 625" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="625" height="625" rx="140" fill="#5869F7"></rect>
+                  <text
+                    x="50%"
+                    y="58%"
+                    dominant-baseline="middle"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="360"
+                    font-family="Space Grotesk, sans-serif"
+                    font-weight="800"
+                  >
+                    n.
+                  </text>
+                </svg>
+              </span>
+              <svg
+                class="brand-wordmark logo-svg"
+                viewBox="0 0 464 125"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="NLACE"
+                role="img"
+              >
+                <path d="M0 123.169V34.454H28.965L30.297 52.43l-6.326 2a24.309 24.309 0 0 1 6.492-11.152 34.6 34.6 0 0 1 11.487-7.825 35.391 35.391 0 0 1 13.983-2.83c6.659 0 12.263 1.387 16.813 4.161a24.663 24.663 0 0 1 10.488 12.15c3.553 7.99 4.434 14.537 4.434 26.188v54.594H55.933v-52.1a16.819 16.819 0 0 0-1.332-7.157 9.327 9.327 0 0 0-4-4.494 11.593 11.593 0 0 0-6.326-1.332 16.741 16.741 0 0 0-5.327.832 11.132 11.132 0 0 0-4.162 2.663 11.85 11.85 0 0 0-2.83 3.828 13.35 13.35 0 0 0-.832 4.827v52.929H0Z" fill="#ffffff"></path>
+                <path d="M103.929 123.169V0h30.964v123.169h-30.964Z" fill="#ffffff"></path>
+                <path d="M183.894 124.667a35.164 35.164 0 0 1-19.81-5.825 42.478 42.478 0 0 1-13.817-16.312 54.7 54.7 0 0 1-4.994-23.8c0-9.099 1.665-17.088 4.994-23.968a39.437 39.437 0 0 1 13.817-16.145 35.285 35.285 0 0 1 20.309-5.992 36.708 36.708 0 0 1 11.32 1.664 26.914 26.914 0 0 1 8.989 4.827 36.936 36.936 0 0 1 6.659 7.157 40.531 40.531 0 0 1 4.661 8.655l-6.325-.333V34.454H240.16v88.715H209.031V101.531l6.825.333a33.93 33.93 0 0 1-11.486 16.312 37.088 37.088 0 0 1-9.323 4.824 35.157 35.157 0 0 1-11.153 1.667Zm8.823-25.466a17.28 17.28 0 0 0 9.156-2.33 15.625 15.625 0 0 0 5.826-7.157 25.864 25.864 0 0 0 2.164-10.985 26.3 26.3 0 0 0-2.164-11.152 14.636 14.636 0 0 0-5.826-6.991 18.037 18.037 0 0 0-18.312 0 14.975 14.975 0 0 0-5.66 6.991 28.2 28.2 0 0 0-2 11.152 27.732 27.732 0 0 0 2 10.985 16.031 16.031 0 0 0 5.66 7.157 17.277 17.277 0 0 0 9.156 2.33Z" fill="#ffffff"></path>
+                <path d="M298.074 124.834a46.8 46.8 0 0 1-23.638-5.992 44.24 44.24 0 0 1-16.314-16.312 47.109 47.109 0 0 1-5.993-23.8 46.2 46.2 0 0 1 5.993-23.635 43.875 43.875 0 0 1 16.314-16.478 46.79 46.79 0 0 1 23.638-5.992 60.923 60.923 0 0 1 21.974 3.828A38.016 38.016 0 0 1 336.2 47.437L319.382 67.41a18.918 18.918 0 0 0-4.661-4.161 20.772 20.772 0 0 0-6.326-3 22.581 22.581 0 0 0-7.491-1.165 18.4 18.4 0 0 0-9.655 2.5 17.182 17.182 0 0 0-6.492 6.991 22.041 22.041 0 0 0-2.164 9.987 22.041 22.041 0 0 0 2.164 9.987 17.423 17.423 0 0 0 6.326 6.991A18.357 18.357 0 0 0 300.9 98.2a26.04 26.04 0 0 0 7.491-1 20.933 20.933 0 0 0 6.16-2.829 20.131 20.131 0 0 0 4.827-4.328L336.2 110.186A40.092 40.092 0 0 1 319.882 121 60.448 60.448 0 0 1 298.074 124.834Z" fill="#ffffff"></path>
+                <path d="M387.768 124.834c-10.099 0-18.811-1.998-26.135-5.826a42.936 42.936 0 0 1-16.98-16.312 47.106 47.106 0 0 1-5.993-23.8 50.173 50.173 0 0 1 3.329-18.475 43.522 43.522 0 0 1 9.322-14.647 40.178 40.178 0 0 1 14.15-9.654 46.4 46.4 0 0 1 18.145-3.5 44.22 44.22 0 0 1 17.479 3.329 38.271 38.271 0 0 1 13.651 9.487 41.031 41.031 0 0 1 8.823 14.481 46.7 46.7 0 0 1 2.83 18.309l-.167 6.991H356.306l-3.829-15.489h48.941l-3 3.329v-3.162a10.241 10.241 0 0 0-2-6.325 11.85 11.85 0 0 0-4.994-4.328 16.521 16.521 0 0 0-7.158-1.5 17.954 17.954 0 0 0-9.489 2.33 14.314 14.314 0 0 0-5.659 6.325 22.894 22.894 0 0 0-2 9.987 23.429 23.429 0 0 0 2.663 11.485 19.088 19.088 0 0 0 8.157 7.49 30.321 30.321 0 0 0 13.318 2.663 27.386 27.386 0 0 0 8.989-1.332 31.062 31.062 0 0 0 8.49-4.66l14.316 20.14a60.03 60.03 0 0 1-11.819 7.49 58.981 58.981 0 0 1-23.472 5.16Z" fill="#ffffff"></path>
+                <path d="M448.352 125c-4.994 0-8.878-1.387-11.653-4.161-2.663-2.774-3.995-6.713-3.995-11.818a15.879 15.879 0 0 1 4.328-11.484 15.006 15.006 0 0 1 11.32-4.494c4.883 0 8.712 1.387 11.486 4.161S464 104.917 464 109.021a15.878 15.878 0 0 1-4.328 11.485A15.006 15.006 0 0 1 448.352 125Z" fill="#ffffff"></path>
+              </svg>
+            </a>
+
+            <nav class="nav-links" aria-label="Principal">
+              <a href="#servicios">Servicios</a>
+              <a href="#contacto">Contacto</a>
+            </nav>
+          </header>
+
+          <div class="hero-body">
+            <div class="hero-copy">
+              <div class="eyebrow">NLACE Studio</div>
+              <h1 id="hero-title">
+                Marketing y tecnología
+                <span class="headline-accent">que trabajan juntos.</span>
+              </h1>
+              <p class="subcopy">
+                NLACE combina estrategia, diseño y automatización para que las empresas crezcan sin contratar un equipo de 10 personas.
+              </p>
+
+              <div class="actions">
+                <a class="button button-primary" href="mailto:cristian@nlace.com?subject=Agendar%20diagn%C3%B3stico">
+                  Agendar diagnóstico
+                </a>
+                <a class="button button-secondary" href="#servicios">
+                  Ver casos de éxito
+                </a>
+              </div>
+
+              <div class="metrics" aria-label="Métricas principales">
+                <div class="metric">
+                  <strong>6 personas</strong>
+                  <span>Equipo ágil y multidisciplinario.</span>
+                </div>
+                <div class="metric">
+                  <strong>+40 clientes</strong>
+                  <span>Marcas, servicios y operaciones acompañadas.</span>
+                </div>
+                <div class="metric">
+                  <strong>3 años</strong>
+                  <span>Construyendo crecimiento con sistema.</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="hero-aside" id="servicios" aria-labelledby="services-title">
+              <div class="service-panel">
+                <div class="service-header">
+                  <div>
+                    <h2 id="services-title" style="margin: 0 0 6px; font-size: 1.6rem;">Servicios que conectan ejecución y crecimiento</h2>
+                    <p>Una misma capa estratégica para marca, web y operaciones internas.</p>
+                  </div>
+                  <span class="service-tag">Servicios</span>
+                </div>
+
+                <div class="services-grid">
+                  <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 18L9.5 12.5L13 16L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15 7H20V12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <h2>Estrategia digital</h2>
+                    <p>Definimos oferta, posicionamiento y prioridades para que cada canal empuje el mismo objetivo comercial.</p>
+                  </article>
+
+                  <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 7L3 12L8 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16 7L21 12L16 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M13 5L11 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+                      </svg>
+                    </div>
+                    <h2>Desarrollo web</h2>
+                    <p>Diseñamos y construimos sitios y experiencias que convierten mejor, cargan rápido y se sienten premium.</p>
+                  </article>
+
+                  <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="6" width="16" height="12" rx="4" stroke="currentColor" stroke-width="2.2"></rect>
+                        <path d="M9 10H9.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+                        <path d="M15 10H15.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+                        <path d="M8.5 14C9.4 15.2 10.54 15.8 12 15.8C13.46 15.8 14.6 15.2 15.5 14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+                      </svg>
+                    </div>
+                    <h2>Automatización con IA</h2>
+                    <p>Reducimos trabajo manual con flujos, asistentes y sistemas que liberan tiempo sin perder control operativo.</p>
+                  </article>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <footer class="footer" id="contacto">
+            <div class="footer-brand">
+              <span class="sr-only">NLACE</span>
+              <svg
+                class="logo-svg"
+                width="92"
+                viewBox="0 0 464 125"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M0 123.169V34.454H28.965L30.297 52.43l-6.326 2a24.309 24.309 0 0 1 6.492-11.152 34.6 34.6 0 0 1 11.487-7.825 35.391 35.391 0 0 1 13.983-2.83c6.659 0 12.263 1.387 16.813 4.161a24.663 24.663 0 0 1 10.488 12.15c3.553 7.99 4.434 14.537 4.434 26.188v54.594H55.933v-52.1a16.819 16.819 0 0 0-1.332-7.157 9.327 9.327 0 0 0-4-4.494 11.593 11.593 0 0 0-6.326-1.332 16.741 16.741 0 0 0-5.327.832 11.132 11.132 0 0 0-4.162 2.663 11.85 11.85 0 0 0-2.83 3.828 13.35 13.35 0 0 0-.832 4.827v52.929H0Z" fill="#ffffff"></path>
+                <path d="M103.929 123.169V0h30.964v123.169h-30.964Z" fill="#ffffff"></path>
+                <path d="M183.894 124.667a35.164 35.164 0 0 1-19.81-5.825 42.478 42.478 0 0 1-13.817-16.312 54.7 54.7 0 0 1-4.994-23.8c0-9.099 1.665-17.088 4.994-23.968a39.437 39.437 0 0 1 13.817-16.145 35.285 35.285 0 0 1 20.309-5.992 36.708 36.708 0 0 1 11.32 1.664 26.914 26.914 0 0 1 8.989 4.827 36.936 36.936 0 0 1 6.659 7.157 40.531 40.531 0 0 1 4.661 8.655l-6.325-.333V34.454H240.16v88.715H209.031V101.531l6.825.333a33.93 33.93 0 0 1-11.486 16.312 37.088 37.088 0 0 1-9.323 4.824 35.157 35.157 0 0 1-11.153 1.667Zm8.823-25.466a17.28 17.28 0 0 0 9.156-2.33 15.625 15.625 0 0 0 5.826-7.157 25.864 25.864 0 0 0 2.164-10.985 26.3 26.3 0 0 0-2.164-11.152 14.636 14.636 0 0 0-5.826-6.991 18.037 18.037 0 0 0-18.312 0 14.975 14.975 0 0 0-5.66 6.991 28.2 28.2 0 0 0-2 11.152 27.732 27.732 0 0 0 2 10.985 16.031 16.031 0 0 0 5.66 7.157 17.277 17.277 0 0 0 9.156 2.33Z" fill="#ffffff"></path>
+                <path d="M298.074 124.834a46.8 46.8 0 0 1-23.638-5.992 44.24 44.24 0 0 1-16.314-16.312 47.109 47.109 0 0 1-5.993-23.8 46.2 46.2 0 0 1 5.993-23.635 43.875 43.875 0 0 1 16.314-16.478 46.79 46.79 0 0 1 23.638-5.992 60.923 60.923 0 0 1 21.974 3.828A38.016 38.016 0 0 1 336.2 47.437L319.382 67.41a18.918 18.918 0 0 0-4.661-4.161 20.772 20.772 0 0 0-6.326-3 22.581 22.581 0 0 0-7.491-1.165 18.4 18.4 0 0 0-9.655 2.5 17.182 17.182 0 0 0-6.492 6.991 22.041 22.041 0 0 0-2.164 9.987 22.041 22.041 0 0 0 2.164 9.987 17.423 17.423 0 0 0 6.326 6.991A18.357 18.357 0 0 0 300.9 98.2a26.04 26.04 0 0 0 7.491-1 20.933 20.933 0 0 0 6.16-2.829 20.131 20.131 0 0 0 4.827-4.328L336.2 110.186A40.092 40.092 0 0 1 319.882 121 60.448 60.448 0 0 1 298.074 124.834Z" fill="#ffffff"></path>
+                <path d="M387.768 124.834c-10.099 0-18.811-1.998-26.135-5.826a42.936 42.936 0 0 1-16.98-16.312 47.106 47.106 0 0 1-5.993-23.8 50.173 50.173 0 0 1 3.329-18.475 43.522 43.522 0 0 1 9.322-14.647 40.178 40.178 0 0 1 14.15-9.654 46.4 46.4 0 0 1 18.145-3.5 44.22 44.22 0 0 1 17.479 3.329 38.271 38.271 0 0 1 13.651 9.487 41.031 41.031 0 0 1 8.823 14.481 46.7 46.7 0 0 1 2.83 18.309l-.167 6.991H356.306l-3.829-15.489h48.941l-3 3.329v-3.162a10.241 10.241 0 0 0-2-6.325 11.85 11.85 0 0 0-4.994-4.328 16.521 16.521 0 0 0-7.158-1.5 17.954 17.954 0 0 0-9.489 2.33 14.314 14.314 0 0 0-5.659 6.325 22.894 22.894 0 0 0-2 9.987 23.429 23.429 0 0 0 2.663 11.485 19.088 19.088 0 0 0 8.157 7.49 30.321 30.321 0 0 0 13.318 2.663 27.386 27.386 0 0 0 8.989-1.332 31.062 31.062 0 0 0 8.49-4.66l14.316 20.14a60.03 60.03 0 0 1-11.819 7.49 58.981 58.981 0 0 1-23.472 5.16Z" fill="#ffffff"></path>
+                <path d="M448.352 125c-4.994 0-8.878-1.387-11.653-4.161-2.663-2.774-3.995-6.713-3.995-11.818a15.879 15.879 0 0 1 4.328-11.484 15.006 15.006 0 0 1 11.32-4.494c4.883 0 8.712 1.387 11.486 4.161S464 104.917 464 109.021a15.878 15.878 0 0 1-4.328 11.485A15.006 15.006 0 0 1 448.352 125Z" fill="#ffffff"></path>
+              </svg>
+            </div>
+
+            <div class="footer-meta">
+              <a href="mailto:cristian@nlace.com">cristian@nlace.com</a>
+              <span>Santiago, Chile</span>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
