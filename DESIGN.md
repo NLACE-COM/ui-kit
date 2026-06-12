@@ -724,9 +724,9 @@ El repositorio incluye assets de fotografía oficiales:
 
 **Base URL para fotos:** `https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/photos/`
 
-**`assets/imagery/`** — 34 imágenes AI generadas para secciones tecnológicas.  
+**`assets/imagery/`** — 130 imágenes AI generadas para secciones tecnológicas.  
 **Base URL:** `https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/`  
-Archivos: `ai-01.png` → `ai-34.png`
+Archivos: `ai-01.png` → `ai-130.png` (dos dígitos hasta `ai-99.png`, tres desde `ai-100.png`)
 
 ```html
 <!-- Ejemplo de uso con URL directa -->
@@ -985,7 +985,7 @@ assets/
   nlace-black.svg            ← wordmark oscuro
   nlace-white.svg            ← wordmark claro
   photos/                    ← 14 fotos oficiales del equipo
-  imagery/                   ← 34 imágenes AI (ai-01.png … ai-34.png)
+  imagery/                   ← 130 imágenes AI (ai-01.png … ai-130.png)
 src/
   tokens/tokens.css          ← variables CSS para Tailwind v3
   tokens/tailwind-v4.css     ← @theme para Tailwind v4

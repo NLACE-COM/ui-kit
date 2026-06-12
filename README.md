@@ -23,7 +23,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 | `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
 | `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
 | `assets/photos/` | 14 fotografías oficiales del equipo |
-| `assets/imagery/` | 34 imágenes AI para secciones de producto |
+| `assets/imagery/` | 130 imágenes AI para secciones de producto |
 | `fonts/` | Inter y Space Grotesk como fuentes variables TTF |
 | `colors_and_type.css` | CSS canónico con variables, @font-face y selectores base |
 | `DESIGN.md` | Referencia completa para agentes de IA y diseñadores |
@@ -286,10 +286,10 @@ Archivos: `portrait-smile.jpg` · `portrait-duo.jpg` · `portrait-speaking.jpg` 
 
 ### Imágenes AI
 
-34 imágenes en `assets/imagery/ai-01.png` → `ai-34.png`. Base URL:
+130 imágenes en `assets/imagery/ai-01.png` → `ai-130.png` (dos dígitos hasta `ai-99.png`, tres desde `ai-100.png`). Base URL:
 
 ```
-https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/ai-{01..34}.png
+https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/ai-{NN}.png
 ```
 
 ---
