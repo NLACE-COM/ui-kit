@@ -292,6 +292,9 @@ Archivos: `portrait-smile.jpg` · `portrait-duo.jpg` · `portrait-speaking.jpg` 
 https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/ai-{NN}.png
 ```
 
+Catálogo con descripción individual e índice temático: [`assets/imagery/CATALOG.md`](assets/imagery/CATALOG.md).
+Guía de estilo y plantilla de prompt para generar imágenes nuevas del set: [`DESIGN.md` § Imágenes AI](DESIGN.md).
+
 ---
 
 ## Para agentes de IA

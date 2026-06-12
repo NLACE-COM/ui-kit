@@ -726,7 +726,70 @@ El repositorio incluye assets de fotografía oficiales:
 
 **`assets/imagery/`** — 130 imágenes AI generadas para secciones tecnológicas.  
 **Base URL:** `https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/imagery/`  
-Archivos: `ai-01.png` → `ai-130.png` (dos dígitos hasta `ai-99.png`, tres desde `ai-100.png`)
+Archivos: `ai-01.png` → `ai-130.png` (dos dígitos hasta `ai-99.png`, tres desde `ai-100.png`).  
+**Catálogo completo** (descripción individual de las 130 + índice por tema): [`assets/imagery/CATALOG.md`](assets/imagery/CATALOG.md). Úsalo para elegir imagen sin necesidad de verlas.
+
+### Imágenes AI — ADN visual del set
+
+Las 130 imágenes comparten un lenguaje visual único y reconocible. Si vas a **elegir** una,
+consulta el catálogo; si vas a **generar** una nueva, debe cumplir TODAS estas reglas:
+
+1. **Paleta bicromática estricta** — naranja/coral/rojo saturado (`#ff4716`–`#ff8c1a`,
+   centro de gravedad en el coral de marca `--nl-accent #fc624b`) contra lavanda/violeta
+   frío (`#a8a4d8`–`#8c8fd4`, eco desaturado de `--nl-primary #5869f7`), con rosas de
+   atardecer como transición. **Nunca** un tercer color dominante: sin verdes, sin
+   amarillos, sin cian.
+2. **Arquitectura metafísica** (referentes: Giorgio de Chirico, Luis Barragán) — portales,
+   arcos, marcos-puerta, monolitos seriados en fuga, escalinatas, muros exentos. Escenarios
+   imposibles/escenográficos, nunca espacios reales reconocibles.
+3. **El umbral como motivo central** — puertas de luz, arcos que se cruzan, marcos que
+   encuadran el horizonte. Es la metáfora de marca: transición hacia algo nuevo.
+4. **Hora dorada perpetua** — luz rasante lateral cálida, sombras muy largas y nítidas,
+   cielos en degradado crepuscular (azul → lila → rosa/durazno). Sin luz cenital dura, sin
+   cielos nublados, sin escenas nocturnas oscuras.
+5. **Suelo espejo** — llanuras pulidas o láminas de agua quieta que duplican la
+   composición. Es casi la firma del set.
+6. **Figura humana anónima y diminuta** — siluetas de espaldas o a contraluz, con abrigos
+   largos o túnicas, empequeñecidas por la arquitectura. **Nunca rostros reconocibles.**
+7. **Espacio negativo generoso** — 50–70% del encuadre es cielo vacío. Eso permite montar
+   copy encima.
+8. **Acabado mate pictórico** — render 3D limpio o ilustración plana, textura sutil de
+   estuco/grano. Nada fotorrealista, nada de ruido fotográfico.
+9. **La tecnología como metáfora, no literal** — la IA se expresa como orden, umbral,
+   flujos y monolitos seriados (tipo gráfico de barras). Solo el subset de
+   infraestructura (`ai-123`–`ai-130`) muestra cables/dispositivos, siempre integrados a
+   la arquitectura. Prohibido: robots humanoides genéricos, circuitos brillantes, código
+   en pantallas, azul "tech" estereotipado.
+10. **Mood: calma monumental** — contemplativo, sereno, aspiracional. Nunca caótico,
+    oscuro ni distópico.
+
+### Plantilla de prompt para generar imágenes nuevas
+
+Las originales se generaron en Midjourney con prompts en español del tipo
+*"imagen abstracta sobre [concepto] --ar 16:9"*. Para resultados consistentes con el set,
+usa esta plantilla (Midjourney u otro generador):
+
+```text
+imagen abstracta sobre [CONCEPTO DE NEGOCIO/IA], arquitectura metafísica minimalista
+estilo De Chirico y Luis Barragán, portales y monolitos en naranja coral saturado,
+cielo lavanda crepuscular en degradado, figura humana diminuta y anónima de espaldas,
+suelo de agua quieta que refleja la escena como espejo, luz dorada rasante con sombras
+largas, acabado mate de render 3D con grano sutil de estuco, gran espacio negativo de
+cielo, mood sereno y monumental --ar 16:9
+```
+
+Sustituye `[CONCEPTO DE NEGOCIO/IA]` por el tema (ej. *"empresas y el uso de la IA"*,
+*"un sistema compuesto por flujos y nodos"*, *"un equipo adoptando agentes de IA"*).
+Variaciones válidas dentro del sistema: formato cuadrado (`--ar 1:1`), sin figura humana,
+varias siluetas en procesión, díptico frío/cálido, sol como disco gráfico recortado.
+
+**Checklist antes de aceptar una imagen generada:** ¿bicromía naranja/lavanda? ¿hay un
+umbral o monolito? ¿silueta sin rostro (o sin personas)? ¿sombras largas? ¿espacio
+negativo arriba? ¿se siente serena y monumental? Si falla cualquiera, regenerar.
+
+Las imágenes nuevas se agregan como `ai-131.png` en adelante, manteniendo la numeración
+secuencial, y se registran en `CATALOG.md` (descripción de una línea + grupo temático) y
+en los conteos de este archivo y del README.
 
 ```html
 <!-- Ejemplo de uso con URL directa -->
