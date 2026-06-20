@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Tabs" subtitle="Underline + pill · estado activo primary" viewport="700x260" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.tablist { display:flex; align-items:center; gap:24px; border-bottom:1px solid var(--nl-border-soft); }
+.tab { position:relative; padding-bottom:12px; margin-bottom:-1px; border:0; border-bottom:2px solid transparent; background:none; cursor:pointer; font-family:var(--nl-font-body); font-size:14.4px; font-weight:600; color:var(--nl-500); }
+.tab.on { color:var(--nl-text); border-bottom-color:var(--nl-primary); }
+.tab .b { margin-left:8px; padding:1px 8px; border-radius:9999px; font-size:10.9px; background:var(--nl-primary-10,rgba(88,105,247,.1)); color:var(--nl-primary); }
+.pilllist { display:inline-flex; align-self:flex-start; gap:4px; padding:4px; background:rgba(161,161,170,.12); border-radius:9999px; }
+.pill { padding:6px 16px; border:0; border-radius:9999px; background:none; cursor:pointer; font-family:var(--nl-font-body); font-size:14.4px; font-weight:600; color:var(--nl-500); }
+.pill.on { background:#fff; color:var(--nl-primary); box-shadow:var(--nl-shadow-card); }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Tabs · underline</div>
+  <div class="tablist">
+    <button class="tab on">Resumen</button>
+    <button class="tab">Actividad <span class="b">3</span></button>
+    <button class="tab">Integraciones</button>
+    <button class="tab" style="opacity:.4">Facturación</button>
+  </div>
+  <div class="eyebrow" style="margin-top:8px">Tabs · pill</div>
+  <div class="pilllist">
+    <button class="pill on">Mensual</button>
+    <button class="pill">Anual</button>
+    <button class="pill">Por uso</button>
+  </div>
+</div>
+</body></html>

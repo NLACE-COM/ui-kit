@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Plantillas Sociales" description="Posts para redes — 6 variantes × 4 formatos (feed, retrato, story, horizontal) del sistema NLACE." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  mark{background:#3fcf86;color:#fff;padding:.02em .2em;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .ia{background:#0f1011;color:#fff;padding:.04em .26em;border-radius:6px;}
+</style>
+</helmet>
+
+<div ref="{{ setHost }}" style="width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#c6c7c2;padding:24px;font-family:Inter,sans-serif;">
+  <div style="width:var(--sw,432px);height:var(--sh,540px);flex:none;">
+    <div style="width:var(--w,1080px);height:var(--h,1350px);transform:scale(var(--sc,.4));transform-origin:top left;position:relative;overflow:hidden;background:#efefef;box-shadow:0 18px 60px rgba(20,20,30,.28);">
+
+      <!-- ============ A · GRADIENTE ============ -->
+      <sc-if value="{{ isGradient }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;background:linear-gradient(157deg,#0f1011 0%,#1a1a5e 56%,#2d3bc4 100%);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 84% 13%, rgba(252,98,75,.42), transparent 46%);"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;z-index:2;">
+          <img src="../../assets/nlace-white.svg" alt="NLACE" style="height:var(--word,52px);align-self:flex-start;">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--gap,28px);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="width:.72em;height:.72em;border-radius:2px;background:var(--accent,#fc624b);font-size:var(--eb,26px);"></span>
+              <span style="font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:var(--eb,26px);color:var(--accent,#fc624b);">Dato</span>
+            </div>
+            <h1 style="font-family:'Space Grotesk';font-weight:700;letter-spacing:-.03em;line-height:1.06;font-size:var(--title,86px);color:#fff;margin:0;text-wrap:balance;">Despedir personas para reemplazarlas con IA: el cálculo que casi nadie hace bien</h1>
+            <p style="font-weight:400;line-height:1.42;font-size:var(--body,33px);color:rgba(255,255,255,.62);margin:0;max-width:20em;">Varias empresas grandes despidieron equipos completos, anunciaron que la IA los reemplazaría, celebraron el ahorro y luego, a los pocos meses, empezaron a recontratar.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:var(--gap,28px);">
+            <div style="font-size:var(--body,33px);color:rgba(255,255,255,.6);"><span style="font-weight:600;color:#fff;">Por Cristian Labarca</span> · 9 min</div>
+            <div style="display:inline-flex;align-items:center;gap:11px;background:var(--accent,#fc624b);color:var(--ctaInk,#fff);border-radius:9999px;padding:.64em 1.2em;font-weight:600;font-size:var(--cta,31px);white-space:nowrap;">Leer artículo <svg width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ B · IMAGEN ============ -->
+      <sc-if value="{{ isImage }}">
+        <div style="position:absolute;inset:0;background:#9aa0c8 url('../../assets/imagery/ai-01.png') center/cover;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,20,.45) 0%,transparent 30%,rgba(10,10,20,.55) 70%,rgba(10,10,20,.9) 100%);"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;z-index:2;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <img src="../../assets/nlace-white.svg" alt="NLACE" style="height:var(--word,52px);">
+            <span style="border:1.5px solid rgba(255,255,255,.55);color:#fff;border-radius:9999px;padding:.42em 1.05em;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:var(--eb,26px);">Dato</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--gap,28px);">
+            <span style="width:54px;height:4px;border-radius:2px;background:var(--accent,#fc624b);"></span>
+            <h1 style="font-family:'Space Grotesk';font-weight:700;letter-spacing:-.03em;line-height:1.06;font-size:var(--title,86px);color:#fff;margin:0;text-wrap:balance;">Despedir personas para reemplazarlas con IA: el cálculo que casi nadie hace bien</h1>
+            <p style="font-weight:400;line-height:1.42;font-size:var(--body,33px);color:rgba(255,255,255,.8);margin:0;max-width:20em;">Varias empresas grandes despidieron equipos completos y celebraron el ahorro. A los pocos meses empezaron a recontratar.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:var(--gap,28px);">
+            <div style="font-size:var(--body,33px);color:rgba(255,255,255,.72);"><span style="font-weight:600;color:#fff;">Por Cristian Labarca</span> · 9 min</div>
+            <div style="display:inline-flex;align-items:center;gap:11px;background:#fff;color:#0f1011;border-radius:9999px;padding:.64em 1.2em;font-weight:600;font-size:var(--cta,31px);white-space:nowrap;">Leer artículo <svg width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ C · EDITORIAL ============ -->
+      <sc-if value="{{ isEditorial }}">
+        <div style="position:absolute;inset:0;background:#f0f0ee;"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;gap:var(--gap,28px);z-index:2;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <img src="../../assets/nlace-black.svg" alt="NLACE" style="height:var(--word,52px);">
+            <span style="background:rgba(252,98,75,.14);color:#fc624b;border-radius:9999px;padding:.42em 1.05em;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:var(--eb,26px);">Dato</span>
+          </div>
+          <h1 style="font-family:'Space Grotesk';font-weight:700;letter-spacing:-.03em;line-height:1.05;font-size:var(--title,86px);color:#0f1011;margin:0;text-wrap:balance;">Despedir personas para reemplazarlas con IA: el cálculo que casi nadie hace bien</h1>
+          <p style="font-weight:400;line-height:1.45;font-size:var(--body,33px);color:#52525b;margin:0;">Varias empresas grandes despidieron equipos completos, anunciaron que la IA los reemplazaría, celebraron el ahorro y luego empezaron a recontratar o a quemar presupuestos que nadie había proyectado.</p>
+          <div style="flex:1;min-height:0;position:relative;border-radius:24px;overflow:hidden;background:#dcdcd8 url('../../assets/imagery/ai-01.png') center/cover;box-shadow:0 2px 16px rgba(20,20,20,.10);">
+            <div style="position:absolute;left:var(--gap,28px);bottom:var(--gap,28px);display:inline-flex;align-items:center;gap:11px;background:#5869f7;color:#fff;border-radius:9999px;padding:.64em 1.2em;font-weight:600;font-size:var(--cta,31px);white-space:nowrap;">Leer artículo <svg width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+          </div>
+          <div style="font-size:var(--body,33px);color:#8a8a90;"><span style="font-weight:600;color:#0f1011;">Por Cristian Labarca</span> · 9 min</div>
+        </div>
+      </sc-if>
+
+      <!-- ============ D · ATREVIDO (BOLD) ============ -->
+      <sc-if value="{{ isBold }}">
+        <div style="position:absolute;inset:0;background:#fc624b;"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px);background-size:64px 64px;"></div>
+        <div style="position:absolute;top:-6%;right:-8%;width:42%;height:32%;border-radius:50%;filter:blur(2px);background:conic-gradient(from 130deg,#cfe8ff,#9bb8ff,#f7c7f4,#d6c6ff,#b6f3e6,#cfe8ff);opacity:.55;"></div>
+        <div style="position:absolute;bottom:8%;left:-6%;width:26%;height:20%;border-radius:50%;filter:blur(2px);background:conic-gradient(from 30deg,#f7c7f4,#cfe8ff,#b6f3e6,#f7c7f4);opacity:.4;"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;z-index:2;">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:var(--gap,28px);">
+            <div style="width:var(--mw,800px);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(120,30,15,.34);">
+              <div style="display:flex;align-items:center;gap:9px;padding:16px 20px;background:#f4f4f6;position:relative;">
+                <span style="width:13px;height:13px;border-radius:50%;background:#ff5f57;"></span>
+                <span style="width:13px;height:13px;border-radius:50%;background:#febc2e;"></span>
+                <span style="width:13px;height:13px;border-radius:50%;background:#28c840;"></span>
+                <span style="position:absolute;left:50%;transform:translateX(-50%);background:#fff;border-radius:8px;padding:7px 30px;font-weight:700;font-size:20px;color:#0f1011;">nlace.</span>
+              </div>
+              <div style="height:var(--mi,480px);background:#9aa0c8 url('../../assets/imagery/ai-01.png') center/cover;"></div>
+            </div>
+            <p style="text-align:center;font-weight:400;line-height:1.4;font-size:var(--body,33px);color:#fff;margin:0;max-width:18em;">Centralizamos tu <mark>información corporativa</mark> y la activamos con <span class="ia">IA</span>, con privacidad y trazabilidad total.</p>
+          </div>
+          <img src="../../assets/nlace-white.svg" alt="NLACE" style="height:var(--word,52px);align-self:center;">
+        </div>
+      </sc-if>
+
+      <!-- ============ E · CITA ============ -->
+      <sc-if value="{{ isQuote }}">
+        <div style="position:absolute;inset:0;background:#5869f7;"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);background-size:64px 64px;"></div>
+        <div style="position:absolute;top:-4%;right:-6%;width:34%;height:26%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.42),rgba(155,184,255,.1) 70%);"></div>
+        <div style="position:absolute;bottom:-3%;left:-7%;width:26%;height:20%;border-radius:50%;border:2px solid rgba(255,255,255,.3);"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;gap:var(--gap,28px);z-index:2;">
+          <div style="position:relative;width:var(--glyph,135px);height:var(--glyphH,104px);flex:none;">
+            <div style="position:absolute;left:0;top:0;width:34%;height:42%;background:#fc624b;border-radius:3px;"></div>
+            <div style="position:absolute;left:8%;top:8%;display:flex;gap:14%;width:78%;height:100%;">
+              <div style="flex:1;background:#fff;border-radius:8px 8px 8px 40%;"></div>
+              <div style="flex:1;background:#fff;border-radius:8px 8px 8px 40%;"></div>
+            </div>
+          </div>
+          <p style="font-family:'Space Grotesk';font-weight:700;letter-spacing:-.02em;line-height:1.16;font-size:var(--quote,70px);color:#fff;margin:0;">Las herramientas <mark>no resuelven problemas por sí solas</mark>; el impacto aparece cuando existe una <mark>forma clara de decidir</mark>.</p>
+          <div style="flex:1;min-height:0;position:relative;margin-top:6px;">
+            <div style="position:absolute;inset:0;transform:translate(-14px,-14px);background:#fc624b;"></div>
+            <div style="position:absolute;inset:0;background:#15151c url('../../assets/photos/team-meeting-03.jpg') center/cover;"></div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:'Space Grotesk';font-weight:700;font-size:var(--cta,31px);color:#fff;">Dalila Becerra</div>
+            <div style="font-size:var(--body,33px);color:rgba(255,255,255,.72);">Head of design · nlace.</div>
+          </div>
+          <img src="../../assets/nlace-white.svg" alt="NLACE" style="height:var(--word,52px);align-self:center;">
+        </div>
+      </sc-if>
+
+      <!-- ============ F · CIERRE (CLOSING) ============ -->
+      <sc-if value="{{ isClosing }}">
+        <div style="position:absolute;inset:0;background:#8e8fae url('../../assets/imagery/ai-19.png') center/cover;"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:64px 64px;"></div>
+        <div style="position:absolute;inset:var(--pad,90px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;">
+          <div style="position:relative;width:100%;background:#3fcf86;padding:var(--pad,90px);">
+            <div style="position:absolute;top:-22px;right:34px;display:flex;gap:14px;">
+              <span style="width:34px;height:34px;background:#b717af;"></span>
+              <span style="width:34px;height:34px;background:#5869f7;"></span>
+            </div>
+            <span style="position:absolute;bottom:-22px;left:34px;width:34px;height:34px;background:#fc624b;"></span>
+            <h1 style="text-align:center;font-family:'Space Grotesk';font-weight:700;letter-spacing:-.02em;line-height:1.12;font-size:var(--title,86px);color:#fff;margin:0;">Diseña con nosotros el sistema que tu empresa necesita</h1>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:var(--pad,90px);display:flex;flex-direction:column;align-items:center;gap:12px;z-index:2;">
+          <img src="../../assets/nlace-white.svg" alt="NLACE" style="height:var(--wordBig,70px);">
+          <div style="font-weight:500;font-size:var(--body,33px);color:rgba(255,255,255,.92);letter-spacing:.02em;">www.nlace.com</div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:720},&quot;format&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;square&quot;,&quot;portrait&quot;,&quot;story&quot;,&quot;wide&quot;],&quot;default&quot;:&quot;portrait&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;gradient&quot;,&quot;image&quot;,&quot;editorial&quot;,&quot;bold&quot;,&quot;quote&quot;,&quot;closing&quot;],&quot;default&quot;:&quot;gradient&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;coral&quot;,&quot;azul&quot;,&quot;magenta&quot;,&quot;verde&quot;],&quot;default&quot;:&quot;coral&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { scale: 0.4 };
+
+  componentDidMount() {
+    this.fit();
+    this.applyVars();
+    this._ro = new ResizeObserver(() => this.fit());
+    if (this.hostEl) this._ro.observe(this.hostEl);
+    this._onR = () => this.fit();
+    window.addEventListener('resize', this._onR);
+  }
+  componentWillUnmount() {
+    if (this._ro) this._ro.disconnect();
+    window.removeEventListener('resize', this._onR);
+  }
+
+  componentDidUpdate() { this.applyVars(); }
+  applyVars() {
+    const el = this.hostEl; if (!el) return;
+    const v = this.computeVars();
+    for (const k in v) el.style.setProperty(k, v[k]);
+  }
+  computeVars() {
+    const format = this.props.format || 'portrait';
+    const accentMap = { coral: '#fc624b', azul: '#5869f7', magenta: '#b717af', verde: '#42cf8a' };
+    const accent = accentMap[this.props.accent] || '#fc624b';
+    const SIZES = {
+      square:   { pad: 80, word: 46, eyebrow: 23, title: 72, body: 29, cta: 27, gap: 22, quote: 58 },
+      portrait: { pad: 90, word: 52, eyebrow: 26, title: 86, body: 33, cta: 31, gap: 28, quote: 70 },
+      story:    { pad: 104, word: 58, eyebrow: 29, title: 98, body: 37, cta: 34, gap: 34, quote: 82 },
+      wide:     { pad: 58, word: 40, eyebrow: 21, title: 52, body: 25, cta: 25, gap: 15, quote: 44 },
+    };
+    const s = SIZES[format] || SIZES.portrait;
+    const { w: W, h: H } = this.dims();
+    const sc = this.state.scale;
+    return {
+      '--sc': sc, '--sw': Math.round(W*sc)+'px', '--sh': Math.round(H*sc)+'px',
+      '--w': W+'px', '--h': H+'px', '--pad': s.pad+'px', '--word': s.word+'px',
+      '--wordBig': Math.round(s.word*1.35)+'px', '--eb': s.eyebrow+'px', '--title': s.title+'px',
+      '--body': s.body+'px', '--cta': s.cta+'px', '--gap': s.gap+'px', '--quote': s.quote+'px',
+      '--mw': Math.round(W*0.74)+'px', '--mi': Math.round(W*0.74*0.6)+'px',
+      '--glyph': Math.round(s.word*2.6)+'px', '--glyphH': Math.round(s.word*2.0)+'px',
+      '--accent': accent, '--ctaInk': this.ink(accent),
+    };
+  }
+
+  setHost = (el) => {
+    this.hostEl = el;
+    if (el && this._ro) this._ro.observe(el);
+    if (el) this.fit();
+    if (el) this.applyVars();
+  };
+
+  dims() {
+    const f = this.props.format || 'portrait';
+    return ({
+      square:   { w: 1080, h: 1080 },
+      portrait: { w: 1080, h: 1350 },
+      story:    { w: 1080, h: 1920 },
+      wide:     { w: 1200, h: 628 },
+    })[f] || { w: 1080, h: 1350 };
+  }
+
+  fit() {
+    const el = this.hostEl;
+    if (!el) return;
+    const { w, h } = this.dims();
+    const aw = el.clientWidth - 48;
+    const ah = el.clientHeight - 48;
+    if (aw <= 0 || ah <= 0) return;
+    const s = Math.min(aw / w, ah / h);
+    if (Math.abs(s - this.state.scale) > 0.002) this.setState({ scale: s });
+  }
+
+  lum(hex) {
+    const m = hex.replace('#', '');
+    const r = parseInt(m.slice(0, 2), 16), g = parseInt(m.slice(2, 4), 16), b = parseInt(m.slice(4, 6), 16);
+    return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  }
+  ink(hex) { return this.lum(hex) > 0.62 ? '#0f1011' : '#ffffff'; }
+
+  renderVals() {
+    const format = this.props.format || 'portrait';
+    const variant = this.props.variant || 'gradient';
+    const accentMap = { coral: '#fc624b', azul: '#5869f7', magenta: '#b717af', verde: '#42cf8a' };
+    const accent = accentMap[this.props.accent] || '#fc624b';
+
+    const SIZES = {
+      square:   { pad: 80, word: 46, eyebrow: 23, title: 72, body: 29, cta: 27, gap: 22, quote: 58 },
+      portrait: { pad: 90, word: 52, eyebrow: 26, title: 86, body: 33, cta: 31, gap: 28, quote: 70 },
+      story:    { pad: 104, word: 58, eyebrow: 29, title: 98, body: 37, cta: 34, gap: 34, quote: 82 },
+      wide:     { pad: 58, word: 40, eyebrow: 21, title: 52, body: 25, cta: 25, gap: 15, quote: 44 },
+    };
+    const s = SIZES[format] || SIZES.portrait;
+    const { w: W, h: H } = this.dims();
+    const scale = this.state.scale;
+
+    return {
+      W, H, scale,
+      sw: Math.round(W * scale), sh: Math.round(H * scale),
+      setHost: this.setHost,
+      isGradient: variant === 'gradient',
+      isImage: variant === 'image',
+      isEditorial: variant === 'editorial',
+      isBold: variant === 'bold',
+      isQuote: variant === 'quote',
+      isClosing: variant === 'closing',
+      accent, ctaInk: this.ink(accent),
+      pad: s.pad, word: s.word, wordBig: Math.round(s.word * 1.35),
+      eyebrow: s.eyebrow, title: s.title, body: s.body, cta: s.cta, gap: s.gap, quote: s.quote,
+      mockupW: Math.round(W * 0.74),
+      mockupImg: Math.round(W * 0.74 * 0.6),
+      glyph: Math.round(s.word * 2.6),
+      glyphH: Math.round(s.word * 2.0),
+    };
+  }
+}
+</script>
+</body>
+</html>

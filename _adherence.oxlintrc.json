@@ -1,0 +1,183 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "decks/**",
+              "src/**",
+              "src/components/**",
+              "ui_kits/ai-studio/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Inter|Space Grotesk|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Inter, Space Grotesk, JetBrains Mono."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--bg-1",
+      "--bg-2",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--fg-4",
+      "--line-soft",
+      "--line-ui",
+      "--nl-400",
+      "--nl-500",
+      "--nl-700",
+      "--nl-900",
+      "--nl-accent",
+      "--nl-accent-10",
+      "--nl-accent-warm",
+      "--nl-bg",
+      "--nl-black",
+      "--nl-blue-24",
+      "--nl-blue-28",
+      "--nl-border-soft",
+      "--nl-border-ui",
+      "--nl-cyan",
+      "--nl-danger",
+      "--nl-danger-8",
+      "--nl-dur-reveal",
+      "--nl-dur-ui",
+      "--nl-ease",
+      "--nl-font-body",
+      "--nl-font-display",
+      "--nl-font-mono",
+      "--nl-grad-accent",
+      "--nl-grad-brand",
+      "--nl-grad-dark",
+      "--nl-grad-hero",
+      "--nl-grad-mint",
+      "--nl-grad-primary",
+      "--nl-grad-surface",
+      "--nl-magenta",
+      "--nl-pink",
+      "--nl-primary",
+      "--nl-primary-10",
+      "--nl-primary-20",
+      "--nl-primary-dark",
+      "--nl-radius-card",
+      "--nl-radius-input",
+      "--nl-radius-pill",
+      "--nl-shadow-card",
+      "--nl-shadow-hover",
+      "--nl-success",
+      "--nl-success-bg",
+      "--nl-success-dark",
+      "--nl-success-text",
+      "--nl-surface",
+      "--nl-text",
+      "--nl-tracking-normal",
+      "--nl-tracking-tight",
+      "--nl-tracking-ui",
+      "--nl-white"
+    ],
+    "tokenKinds": {
+      "--nl-bg": "color",
+      "--nl-text": "font",
+      "--nl-black": "color",
+      "--nl-primary": "color",
+      "--nl-primary-dark": "color",
+      "--nl-accent": "color",
+      "--nl-accent-warm": "color",
+      "--nl-pink": "color",
+      "--nl-magenta": "color",
+      "--nl-success": "color",
+      "--nl-success-dark": "color",
+      "--nl-success-text": "font",
+      "--nl-success-bg": "color",
+      "--nl-danger": "color",
+      "--nl-cyan": "color",
+      "--nl-blue-24": "color",
+      "--nl-blue-28": "color",
+      "--nl-white": "color",
+      "--nl-900": "color",
+      "--nl-700": "color",
+      "--nl-500": "color",
+      "--nl-400": "color",
+      "--nl-surface": "color",
+      "--nl-border-soft": "color",
+      "--nl-border-ui": "color",
+      "--nl-primary-10": "color",
+      "--nl-primary-20": "color",
+      "--nl-accent-10": "color",
+      "--nl-danger-8": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--fg-4": "color",
+      "--bg-1": "color",
+      "--bg-2": "color",
+      "--line-soft": "color",
+      "--line-ui": "color",
+      "--nl-font-display": "font",
+      "--nl-font-body": "font",
+      "--nl-font-mono": "font",
+      "--nl-tracking-tight": "spacing",
+      "--nl-tracking-normal": "spacing",
+      "--nl-tracking-ui": "spacing",
+      "--nl-radius-input": "radius",
+      "--nl-radius-card": "radius",
+      "--nl-radius-pill": "radius",
+      "--nl-shadow-card": "shadow",
+      "--nl-shadow-hover": "shadow",
+      "--nl-dur-ui": "other",
+      "--nl-dur-reveal": "other",
+      "--nl-ease": "other",
+      "--nl-grad-hero": "color",
+      "--nl-grad-primary": "color",
+      "--nl-grad-accent": "color",
+      "--nl-grad-mint": "color",
+      "--nl-grad-dark": "color",
+      "--nl-grad-surface": "color",
+      "--nl-grad-brand": "color"
+    },
+    "fontFamilies": [
+      "Inter",
+      "JetBrains Mono",
+      "Space Grotesk"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Dropdown / Menu" subtitle="Menú click · ítems, divisor, atajo, acción peligrosa" viewport="700x320" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.dd-wrap { display:flex; gap:28px; align-items:flex-start; padding:8px 0; }
+.trigger { display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border-radius:9999px; background:#fff; border:1px solid var(--nl-border-ui); font-family:var(--nl-font-body); font-weight:600; font-size:13.8px; color:var(--nl-text); }
+.menu { min-width:220px; background:#fff; border-radius:14px; border:1px solid var(--nl-border-soft); box-shadow:var(--nl-shadow-hover); padding:6px; }
+.mi { display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:9px; font-size:13.8px; font-weight:500; color:var(--nl-text); }
+.mi .ic { opacity:.8; }
+.mi .sc { margin-left:auto; font-family:var(--nl-font-mono); font-size:11.5px; color:var(--nl-400); }
+.mi.hot { background:rgba(88,105,247,.08); }
+.mi.danger { color:var(--nl-danger); }
+.mi.danger.hot { background:rgba(252,98,75,.08); }
+.sep { height:1px; background:var(--nl-border-soft); margin:6px 0; }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Dropdown · menú de acciones</div>
+  <div class="dd-wrap">
+    <button class="trigger">Acciones ▾</button>
+    <div class="menu">
+      <div class="mi hot"><span class="ic">✎</span><span>Editar</span><span class="sc">⌘E</span></div>
+      <div class="mi"><span class="ic">⧉</span><span>Duplicar</span><span class="sc">⌘D</span></div>
+      <div class="mi"><span class="ic">↗</span><span>Compartir</span></div>
+      <div class="sep"></div>
+      <div class="mi danger"><span class="ic">🗑</span><span>Eliminar</span><span class="sc">⌫</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

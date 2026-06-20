@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Modal / Dialog" subtitle="Diálogo centrado · scrim · título, cuerpo y acciones" viewport="700x360" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.stage { position:relative; height:300px; border-radius:16px; overflow:hidden; background:#e3e3e6; display:grid; place-items:center; }
+.scrim { position:absolute; inset:0; background:rgba(15,16,17,.45); }
+.dialog { position:relative; width:380px; background:#fff; border-radius:20px; border:1px solid var(--nl-border-soft); box-shadow:var(--nl-shadow-hover); overflow:hidden; }
+.d-head { display:flex; justify-content:space-between; align-items:flex-start; padding:20px 24px 12px; }
+.d-title { font-family:var(--nl-font-display); font-size:18.4px; font-weight:600; color:var(--nl-text); }
+.d-sub { font-size:13.5px; color:var(--nl-500); margin-top:4px; }
+.x { width:32px; height:32px; display:grid; place-items:center; border-radius:9999px; color:var(--nl-500); }
+.d-body { padding:4px 24px 8px; font-size:14.4px; color:var(--nl-700); line-height:1.55; }
+.d-foot { display:flex; justify-content:flex-end; gap:10px; padding:16px 24px 20px; }
+.bsec { padding:10px 20px; border-radius:9999px; background:#fff; border:1px solid var(--nl-border-ui); font-weight:600; font-size:13.5px; }
+.bpri { padding:10px 20px; border-radius:9999px; background:var(--nl-primary); color:#fff; border:0; font-weight:600; font-size:13.5px; }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Modal · confirmación</div>
+  <div class="stage">
+    <div class="scrim"></div>
+    <div class="dialog">
+      <div class="d-head">
+        <div><div class="d-title">¿Eliminar proyecto?</div><div class="d-sub">Esta acción no se puede deshacer</div></div>
+        <div class="x">✕</div>
+      </div>
+      <div class="d-body">Se eliminarán todos los datos y configuraciones asociadas a <b>Proyecto Atlas</b>.</div>
+      <div class="d-foot">
+        <button class="bsec">Cancelar</button>
+        <button class="bpri" style="background:var(--nl-danger)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
