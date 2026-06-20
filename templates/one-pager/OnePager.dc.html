@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="One-pager NLACE" description="Hoja única de producto/empresa — logo, hero, banda de foto a recorte, propuesta de valor, métricas y CTA. Lista para imprimir o exportar PDF." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#efefef;-webkit-font-smoothing:antialiased;font-family:Inter,system-ui,sans-serif;}
+  @media print{ body{background:#fff;} @page{size:A4;margin:0;} .op-sheet{box-shadow:none!important;margin:0!important;width:100%!important;} }
+</style>
+</helmet>
+
+<div style="min-height:100vh;padding:40px 20px;display:flex;justify-content:center;">
+  <div class="op-sheet" style="width:840px;max-width:100%;background:#fff;box-shadow:0 10px 40px rgba(20,20,20,.12);overflow:hidden;">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:34px 48px 0;">
+      <img src="../../assets/nlace-black.svg" alt="NLACE" style="height:26px;width:auto;display:block;"/>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#71717a;">Plataforma de IA empresarial</div>
+    </div>
+
+    <!-- Hero -->
+    <div style="padding:48px 48px 40px;">
+      <div style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5869f7;margin-bottom:18px;">Resumen ejecutivo</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:46px;line-height:1.05;letter-spacing:-.03em;font-weight:700;color:#0f1011;max-width:15ch;text-wrap:balance;">Decisiones más rápidas con IA aplicada a tu negocio</h1>
+      <p style="font-size:18px;line-height:1.5;color:#3f3f46;max-width:54ch;margin-top:20px;">NLACE conecta tus datos, equipos y procesos en una sola plataforma de inteligencia artificial — del piloto a producción en semanas, no en años.</p>
+    </div>
+
+    <!-- Photo band (single image, straight edges, full crop) -->
+    <div style="height:280px;overflow:hidden;">
+      <img src="../../assets/photos/collab-laptop.jpg" alt="Equipo NLACE colaborando" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    </div>
+
+    <!-- Value props -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:44px 48px;">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#0f1011;margin-bottom:8px;">Implementación guiada</div>
+        <p style="font-size:14.5px;line-height:1.55;color:#3f3f46;">Acompañamiento experto desde el primer caso de uso hasta el despliegue en toda la organización.</p>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#0f1011;margin-bottom:8px;">Datos seguros</div>
+        <p style="font-size:14.5px;line-height:1.55;color:#3f3f46;">Tu información permanece bajo tu control, con trazabilidad y cumplimiento de extremo a extremo.</p>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#0f1011;margin-bottom:8px;">Resultados medibles</div>
+        <p style="font-size:14.5px;line-height:1.55;color:#3f3f46;">Indicadores claros de impacto en productividad, costos y tiempo desde la primera semana.</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #dbdcd7;border-bottom:1px solid #dbdcd7;margin:0 48px;">
+      <div style="padding:28px 0;text-align:center;border-right:1px solid #dbdcd7;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.03em;color:#5869f7;">3×</div>
+        <div style="font-size:12.5px;color:#71717a;margin-top:4px;">más rápido al desplegar</div>
+      </div>
+      <div style="padding:28px 0;text-align:center;border-right:1px solid #dbdcd7;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.03em;color:#fc624b;">40%</div>
+        <div style="font-size:12.5px;color:#71717a;margin-top:4px;">menos trabajo manual</div>
+      </div>
+      <div style="padding:28px 0;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.03em;color:#42cf8a;">6 sem</div>
+        <div style="font-size:12.5px;color:#71717a;margin-top:4px;">al primer valor</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="margin:44px 48px 48px;background:#5869f7;border-radius:20px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;color:#fff;">¿Listo para empezar?</div>
+        <div style="font-size:14.5px;color:rgba(255,255,255,.82);margin-top:6px;">Agenda una demo con nuestro equipo.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <span style="font-size:14.5px;font-weight:600;color:#fff;">hola@nlace.com</span>
+        <span style="display:inline-flex;align-items:center;padding:13px 26px;border-radius:9999px;background:#fff;color:#5869f7;font-weight:600;font-size:14.5px;">Agendar demo</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

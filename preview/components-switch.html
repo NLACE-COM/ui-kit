@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Switch / Toggle" subtitle="On/off · sm + md · con etiqueta y descripción" viewport="700x240" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+.sw-row { display:flex; align-items:center; gap:12px; }
+.track { position:relative; box-sizing:border-box; padding:2px; border-radius:9999px; transition:background var(--nl-ease) 220ms; }
+.track.md { width:48px; height:28px; }
+.track.sm { width:36px; height:20px; }
+.track.on { background:var(--nl-primary); }
+.track.off { background:rgba(161,161,170,.45); }
+.knob { display:block; border-radius:9999px; background:#fff; box-shadow:var(--nl-shadow-card); transition:transform var(--nl-ease) 220ms; }
+.track.md .knob { width:20px; height:20px; }
+.track.sm .knob { width:14px; height:14px; }
+.track.md.on .knob { transform:translateX(20px); }
+.track.sm.on .knob { transform:translateX(16px); }
+.lbl { font-size:14.4px; font-weight:600; color:var(--nl-text); }
+.desc { font-size:12.8px; color:var(--nl-500); }
+.divider { height:1px; background:var(--nl-border-soft); margin:4px 0; }
+</style></head><body>
+<div class="card">
+  <div class="eyebrow">Switch · estados</div>
+  <div class="sw-row"><div class="track md on"><span class="knob"></span></div><div><div class="lbl">Notificaciones</div><div class="desc">Recibe alertas por correo</div></div></div>
+  <div class="sw-row"><div class="track md off"><span class="knob"></span></div><span class="lbl">Modo oscuro</span></div>
+  <div class="divider"></div>
+  <div class="eyebrow">Tamaño · sm</div>
+  <div class="sw-row"><div class="track sm on"><span class="knob"></span></div><span class="lbl">Compacto</span></div>
+  <div class="sw-row" style="opacity:.5"><div class="track sm off"><span class="knob"></span></div><span class="lbl">Deshabilitado</span></div>
+</div>
+</body></html>

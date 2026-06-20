@@ -666,6 +666,52 @@ import { Alert } from '@nlace/ui-kit'
 </style>
 ```
 
+### Tabs · Switch · Tooltip · Modal · Dropdown · Table · Charts (React)
+
+Componentes React adicionales del kit (`@nlace/ui-kit`). Todos heredan tokens, tipografía y motion del sistema; usan clases `nl-*` de Tailwind v4.
+
+```jsx
+import {
+  Tabs, Switch, Tooltip, Modal, Dropdown, Table,
+  BarChart, LineChart, AreaChart, PieChart, DonutChart, NL_CHART_PALETTE,
+} from '@nlace/ui-kit'
+
+// Tabs — controlado o no controlado; variant 'underline' | 'pill'
+<Tabs items={[{ id: 'a', label: 'Resumen' }, { id: 'b', label: 'Actividad', badge: 3 }]} variant="underline">
+  {(active) => <Panel id={active} />}
+</Tabs>
+
+// Switch — toggle accesible; size 'sm' | 'md'
+<Switch label="Notificaciones" description="Alertas por correo" defaultChecked />
+
+// Tooltip — etiqueta oscura; placement 'top' | 'bottom' | 'left' | 'right'
+<Tooltip label="Copiar enlace" placement="top"><Button>Compartir</Button></Tooltip>
+
+// Modal — diálogo con scrim; size 'sm' | 'md' | 'lg'; cierra con Esc
+<Modal open={open} onClose={close} title="Confirmar"
+       footer={<><Button variant="secondary">Cancelar</Button><Button>Guardar</Button></>}>
+  ¿Seguro que quieres continuar?
+</Modal>
+
+// Dropdown — menú click; items con divider/danger/shortcut; align 'left' | 'right'
+<Dropdown trigger={<Button variant="secondary">Acciones ▾</Button>}
+          items={[{ id: 'edit', label: 'Editar' }, { divider: true }, { id: 'del', label: 'Eliminar', danger: true }]}
+          onSelect={(id) => {}} />
+
+// Table — columnas con align y render; rowKey; dense opcional
+<Table columns={[{ key: 'name', header: 'Empresa' }, { key: 'mrr', header: 'MRR', align: 'right' }]}
+       rows={rows} rowKey="id" />
+
+// Charts — SVG sin dependencias, paleta de marca, listos para PDF (sin animación)
+<BarChart  labels={['Ene','Feb','Mar']} series={[{ name: 'MRR', values: [18, 26, 31] }]} />
+<LineChart labels={['S1','S2','S3']}    series={[{ name: 'Activos', values: [120, 180, 240] }]} />
+<AreaChart labels={['Ene','Feb']}       series={[{ name: 'Procesos', values: [3, 12] }]} />
+<PieChart  data={[{ label: 'Auto', value: 46 }, { label: 'Soporte', value: 28 }]} />
+<DonutChart centerValue="74%" centerLabel="adopción" data={[{ label: 'Activo', value: 74 }]} />
+```
+
+Paleta de series (`NL_CHART_PALETTE`): `#5869f7` · `#fc624b` · `#42cf8a` · `#b717af` · `#ff8c42` · `#f76dee` · `#2d3bc4` · `#a5f3fc`.
+
 ---
 
 ## Iconografía

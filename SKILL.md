@@ -146,6 +146,13 @@ Tamaños estándar: 16px (inline) · 18px (botones/nav) · 20–24px (standalone
 | **Alert** | info (blue) · success (green) · warning (pink/magenta) · error (accent) |
 | **Spinner** | `border-top-color: primary`, 0.7s linear |
 | **Skeleton** | shimmer 200%→200%, 1.4s ease-in-out |
+| **Tabs** | `underline` · `pill` — activo en primary |
+| **Switch** | on/off · `sm` · `md` — con etiqueta y descripción |
+| **Tooltip** | etiqueta oscura · `top`/`bottom`/`left`/`right` · hover/focus |
+| **Modal** | diálogo centrado · scrim · `sm`/`md`/`lg` · título + footer |
+| **Dropdown** | menú click · ítems, divisor, atajo, acción `danger` |
+| **Table** | header en caps · hover de fila · celdas con `render` |
+| **Charts** | `BarChart` · `LineChart` · `AreaChart` · `PieChart` · `DonutChart` — SVG sin dependencias, paleta de marca |
 
 Importar desde: `@nlace/ui-kit`
 
@@ -181,9 +188,10 @@ Importar desde: `@nlace/ui-kit`
 - `assets/nlace-black.svg`, `assets/nlace-white.svg` — wordmark
 - `assets/photos/` — 14 fotos oficiales del equipo
 - `assets/imagery/` — 130 imágenes AI oficiales + `CATALOG.md`
-- `preview/` — 22+ tarjetas HTML del design system
+- `preview/` — 30+ tarjetas HTML del design system
+- `templates/` — plantillas de documento: deck, email, one-pager, sociales, propuesta, reel
 - `ui_kits/ai-studio/` — UI kit interactivo de NLACE AI Studio
-- `src/components/*.jsx` — Button, Badge, Card, Input, Alert, Loaders, NlaceLogo
+- `src/components/*.jsx` — Button, Badge, Card, Input, Alert, Loaders, NlaceLogo, Tabs, Switch, Tooltip, Modal, Dropdown, Table, Charts
 - `src/tokens/tokens.css` — tokens para Tailwind v3
 - `src/tokens/tailwind-v4.css` — tokens para Tailwind v4
 - `decks/ventajas-design-system.html` — presentación de referencia (17 slides)

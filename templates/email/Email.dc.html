@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Email NLACE" description="Email HTML responsive de 600px — header con logo, hero con foto a recorte, cuerpo, botón y footer. Estructura en tablas, segura para clientes de correo." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#e3e3e6;-webkit-font-smoothing:antialiased;font-family:Inter,system-ui,sans-serif;}
+</style>
+</helmet>
+
+<div style="padding:40px 16px;display:flex;justify-content:center;">
+  <table role="presentation" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(20,20,20,.12);">
+
+    <!-- Header -->
+    <tr><td style="padding:24px 36px;border-bottom:1px solid #dbdcd7;">
+      <img src="../../assets/nlace-black.svg" alt="NLACE" style="height:22px;width:auto;display:block;"/>
+    </td></tr>
+
+    <!-- Hero photo (single, cropped, straight edges) -->
+    <tr><td style="padding:0;">
+      <img src="../../assets/photos/hands-laptop-light.jpg" alt="" style="width:100%;height:240px;object-fit:cover;display:block;"/>
+    </td></tr>
+
+    <!-- Body -->
+    <tr><td style="padding:40px 36px 8px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5869f7;margin-bottom:14px;">Novedades del producto</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:30px;line-height:1.14;letter-spacing:-.02em;font-weight:700;color:#0f1011;margin-bottom:16px;text-wrap:balance;">Tu equipo, ahora con IA en cada flujo</h1>
+      <p style="font-size:16px;line-height:1.6;color:#3f3f46;margin-bottom:16px;">Lanzamos automatizaciones que conectan tus datos y eliminan el trabajo repetitivo. Configúralas en minutos y empieza a ver resultados desde la primera semana.</p>
+      <p style="font-size:16px;line-height:1.6;color:#3f3f46;">Sin migraciones complejas, sin código. Solo conecta tus fuentes y deja que NLACE haga el resto.</p>
+    </td></tr>
+
+    <!-- Button -->
+    <tr><td style="padding:24px 36px 36px;">
+      <a href="#" style="display:inline-block;padding:14px 30px;border-radius:9999px;background:#5869f7;color:#ffffff;font-weight:600;font-size:15px;text-decoration:none;">Explorar automatizaciones</a>
+    </td></tr>
+
+    <!-- Divider feature row -->
+    <tr><td style="padding:0 36px 36px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-top:1px solid #dbdcd7;">
+        <tr>
+          <td style="padding:28px 16px 0 0;vertical-align:top;width:50%;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#0f1011;margin-bottom:6px;">Conecta en minutos</div>
+            <p style="font-size:14px;line-height:1.55;color:#3f3f46;">Integraciones listas con tus herramientas actuales.</p>
+          </td>
+          <td style="padding:28px 0 0 16px;vertical-align:top;width:50%;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#0f1011;margin-bottom:6px;">Mide el impacto</div>
+            <p style="font-size:14px;line-height:1.55;color:#3f3f46;">Panel de métricas de ahorro y productividad.</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+
+    <!-- Footer -->
+    <tr><td style="padding:28px 36px;background:#f4f4f0;border-top:1px solid #dbdcd7;">
+      <img src="../../assets/nlace-black.svg" alt="NLACE" style="height:18px;width:auto;display:block;margin-bottom:14px;"/>
+      <p style="font-size:13px;line-height:1.6;color:#6b6b6b;margin-bottom:10px;">Plataforma de IA empresarial. Recibes este correo porque te suscribiste a las novedades de NLACE.</p>
+      <p style="font-size:13px;color:#6b6b6b;">
+        <a href="#" style="color:#5869f7;text-decoration:none;">Preferencias</a>
+        &nbsp;·&nbsp;
+        <a href="#" style="color:#5869f7;text-decoration:none;">Cancelar suscripción</a>
+      </p>
+    </td></tr>
+
+  </table>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* NLACE Design System — styles.css
+   Canonical single entry point. Consumers link THIS one file.
+
+   It pulls in the brand color + type tokens, the @font-face declarations,
+   and the base element styling (h1–h6, p, code, utility classes).
+
+   The npm-kit mirror under src/tokens/ (tokens.css / fonts.css / tailwind-v4.css)
+   is kept for reference + Tailwind consumers, but the canonical brand palette
+   and font loading for this design-system project live in colors_and_type.css. */
+
+@import url("colors_and_type.css");

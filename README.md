@@ -19,7 +19,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 | `src/tokens/tokens.css` | Variables CSS puras (sin Tailwind) |
 | `src/tokens/fonts.css` | `@font-face` de Inter + Space Grotesk (woff2 variables en `src/fonts/`) — `import '@nlace/ui-kit/fonts'` |
 | `src/tailwind-preset.js` | Preset para Tailwind v3 |
-| `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo |
+| `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo, Tabs, Switch, Tooltip, Modal, Dropdown, Table, Charts |
 | `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
 | `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
 | `assets/photos/` | 14 fotografías oficiales del equipo |
@@ -28,6 +28,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 | `colors_and_type.css` | CSS canónico con variables, @font-face y selectores base |
 | `DESIGN.md` | Referencia completa para agentes de IA y diseñadores |
 | `preview/` | Páginas HTML del design system (colores, tipo, componentes) |
+| `templates/` | Plantillas de documento del sistema: deck, email, one-pager, plantillas sociales, propuesta, reel |
 
 ---
 
@@ -121,7 +122,11 @@ O copia el bloque de variables directamente desde [`colors_and_type.css`](colors
 ### Componentes React
 
 ```jsx
-import { Button, Card, Badge, Input, Alert, Spinner, Skeleton, NlaceLogo } from '@nlace/ui-kit'
+import {
+  Button, Card, Badge, Input, Alert, Spinner, Skeleton, NlaceLogo,
+  Tabs, Switch, Tooltip, Modal, Dropdown, Table,
+  BarChart, LineChart, AreaChart, PieChart, DonutChart,
+} from '@nlace/ui-kit'
 
 function App() {
   return (
@@ -223,6 +228,102 @@ function App() {
 <NlaceLogo variant="light" height={32} />  // fondos oscuros
 <NlaceAvatar size={40} />
 ```
+
+**Tabs**
+```jsx
+<Tabs
+  items={[{ id: 'a', label: 'Resumen' }, { id: 'b', label: 'Detalle', badge: 3 }]}
+  variant="underline"   // 'underline' | 'pill'
+  defaultValue="a"      // o controlado con value + onChange
+>
+  {(active) => <div>{active}</div>}
+</Tabs>
+```
+
+**Switch**
+```jsx
+<Switch
+  label="Notificaciones"
+  description="Recibe alertas por correo"
+  size="md"             // 'sm' | 'md'
+  defaultChecked        // o controlado con checked + onChange
+/>
+```
+
+**Tooltip**
+```jsx
+<Tooltip label="Copiar enlace" placement="top">  {/* 'top' | 'bottom' | 'left' | 'right' */}
+  <Button>Compartir</Button>
+</Tooltip>
+```
+
+**Modal**
+```jsx
+<Modal
+  open={open}
+  onClose={() => setOpen(false)}
+  title="Confirmar"
+  size="md"             // 'sm' | 'md' | 'lg'
+  footer={<><Button variant="secondary">Cancelar</Button><Button>Guardar</Button></>}
+>
+  ¿Seguro que quieres continuar?
+</Modal>
+```
+
+**Dropdown**
+```jsx
+<Dropdown
+  trigger={<Button variant="secondary">Acciones ▾</Button>}
+  align="left"          // 'left' | 'right'
+  items={[
+    { id: 'edit', label: 'Editar', shortcut: '⌘E' },
+    { divider: true },
+    { id: 'del', label: 'Eliminar', danger: true },
+  ]}
+  onSelect={(id) => {}}
+/>
+```
+
+**Table**
+```jsx
+<Table
+  columns={[
+    { key: 'name', header: 'Empresa' },
+    { key: 'mrr', header: 'MRR', align: 'right' },
+    { key: 'state', header: 'Estado', render: (r) => <Badge>{r.state}</Badge> },
+  ]}
+  rows={rows}
+  rowKey="id"
+  dense={false}
+/>
+```
+
+**Charts** — gráficos SVG sin dependencias, con la paleta de marca
+```jsx
+<BarChart  labels={['Ene','Feb','Mar']} series={[{ name: 'MRR', values: [18, 26, 31] }]} />
+<LineChart labels={['S1','S2','S3']}    series={[{ name: 'Activos', values: [120, 180, 240] }]} />
+<AreaChart labels={['Ene','Feb']}       series={[{ name: 'Procesos', values: [3, 12] }]} />
+<PieChart  data={[{ label: 'Auto', value: 46 }, { label: 'Soporte', value: 28 }]} />
+<DonutChart centerValue="74%" centerLabel="adopción" data={[{ label: 'Activo', value: 74 }]} />
+// NL_CHART_PALETTE exporta el orden de colores de series.
+```
+
+---
+
+## Plantillas de documento
+
+El directorio [`templates/`](templates/) contiene plantillas HTML del sistema, listas para usar en presentaciones, correos y piezas de marketing — todas con tokens, tipografía y fotografía de NLACE:
+
+| Plantilla | Formato | Descripción |
+|---|---|---|
+| `deck-nlace/` | 16:9 | Presentación con portada, separadores, grid, timeline, datos y cierre |
+| `propuesta/` | A4 multipágina | Propuesta comercial: contexto, alcance, entregables, inversión |
+| `one-pager/` | A4 | Hoja única de producto/empresa con hero, métricas y CTA |
+| `email/` | 600px responsive | Email HTML en tablas, seguro para clientes de correo |
+| `plantillas-sociales/` | feed/retrato/story/wide | 6 variantes × 4 formatos para redes |
+| `reel/` | 9:16 | Reel animado en loop, temas claro/azul/gradiente |
+
+Cada plantilla carga el sistema vía `ds-base.js` (tokens + `_ds_bundle.js`) y se edita dentro de Claude Design.
 
 ---
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Charts" name="Gráficos · barras · línea · área · torta · dona" subtitle="SVG sin dependencias · paleta de marca · listos para PDF y propuestas" viewport="720x980" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .card { width: 720px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .panel { border:1px solid var(--nl-border-soft); border-radius:16px; padding:18px 18px 14px; background:#fff; }
+  .panel.span { grid-column:1 / -1; }
+  .p-title { font-family:var(--nl-font-display); font-size:14px; font-weight:600; color:var(--nl-text); margin:0 0 2px; }
+  .p-sub { font-family:var(--nl-font-body); font-size:11.5px; color:var(--nl-500); margin:0 0 14px; }
+  .pal { display:flex; gap:10px; flex-wrap:wrap; }
+  .sw { display:flex; align-items:center; gap:7px; font-family:var(--nl-font-mono); font-size:10.5px; color:var(--nl-500); }
+  .sw i { width:14px; height:14px; border-radius:4px; display:block; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head><body>
+<div class="card">
+  <div class="eyebrow">Charts · visualización de datos</div>
+  <div class="grid2">
+    <div class="panel"><div class="p-title">Barras</div><div class="p-sub">Comparación entre categorías</div><div id="c-bar"></div></div>
+    <div class="panel"><div class="p-title">Barras agrupadas</div><div class="p-sub">Dos series por categoría</div><div id="c-bar2"></div></div>
+    <div class="panel"><div class="p-title">Línea</div><div class="p-sub">Evolución en el tiempo</div><div id="c-line"></div></div>
+    <div class="panel"><div class="p-title">Área</div><div class="p-sub">Volumen acumulado</div><div id="c-area"></div></div>
+    <div class="panel"><div class="p-title">Torta</div><div class="p-sub">Composición · participación</div><div id="c-pie"></div></div>
+    <div class="panel"><div class="p-title">Dona</div><div class="p-sub">Composición con total al centro</div><div id="c-donut"></div></div>
+    <div class="panel span">
+      <div class="p-title">Paleta de series</div>
+      <div class="p-sub">Orden de asignación automática</div>
+      <div class="pal" id="pal"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/babel" src="_charts.jsx"></script>
+<script type="text/babel">
+  const { BarChart, LineChart, AreaChart, PieChart, DonutChart, NL_CHART_PALETTE } = window.NLCharts;
+  const R = (id, el) => ReactDOM.createRoot(document.getElementById(id)).render(el);
+
+  R('c-bar', <BarChart labels={['Ene','Feb','Mar','Abr','May']} series={[{ name:'MRR', values:[18,26,31,29,42] }]} height={210} />);
+  R('c-bar2', <BarChart labels={['Q1','Q2','Q3','Q4']} series={[{ name:'2025', values:[42,55,61,72] }, { name:'2026', values:[58,71,84,96] }]} height={210} />);
+  R('c-line', <LineChart labels={['Sem 1','Sem 2','Sem 3','Sem 4','Sem 5','Sem 6']} series={[{ name:'Activos', values:[120,180,165,240,300,380] }, { name:'Nuevos', values:[40,55,70,90,110,150] }]} height={210} />);
+  R('c-area', <AreaChart labels={['Ene','Feb','Mar','Abr','May','Jun']} series={[{ name:'Procesos', values:[3,7,12,18,27,41] }]} height={210} />);
+  R('c-pie', <PieChart size={150} data={[{ label:'Automatización', value:46 }, { label:'Soporte', value:28 }, { label:'Datos', value:18 }, { label:'Otros', value:8 }]} />);
+  R('c-donut', <DonutChart size={150} centerValue="74%" centerLabel="adopción" data={[{ label:'Activo', value:74 }, { label:'Onboarding', value:18 }, { label:'Pausa', value:8 }]} />);
+
+  const palEl = document.getElementById('pal');
+  NL_CHART_PALETTE.forEach((c) => {
+    const d = document.createElement('div'); d.className = 'sw';
+    d.innerHTML = `<i style="background:${c}"></i>${c}`;
+    palEl.appendChild(d);
+  });
+</script>
+</body></html>
