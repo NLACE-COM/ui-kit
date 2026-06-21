@@ -1,0 +1,13 @@
+{
+  "gradient": {
+    "$type": "other",
+    "$description": "Gradientes de marca. Los stops referencian color.* y Style Dictionary los resuelve a hex en el output, asi un cambio de color se propaga solo.",
+    "hero":    { "$value": "linear-gradient(135deg, {color.primary} 0%, {color.magenta} 60%, {color.pink} 100%)" },
+    "primary": { "$value": "linear-gradient(135deg, {color.primary} 0%, {color.primary-dark} 100%)" },
+    "accent":  { "$value": "linear-gradient(135deg, {color.accent} 0%, {color.pink} 100%)" },
+    "mint":    { "$value": "linear-gradient(135deg, {color.success} 0%, {color.success-dark} 100%)" },
+    "dark":    { "$value": "linear-gradient(180deg, {color.black} 0%, {color.primary-dark} 100%)" },
+    "surface": { "$value": "linear-gradient(135deg, {color.white} 0%, {color.surface} 100%)" },
+    "brand":   { "$value": "linear-gradient(90deg, {color.primary} 0%, {color.accent} 100%)" }
+  }
+}

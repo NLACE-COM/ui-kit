@@ -1085,7 +1085,9 @@ module.exports = {
 DESIGN.md                    ← este archivo (fuente de verdad para agentes)
 SKILL.md                     ← skill para Claude Code
 README.md                    ← brand guide detallado
-colors_and_type.css          ← CSS variables canónicas + @font-face + selectores base
+colors_and_type.css          ← (generado) CSS variables canónicas + @font-face + selectores base
+tokens/                      ← FUENTE ÚNICA de tokens (W3C DTCG). Editar acá, luego `npm run tokens:build`
+build/                       ← Style Dictionary: genera todos los formatos desde tokens/
 fonts/
   Inter-VariableFont_opsz_wght.ttf
   Inter-Italic-VariableFont_opsz_wght.ttf
@@ -1096,9 +1098,10 @@ assets/
   photos/                    ← 14 fotos oficiales del equipo
   imagery/                   ← 130 imágenes AI (ai-01.png … ai-130.png)
 src/
-  tokens/tokens.css          ← variables CSS para Tailwind v3
-  tokens/tailwind-v4.css     ← @theme para Tailwind v4
-  tailwind-preset.js         ← preset Tailwind v3
+  tokens/tokens.css          ← (generado) variables CSS --nl-* (agnóstico de framework)
+  tokens/tailwind-v4.css     ← (generado) @theme para Tailwind v4
+  tokens/tokens.mjs/.cjs/.json ← (generado) tokens como objeto JS/TS y mapa JSON
+  tailwind-preset.js         ← (generado) preset Tailwind v3
   components/
     Button.jsx  Card.jsx  Badge.jsx
     Input.jsx   Alert.jsx  Loaders.jsx  NlaceLogo.jsx

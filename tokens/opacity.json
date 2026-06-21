@@ -1,0 +1,10 @@
+{
+  "opacity": {
+    "$type": "color",
+    "$description": "Tintes con alpha. Mantener el canal RGB sincronizado con su color base (primary=#5869f7 -> 88,105,247 · accent/danger=#fc624b -> 252,98,75).",
+    "primary-10": { "$value": "rgba(88, 105, 247, 0.1)" },
+    "primary-20": { "$value": "rgba(88, 105, 247, 0.2)" },
+    "accent-10":  { "$value": "rgba(252, 98, 75, 0.1)" },
+    "danger-8":   { "$value": "rgba(252, 98, 75, 0.08)" }
+  }
+}

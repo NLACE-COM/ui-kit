@@ -1,0 +1,30 @@
+{
+  "color": {
+    "$type": "color",
+    "bg":           { "$value": "#efefef" },
+    "text":         { "$value": "#0f1011" },
+    "black":        { "$value": "#0f1011" },
+    "primary":      { "$value": "#5869f7" },
+    "primary-dark": { "$value": "#2d3bc4" },
+    "accent":       { "$value": "#fc624b" },
+    "accent-warm":  { "$value": "#ff8c42" },
+    "pink":         { "$value": "#f76dee" },
+    "magenta":      { "$value": "#b717af" },
+    "success":      { "$value": "#42cf8a" },
+    "success-dark": { "$value": "#2ba36a" },
+    "success-text": { "$value": "#053a23" },
+    "success-bg":   { "$value": "#eaf9f1" },
+    "danger":       { "$value": "#fc624b" },
+    "cyan":         { "$value": "#a5f3fc" },
+    "blue-24":      { "$value": "#1a1a5e" },
+    "blue-28":      { "$value": "#2d1f6e" },
+    "white":        { "$value": "#ffffff" },
+    "900":          { "$value": "#0f1011" },
+    "700":          { "$value": "#3f3f46" },
+    "500":          { "$value": "#71717a" },
+    "400":          { "$value": "#a1a1aa" },
+    "surface":      { "$value": "#dbdcd7" },
+    "border-soft":  { "$value": "#dbdcd7" },
+    "border-ui":    { "$value": "#c6c7c2" }
+  }
+}

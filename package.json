@@ -3,8 +3,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.2.0",
-  "description": "NLACE Design System — tokens CSS, Tailwind v4 nativo, preset v3 y 14 componentes React",
+  "version": "2.3.0",
+  "description": "NLACE Design System — fuente única de tokens (W3C DTCG + Style Dictionary), CSS vars, Tailwind v4/v3, objeto JS/TS y 14 componentes React",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "exports": {
@@ -13,6 +13,12 @@
       "require": "./dist/index.cjs"
     },
     "./tokens": "./src/tokens/tokens.css",
+    "./tokens-js": {
+      "types": "./src/tokens/tokens.d.ts",
+      "import": "./src/tokens/tokens.mjs",
+      "require": "./src/tokens/tokens.cjs"
+    },
+    "./tokens.json": "./src/tokens/tokens.json",
     "./tailwind-v4": "./src/tokens/tailwind-v4.css",
     "./preset": "./src/tailwind-preset.js",
     "./fonts": "./src/tokens/fonts.css"
@@ -25,7 +31,8 @@
     "src/fonts"
   ],
   "scripts": {
-    "build": "vite build",
+    "tokens:build": "node build/build-tokens.mjs",
+    "build": "npm run tokens:build && vite build",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },
@@ -42,6 +49,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.4",
+    "style-dictionary": "^4.4.0",
     "tailwindcss": "^3.4.0",
     "vite": "^7.3.1"
   }

@@ -1,0 +1,16 @@
+{
+  "ext": {
+    "$description": "Extensiones promovidas desde el sitio nlace.com. Solo se emiten en tokens.css (no en el canonico, v4 ni preset).",
+    "track-tight":    { "$value": "-0.03em", "$type": "other" },
+    "text-card":      { "$value": "#2f3038", "$type": "color" },
+    "accent-dark":    { "$value": "#a83a22", "$type": "color", "$description": "REVISAR: tono calculado sobre el coral viejo; recalcular sobre #fc624b si se ve desalineado." },
+    "stat-coral":     { "$value": "var(--nl-accent)", "$type": "other" },
+    "stat-blue":      { "$value": "var(--nl-primary)", "$type": "other" },
+    "stat-magenta":   { "$value": "{color.magenta}", "$type": "color" },
+    "subscribe-bg":   { "$value": "{color.primary}", "$type": "color" },
+    "code-bg":        { "$value": "#0f172a", "$type": "color" },
+    "success-tint":   { "$value": "#baf3d9", "$type": "color" },
+    "selected-navy":  { "$value": "#1f2b5c", "$type": "color" },
+    "grad-text-brand": { "$value": "var(--nl-grad-brand)", "$type": "other", "$description": "Alias de compatibilidad para la utilidad .nl-text-gradient." }
+  }
+}

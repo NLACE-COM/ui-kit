@@ -15,20 +15,26 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 
 | Directorio / archivo | Qué hay |
 |---|---|
-| `src/tokens/tailwind-v4.css` | Tokens como `@theme` para Tailwind v4 |
-| `src/tokens/tokens.css` | Variables CSS puras (sin Tailwind) |
+| `tokens/` | **Fuente única** de los tokens en formato W3C Design Tokens (DTCG). Editás acá. |
+| `build/` | Config de [Style Dictionary](https://styledictionary.com) que genera todos los formatos desde `tokens/` |
+| `src/tokens/tailwind-v4.css` | _(generado)_ Tokens como `@theme` para Tailwind v4 |
+| `src/tokens/tokens.css` | _(generado)_ Variables CSS puras (sin Tailwind) — agnóstico de framework |
+| `src/tokens/tokens.mjs` · `.cjs` · `.d.ts` | _(generado)_ Tokens como objeto JS/TS tipado |
+| `src/tokens/tokens.json` | _(generado)_ Tokens como mapa JSON resuelto (cualquier lenguaje) |
+| `src/tailwind-preset.js` | _(generado)_ Preset para Tailwind v3 |
 | `src/tokens/fonts.css` | `@font-face` de Inter + Space Grotesk (woff2 variables en `src/fonts/`) — `import '@nlace/ui-kit/fonts'` |
-| `src/tailwind-preset.js` | Preset para Tailwind v3 |
+| `colors_and_type.css` | _(generado)_ CSS canónico: variables, @font-face y selectores base |
 | `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo, Tabs, Switch, Tooltip, Modal, Dropdown, Table, Charts |
 | `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
 | `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
 | `assets/photos/` | 14 fotografías oficiales del equipo |
 | `assets/imagery/` | 130 imágenes AI para secciones de producto |
 | `fonts/` | Inter y Space Grotesk como fuentes variables TTF |
-| `colors_and_type.css` | CSS canónico con variables, @font-face y selectores base |
 | `DESIGN.md` | Referencia completa para agentes de IA y diseñadores |
 | `preview/` | Páginas HTML del design system (colores, tipo, componentes) |
 | `templates/` | Plantillas de documento del sistema: deck, email, one-pager, plantillas sociales, propuesta, reel |
+
+> Los archivos marcados _(generado)_ salen de `tokens/`. **No los edites a mano** — corré `npm run tokens:build`. Ver [Fuente única de tokens](#fuente-única-de-tokens).
 
 ---
 
@@ -105,17 +111,45 @@ module.exports = {
 
 ---
 
-### CSS Variables puras (sin framework)
+### CSS Variables puras (cualquier framework)
+
+Las variables `--nl-*` son CSS nativo, así que funcionan igual en **Astro, Vue, Svelte, Angular, HTML plano** o React — sin runtime ni build especial:
 
 ```css
 /* Variables y selectores base (NO incluye @font-face) */
-@import url('./node_modules/@nlace/ui-kit/tokens');
+@import '@nlace/ui-kit/tokens';
 /* Fuentes de marca self-hosted (woff2 variables) — sin esto el navegador
    cae a la sans del sistema */
-@import url('./node_modules/@nlace/ui-kit/fonts');
+@import '@nlace/ui-kit/fonts';
+```
+
+```html
+<!-- Mismo markup en .astro, .vue, .svelte o .html -->
+<button style="background: var(--nl-primary); border-radius: var(--nl-radius-pill)">
+  Empezar
+</button>
+<section style="background: var(--nl-grad-hero)">Hero</section>
 ```
 
 O copia el bloque de variables directamente desde [`colors_and_type.css`](colors_and_type.css).
+
+---
+
+### Tokens como objeto JS/TS
+
+Para leer los valores desde código (theming dinámico, charts, RN, Tailwind config custom):
+
+```ts
+import tokens, { cssVars } from '@nlace/ui-kit/tokens-js'
+
+tokens.color.primary      // '#5869f7'
+tokens.gradient.hero      // 'linear-gradient(135deg, #5869f7 0%, …)'
+tokens.font.display       // ['Space Grotesk', 'system-ui', 'sans-serif']
+cssVars['--nl-primary']   // '#5869f7'  (mapa nombre-CSS → valor)
+```
+
+Disponible como ESM (`import`), CommonJS (`require`) y tipos TypeScript. Para
+consumidores no-JS hay también un mapa plano en `@nlace/ui-kit/tokens.json`.
 
 ---
 
@@ -324,6 +358,44 @@ El directorio [`templates/`](templates/) contiene plantillas HTML del sistema, l
 | `reel/` | 9:16 | Reel animado en loop, temas claro/azul/gradiente |
 
 Cada plantilla carga el sistema vía `ds-base.js` (tokens + `_ds_bundle.js`) y se edita dentro de Claude Design.
+
+---
+
+## Fuente única de tokens
+
+Desde la **v2.3.0** los tokens tienen una sola fuente de verdad: los JSON de
+[`tokens/`](tokens/) en formato [W3C Design Tokens (DTCG)](https://www.designtokens.org).
+Desde ahí, [Style Dictionary](https://styledictionary.com) genera **todos** los
+formatos de consumo. Esto elimina el desfase de marca que aparecía al mantener los
+mismos colores a mano en varios archivos.
+
+```
+tokens/*.json  ──►  build/build-tokens.mjs (Style Dictionary)  ──►  artefactos
+(W3C DTCG)                                                          ├─ src/tokens/tokens.css        → @nlace/ui-kit/tokens
+                                                                    ├─ src/tokens/tailwind-v4.css   → @nlace/ui-kit/tailwind-v4
+                                                                    ├─ src/tailwind-preset.js       → @nlace/ui-kit/preset
+                                                                    ├─ src/tokens/tokens.mjs/.cjs    → @nlace/ui-kit/tokens-js
+                                                                    ├─ src/tokens/tokens.json        → @nlace/ui-kit/tokens.json
+                                                                    └─ colors_and_type.css           (canónico del repo)
+```
+
+### Cómo cambiar un token
+
+```bash
+# 1. Editá el valor en tokens/*.json  (p. ej. color.primary en tokens/color.json)
+# 2. Regenerá todos los formatos:
+npm run tokens:build
+# 3. Commiteá tokens/ + los archivos generados juntos.
+```
+
+`npm run build` corre `tokens:build` antes de empaquetar, y `prepublishOnly`
+corre `build`, así que un `npm publish` nunca sale con tokens desincronizados.
+La generación es **determinista**: regenerar sin cambios produce bytes idénticos.
+
+Detalles del pipeline y la arquitectura por capas: [`tokens/README.md`](tokens/README.md).
+
+> ⚠️ **No edites los archivos generados a mano.** Llevan un banner de aviso y tu
+> cambio se pierde en el próximo `tokens:build`. La fuente es siempre `tokens/`.
 
 ---
 

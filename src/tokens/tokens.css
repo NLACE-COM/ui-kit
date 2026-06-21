@@ -1,44 +1,58 @@
-/* NLACE UI Kit — tokens.css v2.1.0
-   Importar en el entry point del proyecto:
-   import '@nlace/ui-kit/tokens'
-*/
+/* ⚠️  ARCHIVO GENERADO — NO EDITAR A MANO.
+   Fuente: tokens/*.json · Generador: build/build-tokens.mjs (Style Dictionary)
+   Editá los tokens y corré: npm run tokens:build */
 
 :root {
-  /* Brand colors */
-  --nl-bg: #efefef;
-  --nl-text: #141414;
-  --nl-primary: #3f58ea;
-  --nl-primary-dark: #2f2f81;
-  --nl-accent: #ff6143;
-  --nl-accent-warm: #ff8c42;
-  --nl-success: #6be8b0;
-  --nl-success-dark: #22c55e;
-  --nl-success-text: #166534;
-  --nl-success-bg: #f0fdf4;
-
-  /* Neutros */
-  --nl-white: #ffffff;
-  --nl-900: #18181b;
-  --nl-700: #3f3f46;
-  --nl-500: #71717a;
+  /* Colores de marca y neutros */
   --nl-400: #a1a1aa;
-  --nl-border-soft: #e8e8e8;
-  --nl-border-ui: #d4d4d8;
-  --nl-danger: #dc2626;
+  --nl-500: #71717a;
+  --nl-700: #3f3f46;
+  --nl-900: #0f1011;
+  --nl-bg: #efefef;
+  --nl-text: #0f1011;
+  --nl-black: #0f1011;
+  --nl-primary: #5869f7;
+  --nl-primary-dark: #2d3bc4;
+  --nl-accent: #fc624b;
+  --nl-accent-warm: #ff8c42;
+  --nl-pink: #f76dee;
+  --nl-magenta: #b717af;
+  --nl-success: #42cf8a;
+  --nl-success-dark: #2ba36a;
+  --nl-success-text: #053a23;
+  --nl-success-bg: #eaf9f1;
+  --nl-danger: #fc624b;
   --nl-cyan: #a5f3fc;
   --nl-blue-24: #1a1a5e;
   --nl-blue-28: #2d1f6e;
+  --nl-white: #ffffff;
+  --nl-surface: #dbdcd7;
+  --nl-border-soft: #dbdcd7;
+  --nl-border-ui: #c6c7c2;
 
-  /* Opacidades */
-  --nl-primary-10: rgba(63, 88, 234, 0.1);
-  --nl-primary-20: rgba(63, 88, 234, 0.2);
-  --nl-accent-10: rgba(255, 97, 67, 0.1);
-  --nl-danger-8: rgba(220, 38, 38, 0.08);
+  /* Opacidades semánticas */
+  --nl-primary-10: rgba(88, 105, 247, 0.1);
+  --nl-primary-20: rgba(88, 105, 247, 0.2);
+  --nl-accent-10: rgba(252, 98, 75, 0.1);
+  --nl-danger-8: rgba(252, 98, 75, 0.08);
 
-  /* Tipografia */
-  --nl-font-display: "Space Grotesk", sans-serif;
-  --nl-font-body: "Inter", sans-serif;
-  --nl-font-mono: "SF Mono", "Fira Code", monospace;
+  /* Aliases semánticos */
+  --fg-1: var(--nl-text);
+  --fg-2: var(--nl-700);
+  --fg-3: var(--nl-500);
+  --fg-4: var(--nl-400);
+  --bg-1: var(--nl-bg);
+  --bg-2: var(--nl-white);
+  --line-soft: var(--nl-border-soft);
+  --line-ui: var(--nl-border-ui);
+
+  /* Tipografía */
+  --nl-font-display: "Space Grotesk", system-ui, sans-serif;
+  --nl-font-body: Inter, system-ui, sans-serif;
+  --nl-font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  --nl-tracking-tight: -0.03em;
+  --nl-tracking-normal: -0.018em;
+  --nl-tracking-ui: 0.08em;
 
   /* Radios */
   --nl-radius-input: 10px;
@@ -55,31 +69,26 @@
   --nl-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Gradientes */
-  --nl-grad-hero: linear-gradient(
-    135deg,
-    #2f2f81 0%,
-    #1a1a5e 60%,
-    #2d1f6e 100%
-  );
-  --nl-grad-primary: linear-gradient(135deg, #3f58ea 0%, #2f2f81 100%);
-  --nl-grad-accent: linear-gradient(135deg, #ff6143 0%, #ff8c42 100%);
-  --nl-grad-mint: linear-gradient(135deg, #6be8b0 0%, #34d399 100%);
-  --nl-grad-dark: linear-gradient(180deg, #18181b 0%, #2f2f81 100%);
-  --nl-grad-surface: linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%);
-  --nl-grad-text-brand: linear-gradient(90deg, #3f58ea 0%, #ff6143 100%);
+  --nl-grad-hero: linear-gradient(135deg, #5869f7 0%, #b717af 60%, #f76dee 100%);
+  --nl-grad-primary: linear-gradient(135deg, #5869f7 0%, #2d3bc4 100%);
+  --nl-grad-accent: linear-gradient(135deg, #fc624b 0%, #f76dee 100%);
+  --nl-grad-mint: linear-gradient(135deg, #42cf8a 0%, #2ba36a 100%);
+  --nl-grad-dark: linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%);
+  --nl-grad-surface: linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%);
+  --nl-grad-brand: linear-gradient(90deg, #5869f7 0%, #fc624b 100%);
 
-  /* Extensiones v2.1 — promovidas desde el sitio nlace.com (antes vivían como
-     overrides locales en su styles.css) */
-  --nl-track-tight: -0.03em;           /* tracking para headings display */
-  --nl-text-card: #2f3038;             /* texto secundario en cards sobre fondo claro */
-  --nl-accent-dark: #a83a22;           /* kicker/acento oscuro sobre fondo blanco */
-  --nl-stat-coral: var(--nl-accent);   /* stat card coral */
-  --nl-stat-blue: var(--nl-primary);   /* stat card azul */
-  --nl-stat-magenta: #b717af;          /* stat card púrpura */
-  --nl-subscribe-bg: #5869f7;          /* fondo sección subscribe */
-  --nl-code-bg: #0f172a;               /* fondo bloques de código */
-  --nl-success-tint: #baf3d9;          /* texto sobre fondos success oscuros */
-  --nl-selected-navy: #1f2b5c;         /* texto activo en selecciones (ICI) */
+  /* Extensiones nlace.com */
+  --nl-track-tight: -0.03em;
+  --nl-text-card: #2f3038;
+  --nl-accent-dark: #a83a22;
+  --nl-stat-coral: var(--nl-accent);
+  --nl-stat-blue: var(--nl-primary);
+  --nl-stat-magenta: #b717af;
+  --nl-subscribe-bg: #5869f7;
+  --nl-code-bg: #0f172a;
+  --nl-success-tint: #baf3d9;
+  --nl-selected-navy: #1f2b5c;
+  --nl-grad-text-brand: var(--nl-grad-brand);
 }
 
 /* Base */

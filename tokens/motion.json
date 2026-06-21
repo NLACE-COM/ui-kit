@@ -1,0 +1,11 @@
+{
+  "duration": {
+    "$type": "duration",
+    "ui":     { "$value": "220ms" },
+    "reveal": { "$value": "480ms" }
+  },
+  "easing": {
+    "$type": "other",
+    "default": { "$value": "cubic-bezier(0.22, 1, 0.36, 1)" }
+  }
+}

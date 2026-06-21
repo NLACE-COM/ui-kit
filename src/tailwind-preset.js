@@ -1,5 +1,6 @@
-// NLACE UI Kit — tailwind-preset.js v2.0.4
-// Para Tailwind v3. Si usas Tailwind v4, importa @nlace/ui-kit/tailwind-v4 en su lugar.
+// ⚠️  ARCHIVO GENERADO — NO EDITAR A MANO.
+// Fuente: tokens/*.json · Generador: build/build-tokens.mjs (Style Dictionary)
+// Editá los tokens y corré: npm run tokens:build
 // Uso en tailwind.config.js:
 //   const nlacePreset = require('@nlace/ui-kit/preset')
 //   module.exports = { presets: [nlacePreset], ... }
@@ -10,58 +11,66 @@ const nlacePreset = {
     extend: {
       colors: {
         nl: {
-          bg:              '#efefef',
-          text:            '#141414',
-          primary:         '#3f58ea',
-          'primary-dark':  '#2f2f81',
-          accent:          '#ff6143',
-          'accent-warm':   '#ff8c42',
-          success:         '#6be8b0',
-          'success-dark':  '#22c55e',
-          'success-text':  '#166534',
-          'success-bg':    '#f0fdf4',
-          white:           '#ffffff',
-          900:             '#18181b',
-          700:             '#3f3f46',
-          500:             '#71717a',
-          400:             '#a1a1aa',
-          'border-soft':   '#e8e8e8',
-          'border-ui':     '#d4d4d8',
-          danger:          '#dc2626',
-          cyan:            '#a5f3fc',
-          'blue-24':       '#1a1a5e',
-          'blue-28':       '#2d1f6e',
+          400: '#a1a1aa',
+          500: '#71717a',
+          700: '#3f3f46',
+          900: '#0f1011',
+          bg: '#efefef',
+          text: '#0f1011',
+          black: '#0f1011',
+          primary: '#5869f7',
+          'primary-dark': '#2d3bc4',
+          accent: '#fc624b',
+          'accent-warm': '#ff8c42',
+          pink: '#f76dee',
+          magenta: '#b717af',
+          success: '#42cf8a',
+          'success-dark': '#2ba36a',
+          'success-text': '#053a23',
+          'success-bg': '#eaf9f1',
+          danger: '#fc624b',
+          cyan: '#a5f3fc',
+          'blue-24': '#1a1a5e',
+          'blue-28': '#2d1f6e',
+          white: '#ffffff',
+          surface: '#dbdcd7',
+          'border-soft': '#dbdcd7',
+          'border-ui': '#c6c7c2',
+          'primary-10': 'rgba(88, 105, 247, 0.1)',
+          'primary-20': 'rgba(88, 105, 247, 0.2)',
+          'accent-10': 'rgba(252, 98, 75, 0.1)',
+          'danger-8': 'rgba(252, 98, 75, 0.08)',
         }
       },
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        body:    ['Inter', 'sans-serif'],
-        mono:    ['"SF Mono"', '"Fira Code"', 'monospace'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body:    ['Inter', 'system-ui', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', '"SF Mono"', '"Fira Code"', 'monospace'],
       },
       borderRadius: {
         input: '10px',
-        card:  '20px',
-        pill:  '9999px',
+        card: '20px',
+        pill: '9999px',
       },
       boxShadow: {
-        card:  '0 2px 12px rgba(20,20,20,0.08)',
-        hover: '0 10px 28px rgba(20,20,20,0.14)',
+        card: '0 2px 12px rgba(20, 20, 20, 0.08)',
+        hover: '0 10px 28px rgba(20, 20, 20, 0.14)',
       },
       transitionTimingFunction: {
         nl: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
       transitionDuration: {
-        ui:     '220ms',
+        ui: '220ms',
         reveal: '480ms',
       },
       backgroundImage: {
-        'nl-hero':    'linear-gradient(135deg, #2f2f81 0%, #1a1a5e 60%, #2d1f6e 100%)',
-        'nl-primary': 'linear-gradient(135deg, #3f58ea 0%, #2f2f81 100%)',
-        'nl-accent':  'linear-gradient(135deg, #ff6143 0%, #ff8c42 100%)',
-        'nl-mint':    'linear-gradient(135deg, #6be8b0 0%, #34d399 100%)',
-        'nl-dark':    'linear-gradient(180deg, #18181b 0%, #2f2f81 100%)',
-        'nl-surface': 'linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%)',
-        'nl-brand':   'linear-gradient(90deg, #3f58ea 0%, #ff6143 100%)',
+        'nl-hero': 'linear-gradient(135deg, #5869f7 0%, #b717af 60%, #f76dee 100%)',
+        'nl-primary': 'linear-gradient(135deg, #5869f7 0%, #2d3bc4 100%)',
+        'nl-accent': 'linear-gradient(135deg, #fc624b 0%, #f76dee 100%)',
+        'nl-mint': 'linear-gradient(135deg, #42cf8a 0%, #2ba36a 100%)',
+        'nl-dark': 'linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%)',
+        'nl-surface': 'linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%)',
+        'nl-brand': 'linear-gradient(90deg, #5869f7 0%, #fc624b 100%)',
       },
       animation: {
         'fade-up':    'fadeUp 0.48s cubic-bezier(0.22,1,0.36,1) both',
@@ -84,9 +93,9 @@ const nlacePreset = {
         },
       },
       letterSpacing: {
-        'nl-tight':  '-0.03em',
+        'nl-tight': '-0.03em',
         'nl-normal': '-0.018em',
-        'nl-ui':     '0.08em',
+        'nl-ui': '0.08em',
       },
     }
   }

@@ -1,146 +1,101 @@
-/* NLACE UI Kit — tailwind-v4.css v2.0.4
-   Entry point para Tailwind CSS v4 (@theme nativo).
+/* ⚠️  ARCHIVO GENERADO — NO EDITAR A MANO.
+   Fuente: tokens/*.json · Generador: build/build-tokens.mjs (Style Dictionary)
+   Editá los tokens y corré: npm run tokens:build */
+/* NLACE UI Kit — tailwind-v4.css (Tailwind CSS v4, @theme nativo).
 
-   Uso en proyectos con Tailwind v4 + Next.js:
-   ───────────────────────────────────────────
-   En tu CSS global (p.ej. app/globals.css):
-
+   Uso (Tailwind v4 + Next.js), en tu CSS global:
      @import "tailwindcss";
      @import "@nlace/ui-kit/tailwind-v4";
-
-   IMPORTANTE: El @import de tailwindcss DEBE ir primero.
-
-   Esto registra todos los tokens NLACE como custom properties
-   de Tailwind v4 y los expone como clases utilitarias:
-   - Colores: bg-nl-primary, text-nl-accent, border-nl-border-soft
-   - Radios: rounded-input, rounded-card, rounded-pill
-   - Sombras: shadow-card, shadow-hover
-   - Gradientes: bg-nl-hero, bg-nl-brand, bg-nl-accent
-   - Animaciones: animate-fade-up, animate-shimmer
-
-   Para Tailwind v3 usa en su lugar: @nlace/ui-kit/preset
-*/
+   El @import de tailwindcss DEBE ir primero.
+   Para Tailwind v3 usá: @nlace/ui-kit/preset */
 
 @theme {
-	/* ── Colores de marca ─────────────────────────────────────────────── */
+	/* ── Colores de marca y neutros ──────────────────────────────── */
+	--color-nl-400: #a1a1aa;
+	--color-nl-500: #71717a;
+	--color-nl-700: #3f3f46;
+	--color-nl-900: #0f1011;
 	--color-nl-bg: #efefef;
-	--color-nl-text: #141414;
+	--color-nl-text: #0f1011;
+	--color-nl-black: #0f1011;
 	--color-nl-primary: #5869f7;
 	--color-nl-primary-dark: #2d3bc4;
-	--color-nl-accent: #ff6143;
+	--color-nl-accent: #fc624b;
 	--color-nl-accent-warm: #ff8c42;
-	--color-nl-success: #6be8b0;
-	--color-nl-success-dark: #22c55e;
-	--color-nl-success-text: #166534;
-	--color-nl-success-bg: #f0fdf4;
-	--color-nl-danger: #dc2626;
+	--color-nl-pink: #f76dee;
+	--color-nl-magenta: #b717af;
+	--color-nl-success: #42cf8a;
+	--color-nl-success-dark: #2ba36a;
+	--color-nl-success-text: #053a23;
+	--color-nl-success-bg: #eaf9f1;
+	--color-nl-danger: #fc624b;
 	--color-nl-cyan: #a5f3fc;
-
-	/* Neutros */
-	--color-nl-white: #ffffff;
-	--color-nl-900: #18181b;
-	--color-nl-700: #3f3f46;
-	--color-nl-500: #71717a;
-	--color-nl-400: #a1a1aa;
-	--color-nl-border-soft: #e8e8e8;
-	--color-nl-border-ui: #d4d4d8;
-
-	/* Hero gradient stops */
 	--color-nl-blue-24: #1a1a5e;
 	--color-nl-blue-28: #2d1f6e;
+	--color-nl-white: #ffffff;
+	--color-nl-surface: #dbdcd7;
+	--color-nl-border-soft: #dbdcd7;
+	--color-nl-border-ui: #c6c7c2;
 
-	/* Opacidades semánticas */
+	/* ── Opacidades semánticas ───────────────────────────────────── */
 	--color-nl-primary-10: rgba(88, 105, 247, 0.1);
 	--color-nl-primary-20: rgba(88, 105, 247, 0.2);
-	--color-nl-accent-10: rgba(255, 97, 67, 0.1);
-	--color-nl-danger-8: rgba(220, 38, 38, 0.08);
+	--color-nl-accent-10: rgba(252, 98, 75, 0.1);
+	--color-nl-danger-8: rgba(252, 98, 75, 0.08);
 
-	/* ── Tipografía ───────────────────────────────────────────────────── */
-	--font-display: "Space Grotesk", sans-serif;
-	--font-body: "Inter", sans-serif;
-	--font-mono: "SF Mono", "Fira Code", monospace;
+	/* ── Tipografía ──────────────────────────────────────────────── */
+	--font-display: "Space Grotesk", system-ui, sans-serif;
+	--font-body: Inter, system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 
-	/* ── Radios ──────────────────────────────────────────────────────── */
+	/* ── Radios ──────────────────────────────────────────────────── */
 	--radius-input: 10px;
 	--radius-card: 20px;
 	--radius-pill: 9999px;
 
-	/* ── Sombras ─────────────────────────────────────────────────────── */
+	/* ── Sombras ─────────────────────────────────────────────────── */
 	--shadow-card: 0 2px 12px rgba(20, 20, 20, 0.08);
 	--shadow-hover: 0 10px 28px rgba(20, 20, 20, 0.14);
 
-	/* ── Motion ──────────────────────────────────────────────────────── */
+	/* ── Motion ──────────────────────────────────────────────────── */
 	--ease-nl: cubic-bezier(0.22, 1, 0.36, 1);
 	--transition-timing-function-nl: cubic-bezier(0.22, 1, 0.36, 1);
 	--duration-ui: 220ms;
 	--duration-reveal: 480ms;
 
-	/* ── Gradientes ──────────────────────────────────────────────────── */
-	--background-image-nl-hero: linear-gradient(
-		135deg,
-		#2f2f81 0%,
-		#1a1a5e 60%,
-		#2d1f6e 100%
-	);
-	--background-image-nl-primary: linear-gradient(
-		135deg,
-		#3f58ea 0%,
-		#2f2f81 100%
-	);
-	--background-image-nl-accent: linear-gradient(
-		135deg,
-		#ff6143 0%,
-		#ff8c42 100%
-	);
-	--background-image-nl-mint: linear-gradient(135deg, #6be8b0 0%, #34d399 100%);
-	--background-image-nl-dark: linear-gradient(180deg, #18181b 0%, #2f2f81 100%);
-	--background-image-nl-surface: linear-gradient(
-		135deg,
-		#ffffff 0%,
-		#f4f4f5 100%
-	);
-	--background-image-nl-brand: linear-gradient(90deg, #3f58ea 0%, #ff6143 100%);
+	/* ── Gradientes ──────────────────────────────────────────────── */
+	--background-image-nl-hero: linear-gradient(135deg, #5869f7 0%, #b717af 60%, #f76dee 100%);
+	--background-image-nl-primary: linear-gradient(135deg, #5869f7 0%, #2d3bc4 100%);
+	--background-image-nl-accent: linear-gradient(135deg, #fc624b 0%, #f76dee 100%);
+	--background-image-nl-mint: linear-gradient(135deg, #42cf8a 0%, #2ba36a 100%);
+	--background-image-nl-dark: linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%);
+	--background-image-nl-surface: linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%);
+	--background-image-nl-brand: linear-gradient(90deg, #5869f7 0%, #fc624b 100%);
 
-	/* ── Letter spacing ──────────────────────────────────────────────── */
+	/* ── Letter spacing ──────────────────────────────────────────── */
 	--tracking-nl-tight: -0.03em;
 	--tracking-nl-normal: -0.018em;
 	--tracking-nl-ui: 0.08em;
 
-	/* ── Animaciones ────────────────────────────────────────────────── */
+	/* ── Animaciones ─────────────────────────────────────────────────── */
 	--animate-fade-up: fade-up 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
 	--animate-pulse-ring: pulse-ring 1.6s ease infinite;
 	--animate-shimmer: shimmer 1.4s ease-in-out infinite;
 	--animate-spin-nl: spin 0.7s linear infinite;
 
 	@keyframes fade-up {
-		0% {
-			opacity: 0;
-			transform: translateY(12px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
+		0% { opacity: 0; transform: translateY(12px); }
+		100% { opacity: 1; transform: translateY(0); }
 	}
 
 	@keyframes pulse-ring {
-		0% {
-			transform: scale(1);
-			opacity: 0.35;
-		}
-		100% {
-			transform: scale(2.2);
-			opacity: 0;
-		}
+		0% { transform: scale(1); opacity: 0.35; }
+		100% { transform: scale(2.2); opacity: 0; }
 	}
 
 	@keyframes shimmer {
-		0% {
-			background-position: -200% 0;
-		}
-		100% {
-			background-position: 200% 0;
-		}
+		0% { background-position: -200% 0; }
+		100% { background-position: 200% 0; }
 	}
 }
 
@@ -153,12 +108,7 @@
 		-webkit-font-smoothing: antialiased;
 	}
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-display);
 		letter-spacing: var(--tracking-nl-normal);
 	}

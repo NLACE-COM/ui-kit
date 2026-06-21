@@ -2,6 +2,36 @@
 
 Todas las versiones notables de `@nlace/ui-kit`.
 
+## 2.3.0
+
+Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.
+
+### Tokens: una sola fuente de verdad
+Los tokens ahora viven en `tokens/*.json` (formato [W3C Design Tokens / DTCG](https://www.designtokens.org)) y **todos** los formatos de consumo se generan desde ahí. Esto elimina el desfase de marca que arrastraban los archivos mantenidos a mano.
+
+- Nueva carpeta fuente `tokens/` (color, gradient, typography, radius, shadow, motion, opacity, alias, extensions).
+- Nuevo pipeline `build/` (Style Dictionary + custom formats por plataforma).
+- Script `npm run tokens:build`; `npm run build` ahora corre `tokens:build` antes del bundle de vite.
+- Generación **determinista**: regenerar sin cambios produce bytes idénticos.
+
+### Corrección de marca (desfase v2.2.0)
+`tokens.css` y `tailwind-preset.js` publicaban la paleta vieja. Quedan alineados al canónico:
+
+- `--nl-primary` `#3f58ea` → **`#5869f7`** · `--nl-accent` `#ff6143` → **`#fc624b`**
+- `--nl-text`/`--nl-900` `#141414`/`#18181b` → **`#0f1011`**
+- success, danger, neutros, bordes y los 7 gradientes (incluido el hero) realineados.
+- Tokens que faltaban en algunos formatos: `--nl-black`, `--nl-pink`, `--nl-magenta`, `--nl-surface`, opacidades y aliases `--fg-*`/`--bg-*`/`--line-*`.
+- Stack de fuentes normalizado en los tres formatos (`system-ui` + JetBrains Mono).
+
+### Nuevos exports
+- `@nlace/ui-kit/tokens-js` — tokens como objeto JS/TS tipado (`tokens`, `cssVars`); ESM + CJS + `.d.ts`.
+- `@nlace/ui-kit/tokens.json` — mapa resuelto nombre-CSS → valor, para cualquier lenguaje.
+
+### Documentación
+- `README.md`: sección «Fuente única de tokens», uso agnóstico (Astro/Vue/Svelte/HTML) y objeto JS/TS.
+- `tokens/README.md`: pipeline y roadmap de arquitectura por capas.
+- Versión del paquete: `2.2.0` → `2.3.0`.
+
 ## 2.2.0
 
 Sincronización completa desde el proyecto Claude Design «NLACE Design System».

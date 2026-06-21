@@ -1,0 +1,14 @@
+{
+  "font": {
+    "$type": "fontFamily",
+    "display": { "$value": ["Space Grotesk", "system-ui", "sans-serif"] },
+    "body":    { "$value": ["Inter", "system-ui", "sans-serif"] },
+    "mono":    { "$value": ["JetBrains Mono", "SF Mono", "Fira Code", "monospace"] }
+  },
+  "tracking": {
+    "$type": "other",
+    "tight":  { "$value": "-0.03em" },
+    "normal": { "$value": "-0.018em" },
+    "ui":     { "$value": "0.08em" }
+  }
+}

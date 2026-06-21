@@ -1,0 +1,7 @@
+{
+  "shadow": {
+    "$type": "other",
+    "card":  { "$value": "0 2px 12px rgba(20, 20, 20, 0.08)" },
+    "hover": { "$value": "0 10px 28px rgba(20, 20, 20, 0.14)" }
+  }
+}
