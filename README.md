@@ -24,7 +24,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 | `src/tailwind-preset.js` | _(generado)_ Preset para Tailwind v3 |
 | `src/tokens/fonts.css` | `@font-face` de Inter + Space Grotesk (woff2 variables en `src/fonts/`) — `import '@nlace/ui-kit/fonts'` |
 | `colors_and_type.css` | _(generado)_ CSS canónico: variables, @font-face y selectores base |
-| `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo, Tabs, Switch, Tooltip, Modal, Dropdown, Table, Charts |
+| `src/components/` | Componentes React: Button, Card, Badge, Input, Alert, Loaders, NlaceLogo, Tabs, Switch, Tooltip, Modal, Dropdown, Table, Charts, MeshGradient |
 | `assets/nlace-black.svg` | Wordmark oscuro (fondos claros) |
 | `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
 | `assets/photos/` | 14 fotografías oficiales del equipo |
@@ -160,6 +160,7 @@ import {
   Button, Card, Badge, Input, Alert, Spinner, Skeleton, NlaceLogo,
   Tabs, Switch, Tooltip, Modal, Dropdown, Table,
   BarChart, LineChart, AreaChart, PieChart, DonutChart,
+  MeshGradient,
 } from '@nlace/ui-kit'
 
 function App() {
@@ -340,6 +341,18 @@ function App() {
 <PieChart  data={[{ label: 'Auto', value: 46 }, { label: 'Soporte', value: 28 }]} />
 <DonutChart centerValue="74%" centerLabel="adopción" data={[{ label: 'Activo', value: 74 }]} />
 // NL_CHART_PALETTE exporta el orden de colores de series.
+```
+
+**MeshGradient** — fondo animado WebGL con la paleta de marca (sin dependencias)
+```jsx
+// Colócalo como capa de fondo detrás del contenido.
+<div style={{ position: 'relative' }}>
+  <MeshGradient style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
+  <div style={{ position: 'relative', zIndex: 1 }}>…contenido…</div>
+</div>
+// Props: speed=10, intensity=2, grain=0.75,
+//        colors=[primary, accent, pink, magenta, deep], highlight=accent-warm.
+// Fallback a color sólido si no hay WebGL; seguro bajo React StrictMode.
 ```
 
 ---
