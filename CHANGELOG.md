@@ -2,6 +2,21 @@
 
 Todas las versiones notables de `@nlace/ui-kit`.
 
+## Tooling — Sincronización con Claude Design
+
+Infraestructura (no cambia el paquete publicado). El design system se sincroniza a
+[claude.ai/design](https://claude.ai/design) (proyecto *NLACE Design System*) para que el
+agente de diseño construya con los componentes reales del kit.
+
+- Nueva carpeta versionada `.design-sync/` con la configuración reproducible del sync:
+  `config.json`, `build-utilities-css.mjs`, `previews/*.tsx` (21), `docs/*.md` (21),
+  `conventions.md` y `NOTES.md`.
+- Los 21 componentes se importan con preview verificado, contrato `.d.ts` (props derivadas del
+  JSX vía `dtsPropsFor`) y doc de uso, agrupados por categoría.
+- `build-utilities-css.mjs` materializa las utilidades del preset Tailwind (Claude Design no
+  corre Tailwind) + defaults `--tw-*` y de borde.
+- Documentación de uso en el README (sección «Claude Design»).
+
 ## 2.3.0
 
 Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.

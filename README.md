@@ -374,6 +374,39 @@ Cada plantilla carga el sistema vía `ds-base.js` (tokens + `_ds_bundle.js`) y s
 
 ---
 
+## Claude Design (claude.ai/design)
+
+Este design system está sincronizado con **[Claude Design](https://claude.ai/design)**
+(proyecto *NLACE Design System*), para que el agente de diseño construya UI usando los
+**componentes reales** del kit — cada diseño que genera queda on-brand y mapea 1:1 al código
+que los ingenieros pueden enviar.
+
+Se sincronizan los **21 componentes** exportados, agrupados en *actions, forms, data-display,
+feedback, overlays, navigation, charts* y *brand*, cada uno con su preview, su contrato de
+tipos (`.d.ts`) y su doc de uso.
+
+### Cómo se construye y re-sincroniza
+
+Toda la configuración del sync vive en [`.design-sync/`](.design-sync/) (versionada, reproducible):
+
+| Archivo | Rol |
+|---|---|
+| `config.json` | shape `package`, mapa de componentes, props (`dtsPropsFor`, ya que el paquete es JSX sin `.d.ts`), `cssEntry`, fuentes, grupos y overrides |
+| `build-utilities-css.mjs` | compila las utilidades del preset Tailwind + defaults `--tw-*` y de borde a un CSS plano (Claude Design **no** corre Tailwind) → `dist/_nlace-full.css` |
+| `previews/*.tsx` | composiciones reales (una por componente) que se renderizan como tarjetas |
+| `docs/*.md` | agrupación del panel (`category`) + texto del prompt por componente |
+| `conventions.md` | guía para el agente: estilar el layout con variables `--nl-*`, no con clases Tailwind |
+| `NOTES.md` | gotchas del repo y riesgos a vigilar en el próximo sync |
+
+> **Nota:** como Claude Design no procesa Tailwind, los componentes ya vienen estilados, pero el
+> layout propio debe estilarse con las **variables CSS** (`var(--nl-primary)`, `var(--nl-radius-card)`,
+> `var(--nl-shadow-card)`, …) — todas definidas en `:root`. Ver `conventions.md`.
+
+La re-sincronización la maneja el skill `/design-sync` de Claude Code (lee `config.json` +
+`NOTES.md`, reconstruye con `buildCmd`, verifica los renders y sube solo lo que cambió).
+
+---
+
 ## Fuente única de tokens
 
 Desde la **v2.3.0** los tokens tienen una sola fuente de verdad: los JSON de
