@@ -17,6 +17,18 @@ agente de diseño construya con los componentes reales del kit.
   corre Tailwind) + defaults `--tw-*` y de borde.
 - Documentación de uso en el README (sección «Claude Design»).
 
+## 2.4.1
+
+Fix de contraste: el texto sobre superficies de marca oscuras ahora sale en blanco
+garantizado. Los selectores base de `h1`–`h6` y `p` fijaban color tinta y pisaban el
+color claro heredado de un contenedor oscuro (p. ej. `Card` con `accent`, que usa
+`.bg-nl-primary`), dejando títulos negros ilegibles sobre azul.
+
+- `colors_and_type.css` ahora fuerza texto blanco dentro de `.bg-nl-primary`, `.nl-on-dark`
+  y `[data-nl-surface="dark"]` (headings, párrafos, enlaces). Usá `.nl-on-dark` o
+  `data-nl-surface="dark"` en cualquier superficie de marca oscura para heredar el contraste.
+- Generado desde `build/formats.mjs` (`npm run tokens:build`).
+
 ## 2.3.0
 
 Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.

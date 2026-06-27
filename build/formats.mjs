@@ -192,6 +192,19 @@ a    { color: var(--nl-primary); text-decoration: none; border-bottom: 1px solid
        transition: border-color var(--nl-dur-ui) var(--nl-ease); }
 a:hover { border-bottom-color: var(--nl-primary); }
 
+/* ── Texto sobre superficies de marca oscuras ─────────────────────
+   Los selectores base de h1–h6 y p fijan color tinta, lo que pisa el
+   color claro heredado de un contenedor oscuro (p. ej. Card accent =
+   .bg-nl-primary). Estas reglas garantizan contraste sobre superficies
+   de marca: cualquier texto dentro de .bg-nl-primary, .nl-on-dark o
+   [data-nl-surface="dark"] sale en blanco. */
+.bg-nl-primary, .nl-on-dark, [data-nl-surface="dark"] { color: #fff; }
+.bg-nl-primary :is(h1, h2, h3, h4, h5, h6, p, small),
+.nl-on-dark :is(h1, h2, h3, h4, h5, h6, p, small),
+[data-nl-surface="dark"] :is(h1, h2, h3, h4, h5, h6, p, small) { color: #fff; }
+.bg-nl-primary h6, .nl-on-dark h6, [data-nl-surface="dark"] h6 { color: rgba(255, 255, 255, 0.85); }
+.bg-nl-primary a, .nl-on-dark a, [data-nl-surface="dark"] a { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.5); }
+
 /* ── Mono / code ──────────────────────────────────────────────── */
 code, kbd, samp {
   font-family: var(--nl-font-mono);

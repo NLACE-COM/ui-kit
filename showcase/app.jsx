@@ -15,6 +15,16 @@ const REPO = 'https://github.com/NLACE-COM/ui-kit'
 const FIGMA = 'https://www.figma.com/design/hboE6NgrEkFXgC9B0M5B18/NLACE-Design-System?node-id=2-1677'
 const DESIGN = 'https://claude.ai/design/p/c5a5c609-4609-4047-bd2b-0b87b32ddb4c'
 
+// Imagery servido directamente desde el repo (assets/ ya versionado en main).
+const IMG = 'https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets'
+const ai = (n) => `${IMG}/imagery/ai-${n}.png`
+const photo = (name) => `${IMG}/photos/${name}.jpg`
+const HERO_IMG = ai('22')
+
+// Selección curada de imágenes AI (grupos temáticos del CATALOG).
+const GALLERY = ['01', '05', '08', '12', '22', '39', '46', '49', '53', '60', '84', '100']
+const PHOTOS = ['team-meeting-01', 'collab-laptop', 'portrait-smile', 'hands-laptop-light', 'team-group-laptop', 'hands-writing']
+
 /* ───────────────────────── helpers de presentación ───────────────────────── */
 
 function Demo({ title, code, tint, block, children }) {
@@ -185,7 +195,7 @@ function DropdownDemo() {
 
 function Stat({ label, value, delta, tone }) {
   return (
-    <Card padding="20px">
+    <Card padding="" style={{ padding: 20 }}>
       <div style={{ font: '600 .72rem/1 var(--nl-font-body)', letterSpacing: 'var(--nl-tracking-ui)', textTransform: 'uppercase', color: 'var(--fg-3)' }}>
         {label}
       </div>
@@ -264,7 +274,7 @@ function Dashboard() {
           Forge Labs bajó su uso a 23%. Considerá agendar una sesión de onboarding.
         </Alert>
       </div>
-      <Card padding="0">
+      <Card padding="" style={{ padding: 0, overflow: 'hidden' }}>
         <Table
           rowKey="id"
           columns={[
@@ -280,22 +290,131 @@ function Dashboard() {
   )
 }
 
+/* ───────────────────────── redes sociales ───────────────────────── */
+
+function SocialPost({ ratio, w, img, eyebrow, title, tag, label }) {
+  return (
+    <figure style={{ margin: 0 }}>
+      <div
+        data-nl-surface="dark"
+        style={{ position: 'relative', width: w, aspectRatio: ratio, borderRadius: 20, overflow: 'hidden', boxShadow: 'var(--nl-shadow-hover)' }}
+      >
+        <img src={img} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(165deg, rgba(45,59,196,.28) 0%, rgba(26,26,94,.88) 100%)' }} />
+        <div style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', padding: 22, boxSizing: 'border-box' }}>
+          <NlaceLogo variant="white" width={70} />
+          <div style={{ flex: 1 }} />
+          {eyebrow && <span className="nl-eyebrow" style={{ color: '#fff', opacity: 0.92, marginBottom: 10 }}>{eyebrow}</span>}
+          <h3 style={{ margin: 0, fontSize: 'clamp(1.15rem,1.5vw,1.6rem)', lineHeight: 1.06, letterSpacing: '-.03em' }}>{title}</h3>
+          {tag && <div style={{ marginTop: 14 }}><Badge variant="solidAccent">{tag}</Badge></div>}
+          <div style={{ marginTop: 16, font: '600 .8rem/1 var(--nl-font-body)', opacity: 0.88 }}>nlace.com</div>
+        </div>
+      </div>
+      <figcaption style={{ marginTop: 10, fontFamily: 'var(--nl-font-mono)', fontSize: '.74rem', color: 'var(--fg-3)', textAlign: 'center' }}>{label}</figcaption>
+    </figure>
+  )
+}
+
+/* ───────────────────────── deck 16:9 ───────────────────────── */
+
+function DeckFrame({ children, surface, style }) {
+  return (
+    <div
+      data-nl-surface={surface ? 'dark' : undefined}
+      style={{
+        width: 'min(700px, 88vw)', aspectRatio: '16 / 9', borderRadius: 18, overflow: 'hidden',
+        boxShadow: 'var(--nl-shadow-card)', border: '1px solid var(--line-soft)', flex: '0 0 auto',
+        position: 'relative', boxSizing: 'border-box', ...style,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function Deck() {
+  return (
+    <div style={{ display: 'flex', gap: 20, overflowX: 'auto', padding: '6px 2px 18px', scrollSnapType: 'x mandatory' }}>
+      {/* Portada */}
+      <DeckFrame surface style={{ scrollSnapAlign: 'start' }}>
+        <img src={ai('84')} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg, rgba(45,59,196,.9), rgba(183,23,175,.6))' }} />
+        <div style={{ position: 'relative', height: '100%', padding: 40, display: 'flex', flexDirection: 'column' }}>
+          <NlaceLogo variant="white" width={120} />
+          <div style={{ flex: 1 }} />
+          <span className="nl-eyebrow" style={{ color: '#fff', opacity: 0.9 }}>Presentación corporativa</span>
+          <h2 style={{ margin: '10px 0 0', fontSize: 'clamp(1.6rem,3vw,2.6rem)', letterSpacing: '-.03em', maxWidth: '16ch' }}>
+            Agentes de IA para empresas que no pueden esperar.
+          </h2>
+        </div>
+      </DeckFrame>
+
+      {/* Contenido / grid */}
+      <DeckFrame style={{ background: 'var(--nl-white)', scrollSnapAlign: 'start' }}>
+        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column' }}>
+          <span className="nl-eyebrow" style={{ color: 'var(--nl-primary)' }}>Qué hacemos</span>
+          <h3 style={{ margin: '8px 0 22px' }}>Tres frentes, una plataforma</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, flex: 1 }}>
+            {[['Automatización', 'Agentes que resuelven conversaciones de punta a punta.'], ['Integración', 'Conectados a tus sistemas y datos en horas, no meses.'], ['Medición', 'Tableros con resolución, uso y ahorro en tiempo real.']].map(([t, d], i) => (
+              <div key={i} style={{ background: 'var(--nl-bg)', borderRadius: 14, padding: 18 }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: 'var(--nl-grad-brand)', marginBottom: 12 }} />
+                <h5 style={{ margin: '0 0 6px' }}>{t}</h5>
+                <p style={{ margin: 0, fontSize: 13, color: 'var(--nl-500)' }}>{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </DeckFrame>
+
+      {/* Datos */}
+      <DeckFrame style={{ background: 'var(--nl-grad-surface)', scrollSnapAlign: 'start' }}>
+        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <span className="nl-eyebrow" style={{ color: 'var(--nl-primary)' }}>Impacto</span>
+          <h3 style={{ margin: '8px 0 24px' }}>Resultados que se notan</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
+            {[['91%', 'resolución autónoma'], ['-46%', 'tiempo de respuesta'], ['48k', 'conversaciones / mes']].map(([n, l], i) => (
+              <div key={i}>
+                <div className="nl-text-gradient" style={{ font: '700 clamp(2rem,4vw,3.2rem)/1 var(--nl-font-display)', letterSpacing: '-.03em' }}>{n}</div>
+                <div style={{ marginTop: 6, color: 'var(--nl-700)', fontSize: 14 }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </DeckFrame>
+
+      {/* Cierre */}
+      <DeckFrame surface style={{ background: 'var(--nl-grad-hero)', scrollSnapAlign: 'start' }}>
+        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+          <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem,3.4vw,3rem)', letterSpacing: '-.03em', maxWidth: '15ch' }}>
+            Hablemos de tu próximo agente.
+          </h2>
+          <div style={{ marginTop: 24 }}><NlaceLogo variant="white" width={120} /></div>
+          <div style={{ marginTop: 10, font: '600 1rem/1 var(--nl-font-body)', opacity: 0.9 }}>nlace.com</div>
+        </div>
+      </DeckFrame>
+    </div>
+  )
+}
+
 /* ───────────────────────── app ───────────────────────── */
 
 function App() {
   return (
     <>
-      {/* HERO */}
-      <header className="sc-hero" style={{ background: 'var(--nl-grad-hero)' }}>
-        <div className="sc-hero-canvas">
-          <MeshGradient
-            colors={['#5869f7', '#2d3bc4', '#b717af', '#fc624b', '#f76dee']}
-            highlight="#a5f3fc"
-            speed={0.6}
-            intensity={1.05}
-            grain={0.12}
-          />
-        </div>
+      {/* TOPBAR — siempre arriba (logo arriba a la izquierda) */}
+      <nav className="sc-topbar">
+        <NlaceLogo variant="black" width={92} />
+        <span className="sc-spacer" />
+        <a className="sc-ghost" href="#agentes">Agentes</a>
+        <a className="sc-ghost" href="#fundamentos">Fundamentos</a>
+        <a className="sc-ghost" href="#componentes">Componentes</a>
+        <a className="sc-ghost" href="#imagery">Imagery</a>
+        <a className="sc-ghost" href="#aplicado">Aplicado</a>
+        <a className="sc-ghost" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+
+      {/* HERO — imagen de fondo del imagery + overlay de marca */}
+      <header className="sc-hero" style={{ backgroundImage: `url(${HERO_IMG})` }}>
         <div className="sc-hero-inner">
           <NlaceLogo variant="white" width={150} />
           <h1>El sistema de diseño de NLACE, aplicado.</h1>
@@ -315,17 +434,6 @@ function App() {
           </div>
         </div>
       </header>
-
-      {/* TOPBAR */}
-      <nav className="sc-topbar">
-        <NlaceLogo variant="black" width={92} />
-        <span className="sc-spacer" />
-        <a className="sc-ghost" href="#agentes">Agentes</a>
-        <a className="sc-ghost" href="#fundamentos">Fundamentos</a>
-        <a className="sc-ghost" href="#componentes">Componentes</a>
-        <a className="sc-ghost" href="#aplicado">Aplicado</a>
-        <a className="sc-ghost" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
-      </nav>
 
       <div className="sc-shell">
         {/* NAV lateral */}
@@ -348,8 +456,11 @@ function App() {
           <a href="#nav">Navegación</a>
           <a href="#charts">Gráficos</a>
           <a href="#marca">Marca</a>
+          <a href="#imagery">Imagery</a>
           <h6>Aplicado</h6>
           <a href="#aplicado">Dashboard</a>
+          <a href="#deck">Deck 16:9</a>
+          <a href="#social">Redes sociales</a>
         </aside>
 
         <main className="sc-main">
@@ -509,7 +620,7 @@ function App() {
                 </Card>
                 <Card accent>
                   <h4 style={{ margin: '0 0 8px' }}>Con acento</h4>
-                  <p style={{ margin: 0, color: 'var(--nl-500)' }}>Destaca con una barra de color.</p>
+                  <p style={{ margin: 0, opacity: 0.9 }}>Fondo de marca con texto en blanco — contraste garantizado por el sistema.</p>
                 </Card>
                 <Card hover>
                   <h4 style={{ margin: '0 0 8px' }}>Interactiva</h4>
@@ -644,14 +755,65 @@ function App() {
             </Demo>
           </Section>
 
+          {/* IMAGERY */}
+          <Section
+            id="imagery"
+            kicker="Activos de marca"
+            title="Imagery"
+            intro="El set visual de NLACE: 130 imágenes IA con un mismo lenguaje (Midjourney) y 14 fotografías de equipo. Se sirven directo desde el repo."
+          >
+            <h3 className="sc-sub">Imágenes IA</h3>
+            <div className="sc-imagery">
+              {GALLERY.map((n) => (
+                <img key={n} src={ai(n)} alt={`NLACE imagery ai-${n}`} loading="lazy" />
+              ))}
+            </div>
+            <p style={{ margin: '14px 0 0', fontSize: '.9rem', color: 'var(--fg-3)' }}>
+              Set completo (ai-01 → ai-130) e índice temático en{' '}
+              <a href={`${REPO}/blob/main/assets/imagery/CATALOG.md`} target="_blank" rel="noreferrer">CATALOG.md</a>.
+            </p>
+
+            <h3 className="sc-sub">Fotografía de equipo</h3>
+            <div className="sc-photos">
+              {PHOTOS.map((p) => (
+                <img key={p} src={photo(p)} alt={`NLACE foto ${p}`} loading="lazy" />
+              ))}
+            </div>
+          </Section>
+
           {/* APLICADO */}
           <Section
             id="aplicado"
             kicker="Todo junto"
-            title="Ejemplo aplicado"
+            title="Ejemplo aplicado — Dashboard"
             intro="Un panel real compuesto solo con componentes y tokens del sistema: logo, avatar, badges, stats, gráficos, alerta y tabla — la prueba de que todo encaja."
           >
             <Dashboard />
+          </Section>
+
+          {/* DECK */}
+          <Section
+            id="deck"
+            kicker="Aplicado"
+            title="Deck 16:9"
+            intro="La plantilla de presentación del sistema (templates/deck-nlace): portada con imagery, grid de contenido, slide de datos y cierre de marca. Deslizá horizontalmente."
+          >
+            <Deck />
+          </Section>
+
+          {/* REDES SOCIALES */}
+          <Section
+            id="social"
+            kicker="Aplicado"
+            title="Redes sociales"
+            intro="El sistema aplicado a los formatos de redes (templates/plantillas-sociales): feed, retrato, story y wide — siempre con imagery, logo arriba-izquierda y tipografía de marca."
+          >
+            <div className="sc-social">
+              <SocialPost ratio="1 / 1" w={300} img={ai('22')} label="Feed · 1:1" eyebrow="Inteligencia aplicada" title="Tu empresa, con un agente que no duerme." tag="Nuevo" />
+              <SocialPost ratio="4 / 5" w={264} img={ai('49')} label="Retrato · 4:5" eyebrow="Caso de éxito" title="−46% en tiempo de respuesta." tag="Resultados" />
+              <SocialPost ratio="9 / 16" w={210} img={ai('08')} label="Story · 9:16" eyebrow="Webinar" title="IA para empresas chilenas." tag="En vivo" />
+              <SocialPost ratio="16 / 9" w={420} img={ai('100')} label="Wide · 16:9" eyebrow="Producto" title="AI Studio: del prompt a producción." />
+            </div>
           </Section>
         </main>
       </div>
