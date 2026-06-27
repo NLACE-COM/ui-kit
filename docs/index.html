@@ -79,8 +79,19 @@
     .sc-hero { position: relative; overflow: hidden; min-height: 78vh; display: flex; align-items: center; background-size: cover; background-position: center; }
     .sc-hero-canvas { position: absolute; inset: 0; }
     .sc-hero-inner { position: relative; z-index: 2; width: 100%; max-width: var(--sc-max); margin: 0 auto; padding: clamp(48px, 9vw, 120px) clamp(24px, 5vw, 56px); color: #fff; }
-    .sc-hero-inner h1 { color: #fff; font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -.04em; margin: 22px 0 16px; max-width: 17ch; text-shadow: 0 2px 24px rgba(15,16,17,.25); }
-    .sc-hero-inner p { font-size: clamp(1.05rem, 2vw, 1.35rem); max-width: 52ch; margin: 0 0 28px; color: rgba(255,255,255,.94); }
+    .sc-hero-inner h1 { color: #fff; font-size: clamp(2.2rem, 5vw, 3.9rem); line-height: 1.03; letter-spacing: -.04em; margin: 0 0 16px; max-width: 16ch; }
+    .sc-hero-inner p { font-size: clamp(1.02rem, 1.8vw, 1.28rem); max-width: 46ch; margin: 0 0 26px; color: rgba(255,255,255,.94); }
+    /* Panel de contenido translúcido (vidrio de marca) sobre la imagen */
+    .sc-hero-panel {
+      max-width: 600px;
+      background: linear-gradient(135deg, rgba(26,26,94,.60), rgba(45,59,196,.40));
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      backdrop-filter: blur(14px) saturate(140%);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      padding: clamp(26px, 3.6vw, 44px);
+      box-shadow: 0 24px 70px rgba(15,16,30,.38);
+    }
     .sc-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
     .sc-pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
     .sc-pill { font: 600 .76rem/1 var(--nl-font-body); color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: var(--nl-radius-pill); padding: 7px 13px; }

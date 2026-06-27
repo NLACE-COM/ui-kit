@@ -317,81 +317,256 @@ function SocialPost({ ratio, w, img, eyebrow, title, tag, label }) {
 
 /* ───────────────────────── deck 16:9 ───────────────────────── */
 
-function DeckFrame({ children, surface, style }) {
+// Réplica fiel de templates/deck-nlace: 11 slides 16:9, logo arriba-derecha en
+// cada interior, imágenes del imagery/fotos, tipografía en cqw que escala con
+// la lámina (container-type: size).
+const logoImg = (v) => `${IMG}/nlace-${v}.svg`
+const deckLogo = (v) => (
+  <img src={logoImg(v)} alt="nlace" style={{ position: 'absolute', top: '5cqw', right: '6.4cqw', width: '7.5cqw', height: 'auto', zIndex: 5 }} />
+)
+const dH1 = (fontSize, color) => ({ fontFamily: 'var(--nl-font-display)', fontWeight: 700, letterSpacing: '-.03em', lineHeight: 1.05, fontSize, color, margin: 0 })
+const dEyebrow = (color) => ({ fontWeight: 600, fontSize: '1.45cqw', letterSpacing: '.08em', textTransform: 'uppercase', color })
+
+function Slide({ bg, children }) {
   return (
-    <div
-      data-nl-surface={surface ? 'dark' : undefined}
-      style={{
-        width: 'min(700px, 88vw)', aspectRatio: '16 / 9', borderRadius: 18, overflow: 'hidden',
-        boxShadow: 'var(--nl-shadow-card)', border: '1px solid var(--line-soft)', flex: '0 0 auto',
-        position: 'relative', boxSizing: 'border-box', ...style,
-      }}
-    >
+    <div style={{ width: 'min(90vw, 780px)', aspectRatio: '16 / 9', background: bg || '#efefef', borderRadius: 14, overflow: 'hidden', position: 'relative', containerType: 'size', boxShadow: 'var(--nl-shadow-hover)', flex: '0 0 auto', scrollSnapAlign: 'center' }}>
       {children}
     </div>
   )
 }
 
 function Deck() {
+  const cover = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }
   return (
-    <div style={{ display: 'flex', gap: 20, overflowX: 'auto', padding: '6px 2px 18px', scrollSnapType: 'x mandatory' }}>
-      {/* Portada */}
-      <DeckFrame surface style={{ scrollSnapAlign: 'start' }}>
-        <img src={ai('84')} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div className="nl-overlay-dark" style={{ position: 'absolute', inset: 0 }} />
-        <div style={{ position: 'relative', height: '100%', padding: 40, display: 'flex', flexDirection: 'column' }}>
-          <NlaceLogo variant="white" width={120} />
-          <div style={{ flex: 1 }} />
-          <span className="nl-eyebrow" style={{ color: '#fff', opacity: 0.9 }}>Presentación corporativa</span>
-          <h2 style={{ margin: '10px 0 0', fontSize: 'clamp(1.6rem,3vw,2.6rem)', letterSpacing: '-.03em', maxWidth: '16ch' }}>
-            Agentes de IA para empresas que no pueden esperar.
-          </h2>
+    <div style={{ display: 'flex', gap: 20, overflowX: 'auto', padding: '6px 2px 20px', scrollSnapType: 'x mandatory' }}>
+      {/* 01 · PORTADA */}
+      <Slide>
+        <img src={ai('19')} alt="" style={cover} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg,rgba(45,59,196,.48) 0%,rgba(88,105,247,.24) 52%,rgba(183,23,175,.2) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,rgba(15,16,30,.3) 0%,transparent 38%)' }} />
+        <div style={{ position: 'absolute', inset: 0, padding: '6.2cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <span style={{ fontWeight: 600, fontSize: '1.45cqw', letterSpacing: '.08em', textTransform: 'uppercase', color: '#cfd6ff' }}>Propuesta comercial</span>
+            <span style={{ fontFamily: 'var(--nl-font-mono)', color: '#e7ebff', fontSize: '1.3cqw' }}>Junio 2026</span>
+          </div>
+          <div>
+            <img src={logoImg('white')} alt="nlace" style={{ width: '16cqw', height: 'auto', display: 'block' }} />
+            <h1 style={{ ...dH1('5.4cqw', '#fff'), lineHeight: 1.04, marginTop: '3.2cqw', maxWidth: '76%' }}>Conectamos lo que tu empresa necesita para crecer.</h1>
+            <p style={{ fontSize: '1.95cqw', lineHeight: 1.5, color: '#e7ebff', marginTop: '2.1cqw', maxWidth: '58%' }}>Una capa digital a la altura de tu propuesta de valor.</p>
+          </div>
+          <div style={{ display: 'flex', gap: '1cqw' }}>
+            {['Agentes de IA', 'Web y producto', 'Data y dashboards'].map((t) => (
+              <span key={t} style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 9999, fontWeight: 600, fontSize: '1.3cqw', padding: '.55em 1.1em', background: 'rgba(255,255,255,.16)', color: '#fff' }}>{t}</span>
+            ))}
+          </div>
         </div>
-      </DeckFrame>
+      </Slide>
 
-      {/* Contenido / grid */}
-      <DeckFrame style={{ background: 'var(--nl-white)', scrollSnapAlign: 'start' }}>
-        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column' }}>
-          <span className="nl-eyebrow" style={{ color: 'var(--nl-primary)' }}>Qué hacemos</span>
-          <h3 style={{ margin: '8px 0 22px' }}>Tres frentes, una plataforma</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, flex: 1 }}>
-            {[['Automatización', 'Agentes que resuelven conversaciones de punta a punta.'], ['Integración', 'Conectados a tus sistemas y datos en horas, no meses.'], ['Medición', 'Tableros con resolución, uso y ahorro en tiempo real.']].map(([t, d], i) => (
-              <div key={i} style={{ background: 'var(--nl-bg)', borderRadius: 14, padding: 18 }}>
-                <div style={{ width: 30, height: 30, borderRadius: 8, background: 'var(--nl-grad-brand)', marginBottom: 12 }} />
-                <h5 style={{ margin: '0 0 6px' }}>{t}</h5>
-                <p style={{ margin: 0, fontSize: 13, color: 'var(--nl-500)' }}>{d}</p>
+      {/* 02 · SEPARADOR */}
+      <Slide bg="linear-gradient(135deg,#5869f7 0%,#2d3bc4 100%)">
+        <img src={ai('21')} alt="" style={{ position: 'absolute', top: 0, right: 0, width: '45%', height: '100%', objectFit: 'cover' }} />
+        {deckLogo('white')}
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '62%', height: '100%', padding: '6.2cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 4 }}>
+          <span style={{ fontFamily: 'var(--nl-font-mono)', fontWeight: 500, fontSize: '2.4cqw', color: 'rgba(255,255,255,.55)' }}>01</span>
+          <h1 style={{ ...dH1('6cqw', '#fff'), lineHeight: 1.04, marginTop: '1cqw' }}>El problema que resolvemos</h1>
+          <p style={{ fontSize: '1.95cqw', lineHeight: 1.5, color: '#dfe3ff', marginTop: '2cqw', maxWidth: '88%' }}>La información existe, pero está dispersa. La activamos para que trabaje a tu favor.</p>
+        </div>
+      </Slide>
+
+      {/* 03 · GRID DE TARJETAS */}
+      <Slide>
+        {deckLogo('black')}
+        <div style={{ position: 'absolute', inset: 0, padding: '5cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <span style={dEyebrow('#5869f7')}>Lo que operamos hoy</span>
+          <h1 style={{ ...dH1('4cqw', '#0f1011'), marginTop: '.8cqw' }}>Una plataforma, varios frentes</h1>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.5cqw', marginTop: '2.6cqw' }}>
+            {[
+              { img: ai('11'), tag: 'Agentes', tagBg: 'rgba(88,105,247,.12)', tagColor: '#2d3bc4', title: 'Agentes de WhatsApp', desc: 'Atención, venta y prospección conectadas a tu CRM y ERP.' },
+              { img: ai('16'), tag: 'SaaS', tagBg: 'rgba(252,98,75,.12)', tagColor: '#b3331f', title: 'Propuestas con IA', desc: 'Generación y seguimiento, entrenada en tu negocio.' },
+              { img: ai('26'), tag: 'Data', tagBg: '#eaf9f1', tagColor: '#1f7a4d', title: 'Dashboards y KPI', desc: 'Métricas y paneles a medida para decidir con claridad.' },
+            ].map((c) => (
+              <div key={c.title} style={{ background: '#fff', border: '1px solid #dbdcd7', borderRadius: 18, boxShadow: '0 2px 12px rgba(20,20,20,.08)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                <img src={c.img} alt="" style={{ width: '100%', height: '9cqw', objectFit: 'cover' }} />
+                <div style={{ padding: '1.4cqw 1.5cqw' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 9999, fontWeight: 600, fontSize: '1.2cqw', padding: '.45em .95em', background: c.tagBg, color: c.tagColor }}>{c.tag}</span>
+                  <div style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '1.75cqw', marginTop: '.8cqw', color: '#0f1011' }}>{c.title}</div>
+                  <div style={{ fontSize: '1.1cqw', color: '#3f3f46', marginTop: '.5em', lineHeight: 1.45 }}>{c.desc}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </DeckFrame>
+      </Slide>
 
-      {/* Datos */}
-      <DeckFrame style={{ background: 'var(--nl-grad-surface)', scrollSnapAlign: 'start' }}>
-        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <span className="nl-eyebrow" style={{ color: 'var(--nl-primary)' }}>Impacto</span>
-          <h3 style={{ margin: '8px 0 24px' }}>Resultados que se notan</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
-            {[['91%', 'resolución autónoma'], ['-46%', 'tiempo de respuesta'], ['48k', 'conversaciones / mes']].map(([n, l], i) => (
-              <div key={i}>
-                <div className="nl-text-gradient" style={{ font: '700 clamp(2rem,4vw,3.2rem)/1 var(--nl-font-display)', letterSpacing: '-.03em' }}>{n}</div>
-                <div style={{ marginTop: 6, color: 'var(--nl-700)', fontSize: 14 }}>{l}</div>
+      {/* 04 · TIMELINE / PROCESO */}
+      <Slide>
+        <img src={ai('15')} alt="" style={{ position: 'absolute', top: 0, right: 0, width: '38%', height: '100%', objectFit: 'cover' }} />
+        {deckLogo('white')}
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '64%', height: '100%', padding: '6cqw 5cqw 6cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <span style={dEyebrow('#5869f7')}>Cómo trabajamos</span>
+          <h1 style={{ ...dH1('4cqw', '#0f1011'), marginTop: '.8cqw' }}>De diagnóstico a escala</h1>
+          <div style={{ marginTop: '2.4cqw', display: 'flex', flexDirection: 'column', gap: '1.5cqw' }}>
+            {[
+              ['Diagnóstico', 'Mapeamos procesos, fricciones y dónde vive el conocimiento.', '#5869f7'],
+              ['Prototipo', 'Versión funcional para probar rápido antes de escalar.', '#5869f7'],
+              ['Ciclos cortos', 'Implementamos por etapas, con entregas ajustables.', '#5869f7'],
+              ['Escalamiento', 'Extendemos a más áreas y usuarios manteniendo el control.', '#fc624b'],
+            ].map(([t, d, c]) => (
+              <div key={t} style={{ display: 'flex', gap: '1.4cqw', alignItems: 'flex-start' }}>
+                <span style={{ flex: 'none', width: '2cqw', height: '2cqw', marginTop: '.2cqw', borderRadius: '50%', background: '#fff', border: `.38cqw solid ${c}` }} />
+                <div>
+                  <div style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '1.55cqw', color: '#0f1011' }}>{t}</div>
+                  <div style={{ fontSize: '1.1cqw', color: '#71717a', marginTop: '.25em', lineHeight: 1.4 }}>{d}</div>
+                </div>
               </div>
             ))}
           </div>
+          <div style={{ marginTop: '2.4cqw', background: '#0f1011', color: '#fff', borderRadius: 14, padding: '1.5cqw 1.9cqw', display: 'flex', alignItems: 'center', gap: '1.2cqw', maxWidth: '92%' }}>
+            <span style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '2.2cqw', color: '#fc624b', lineHeight: .5 }}>“</span>
+            <span style={{ fontSize: '1.45cqw', fontFamily: 'var(--nl-font-display)', fontWeight: 500, lineHeight: 1.3 }}>Implementar IA sin ordenar procesos acelera el desorden. Empezamos por la estructura.</span>
+          </div>
         </div>
-      </DeckFrame>
+      </Slide>
 
-      {/* Cierre */}
-      <DeckFrame surface style={{ background: 'var(--nl-grad-hero)', scrollSnapAlign: 'start' }}>
-        <div style={{ height: '100%', padding: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
-          <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem,3.4vw,3rem)', letterSpacing: '-.03em', maxWidth: '15ch' }}>
-            Hablemos de tu próximo agente.
-          </h2>
-          <div style={{ marginTop: 24 }}><NlaceLogo variant="white" width={120} /></div>
-          <div style={{ marginTop: 10, font: '600 1rem/1 var(--nl-font-body)', opacity: 0.9 }}>nlace.com</div>
+      {/* 05 · DATO / KPI */}
+      <Slide>
+        {deckLogo('black')}
+        <div style={{ position: 'absolute', inset: 0, padding: '6cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <span style={dEyebrow('#5869f7')}>Resultados</span>
+          <h1 style={{ ...dH1('4cqw', '#0f1011'), marginTop: '.8cqw', maxWidth: '70%' }}>Lo que cambia cuando los datos deciden</h1>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 1fr 1.5fr', gap: '1.5cqw', marginTop: '2.6cqw', alignItems: 'stretch' }}>
+            <div style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', minHeight: '17cqw' }}>
+              <img src={ai('28')} alt="" style={cover} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,transparent 38%,rgba(15,16,17,.78) 100%)' }} />
+              <div style={{ position: 'absolute', left: '1.3cqw', bottom: '1.2cqw', right: '1.3cqw', fontFamily: 'var(--nl-font-display)', fontWeight: 600, fontSize: '1.3cqw', color: '#fff', lineHeight: 1.25 }}>Un solo lugar para abrir y decidir.</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5cqw' }}>
+              {[['-38%', '#5869f7', 'tiempo de respuesta a clientes'], ['+24%', '#fc624b', 'conversión en propuestas']].map(([n, c, l]) => (
+                <div key={l} style={{ flex: 1, background: '#fff', border: '1px solid #dbdcd7', borderRadius: 16, padding: '1.5cqw 1.6cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '3.4cqw', lineHeight: 1, color: c }}>{n}</div>
+                  <div style={{ fontSize: '1.05cqw', color: '#71717a', marginTop: '.5em', lineHeight: 1.35 }}>{l}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ background: '#fff', border: '1px solid #dbdcd7', borderRadius: 16, padding: '1.6cqw 1.7cqw', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <span style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '1.6cqw', color: '#0f1011' }}>Adopción acumulada</span>
+                <span style={{ fontFamily: 'var(--nl-font-mono)', fontSize: '1.05cqw', color: '#42cf8a' }}>▲ 6 meses</span>
+              </div>
+              <svg viewBox="0 0 320 120" style={{ width: '100%', flex: 1, marginTop: '1cqw' }} preserveAspectRatio="none">
+                <defs><linearGradient id="nlar" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#5869f7" stopOpacity=".32" /><stop offset="1" stopColor="#5869f7" stopOpacity="0" /></linearGradient></defs>
+                <path d="M0,98 L45,90 L90,92 L135,70 L180,58 L225,40 L270,30 L320,16 L320,120 L0,120 Z" fill="url(#nlar)" />
+                <path d="M0,98 L45,90 L90,92 L135,70 L180,58 L225,40 L270,30 L320,16" fill="none" stroke="#5869f7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--nl-font-mono)', fontSize: '.95cqw', color: '#a1a1aa', marginTop: '.5cqw' }}><span>Ene</span><span>Mar</span><span>May</span><span>Jul</span></div>
+            </div>
+          </div>
         </div>
-      </DeckFrame>
+      </Slide>
+
+      {/* 06 · STATEMENT / CITA */}
+      <Slide>
+        <div style={{ position: 'absolute', top: '-18%', left: '-8%', width: '46%', height: '80%', borderRadius: '50%', background: 'radial-gradient(circle,rgba(88,105,247,.16),transparent 66%)' }} />
+        <div style={{ position: 'absolute', bottom: '-22%', right: '-6%', width: '42%', height: '78%', borderRadius: '50%', background: 'radial-gradient(circle,rgba(252,98,75,.12),transparent 66%)' }} />
+        {deckLogo('black')}
+        <div style={{ position: 'absolute', inset: 0, padding: '6.2cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
+          <span style={{ fontFamily: 'var(--nl-font-display)', fontWeight: 700, fontSize: '8cqw', color: '#fc624b', lineHeight: .4 }}>“</span>
+          <h1 style={{ ...dH1('4.4cqw', '#0f1011'), lineHeight: 1.08, maxWidth: '82%', marginTop: '1cqw' }}>No vendemos tecnología. Construimos la <span style={{ color: '#5869f7' }}>capa que conecta</span> tu operación con tus decisiones.</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.2cqw', marginTop: '3cqw' }}>
+            <span style={{ width: '3.2cqw', height: '.3cqw', background: '#fc624b', display: 'block' }} />
+            <span style={{ fontSize: '1.45cqw', color: '#52525b', fontWeight: 500 }}>Equipo NLACE</span>
+          </div>
+        </div>
+      </Slide>
+
+      {/* 07 · ANTES / DESPUÉS */}
+      <Slide>
+        {deckLogo('black')}
+        <div style={{ position: 'absolute', inset: 0, padding: '5.4cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <span style={dEyebrow('#5869f7')}>El cambio</span>
+          <h1 style={{ ...dH1('4cqw', '#0f1011'), marginTop: '.8cqw' }}>Antes y después de ordenar</h1>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.8cqw', marginTop: '2.6cqw' }}>
+            <div style={{ background: '#fff', border: '1px solid #dbdcd7', borderRadius: 18, padding: '2cqw 2.1cqw', display: 'flex', flexDirection: 'column' }}>
+              <span style={{ display: 'inline-flex', alignSelf: 'flex-start', borderRadius: 9999, fontWeight: 600, fontSize: '1.15cqw', padding: '.4em .95em', background: '#f1f0ec', color: '#71717a' }}>Antes</span>
+              <div style={{ marginTop: '1.6cqw', display: 'flex', flexDirection: 'column', gap: '1.1cqw' }}>
+                {['Información dispersa entre planillas y chats.', 'Respuestas lentas y procesos manuales.', 'Decisiones basadas en intuición.'].map((t) => (
+                  <div key={t} style={{ display: 'flex', gap: '.9cqw', alignItems: 'flex-start' }}><span style={{ flex: 'none', color: '#a1a1aa', fontSize: '1.4cqw', lineHeight: 1 }}>—</span><span style={{ fontSize: '1.4cqw', color: '#52525b', lineHeight: 1.35 }}>{t}</span></div>
+                ))}
+              </div>
+            </div>
+            <div style={{ background: '#0f1011', borderRadius: 18, padding: '2cqw 2.1cqw', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-30%', right: '-15%', width: '55%', height: '90%', borderRadius: '50%', background: 'radial-gradient(circle,rgba(88,105,247,.4),transparent 65%)' }} />
+              <span style={{ display: 'inline-flex', alignSelf: 'flex-start', borderRadius: 9999, fontWeight: 600, fontSize: '1.15cqw', padding: '.4em .95em', background: '#fc624b', color: '#fff', zIndex: 2 }}>Con NLACE</span>
+              <div style={{ marginTop: '1.6cqw', display: 'flex', flexDirection: 'column', gap: '1.1cqw', zIndex: 2 }}>
+                {['Un solo lugar para abrir y decidir.', 'Agentes que responden y prospectan 24/7.', 'Decisiones guiadas por datos en vivo.'].map((t) => (
+                  <div key={t} style={{ display: 'flex', gap: '.9cqw', alignItems: 'flex-start' }}><span style={{ flex: 'none', color: '#42cf8a', fontSize: '1.4cqw', lineHeight: 1 }}>✓</span><span style={{ fontSize: '1.4cqw', color: '#e7ebff', lineHeight: 1.35 }}>{t}</span></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Slide>
+
+      {/* 08 · STACK / INTEGRACIONES */}
+      <Slide bg="#3a49d6">
+        <img src={ai('13')} alt="" style={{ position: 'absolute', top: 0, right: 0, width: '46%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '46%', height: '100%', background: 'linear-gradient(90deg,#3a49d6 0%,rgba(58,73,214,0) 42%)' }} />
+        {deckLogo('white')}
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '64%', height: '100%', padding: '6cqw 5cqw 6cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 3 }}>
+          <span style={dEyebrow('#9db0ff')}>Se conecta con lo que ya usas</span>
+          <h1 style={{ ...dH1('4cqw', '#fff'), marginTop: '.8cqw' }}>Sobre tu stack, no en su contra</h1>
+          <p style={{ fontSize: '1.55cqw', lineHeight: 1.5, color: '#dfe3ff', marginTop: '1.6cqw', maxWidth: '88%' }}>Integramos con tu CRM, ERP y canales para que la información fluya sin duplicar trabajo.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1cqw', marginTop: '2.6cqw', maxWidth: '94%' }}>
+            {['WhatsApp', 'CRM', 'ERP', 'Sheets', 'APIs', 'Email'].map((t) => (
+              <span key={t} style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 12, fontWeight: 600, fontSize: '1.35cqw', padding: '.7em 1.2em', background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.16)', color: '#fff' }}>{t}</span>
+            ))}
+            <span style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 12, fontWeight: 600, fontSize: '1.35cqw', padding: '.7em 1.2em', background: 'rgba(252,98,75,.9)', color: '#fff' }}>+ a medida</span>
+          </div>
+        </div>
+      </Slide>
+
+      {/* 09 · EQUIPO */}
+      <Slide>
+        {deckLogo('black')}
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '42%', height: '100%', padding: '6cqw 3.4cqw 6cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 3 }}>
+          <span style={dEyebrow('#5869f7')}>El equipo</span>
+          <h1 style={{ ...dH1('3.6cqw', '#0f1011'), lineHeight: 1.04, marginTop: '.8cqw' }}>Personas que construyen contigo</h1>
+          <p style={{ fontSize: '1.5cqw', lineHeight: 1.5, color: '#52525b', marginTop: '1.4cqw', maxWidth: '94%' }}>Un equipo cercano que se sienta a tu lado, entiende tu operación y la convierte en producto.</p>
+        </div>
+        <div style={{ position: 'absolute', right: 0, top: 0, width: '58%', height: '100%', zIndex: 2 }}>
+          <img src={photo('collab-laptop')} alt="Equipo NLACE colaborando" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
+      </Slide>
+
+      {/* 10 · REUNIÓN A SANGRE */}
+      <Slide bg="#2d3bc4">
+        <img src={photo('team-meeting-01')} alt="Reunión del equipo NLACE" style={cover} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg,rgba(35,42,143,.9) 0%,rgba(35,42,143,.5) 42%,transparent 72%)', zIndex: 2 }} />
+        {deckLogo('white')}
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '54%', height: '100%', padding: '6cqw 4cqw 6cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 3 }}>
+          <span style={dEyebrow('#9db0ff')}>Cómo trabajamos</span>
+          <h1 style={{ ...dH1('3.9cqw', '#fff'), marginTop: '.8cqw' }}>Cerca, en cada decisión</h1>
+          <p style={{ fontSize: '1.55cqw', lineHeight: 1.5, color: '#dfe3ff', marginTop: '1.4cqw', maxWidth: '90%' }}>Iteramos contigo en ciclos cortos: nos reunimos, mostramos avances y ajustamos rumbo con tu equipo.</p>
+        </div>
+      </Slide>
+
+      {/* 11 · CIERRE */}
+      <Slide bg="#0f1011">
+        <img src={ai('30')} alt="" style={cover} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg,rgba(45,59,196,.48) 0%,rgba(88,105,247,.24) 52%,rgba(183,23,175,.2) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,rgba(15,16,30,.3) 0%,transparent 38%)' }} />
+        <div style={{ position: 'absolute', inset: 0, padding: '6.2cqw 6.4cqw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', zIndex: 2 }}>
+          <img src={logoImg('white')} alt="nlace" style={{ width: '14cqw', height: 'auto', display: 'block' }} />
+          <h1 style={{ ...dH1('5.6cqw', '#fff'), lineHeight: 1.04, maxWidth: '70%' }}>Diseñemos el sistema que tu empresa necesita.</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', gap: '1cqw' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 9999, fontWeight: 600, fontSize: '1.35cqw', padding: '.6em 1.2em', background: '#fc624b', color: '#fff' }}>Agendar conversación</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', borderRadius: 9999, fontWeight: 600, fontSize: '1.35cqw', padding: '.6em 1.2em', background: 'rgba(255,255,255,.14)', color: '#fff' }}>hola@nlace.com</span>
+            </div>
+            <span style={{ fontFamily: 'var(--nl-font-mono)', fontSize: '1.3cqw', color: '#cfd6ff' }}>www.nlace.com</span>
+          </div>
+        </div>
+      </Slide>
     </div>
   )
 }
@@ -413,24 +588,25 @@ function App() {
         <a className="sc-ghost" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
 
-      {/* HERO — imagen de fondo del imagery + overlay de marca */}
+      {/* HERO — imagen de fondo del imagery + panel de contenido translúcido */}
       <header className="sc-hero" style={{ backgroundImage: `url(${HERO_IMG})` }}>
         <div className="sc-hero-inner">
-          <NlaceLogo variant="white" width={150} />
-          <h1>El sistema de diseño de NLACE, aplicado.</h1>
-          <p>
-            Tokens, tipografía y 21 componentes React listos para producción — la misma
-            fuente de verdad que usan nuestros productos y los agentes de IA.
-          </p>
-          <div className="sc-hero-cta">
-            <a href="#agentes"><Button variant="secondary" size="lg">Usar con agentes</Button></a>
-            <a href={REPO} target="_blank" rel="noreferrer"><Button variant="outlineLight" size="lg">Ver en GitHub</Button></a>
-          </div>
-          <div className="sc-pillrow">
-            <span className="sc-pill">21 componentes</span>
-            <span className="sc-pill">Tokens W3C DTCG</span>
-            <span className="sc-pill">React + Tailwind</span>
-            <span className="sc-pill">@nlace/ui-kit</span>
+          <div className="sc-hero-panel">
+            <h1>El sistema de diseño de NLACE, aplicado.</h1>
+            <p>
+              Tokens, tipografía y 21 componentes React listos para producción — la misma
+              fuente de verdad que usan nuestros productos y los agentes de IA.
+            </p>
+            <div className="sc-hero-cta">
+              <a href="#agentes"><Button variant="primary" size="lg">Usar con agentes</Button></a>
+              <a href={REPO} target="_blank" rel="noreferrer"><Button variant="outlineLight" size="lg">Ver en GitHub</Button></a>
+            </div>
+            <div className="sc-pillrow">
+              <span className="sc-pill">21 componentes</span>
+              <span className="sc-pill">Tokens W3C DTCG</span>
+              <span className="sc-pill">React + Tailwind</span>
+              <span className="sc-pill">@nlace/ui-kit</span>
+            </div>
           </div>
         </div>
       </header>
@@ -796,7 +972,7 @@ function App() {
             id="deck"
             kicker="Aplicado"
             title="Deck 16:9"
-            intro="La plantilla de presentación del sistema (templates/deck-nlace): portada con imagery, grid de contenido, slide de datos y cierre de marca. Deslizá horizontalmente."
+            intro="La plantilla de presentación del sistema (templates/deck-nlace): 11 láminas — portada, separador, grid, timeline, datos, cita, antes/después, integraciones, equipo y cierre. Logo en cada lámina e imagery del set. Deslizá horizontalmente."
           >
             <Deck />
           </Section>
