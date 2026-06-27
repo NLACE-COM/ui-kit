@@ -19,7 +19,7 @@ const DESIGN = 'https://claude.ai/design/p/c5a5c609-4609-4047-bd2b-0b87b32ddb4c'
 const IMG = 'https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets'
 const ai = (n) => `${IMG}/imagery/ai-${n}.png`
 const photo = (name) => `${IMG}/photos/${name}.jpg`
-const HERO_IMG = ai('22')
+const HERO_IMG = ai('19')
 
 // Selección curada de imágenes AI (grupos temáticos del CATALOG).
 const GALLERY = ['01', '05', '08', '12', '22', '39', '46', '49', '53', '60', '84', '100']
@@ -580,32 +580,26 @@ function App() {
       <nav className="sc-topbar">
         <NlaceLogo variant="black" width={92} />
         <span className="sc-spacer" />
-        <a className="sc-ghost" href="#agentes">Agentes</a>
-        <a className="sc-ghost" href="#fundamentos">Fundamentos</a>
-        <a className="sc-ghost" href="#componentes">Componentes</a>
-        <a className="sc-ghost" href="#imagery">Imagery</a>
-        <a className="sc-ghost" href="#aplicado">Aplicado</a>
-        <a className="sc-ghost" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a className="sc-link" href="#fundamentos">Fundamentos</a>
+        <a className="sc-link" href="#componentes">Componentes</a>
+        <a className="sc-link" href="#imagery">Imagery</a>
+        <a className="sc-link" href="#aplicado">Aplicado</a>
+        <a className="sc-link" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a className="sc-cta-pill" href="#agentes">Usar con agentes</a>
       </nav>
 
-      {/* HERO — imagen de fondo del imagery + panel de contenido translúcido */}
+      {/* HERO — estilo nlace.com: imagen full, scrim oscuro, contenido a la derecha */}
       <header className="sc-hero" style={{ backgroundImage: `url(${HERO_IMG})` }}>
         <div className="sc-hero-inner">
-          <div className="sc-hero-panel">
+          <div className="sc-hero-content">
             <h1>El sistema de diseño de NLACE, aplicado.</h1>
             <p>
               Tokens, tipografía y 21 componentes React listos para producción — la misma
               fuente de verdad que usan nuestros productos y los agentes de IA.
             </p>
-            <div className="sc-hero-cta">
-              <a href="#agentes"><Button variant="primary" size="lg">Usar con agentes</Button></a>
-              <a href={REPO} target="_blank" rel="noreferrer"><Button variant="outlineLight" size="lg">Ver en GitHub</Button></a>
-            </div>
-            <div className="sc-pillrow">
-              <span className="sc-pill">21 componentes</span>
-              <span className="sc-pill">Tokens W3C DTCG</span>
-              <span className="sc-pill">React + Tailwind</span>
-              <span className="sc-pill">@nlace/ui-kit</span>
+            <div className="sc-hero-cta-panel">
+              <span className="lbl">¿Diseñás con un agente de IA?</span>
+              <a className="sc-hero-cta-btn" href="#agentes">Empezar con NLACE <span className="arrow">→</span></a>
             </div>
           </div>
         </div>
