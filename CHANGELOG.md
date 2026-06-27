@@ -33,6 +33,16 @@ Fix `NlaceAvatar`: el avatar usaba un glifo `n.` tipografiado (`<text>`) que no 
 con el activo oficial. Ahora renderiza el isotipo real (path del logotipo) sobre el azul
 de marca `#4452f9`, fiel a `avatar-nlace.svg`.
 
+Nuevas utilidades de overlay sobre imagen — `.nl-overlay-dark` y `.nl-overlay-brand`. Son
+un *scrim* (gradiente desde abajo): oscurecen el pie de la imagen donde va el texto y dejan
+ver la imagen arriba. **Regla:** para texto sobre foto/imagery usá siempre un scrim, nunca
+un tinte plano y opaco. Disponibles en `tokens.css` y `colors_and_type.css`.
+
+Nuevo gradiente de marca `--nl-grad-warm` (`linear-gradient(90deg, accent → accent-warm)`,
+`#fc624b → #ff8c42`). Es el gradiente **naranja de los CTA** (como nlace.com). **Regla:** los
+botones de llamada a la acción de marca usan `--nl-grad-warm`, no `--nl-grad-accent` (que va
+a magenta). Generado desde `tokens/gradient.json`.
+
 ## 2.3.0
 
 Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.

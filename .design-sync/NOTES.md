@@ -45,3 +45,11 @@ Forma: **package** (sin Storybook). Proyecto Claude Design: `NLACE Design System
   converter dejó el anchor `_ds_sync.json`; desde ahora los `deletePaths` salen del diff del anchor,
   que solo cubre output del converter → la biblioteca de marca queda intacta por construcción.
 - `MeshGradient` es WebGL/animado; la captura toma un frame.
+- **v2.4.1 — DS cambiado, re-sync pendiente**: `colors_and_type.css` ahora trae reglas de
+  contraste para superficies oscuras (`.bg-nl-primary` / `.nl-on-dark` / `[data-nl-surface=dark]`)
+  y utilidades de overlay (`.nl-overlay-dark` / `.nl-overlay-brand`); se agregó el token
+  `--nl-grad-warm` (gradiente naranja de CTA); `NlaceAvatar` ahora renderiza el isotipo real
+  (path) sobre `#4452f9` en vez del glifo `n.` tipografiado. Esto cambia el `styleSha` del
+  bundle y el `renderHash` de `NlaceAvatar` → la próxima `/design-sync` detectará el diff y
+  subirá `styles.css` + la card de `NlaceAvatar`. Si cambian props en `src/components`,
+  actualizar `cfg.dtsPropsFor`.

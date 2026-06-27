@@ -211,7 +211,36 @@ import '@nlace/ui-kit/fonts'   // @font-face de Inter + Space Grotesk (woff2 var
   line-height: 1.45;
   color: var(--nl-700);
 }
+
+/* Overlays sobre imagen — capa absoluta sobre una <img>; el texto va sobre la capa.
+   Scrim desde abajo: oscurece el pie (donde va el texto) y deja ver la imagen arriba. */
+.nl-overlay-dark {
+  background: linear-gradient(to top,
+    rgba(15, 16, 17, 0.80) 0%,
+    rgba(15, 16, 17, 0.34) 45%,
+    rgba(15, 16, 17, 0.08) 100%);
+}
+.nl-overlay-brand {
+  background: linear-gradient(to top,
+    rgba(45, 59, 196, 0.78) 0%,
+    rgba(45, 59, 196, 0.26) 48%,
+    rgba(45, 59, 196, 0.06) 100%);
+}
+
+/* Texto sobre superficies de marca oscuras — fuerza blanco (vence a los
+   selectores base de h1–h6/p que fijan tinta). Útil en Card accent (.bg-nl-primary),
+   héroes y piezas oscuras. */
+.bg-nl-primary, .nl-on-dark, [data-nl-surface="dark"] { color: #fff; }
+.nl-on-dark :is(h1,h2,h3,h4,h5,h6,p,small),
+[data-nl-surface="dark"] :is(h1,h2,h3,h4,h5,h6,p,small) { color: #fff; }
 ```
+
+**Reglas de aplicación**
+
+- **Texto sobre imagen/foto:** usá siempre un scrim (`.nl-overlay-dark` o `.nl-overlay-brand`),
+  nunca un tinte plano y opaco que tape la imagen.
+- **Superficies de marca oscuras:** marcalas con `.nl-on-dark` o `data-nl-surface="dark"` (o usá
+  `.bg-nl-primary`) para que el texto herede blanco y el contraste quede garantizado.
 
 ---
 
@@ -314,11 +343,12 @@ import '@nlace/ui-kit/fonts'   // @font-face de Inter + Space Grotesk (woff2 var
 | `nl-grad-dark` | `180deg, #0f1011 0%, #2d3bc4 100%` | Fondos oscuros con profundidad |
 | `nl-grad-surface` | `135deg, #ffffff 0%, #dbdcd7 100%` | Superficies sutiles |
 | `nl-grad-brand` | `90deg, #5869f7 0%, #fc624b 100%` | Text-gradient de titulares, separadores de marca |
+| `nl-grad-warm` | `90deg, #fc624b 0%, #ff8c42 100%` | **CTA de marca** (botones naranjas, como nlace.com) |
 
 **Reglas:**
+- **CTA de marca → `nl-grad-warm`** (naranja). No usar `nl-grad-accent` para botones: termina en magenta.
 - `nl-grad-brand` solo en titulares de marketing como text-gradient. Nunca en UI funcional ni botones.
-- Overlays sobre fotografía: `rgba(15,16,17,0.45–0.65)` dark. **Sin** overlays diagonales.
-- Sin overlay de color sobre fotos de personas.
+- Overlays sobre fotografía: usá las utilidades `.nl-overlay-dark` / `.nl-overlay-brand` (scrim desde abajo). **Sin** tintes planos y opacos.
 
 ---
 
@@ -923,9 +953,9 @@ https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/nlace-white.svg
 ```jsx
 // JSX (@nlace/ui-kit)
 import { NlaceLogo, NlaceAvatar } from '@nlace/ui-kit'
-<NlaceLogo variant="dark"  height={32} />   // sobre fondos claros
-<NlaceLogo variant="light" height={32} />   // sobre fondos oscuros
-<NlaceAvatar size={40} />                   // avatar cuadrado
+<NlaceLogo variant="black" width={160} />   // sobre fondos claros
+<NlaceLogo variant="white" width={160} />   // sobre fondos oscuros
+<NlaceAvatar size={40} />                   // avatar cuadrado: isotipo "n." sobre azul de marca
 ```
 
 ---

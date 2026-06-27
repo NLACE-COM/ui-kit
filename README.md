@@ -166,7 +166,7 @@ import {
 function App() {
   return (
     <Card>
-      <NlaceLogo variant="dark" height={32} />
+      <NlaceLogo variant="black" width={120} />
 
       <Badge variant="primary">Nuevo</Badge>
       <Badge variant="success">Activo</Badge>
@@ -259,9 +259,9 @@ function App() {
 
 **NlaceLogo**
 ```jsx
-<NlaceLogo variant="dark"  height={32} />  // fondos claros
-<NlaceLogo variant="light" height={32} />  // fondos oscuros
-<NlaceAvatar size={40} />
+<NlaceLogo variant="black" width={160} />  // fondos claros
+<NlaceLogo variant="white" width={160} />  // fondos oscuros
+<NlaceAvatar size={40} />                   // avatar: isotipo "n." sobre azul de marca
 ```
 
 **Tabs**
@@ -528,6 +528,24 @@ Diseño canónico: [NLACE Design System](https://www.figma.com/design/hboE6NgrEk
 `fileKey: hboE6NgrEkFXgC9B0M5B18` · `nodeId: 2:1677`
 
 Precedencia: **Figma > DESIGN.md > código**
+
+---
+
+## Showcase (GitHub Pages)
+
+Página viva del design system, construida con los **componentes reales** del paquete (importados desde `dist/`, sin recrearlos):
+
+**https://nlace-com.github.io/ui-kit/**
+
+Incluye: uso con agentes, fundamentos (color, tipografía, gradientes, tokens), los 21 componentes con demo + código, imagery, deck 16:9, piezas de redes sociales y un dashboard aplicado.
+
+- Fuente: `showcase/app.jsx` → se compila con `npm run showcase` (esbuild) a `docs/`.
+- Deploy automático: `.github/workflows/pages.yml` reconstruye el DS + el showcase y publica en cada push a `main`.
+
+```bash
+npm run build      # design system (tokens + dist)
+npm run showcase   # compila el showcase a docs/
+```
 
 ---
 
