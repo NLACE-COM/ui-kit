@@ -182,6 +182,23 @@ pre {
 }
 .nl-lead { font-size: 20px; line-height: 1.45; color: var(--nl-700); }
 
+/* ── Overlays sobre imagen (scrim de legibilidad) ─────────────────
+   Capa absoluta encima de una imagen; el texto va sobre la capa.
+   Gradiente desde abajo: oscurece el pie y deja ver la imagen arriba.
+   Nunca un tinte plano y opaco. */
+.nl-overlay-dark {
+  background: linear-gradient(to top,
+    rgba(15, 16, 17, 0.80) 0%,
+    rgba(15, 16, 17, 0.34) 45%,
+    rgba(15, 16, 17, 0.08) 100%);
+}
+.nl-overlay-brand {
+  background: linear-gradient(to top,
+    rgba(45, 59, 196, 0.78) 0%,
+    rgba(45, 59, 196, 0.26) 48%,
+    rgba(45, 59, 196, 0.06) 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

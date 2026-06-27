@@ -300,13 +300,13 @@ function SocialPost({ ratio, w, img, eyebrow, title, tag, label }) {
         style={{ position: 'relative', width: w, aspectRatio: ratio, borderRadius: 20, overflow: 'hidden', boxShadow: 'var(--nl-shadow-hover)' }}
       >
         <img src={img} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(165deg, rgba(45,59,196,.28) 0%, rgba(26,26,94,.88) 100%)' }} />
+        <div className="nl-overlay-dark" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', padding: 22, boxSizing: 'border-box' }}>
           <NlaceLogo variant="white" width={70} />
           <div style={{ flex: 1 }} />
           {eyebrow && <span className="nl-eyebrow" style={{ color: '#fff', opacity: 0.92, marginBottom: 10 }}>{eyebrow}</span>}
           <h3 style={{ margin: 0, fontSize: 'clamp(1.15rem,1.5vw,1.6rem)', lineHeight: 1.06, letterSpacing: '-.03em' }}>{title}</h3>
-          {tag && <div style={{ marginTop: 14 }}><Badge variant="solidAccent">{tag}</Badge></div>}
+          {tag && <div style={{ marginTop: 14 }}><Badge variant="solidPrimary">{tag}</Badge></div>}
           <div style={{ marginTop: 16, font: '600 .8rem/1 var(--nl-font-body)', opacity: 0.88 }}>nlace.com</div>
         </div>
       </div>
@@ -338,7 +338,7 @@ function Deck() {
       {/* Portada */}
       <DeckFrame surface style={{ scrollSnapAlign: 'start' }}>
         <img src={ai('84')} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg, rgba(45,59,196,.9), rgba(183,23,175,.6))' }} />
+        <div className="nl-overlay-dark" style={{ position: 'absolute', inset: 0 }} />
         <div style={{ position: 'relative', height: '100%', padding: 40, display: 'flex', flexDirection: 'column' }}>
           <NlaceLogo variant="white" width={120} />
           <div style={{ flex: 1 }} />
@@ -423,7 +423,7 @@ function App() {
             fuente de verdad que usan nuestros productos y los agentes de IA.
           </p>
           <div className="sc-hero-cta">
-            <a href="#agentes"><Button variant="accent" size="lg">Usar con agentes</Button></a>
+            <a href="#agentes"><Button variant="secondary" size="lg">Usar con agentes</Button></a>
             <a href={REPO} target="_blank" rel="noreferrer"><Button variant="outlineLight" size="lg">Ver en GitHub</Button></a>
           </div>
           <div className="sc-pillrow">

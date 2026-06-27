@@ -121,11 +121,25 @@ h6 {
   background-clip: text;
 }
 
+/* ── Overlays sobre imagen (scrim de legibilidad) ─────────────────
+   Se aplican como capa absoluta encima de una imagen; el texto va sobre
+   la capa. Son gradientes desde abajo: oscurecen el pie (donde suele ir
+   el texto) y dejan ver la imagen arriba. Nunca un tinte plano y opaco.
+   Usar .nl-overlay-dark (neutro) o .nl-overlay-brand (tinte de marca). */
 .nl-overlay-dark {
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0) 60%
+    rgba(15, 16, 17, 0.80) 0%,
+    rgba(15, 16, 17, 0.34) 45%,
+    rgba(15, 16, 17, 0.08) 100%
+  );
+}
+.nl-overlay-brand {
+  background: linear-gradient(
+    to top,
+    rgba(45, 59, 196, 0.78) 0%,
+    rgba(45, 59, 196, 0.26) 48%,
+    rgba(45, 59, 196, 0.06) 100%
   );
 }
 `;
@@ -239,6 +253,23 @@ pre {
   background-clip: text;
 }
 .nl-lead { font-size: 20px; line-height: 1.45; color: var(--nl-700); }
+
+/* ── Overlays sobre imagen (scrim de legibilidad) ─────────────────
+   Capa absoluta encima de una imagen; el texto va sobre la capa.
+   Gradiente desde abajo: oscurece el pie y deja ver la imagen arriba.
+   Nunca un tinte plano y opaco. */
+.nl-overlay-dark {
+  background: linear-gradient(to top,
+    rgba(15, 16, 17, 0.80) 0%,
+    rgba(15, 16, 17, 0.34) 45%,
+    rgba(15, 16, 17, 0.08) 100%);
+}
+.nl-overlay-brand {
+  background: linear-gradient(to top,
+    rgba(45, 59, 196, 0.78) 0%,
+    rgba(45, 59, 196, 0.26) 48%,
+    rgba(45, 59, 196, 0.06) 100%);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

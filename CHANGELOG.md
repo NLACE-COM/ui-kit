@@ -29,6 +29,10 @@ color claro heredado de un contenedor oscuro (p. ej. `Card` con `accent`, que us
   `data-nl-surface="dark"` en cualquier superficie de marca oscura para heredar el contraste.
 - Generado desde `build/formats.mjs` (`npm run tokens:build`).
 
+Fix `NlaceAvatar`: el avatar usaba un glifo `n.` tipografiado (`<text>`) que no coincidía
+con el activo oficial. Ahora renderiza el isotipo real (path del logotipo) sobre el azul
+de marca `#4452f9`, fiel a `avatar-nlace.svg`.
+
 ## 2.3.0
 
 Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.
