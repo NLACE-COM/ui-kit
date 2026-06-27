@@ -7,3 +7,4 @@ ds-bundle/
 .design-sync/learnings/
 .design-sync/node_modules
 dist/_nlace-*.css
+docs/assets/
