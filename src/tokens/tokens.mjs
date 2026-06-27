@@ -60,6 +60,7 @@ export const cssVars = {
   "--nl-grad-dark": "linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%)",
   "--nl-grad-surface": "linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%)",
   "--nl-grad-brand": "linear-gradient(90deg, #5869f7 0%, #fc624b 100%)",
+  "--nl-grad-warm": "linear-gradient(90deg, #fc624b 0%, #ff8c42 100%)",
   "--nl-track-tight": "-0.03em",
   "--nl-text-card": "#2f3038",
   "--nl-accent-dark": "#a83a22",
@@ -114,7 +115,8 @@ export const tokens = {
     "mint": "linear-gradient(135deg, #42cf8a 0%, #2ba36a 100%)",
     "dark": "linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%)",
     "surface": "linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%)",
-    "brand": "linear-gradient(90deg, #5869f7 0%, #fc624b 100%)"
+    "brand": "linear-gradient(90deg, #5869f7 0%, #fc624b 100%)",
+    "warm": "linear-gradient(90deg, #fc624b 0%, #ff8c42 100%)"
   },
   "font": {
     "display": [

@@ -101,6 +101,7 @@
   --nl-grad-dark: linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%);
   --nl-grad-surface: linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%);
   --nl-grad-brand: linear-gradient(90deg, #5869f7 0%, #fc624b 100%);
+  --nl-grad-warm: linear-gradient(90deg, #fc624b 0%, #ff8c42 100%);
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */
@@ -133,6 +134,19 @@ small{ font-size: 13px; color: var(--nl-500); }
 a    { color: var(--nl-primary); text-decoration: none; border-bottom: 1px solid transparent;
        transition: border-color var(--nl-dur-ui) var(--nl-ease); }
 a:hover { border-bottom-color: var(--nl-primary); }
+
+/* ── Texto sobre superficies de marca oscuras ─────────────────────
+   Los selectores base de h1–h6 y p fijan color tinta, lo que pisa el
+   color claro heredado de un contenedor oscuro (p. ej. Card accent =
+   .bg-nl-primary). Estas reglas garantizan contraste sobre superficies
+   de marca: cualquier texto dentro de .bg-nl-primary, .nl-on-dark o
+   [data-nl-surface="dark"] sale en blanco. */
+.bg-nl-primary, .nl-on-dark, [data-nl-surface="dark"] { color: #fff; }
+.bg-nl-primary :is(h1, h2, h3, h4, h5, h6, p, small),
+.nl-on-dark :is(h1, h2, h3, h4, h5, h6, p, small),
+[data-nl-surface="dark"] :is(h1, h2, h3, h4, h5, h6, p, small) { color: #fff; }
+.bg-nl-primary h6, .nl-on-dark h6, [data-nl-surface="dark"] h6 { color: rgba(255, 255, 255, 0.85); }
+.bg-nl-primary a, .nl-on-dark a, [data-nl-surface="dark"] a { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.5); }
 
 /* ── Mono / code ──────────────────────────────────────────────── */
 code, kbd, samp {
@@ -168,6 +182,23 @@ pre {
   background-clip: text;
 }
 .nl-lead { font-size: 20px; line-height: 1.45; color: var(--nl-700); }
+
+/* ── Overlays sobre imagen (scrim de legibilidad) ─────────────────
+   Capa absoluta encima de una imagen; el texto va sobre la capa.
+   Gradiente desde abajo: oscurece el pie y deja ver la imagen arriba.
+   Nunca un tinte plano y opaco. */
+.nl-overlay-dark {
+  background: linear-gradient(to top,
+    rgba(15, 16, 17, 0.80) 0%,
+    rgba(15, 16, 17, 0.34) 45%,
+    rgba(15, 16, 17, 0.08) 100%);
+}
+.nl-overlay-brand {
+  background: linear-gradient(to top,
+    rgba(45, 59, 196, 0.78) 0%,
+    rgba(45, 59, 196, 0.26) 48%,
+    rgba(45, 59, 196, 0.06) 100%);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

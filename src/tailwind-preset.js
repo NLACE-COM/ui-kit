@@ -71,6 +71,7 @@ const nlacePreset = {
         'nl-dark': 'linear-gradient(180deg, #0f1011 0%, #2d3bc4 100%)',
         'nl-surface': 'linear-gradient(135deg, #ffffff 0%, #dbdcd7 100%)',
         'nl-brand': 'linear-gradient(90deg, #5869f7 0%, #fc624b 100%)',
+        'nl-warm': 'linear-gradient(90deg, #fc624b 0%, #ff8c42 100%)',
       },
       animation: {
         'fade-up':    'fadeUp 0.48s cubic-bezier(0.22,1,0.36,1) both',

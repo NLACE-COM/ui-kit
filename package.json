@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "NLACE Design System — fuente única de tokens (W3C DTCG + Style Dictionary), CSS vars, Tailwind v4/v3, objeto JS/TS y 14 componentes React",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

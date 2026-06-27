@@ -17,6 +17,32 @@ agente de diseño construya con los componentes reales del kit.
   corre Tailwind) + defaults `--tw-*` y de borde.
 - Documentación de uso en el README (sección «Claude Design»).
 
+## 2.4.1
+
+Fix de contraste: el texto sobre superficies de marca oscuras ahora sale en blanco
+garantizado. Los selectores base de `h1`–`h6` y `p` fijaban color tinta y pisaban el
+color claro heredado de un contenedor oscuro (p. ej. `Card` con `accent`, que usa
+`.bg-nl-primary`), dejando títulos negros ilegibles sobre azul.
+
+- `colors_and_type.css` ahora fuerza texto blanco dentro de `.bg-nl-primary`, `.nl-on-dark`
+  y `[data-nl-surface="dark"]` (headings, párrafos, enlaces). Usá `.nl-on-dark` o
+  `data-nl-surface="dark"` en cualquier superficie de marca oscura para heredar el contraste.
+- Generado desde `build/formats.mjs` (`npm run tokens:build`).
+
+Fix `NlaceAvatar`: el avatar usaba un glifo `n.` tipografiado (`<text>`) que no coincidía
+con el activo oficial. Ahora renderiza el isotipo real (path del logotipo) sobre el azul
+de marca `#4452f9`, fiel a `avatar-nlace.svg`.
+
+Nuevas utilidades de overlay sobre imagen — `.nl-overlay-dark` y `.nl-overlay-brand`. Son
+un *scrim* (gradiente desde abajo): oscurecen el pie de la imagen donde va el texto y dejan
+ver la imagen arriba. **Regla:** para texto sobre foto/imagery usá siempre un scrim, nunca
+un tinte plano y opaco. Disponibles en `tokens.css` y `colors_and_type.css`.
+
+Nuevo gradiente de marca `--nl-grad-warm` (`linear-gradient(90deg, accent → accent-warm)`,
+`#fc624b → #ff8c42`). Es el gradiente **naranja de los CTA** (como nlace.com). **Regla:** los
+botones de llamada a la acción de marca usan `--nl-grad-warm`, no `--nl-grad-accent` (que va
+a magenta). Generado desde `tokens/gradient.json`.
+
 ## 2.3.0
 
 Fuente única de tokens con [Style Dictionary](https://styledictionary.com) — capa 1 del núcleo agnóstico de framework.
