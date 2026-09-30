@@ -19,6 +19,8 @@ const DESIGN = 'https://claude.ai/design/p/c5a5c609-4609-4047-bd2b-0b87b32ddb4c'
 const IMG = 'https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets'
 const ai = (n) => `${IMG}/imagery/ai-${n}.png`
 const photo = (name) => `${IMG}/photos/${name}.jpg`
+const VID = `${IMG}/videos`
+const ABSTRACT = Array.from({ length: 33 }, (_, i) => String(i + 1).padStart(2, '0'))
 const HERO_IMG = ai('19')
 
 // Selección curada de imágenes AI (grupos temáticos del CATALOG).
@@ -571,6 +573,22 @@ function Deck() {
   )
 }
 
+// Clip abstracto: muestra el poster y reproduce en silencio al pasar el mouse.
+function AbstractClip({ n }) {
+  return (
+    <figure className="sc-clip">
+      <video
+        src={`${VID}/abstractos/abstracto-${n}.mp4`}
+        poster={`${VID}/abstractos/posters/abstracto-${n}.jpg`}
+        muted loop playsInline preload="none"
+        onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
+        onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0 }}
+      />
+      <figcaption>abstracto-{n}</figcaption>
+    </figure>
+  )
+}
+
 /* ───────────────────────── app ───────────────────────── */
 
 function App() {
@@ -583,6 +601,7 @@ function App() {
         <a className="sc-link" href="#fundamentos">Fundamentos</a>
         <a className="sc-link" href="#componentes">Componentes</a>
         <a className="sc-link" href="#imagery">Imagery</a>
+        <a className="sc-link" href="#videos">Videos</a>
         <a className="sc-link" href="#aplicado">Aplicado</a>
         <a className="sc-link" href={REPO} target="_blank" rel="noreferrer">GitHub ↗</a>
         <a className="sc-cta-pill" href="#agentes">Usar con agentes</a>
@@ -627,6 +646,7 @@ function App() {
           <a href="#charts">Gráficos</a>
           <a href="#marca">Marca</a>
           <a href="#imagery">Imagery</a>
+          <a href="#videos">Videos</a>
           <h6>Aplicado</h6>
           <a href="#aplicado">Dashboard</a>
           <a href="#deck">Deck 16:9</a>
@@ -655,7 +675,7 @@ function App() {
               <div className="sc-step">
                 <div className="n">3</div>
                 <h4>Reglas de marca</h4>
-                <p>Nunca usar negro como fondo de relleno. Logo siempre arriba-izquierda. La fuente de verdad vive en <code>DESIGN.md</code> y los tokens.</p>
+                <p>Nunca usar negro como fondo de relleno. Logo siempre arriba-izquierda. Todo video termina con el cierre oficial. La fuente de verdad vive en <code>DESIGN.md</code> y los tokens.</p>
               </div>
             </div>
 
@@ -949,6 +969,38 @@ function App() {
                 <img key={p} src={photo(p)} alt={`NLACE foto ${p}`} loading="lazy" />
               ))}
             </div>
+          </Section>
+
+          {/* VIDEOS */}
+          <Section
+            id="videos"
+            kicker="Activos de marca"
+            title="Videos"
+            intro="La biblioteca de video de NLACE: el cierre oficial, que va al final de todo video de marca, y 33 clips abstractos con el mismo lenguaje del imagery para usar como b-roll. Se sirven directo desde el repo."
+          >
+            <h3 className="sc-sub">Cierre oficial</h3>
+            <div className="sc-closing">
+              <figure className="sc-clip sc-clip-h">
+                <video src={`${VID}/cierre/cierre-horizontal.mp4`} poster={`${VID}/cierre/posters/cierre-horizontal.jpg`} controls playsInline preload="none" />
+                <figcaption>cierre-horizontal.mp4 · 16:9 · 9,8 s</figcaption>
+              </figure>
+              <figure className="sc-clip sc-clip-v">
+                <video src={`${VID}/cierre/cierre-vertical.mp4`} poster={`${VID}/cierre/posters/cierre-vertical.jpg`} controls playsInline preload="none" />
+                <figcaption>cierre-vertical.mp4 · 9:16</figcaption>
+              </figure>
+            </div>
+            <p className="sc-note">
+              Va completo y sin editar al final de cada video: sin recortar, recolorear ni superponer nada. 16:9 lleva el horizontal; Reels, Stories y TikTok, el vertical.
+            </p>
+
+            <h3 className="sc-sub">Clips abstractos · b-roll</h3>
+            <div className="sc-clips">
+              {ABSTRACT.map((n) => <AbstractClip key={n} n={n} />)}
+            </div>
+            <p className="sc-note">
+              Pasá el mouse para reproducir. ~5 s, sin audio; van de fondo con texto encima, en tramos de 2 a 4 s. Descripción de cada clip e índice por uso en{' '}
+              <a href={`${REPO}/blob/main/assets/videos/CATALOG.md`} target="_blank" rel="noreferrer">CATALOG.md</a>.
+            </p>
           </Section>
 
           {/* APLICADO */}
