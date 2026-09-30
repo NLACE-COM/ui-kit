@@ -23,7 +23,7 @@ Si el usuario invoca este skill sin más instrucciones, pregunta qué quiere con
 - **npm:** `@nlace/ui-kit` — tokens CSS, Tailwind v4, preset v3, React components
 - **Fotos oficiales:** `assets/photos/` — 14 fotos del equipo NLACE
 - **Imágenes AI oficiales:** `assets/imagery/` — 130 imágenes (`ai-01`…`ai-130`); catálogo en `assets/imagery/CATALOG.md`, guía de estilo y generación en `DESIGN.md` § Imágenes AI
-- **Videos oficiales:** `assets/videos/` — 34 clips abstractos (b-roll) + cierre oficial horizontal/vertical; catálogo en `assets/videos/CATALOG.md`, reglas en `DESIGN.md` § Videos de marca
+- **Videos oficiales:** `assets/videos/` — 33 clips abstractos (b-roll) + cierre oficial horizontal/vertical; catálogo en `assets/videos/CATALOG.md`, reglas en `DESIGN.md` § Videos de marca
 
 Precedencia: `Figma > SKILL.md > defaults del modelo`.
 
@@ -123,7 +123,7 @@ Neutros: `#3F3F46` (700) · `#71717A` (500) · `#A1A1AA` (400) · `#C6C7C2` (bor
 
 ### Videos
 - **Todo video de NLACE termina con el cierre oficial** de `assets/videos/cierre/` (`cierre-horizontal.mp4` 16:9 o `cierre-vertical.mp4` 9:16), completo y sin editar.
-- B-roll: 34 clips abstractos en `assets/videos/abstractos/` (`abstracto-01`…`abstracto-34`, ~5 s, sin audio, 832×464 salvo `abstracto-34` en 1080p).
+- B-roll: 33 clips abstractos en `assets/videos/abstractos/` (`abstracto-01`…`abstracto-33`, ~5 s, sin audio, 832×464 salvo `abstracto-33` en 1080p).
 - Para **elegir** sin verlos: `assets/videos/CATALOG.md` (descripción por clip, grupos temáticos, índice por uso, comandos ffmpeg para unir con el cierre).
 - Sin stock genérico, sin filtros de color, sin aceleración. Texto encima con scrim o sobre el cielo lavanda.
 
@@ -195,7 +195,7 @@ Importar desde: `@nlace/ui-kit`
 - `assets/nlace-black.svg`, `assets/nlace-white.svg` — wordmark
 - `assets/photos/` — 14 fotos oficiales del equipo
 - `assets/imagery/` — 130 imágenes AI oficiales + `CATALOG.md`
-- `assets/videos/` — 34 videos abstractos + cierre oficial (horizontal/vertical) + `CATALOG.md`
+- `assets/videos/` — 33 videos abstractos + cierre oficial (horizontal/vertical) + `CATALOG.md`
 - `preview/` — 30+ tarjetas HTML del design system
 - `templates/` — plantillas de documento: deck, email, one-pager, sociales, propuesta, reel
 - `ui_kits/ai-studio/` — UI kit interactivo de NLACE AI Studio

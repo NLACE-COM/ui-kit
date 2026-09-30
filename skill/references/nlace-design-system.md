@@ -165,6 +165,11 @@ Reglas:
 - Fondo oscuro/gradiente -> logo blanco.
 - Avatar para favicon/perfil/icono cuadrado.
 
+Videos oficiales (en el repo `NLACE-COM/ui-kit`, no en el paquete npm):
+- Base: `https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/videos/`
+- `cierre/cierre-horizontal.mp4` (16:9) y `cierre/cierre-vertical.mp4` (9:16): todo video de NLACE termina con este cierre, completo y sin editar.
+- `abstractos/abstracto-01.mp4` a `abstracto-33.mp4`: b-roll de marca (~5 s, sin audio). Catalogo en `assets/videos/CATALOG.md`.
+
 ## 6) Reglas de implementacion Tailwind
 
 - Usar utilidades tokenizadas del namespace `nl` (`bg-nl-*`, `text-nl-*`, `border-nl-*`).

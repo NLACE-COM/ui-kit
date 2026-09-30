@@ -29,7 +29,7 @@ Sistema de diseño oficial de **NLACE** — tokens, componentes React y preset d
 | `assets/nlace-white.svg` | Wordmark claro (fondos oscuros) |
 | `assets/photos/` | 14 fotografías oficiales del equipo |
 | `assets/imagery/` | 130 imágenes AI para secciones de producto |
-| `assets/videos/` | 34 videos abstractos (b-roll) + cierre oficial horizontal y vertical |
+| `assets/videos/` | 33 videos abstractos (b-roll) + cierre oficial horizontal y vertical |
 | `fonts/` | Inter y Space Grotesk como fuentes variables TTF |
 | `DESIGN.md` | Referencia completa para agentes de IA y diseñadores |
 | `preview/` | Páginas HTML del design system (colores, tipo, componentes) |
@@ -524,7 +524,7 @@ https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/videos/{carpeta}/
 ```
 
 - `cierre/cierre-horizontal.mp4` (16:9) y `cierre/cierre-vertical.mp4` (9:16) — cierre oficial de marca, 9,8 s con audio. **Todo video de NLACE termina con él.**
-- `abstractos/abstracto-01.mp4` → `abstracto-34.mp4` — b-roll abstracto IA, ~5 s, sin audio, mismo ADN visual que las imágenes AI.
+- `abstractos/abstracto-01.mp4` → `abstracto-33.mp4` — b-roll abstracto IA, ~5 s, sin audio, mismo ADN visual que las imágenes AI.
 - `…/posters/*.jpg` — un fotograma por video.
 
 Catálogo con descripción por clip, índice por uso y comandos de montaje: [`assets/videos/CATALOG.md`](assets/videos/CATALOG.md). Reglas: [`DESIGN.md` § Videos de marca](DESIGN.md).

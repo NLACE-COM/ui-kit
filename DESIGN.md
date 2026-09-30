@@ -912,7 +912,7 @@ comandos de montaje: [`assets/videos/CATALOG.md`](assets/videos/CATALOG.md).
 | Carpeta | Contenido |
 |---|---|
 | `assets/videos/cierre/` | Cierre oficial: `cierre-horizontal.mp4` (1920×1080) y `cierre-vertical.mp4` (1080×1920), 9,8 s, 30 fps, con audio |
-| `assets/videos/abstractos/` | 34 clips abstractos IA sin audio (`abstracto-01.mp4` … `abstracto-34.mp4`), ~5 s, 24 fps, 832×464 (`abstracto-34` en 1936×1080) |
+| `assets/videos/abstractos/` | 33 clips abstractos IA sin audio (`abstracto-01.mp4` … `abstracto-33.mp4`), ~5 s, 24 fps, 832×464 (`abstracto-33` en 1936×1080) |
 | `…/posters/` | Un fotograma JPG por video, mismo nombre |
 
 ### Reglas de uso de video
@@ -925,11 +925,10 @@ comandos de montaje: [`assets/videos/CATALOG.md`](assets/videos/CATALOG.md).
    stock genérico ni con clips de otra estética.
 3. Los abstractos son de **baja resolución**: úsalos como fondo con texto encima, en cortes
    de 2–4 s con crossfades suaves; para vertical recorta el centro con `object-fit: cover`.
-   Si necesitas nitidez, prefiere `abstracto-34`.
+   Si necesitas nitidez, prefiere `abstracto-33`.
 4. Texto sobre video: scrim (`.nl-overlay-dark` / `.nl-overlay-brand`) o sobre el cielo
    lavanda del clip.
-5. Sin filtros de color, glitch ni aceleración. `abstracto-13` y `abstracto-14` son casi
-   idénticos: uno por pieza.
+5. Sin filtros de color, glitch ni aceleración.
 6. El cierre trae audio: baja la música del cuerpo con un fundido de ~0,5 s antes del cierre.
 
 ---
@@ -1161,7 +1160,7 @@ assets/
   nlace-white.svg            ← wordmark claro
   photos/                    ← 14 fotos oficiales del equipo
   imagery/                   ← 130 imágenes AI (ai-01.png … ai-130.png)
-  videos/                    ← 34 videos abstractos + cierre oficial (ver videos/CATALOG.md)
+  videos/                    ← 33 videos abstractos + cierre oficial (ver videos/CATALOG.md)
 src/
   tokens/tokens.css          ← (generado) variables CSS --nl-* (agnóstico de framework)
   tokens/tailwind-v4.css     ← (generado) @theme para Tailwind v4
