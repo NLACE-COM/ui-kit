@@ -53,3 +53,14 @@ Forma: **package** (sin Storybook). Proyecto Claude Design: `NLACE Design System
   bundle y el `renderHash` de `NlaceAvatar` → la próxima `/design-sync` detectará el diff y
   subirá `styles.css` + la card de `NlaceAvatar`. Si cambian props en `src/components`,
   actualizar `cfg.dtsPropsFor`.
+
+## Biblioteca de marca en el artifact Design System (sync manual)
+- Artifact canónico en Claude: `https://claude.ai/artifact/33Gyx9GB5VSWU4JAXs2Hcn` (tipo Design System).
+  El converter de `/design-sync` NO sube `assets/`: fotos, imágenes IA y videos se suben como
+  uploads del artifact y se registran en `project/design-system.json` → `assetGroups`
+  (`photos`, `imagery`, `videos`), con `sha256` para detectar cambios.
+- 2026-09-30: sync completo — grupo `videos` nuevo (cierre + 33 abstractos + posters),
+  `imagery` completa (130; antes 34), 3 fotos re-expuestas, y espejos de `DESIGN.md`,
+  `CHANGELOG.md`, `colors_and_type.css` (con anotaciones `@kind`), `src/tokens/*`,
+  `tokens/gradient.json` y `skill/references/` al día con el repo.
+- Regla: todo cambio en `assets/` o en esos docs se propaga al artifact en la misma tarea.
