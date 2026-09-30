@@ -900,6 +900,40 @@ en los conteos de este archivo y del README.
 
 ---
 
+## Videos de marca
+
+El repositorio incluye los videos oficiales para piezas audiovisuales (reels, anuncios,
+explicativos, presentaciones). **Todo video que un agente haga para NLACE debe usar estos
+assets.** Catálogo completo con descripción por clip, grupos temáticos, índice por uso y
+comandos de montaje: [`assets/videos/CATALOG.md`](assets/videos/CATALOG.md).
+
+**Base URL:** `https://raw.githubusercontent.com/NLACE-COM/ui-kit/main/assets/videos/`
+
+| Carpeta | Contenido |
+|---|---|
+| `assets/videos/cierre/` | Cierre oficial: `cierre-horizontal.mp4` (1920×1080) y `cierre-vertical.mp4` (1080×1920), 9,8 s, 30 fps, con audio |
+| `assets/videos/abstractos/` | 34 clips abstractos IA sin audio (`abstracto-01.mp4` … `abstracto-34.mp4`), ~5 s, 24 fps, 832×464 (`abstracto-34` en 1936×1080) |
+| `…/posters/` | Un fotograma JPG por video, mismo nombre |
+
+### Reglas de uso de video
+
+1. **Todo video de NLACE termina con el cierre oficial**, completo y sin editar (sin
+   recortar, recolorear ni superponer nada). Usa el que coincida con el formato:
+   16:9 → `cierre-horizontal.mp4`; 9:16 → `cierre-vertical.mp4`.
+2. **El b-roll sale de `abstractos/`.** Mismo ADN visual que las imágenes AI (bicromía
+   coral/lavanda, arquitectura metafísica, umbrales, calma monumental). No mezclar con
+   stock genérico ni con clips de otra estética.
+3. Los abstractos son de **baja resolución**: úsalos como fondo con texto encima, en cortes
+   de 2–4 s con crossfades suaves; para vertical recorta el centro con `object-fit: cover`.
+   Si necesitas nitidez, prefiere `abstracto-34`.
+4. Texto sobre video: scrim (`.nl-overlay-dark` / `.nl-overlay-brand`) o sobre el cielo
+   lavanda del clip.
+5. Sin filtros de color, glitch ni aceleración. `abstracto-13` y `abstracto-14` son casi
+   idénticos: uno por pieza.
+6. El cierre trae audio: baja la música del cuerpo con un fundido de ~0,5 s antes del cierre.
+
+---
+
 ## Logo NLACE
 
 Dos variantes: oscura (sobre fondos claros) y clara (sobre fondos oscuros).
@@ -1127,6 +1161,7 @@ assets/
   nlace-white.svg            ← wordmark claro
   photos/                    ← 14 fotos oficiales del equipo
   imagery/                   ← 130 imágenes AI (ai-01.png … ai-130.png)
+  videos/                    ← 34 videos abstractos + cierre oficial (ver videos/CATALOG.md)
 src/
   tokens/tokens.css          ← (generado) variables CSS --nl-* (agnóstico de framework)
   tokens/tailwind-v4.css     ← (generado) @theme para Tailwind v4

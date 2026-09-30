@@ -2,6 +2,19 @@
 
 Todas las versiones notables de `@nlace/ui-kit`.
 
+## Assets — Videos de marca
+
+Nueva biblioteca de video en `assets/videos/` (no cambia el paquete publicado) para que los
+agentes la usen en toda pieza audiovisual de NLACE.
+
+- `assets/videos/cierre/`: cierre oficial `cierre-horizontal.mp4` (1920×1080) y
+  `cierre-vertical.mp4` (1080×1920), 9,8 s con audio. Todo video de NLACE termina con él.
+- `assets/videos/abstractos/`: 34 clips abstractos IA (`abstracto-01`…`abstracto-34`),
+  ~5 s, sin audio, con un poster JPG por clip.
+- `assets/videos/CATALOG.md`: descripción por clip, grupos temáticos, índice por uso,
+  reglas y comandos ffmpeg para unir cuerpo + cierre.
+- Nueva sección «Videos de marca» en `DESIGN.md`; referencias en `SKILL.md` y `README.md`.
+
 ## Tooling — Sincronización con Claude Design
 
 Infraestructura (no cambia el paquete publicado). El design system se sincroniza a
