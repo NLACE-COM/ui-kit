@@ -25,10 +25,12 @@ El cierre es la firma de todo video de NLACE. **Va siempre al final, completo y 
 | `cierre-horizontal.mp4` | 1920×1080 (16:9), 30 fps, H.264 | 9,8 s | Sí (AAC) |
 | `cierre-vertical.mp4` | 1080×1920 (9:16), 30 fps, H.264 | 9,8 s | Sí (AAC) |
 
-**Secuencia:** carrusel de servicios con pastillas de color sobre fondo tinta ("Capacitación
-en IA", "Agentes a medida", "Consultoría en IA", "Inteligencia comercial", "Webs y
-plataformas", "Software a medida") → logo `nlace.` con anillo → gradiente azul de marca con
-logo, claim *"Diseñamos, implementamos y operamos con IA."* y botón coral **Hablemos →**.
+**Secuencia:** carrusel de servicios con pastillas de color sobre fondo tinta ("Sitios web",
+"E-commerce", "Agentes de IA", "Automatización", "Plataformas a medida", "Capacitación en IA",
+seis servicios de las cuatro áreas) → logo `nlace.` con anillo → gradiente azul de marca con logo,
+claim *"Construimos lo digital que tu empresa necesita para crecer."* y botón coral **Hablemos →**.
+Versión del 2026-10-01, alineada al posicionamiento por necesidad del cliente; la anterior
+("Diseñamos, implementamos y operamos con IA.") queda retirada.
 
 **Cuál usar:** el que coincida con la relación de aspecto del video.
 - 16:9 (YouTube, LinkedIn horizontal, presentaciones, web) → `cierre-horizontal.mp4`

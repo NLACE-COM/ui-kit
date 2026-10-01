@@ -2,6 +2,15 @@
 
 Todas las versiones notables de `@nlace/ui-kit`.
 
+## Assets — Cierre de video alineado al posicionamiento (2026-10-01)
+
+- `assets/videos/cierre/`: nueva versión de `cierre-horizontal.mp4` y `cierre-vertical.mp4`
+  (misma duración, animación y audio). El carrusel pasa a seis servicios de las cuatro áreas
+  (Sitios web, E-commerce, Agentes de IA, Automatización, Plataformas a medida, Capacitación
+  en IA) y la frase a *"Construimos lo digital que tu empresa necesita para crecer."*. La
+  anterior ("Diseñamos, implementamos y operamos con IA.") queda retirada.
+- Posters regenerados desde el último fotograma.
+
 ## Assets — Videos de marca
 
 Nueva biblioteca de video en `assets/videos/` (no cambia el paquete publicado) para que los
