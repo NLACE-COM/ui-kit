@@ -63,4 +63,8 @@ Forma: **package** (sin Storybook). Proyecto Claude Design: `NLACE Design System
   `imagery` completa (130; antes 34), 3 fotos re-expuestas, y espejos de `DESIGN.md`,
   `CHANGELOG.md`, `colors_and_type.css` (con anotaciones `@kind`), `src/tokens/*`,
   `tokens/gradient.json` y `skill/references/` al día con el repo.
+- 2026-10-01: cierre de video nuevo (posicionamiento oct-2026) subido como 4 uploads nuevos
+  (`cierre-horizontal.mp4`, `cierre-vertical.mp4` y sus posters) y registrado en
+  `assetGroups.videos`; espejos de `CHANGELOG.md` y `assets/videos/CATALOG.md` al día. Los
+  uploads anteriores quedan en el asset store sin referencia (no se borran sin pedirlo).
 - Regla: todo cambio en `assets/` o en esos docs se propaga al artifact en la misma tarea.
